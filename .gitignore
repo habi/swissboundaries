@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Data files (don't commit large files)
+*.gpkg
+*.gpkg.zip
+osm_boundaries.geojson
+
+# Keep generated reports and visualizations
+!reports/
+!history/
+!docs/
+
+# OS
+.DS_Store
+Thumbs.db
+.directory
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
