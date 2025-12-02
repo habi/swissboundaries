@@ -55,12 +55,16 @@ jobs:
         
         EOF
         cat reports/comparison_report.txt >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## 🗺️ Interactive Visualizations" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "View the [interactive dashboard](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) with maps and trend charts." >> $GITHUB_STEP_SUMMARY
         
     - name: Commit results
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add reports/
+        git add reports/ history/ docs/
         git diff --quiet && git diff --staged --quiet || git commit -m "Update boundary comparison results - $(date +'%Y-%m-%d')"
         git push
       continue-on-error: true
@@ -71,5 +75,30 @@ jobs:
         name: boundary-comparison-results
         path: |
           reports/
+          docs/
+          history/
           osm_boundaries.geojson
         retention-days: 90
+
+  deploy-pages:
+    needs: compare-boundaries
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
