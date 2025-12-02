@@ -232,8 +232,10 @@ def generate_report(results_df):
     # Missing municipalities
     missing_df = results_df[results_df['status'] == 'Missing in OSM']
     if len(missing_df) > 0:
-        report_lines.append(f"\nMissing Municipalities (showing first 20):")
-        missing_list = missing_df.head(20)[['name', 'bfs_nummer']]
+        howmanymissing = len(missing_df)
+        showing = min(25, howmanymissing)
+        report_lines.append(f"\nMissing Municipalities (showing first {showing} of {howmanymissing}):")
+        missing_list = missing_df.head(showing)[['name', 'bfs_nummer']]
         report_lines.append(missing_list.to_string(index=False))
     
     report_text = "\n".join(report_lines)
