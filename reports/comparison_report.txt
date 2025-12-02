@@ -1,40 +1,40 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-02 11:04:33 UTC
+Generated: 2025-12-02 11:22:26 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 32
-  Matched in OSM: 19 (59.4%)
-  Missing in OSM: 13 (40.6%)
+  Total Swisstopo municipalities: 2128
+  Matched in OSM: 2115 (99.4%)
+  Missing in OSM: 13 (0.6%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.7204
-  Median IoU: 0.8479
-  Mean area difference: 24.97%
-  Mean symmetric difference: 30.26%
-  Mean Hausdorff distance: 0.000748°
+  Mean IoU: 0.1575
+  Median IoU: 0.1066
+  Mean area difference: 70.35%
+  Mean symmetric difference: 95.64%
+  Mean Hausdorff distance: 0.006607°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 5 (26.3%)
-  Good (IoU ≥ 0.95): 3 (15.8%)
-  Fair (IoU ≥ 0.90): 1 (5.3%)
-  Poor (IoU < 0.90): 10 (52.6%)
+  Excellent (IoU ≥ 0.98): 5 (0.2%)
+  Good (IoU ≥ 0.95): 4 (0.2%)
+  Fair (IoU ≥ 0.90): 6 (0.3%)
+  Poor (IoU < 0.90): 2100 (99.3%)
 
 Worst 10 Matches (by IoU):
-          name bfs_nummer      iou  area_diff_pct
-       Anières       6602 0.097272      79.607033
-        Lauwil       2889 0.192323      57.898123
-     Meienried        389 0.248645      56.474336
-       Böckten       2842 0.318573      67.158264
-      Paradiso       5210 0.476825      52.094788
-        Morlon       2143 0.492947      50.059669
-      Scheuren        747 0.560013      23.157700
-    Buchs (AG)       4003 0.783094      20.845503
-       Greppen       1056 0.838682      16.079505
-Châtillon (FR)       2008 0.847888       2.012465
+               name bfs_nummer      iou  area_diff_pct
+            Leytron       6135 0.000146      69.360343
+    Bourg-en-Lavaux       5613 0.000178      99.491782
+         Mont-Vully       2284 0.000212      81.762846
+Les Ponts-de-Martel       6437 0.000221      72.199447
+          Stansstad       1510 0.000254      83.486165
+          Gerzensee        866 0.000255      92.955984
+     Forel (Lavaux)       5604 0.000255      73.025501
+           Bussnang       4921 0.000292      64.506969
+           Bellevue       6606 0.000299      54.131682
+              Dully       5855 0.000347      94.640592
 
-Missing Municipalities (showing first 20):
+Missing Municipalities (showing first 13 of 13):
                  name bfs_nummer
           Triesenberg       7004
          Schellenberg       7011
