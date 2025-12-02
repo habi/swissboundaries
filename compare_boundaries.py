@@ -188,6 +188,9 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     return pd.DataFrame(results)
 
 def generate_report(results_df):
+    if 'status' not in results_df.columns:
+        results_df['status'] = pd.NA
+
     """Generate comparison report"""
     report_lines = []
     report_lines.append("=" * 80)
