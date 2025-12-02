@@ -6,7 +6,7 @@ import requests
 import time
 from datetime import datetime
 
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+OVERPASS_URL = "http://overpass.osm.ch/api/interpreter"
 
 def query_overpass_osm():
     """Query Overpass API for Swiss municipality boundaries"""
