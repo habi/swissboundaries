@@ -1,6 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import shape, mapping, Polygon, MultiPolygon
+from shapely.ops import unary_union
 import json
 import requests
 import time
@@ -56,7 +57,9 @@ def query_overpass_osm():
                                 else:
                                     polygons = [Polygon(c) for c in coords if len(c) >= 3]
                                     geom = MultiPolygon(polygons) if len(polygons) > 1 else polygons[0]
-                                
+
+                                geom = fix_geometry(geom)                                
+
                                 feature = {
                                     'type': 'Feature',
                                     'properties': {
@@ -76,6 +79,10 @@ def query_overpass_osm():
                 json.dump(geojson, f)
             
             gdf = gpd.GeoDataFrame.from_features(geojson, crs='EPSG:4326')
+
+            print("Fixing OSM geometries...")
+            gdf["geometry"] = gdf["geometry"].apply(fix_geometry)
+
             print(f"Successfully created GeoDataFrame with {len(gdf)} features")
             return gdf
             
@@ -95,9 +102,35 @@ def load_swisstopo_data(gpkg_path):
     print(f"Loaded {len(municipalities)} municipalities")
     return municipalities
 
+
+def fix_geometry(geom):
+    """Fix invalid geometries using buffer(0) and unary_union fallback."""
+    if geom.is_valid:
+        return geom
+
+    # Try standard fix
+    fixed = geom.buffer(0)
+    if fixed.is_valid:
+        return fixed
+
+    # Fallback: explode, union, rebuild
+    try:
+        if isinstance(geom, (Polygon, MultiPolygon)):
+            fixed = unary_union(geom)
+            if fixed.is_valid:
+                return fixed
+    except:
+        pass
+
+    return geom  # last resort
+
+
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics"""
     try:
+        geom1 = fix_geometry(geom1)
+        geom2 = fix_geometry(geom2)
+
         intersection = geom1.intersection(geom2).area
         union = geom1.union(geom2).area
         iou = intersection / union if union > 0 else 0
@@ -138,7 +171,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
         name = row.get('name', row.get('NAME', 'Unknown'))
         
         if bfs_num in osm_lookup:
-            metrics = calculate_metrics(row.geometry, osm_lookup[bfs_num])
+            metrics = calculate_metrics(fix_geometry(row.geometry), fix_geometry(osm_lookup[bfs_num]))
             if metrics:
                 results.append({
                     'bfs_nummer': bfs_num,
