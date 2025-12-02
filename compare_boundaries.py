@@ -176,6 +176,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 results.append({
                     'bfs_nummer': bfs_num,
                     'name': name,
+                    'status': 'OK',  # Quick fix for status. TODO: Should probably write the relation ID
                     **metrics
                 })
         else:
@@ -188,8 +189,6 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     return pd.DataFrame(results)
 
 def generate_report(results_df):
-    if 'status' not in results_df.columns:
-        results_df['status'] = pd.NA
 
     """Generate comparison report"""
     report_lines = []
