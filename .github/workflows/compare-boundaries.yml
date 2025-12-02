@@ -1,0 +1,309 @@
+name: Swiss Municipality Boundary Comparison
+
+on:
+  schedule:
+    # Run monthly on the 1st at 2 AM UTC
+    - cron: '0 2 1 * *'
+  workflow_dispatch:  # Allow manual triggering
+  
+permissions:
+  contents: write  # Needed to commit results back to repo
+
+jobs:
+  compare-boundaries:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gdal-bin libgdal-dev
+        
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install geopandas shapely pandas requests pyogrio
+        
+    - name: Download Swisstopo data
+      run: |
+        echo "Downloading Swisstopo boundary data..."
+        wget -q https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip
+        unzip -q swissboundaries3d_2025-04_2056_5728.gpkg.zip
+        echo "Download complete"
+        
+    - name: Create comparison script
+      run: |
+        cat > compare_boundaries.py << 'EOF'
+        import geopandas as gpd
+        import pandas as pd
+        from shapely.geometry import shape, mapping, Polygon, MultiPolygon
+        import json
+        import requests
+        import time
+        from datetime import datetime
+        
+        OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+        
+        def query_overpass_osm():
+            """Query Overpass API for Swiss municipality boundaries"""
+            print("Querying Overpass API for OSM boundaries...")
+            
+            overpass_query = """
+            [out:json][timeout:300];
+            area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
+            (
+              relation["boundary"="administrative"]["admin_level"="8"]["swisstopo:BFS_NUMMER"](area.switzerland);
+            );
+            out geom;
+            """
+            
+            for attempt in range(3):
+                try:
+                    print(f"Attempt {attempt + 1}/3...")
+                    response = requests.post(
+                        OVERPASS_URL,
+                        data={'data': overpass_query},
+                        timeout=400
+                    )
+                    response.raise_for_status()
+                    data = response.json()
+                    
+                    print(f"Retrieved {len(data.get('elements', []))} relations")
+                    
+                    features = []
+                    for element in data.get('elements', []):
+                        if element['type'] == 'relation':
+                            tags = element.get('tags', {})
+                            bfs_num = tags.get('swisstopo:BFS_NUMMER')
+                            
+                            if bfs_num and 'members' in element:
+                                try:
+                                    coords = []
+                                    for member in element['members']:
+                                        if member['type'] == 'way' and member.get('role') == 'outer':
+                                            way_coords = [(node['lon'], node['lat']) 
+                                                        for node in member.get('geometry', [])]
+                                            if way_coords:
+                                                coords.append(way_coords)
+                                    
+                                    if coords:
+                                        if len(coords) == 1:
+                                            geom = Polygon(coords[0])
+                                        else:
+                                            polygons = [Polygon(c) for c in coords if len(c) >= 3]
+                                            geom = MultiPolygon(polygons) if len(polygons) > 1 else polygons[0]
+                                        
+                                        feature = {
+                                            'type': 'Feature',
+                                            'properties': {
+                                                'swisstopo:BFS_NUMMER': bfs_num,
+                                                'name': tags.get('name', ''),
+                                                'osm_id': element['id']
+                                            },
+                                            'geometry': mapping(geom)
+                                        }
+                                        features.append(feature)
+                                except Exception as e:
+                                    print(f"Warning: Could not process relation {element['id']}: {e}")
+                    
+                    geojson = {'type': 'FeatureCollection', 'features': features}
+                    
+                    with open('osm_boundaries.geojson', 'w') as f:
+                        json.dump(geojson, f)
+                    
+                    gdf = gpd.GeoDataFrame.from_features(geojson, crs='EPSG:4326')
+                    print(f"Successfully created GeoDataFrame with {len(gdf)} features")
+                    return gdf
+                    
+                except Exception as e:
+                    print(f"Attempt {attempt + 1} failed: {e}")
+                    if attempt < 2:
+                        time.sleep(30)
+            
+            return None
+        
+        def load_swisstopo_data(gpkg_path):
+            """Load official Swisstopo boundaries"""
+            print("Loading Swisstopo data...")
+            gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
+            municipalities = gdf[gdf['objektart'] == 'Gemeindegebiet'].copy()
+            municipalities = municipalities.to_crs('EPSG:4326')
+            print(f"Loaded {len(municipalities)} municipalities")
+            return municipalities
+        
+        def calculate_metrics(geom1, geom2):
+            """Calculate comparison metrics"""
+            try:
+                intersection = geom1.intersection(geom2).area
+                union = geom1.union(geom2).area
+                iou = intersection / union if union > 0 else 0
+                
+                area_diff = abs(geom1.area - geom2.area) / geom1.area * 100
+                hausdorff = geom1.hausdorff_distance(geom2)
+                sym_diff_area = geom1.symmetric_difference(geom2).area
+                sym_diff_pct = sym_diff_area / geom1.area * 100
+                
+                return {
+                    'iou': iou,
+                    'area_diff_pct': area_diff,
+                    'hausdorff_distance': hausdorff,
+                    'symmetric_diff_pct': sym_diff_pct,
+                    'swisstopo_area': geom1.area,
+                    'osm_area': geom2.area
+                }
+            except Exception as e:
+                print(f"Error calculating metrics: {e}")
+                return None
+        
+        def compare_boundaries(swisstopo_gdf, osm_gdf):
+            """Compare matching boundaries"""
+            print("Comparing boundaries...")
+            
+            results = []
+            osm_lookup = {}
+            
+            for idx, row in osm_gdf.iterrows():
+                bfs_num = row.get('swisstopo:BFS_NUMMER')
+                if bfs_num:
+                    osm_lookup[str(bfs_num)] = row.geometry
+            
+            print(f"OSM lookup contains {len(osm_lookup)} municipalities")
+            
+            for idx, row in swisstopo_gdf.iterrows():
+                bfs_num = str(row['bfs_nummer'])
+                name = row.get('name', row.get('NAME', 'Unknown'))
+                
+                if bfs_num in osm_lookup:
+                    metrics = calculate_metrics(row.geometry, osm_lookup[bfs_num])
+                    if metrics:
+                        results.append({
+                            'bfs_nummer': bfs_num,
+                            'name': name,
+                            **metrics
+                        })
+                else:
+                    results.append({
+                        'bfs_nummer': bfs_num,
+                        'name': name,
+                        'status': 'Missing in OSM'
+                    })
+            
+            return pd.DataFrame(results)
+        
+        def generate_report(results_df):
+            """Generate comparison report"""
+            report_lines = []
+            report_lines.append("=" * 80)
+            report_lines.append("SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT")
+            report_lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
+            report_lines.append("=" * 80)
+            
+            total = len(results_df)
+            matched = results_df['iou'].notna().sum()
+            missing = total - matched
+            
+            report_lines.append(f"\nDataset Overview:")
+            report_lines.append(f"  Total Swisstopo municipalities: {total}")
+            report_lines.append(f"  Matched in OSM: {matched} ({matched/total*100:.1f}%)")
+            report_lines.append(f"  Missing in OSM: {missing} ({missing/total*100:.1f}%)")
+            
+            if matched > 0:
+                matched_df = results_df[results_df['iou'].notna()]
+                
+                report_lines.append(f"\nAccuracy Metrics (for matched municipalities):")
+                report_lines.append(f"  Mean IoU: {matched_df['iou'].mean():.4f}")
+                report_lines.append(f"  Median IoU: {matched_df['iou'].median():.4f}")
+                report_lines.append(f"  Mean area difference: {matched_df['area_diff_pct'].mean():.2f}%")
+                report_lines.append(f"  Mean symmetric difference: {matched_df['symmetric_diff_pct'].mean():.2f}%")
+                report_lines.append(f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.6f}°")
+                
+                excellent = (matched_df['iou'] >= 0.98).sum()
+                good = ((matched_df['iou'] >= 0.95) & (matched_df['iou'] < 0.98)).sum()
+                fair = ((matched_df['iou'] >= 0.90) & (matched_df['iou'] < 0.95)).sum()
+                poor = (matched_df['iou'] < 0.90).sum()
+                
+                report_lines.append(f"\nQuality Distribution:")
+                report_lines.append(f"  Excellent (IoU ≥ 0.98): {excellent} ({excellent/matched*100:.1f}%)")
+                report_lines.append(f"  Good (IoU ≥ 0.95): {good} ({good/matched*100:.1f}%)")
+                report_lines.append(f"  Fair (IoU ≥ 0.90): {fair} ({fair/matched*100:.1f}%)")
+                report_lines.append(f"  Poor (IoU < 0.90): {poor} ({poor/matched*100:.1f}%)")
+                
+                report_lines.append(f"\nWorst 10 Matches (by IoU):")
+                worst = matched_df.nsmallest(10, 'iou')[['name', 'bfs_nummer', 'iou', 'area_diff_pct']]
+                report_lines.append(worst.to_string(index=False))
+            
+            # Missing municipalities
+            missing_df = results_df[results_df['status'] == 'Missing in OSM']
+            if len(missing_df) > 0:
+                report_lines.append(f"\nMissing Municipalities (showing first 20):")
+                missing_list = missing_df.head(20)[['name', 'bfs_nummer']]
+                report_lines.append(missing_list.to_string(index=False))
+            
+            report_text = "\n".join(report_lines)
+            print(report_text)
+            
+            # Save report
+            with open('reports/comparison_report.txt', 'w') as f:
+                f.write(report_text)
+            
+            # Save CSV
+            results_df.to_csv('reports/detailed_results.csv', index=False)
+            
+            return results_df
+        
+        # Main execution
+        if __name__ == "__main__":
+            import os
+            os.makedirs('reports', exist_ok=True)
+            
+            swisstopo = load_swisstopo_data('swissboundaries3d_2025-04_2056_5728.gpkg')
+            osm = query_overpass_osm()
+            
+            if osm is not None and len(osm) > 0:
+                results = compare_boundaries(swisstopo, osm)
+                report = generate_report(results)
+                print("\nComparison complete!")
+            else:
+                print("ERROR: Failed to retrieve OSM data")
+                exit(1)
+        EOF
+        
+    - name: Run boundary comparison
+      run: |
+        python compare_boundaries.py
+        
+    - name: Generate summary for GitHub
+      run: |
+        cat > $GITHUB_STEP_SUMMARY << 'EOF'
+        # Swiss Municipality Boundary Comparison Report
+        
+        ## 📊 Latest Results
+        
+        EOF
+        cat reports/comparison_report.txt >> $GITHUB_STEP_SUMMARY
+        
+    - name: Commit results
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add reports/
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update boundary comparison results - $(date +'%Y-%m-%d')"
+        git push
+      continue-on-error: true
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: boundary-comparison-results
+        path: |
+          reports/
+          osm_boundaries.geojson
+        retention-days: 90
