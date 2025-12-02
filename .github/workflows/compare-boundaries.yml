@@ -33,7 +33,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
-        pip install geopandas shapely pandas requests pyogrio
+        pip install geopandas shapely pandas requests pyogrio folium matplotlib seaborn plotly
         
     - name: Download Swisstopo data
       run: |
