@@ -10,7 +10,9 @@ on:
   workflow_dispatch:  # Allow manual triggering
   
 permissions:
-  contents: write  # Needed to commit results back to repo
+  contents: write       # Needed to commit reports back to the repository
+  id-token: write       # Required for GitHub Pages deployment
+  actions: read         # Required to run Actions like upload-artifact and deploy-pages
 
 jobs:
   compare-boundaries:
