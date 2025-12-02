@@ -220,7 +220,7 @@ if __name__ == "__main__":
     import os
     os.makedirs('reports', exist_ok=True)
     
-    swisstopo = load_swisstopo_data('swissboundaries3d_2025-04_2056_5728.gpkg')
+    swisstopo = load_swisstopo_data('swissBOUNDARIES3D_1_5_LV95_LN02.gpkg')
     osm = query_overpass_osm()
     
     if osm is not None and len(osm) > 0:
