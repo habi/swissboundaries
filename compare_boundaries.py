@@ -1,6 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import shape, mapping, Polygon, MultiPolygon
+from shapely.ops import unary_union
 import json
 import requests
 import time
