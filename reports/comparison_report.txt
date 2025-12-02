@@ -1,6 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-02 12:06:38 UTC
+Generated: 2025-12-02 14:31:55 UTC
 ================================================================================
 
 Dataset Overview:
@@ -33,3 +33,6 @@ Les Ponts-de-Martel       6437 0.000221      72.199447
            Bussnang       4921 0.000292      64.506969
            Bellevue       6606 0.000299      54.131682
               Dully       5855 0.000347      94.640592
+
+Most Improved (if historical data available):
+  (Insufficient historical data)
