@@ -1,12 +1,12 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-02 11:22:26 UTC
+Generated: 2025-12-02 11:53:24 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 2128
-  Matched in OSM: 2115 (99.4%)
-  Missing in OSM: 13 (0.6%)
+  Total Swisstopo municipalities: 2115
+  Matched in OSM: 2115 (100.0%)
+  Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.1575
@@ -33,19 +33,3 @@ Les Ponts-de-Martel       6437 0.000221      72.199447
            Bussnang       4921 0.000292      64.506969
            Bellevue       6606 0.000299      54.131682
               Dully       5855 0.000347      94.640592
-
-Missing Municipalities (showing first 13 of 13):
-                 name bfs_nummer
-          Triesenberg       7004
-         Schellenberg       7011
-              Ruggell       7010
-               Mauren       7008
-              Triesen       7002
-               Schaan       7005
-                Vaduz       7001
-              Balzers       7003
-Büsingen am Hochrhein       7101
-    Campione d'Italia       7301
-               Eschen       7007
-              Gamprin       7009
-              Planken       7006
