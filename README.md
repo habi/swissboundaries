@@ -3,7 +3,7 @@ Matching boundaries from swissBOUNDARIES3D to OpenStreetMap
 
 This repository used the ideas presented in https://github.com/stalker314314/osm-admin-boundary-conflation and Claude.ai to produce a report on the matching.
 
-The intital prompt to Claude.ai was
+The intital prompts to Claude.ai were:
 
 > I have the boundaries of the swiss municipalities in https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip.
 > Help me produce a report on how well these match geographically with the boundaries mapped in OpenStreetMap, preferrably via Overpass Turbo.
