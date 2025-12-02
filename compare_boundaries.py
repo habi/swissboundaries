@@ -97,7 +97,7 @@ def load_swisstopo_data(gpkg_path):
     """Load official Swisstopo boundaries"""
     print("Loading Swisstopo data...")
     gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
-    municipalities = gdf[gdf['objektart'] == 'Gemeindegebiet'].copy()
+    municipalities = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
     municipalities = municipalities.to_crs('EPSG:4326')
     print(f"Loaded {len(municipalities)} municipalities")
     return municipalities
