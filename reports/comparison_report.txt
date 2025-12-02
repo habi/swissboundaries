@@ -1,0 +1,51 @@
+================================================================================
+SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
+Generated: 2025-12-02 09:56:17 UTC
+================================================================================
+
+Dataset Overview:
+  Total Swisstopo municipalities: 32
+  Matched in OSM: 19 (59.4%)
+  Missing in OSM: 13 (40.6%)
+
+Accuracy Metrics (for matched municipalities):
+  Mean IoU: 0.7204
+  Median IoU: 0.8479
+  Mean area difference: 24.97%
+  Mean symmetric difference: 30.26%
+  Mean Hausdorff distance: 0.000748°
+
+Quality Distribution:
+  Excellent (IoU ≥ 0.98): 5 (26.3%)
+  Good (IoU ≥ 0.95): 3 (15.8%)
+  Fair (IoU ≥ 0.90): 1 (5.3%)
+  Poor (IoU < 0.90): 10 (52.6%)
+
+Worst 10 Matches (by IoU):
+          name bfs_nummer      iou  area_diff_pct
+       Anières       6602 0.097272      79.607033
+        Lauwil       2889 0.192323      57.898123
+     Meienried        389 0.248645      56.474336
+       Böckten       2842 0.318573      67.158264
+      Paradiso       5210 0.476825      52.094788
+        Morlon       2143 0.492947      50.059669
+      Scheuren        747 0.560013      23.157700
+    Buchs (AG)       4003 0.783094      20.845503
+       Greppen       1056 0.838682      16.079505
+Châtillon (FR)       2008 0.847888       2.012465
+
+Missing Municipalities (showing first 20):
+                 name bfs_nummer
+          Triesenberg       7004
+         Schellenberg       7011
+              Ruggell       7010
+               Mauren       7008
+              Triesen       7002
+               Schaan       7005
+                Vaduz       7001
+              Balzers       7003
+Büsingen am Hochrhein       7101
+    Campione d'Italia       7301
+               Eschen       7007
+              Gamprin       7009
+              Planken       7006
