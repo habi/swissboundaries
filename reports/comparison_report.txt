@@ -1,11 +1,11 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-04 12:04:04 UTC
+Generated: 2025-12-04 12:10:44 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 2115
-  Matched in OSM: 2115 (100.0%)
+  Total Swisstopo municipalities: 2113
+  Matched in OSM: 2113 (100.0%)
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
@@ -13,26 +13,31 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.1066
   Mean area difference: 70.35%
   Mean symmetric difference: 95.64%
-  Mean Hausdorff distance: 0.006607°
+  Mean Hausdorff distance: 596.504031°
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 5 (0.2%)
   Good (IoU ≥ 0.95): 4 (0.2%)
   Fair (IoU ≥ 0.90): 6 (0.3%)
-  Poor (IoU < 0.90): 2100 (99.3%)
+  Poor (IoU < 0.90): 2098 (99.3%)
+
+Historical Comparison (vs 2025-12-04):
+  Previous mean IoU: 0.1575
+  Current mean IoU: 0.1575
+  Change: +0.0001 (+0.04%)
 
 Worst 10 Matches (by IoU):
                name bfs_nummer      iou  area_diff_pct
-            Leytron       6135 0.000146      69.360343
-    Bourg-en-Lavaux       5613 0.000178      99.491782
-         Mont-Vully       2284 0.000212      81.762846
-Les Ponts-de-Martel       6437 0.000221      72.199447
-          Stansstad       1510 0.000254      83.486165
-          Gerzensee        866 0.000255      92.955984
-     Forel (Lavaux)       5604 0.000255      73.025501
-           Bussnang       4921 0.000292      64.506969
-           Bellevue       6606 0.000299      54.131682
-              Dully       5855 0.000347      94.640592
+            Leytron       6135 0.000147      69.353072
+    Bourg-en-Lavaux       5613 0.000177      99.491976
+         Mont-Vully       2284 0.000214      81.768246
+Les Ponts-de-Martel       6437 0.000219      72.222872
+     Forel (Lavaux)       5604 0.000253      73.022654
+          Gerzensee        866 0.000254      92.954588
+          Stansstad       1510 0.000256      83.487565
+           Bussnang       4921 0.000292      64.499092
+           Bellevue       6606 0.000300      54.131882
+              Dully       5855 0.000347      94.642197
 
 Most Improved (if historical data available):
   No significant improvements detected
