@@ -1,12 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-<<<<<<< HEAD
-Generated: 2025-12-04 02:39:08 UTC
-||||||| parent of 095b5fc (Update outputs)
-Generated: 2025-12-02 14:35:33 UTC
-=======
-Generated: 2025-12-04 12:49:57 UTC
->>>>>>> 095b5fc (Update outputs)
+Generated: 2025-12-04 12:04:04 UTC
 ================================================================================
 
 Dataset Overview:
@@ -26,16 +20,6 @@ Quality Distribution:
   Good (IoU ≥ 0.95): 4 (0.2%)
   Fair (IoU ≥ 0.90): 6 (0.3%)
   Poor (IoU < 0.90): 2100 (99.3%)
-
-<<<<<<< HEAD
-Historical Comparison (vs 2025-12-03):
-||||||| parent of 095b5fc (Update outputs)
-=======
-Historical Comparison (vs 2025-12-04):
->>>>>>> 095b5fc (Update outputs)
-  Previous mean IoU: 0.1575
-  Current mean IoU: 0.1575
-  Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
                name bfs_nummer      iou  area_diff_pct
