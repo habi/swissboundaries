@@ -175,21 +175,22 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     print(f"OSM lookup contains {len(osm_lookup)} municipalities")
     
     for idx, row in swisstopo_gdf.iterrows():
+        name = row.get('name', row.get('NAME', 'Unknown'))        
         bfs_num = str(row['bfs_nummer'])
-        name = row.get('name', row.get('NAME', 'Unknown'))
         
         if bfs_num in osm_lookup:
             metrics = calculate_metrics(fix_geometry(row.geometry), fix_geometry(osm_lookup[bfs_num]))
             if metrics:
                 results.append({
+                    'name': name,
                     'bfs_nummer': bfs_num,
                     'status': 'https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]),
                     **metrics
                 })
         else:
             results.append({
-                'bfs_nummer': bfs_num,
                 'name': name,
+                'bfs_nummer': bfs_num,
                 'status': 'Missing in OSM'
             })
     
