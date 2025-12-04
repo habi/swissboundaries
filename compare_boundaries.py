@@ -132,29 +132,36 @@ def fix_geometry(geom):
 
     return geom  # last resort
 
-
 def calculate_metrics(geom1, geom2):
-    """Calculate comparison metrics"""
+    """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
         geom1 = fix_geometry(geom1)
         geom2 = fix_geometry(geom2)
+        
+        # PROJECT TO SWISS COORDINATE SYSTEM FOR ACCURATE AREA CALCULATIONS
+        # Convert from EPSG:4326 (degrees) to EPSG:2056 (meters)
+        gdf1 = gpd.GeoDataFrame([1], geometry=[geom1], crs='EPSG:4326').to_crs('EPSG:2056')
+        gdf2 = gpd.GeoDataFrame([1], geometry=[geom2], crs='EPSG:4326').to_crs('EPSG:2056')
+        
+        geom1_proj = gdf1.geometry.iloc[0]
+        geom2_proj = gdf2.geometry.iloc[0]
 
-        intersection = geom1.intersection(geom2).area
-        union = geom1.union(geom2).area
+        intersection = geom1_proj.intersection(geom2_proj).area
+        union = geom1_proj.union(geom2_proj).area
         iou = intersection / union if union > 0 else 0
         
-        area_diff = abs(geom1.area - geom2.area) / geom1.area * 100
-        hausdorff = geom1.hausdorff_distance(geom2)
-        sym_diff_area = geom1.symmetric_difference(geom2).area
-        sym_diff_pct = sym_diff_area / geom1.area * 100
+        area_diff = abs(geom1_proj.area - geom2_proj.area) / geom1_proj.area * 100
+        hausdorff = geom1_proj.hausdorff_distance(geom2_proj)
+        sym_diff_area = geom1_proj.symmetric_difference(geom2_proj).area
+        sym_diff_pct = sym_diff_area / geom1_proj.area * 100
         
         return {
             'iou': iou,
             'area_diff_pct': area_diff,
             'hausdorff_distance': hausdorff,
             'symmetric_diff_pct': sym_diff_pct,
-            'swisstopo_area': geom1.area,
-            'osm_area': geom2.area
+            'swisstopo_area': geom1_proj.area,  # Now in m²
+            'osm_area': geom2_proj.area  # Now in m²
         }
     except Exception as e:
         print(f"Error calculating metrics: {e}")
