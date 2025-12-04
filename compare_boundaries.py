@@ -183,8 +183,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
             if metrics:
                 results.append({
                     'bfs_nummer': bfs_num,
-                    'name': name,
-                    'status': 'OK',  # Quick fix for status. TODO: Should probably write the relation ID
+                    'status': 'https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]),
                     **metrics
                 })
         else:
