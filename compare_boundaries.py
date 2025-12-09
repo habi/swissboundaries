@@ -195,14 +195,14 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 results.append({
                     'name': name,
                     'bfs_nummer': bfs_num,
-                    'status': 'https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]),
+                    'relation': 'https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]),
                     **metrics
                 })
         else:
             results.append({
                 'name': name,
                 'bfs_nummer': bfs_num,
-                'status': 'Missing in OSM'
+                'relation': 'Not found in OSM'
             })
     
     return pd.DataFrame(results)
@@ -540,7 +540,7 @@ def generate_report(results_df, historical_df):
             report_lines.append("  (Insufficient historical data)")
     
     # Missing municipalities
-    missing_df = results_df[results_df['status'] == 'Missing in OSM']
+    missing_df = results_df[results_df['relation'] == 'Not found in OSM']
     if len(missing_df) > 0:
         report_lines.append(f"\nMissing Municipalities (showing first 20):")
         missing_list = missing_df.head(20)[['name', 'bfs_nummer']]
