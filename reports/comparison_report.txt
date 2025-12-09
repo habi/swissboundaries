@@ -1,43 +1,43 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-09 02:39:21 UTC
+Generated: 2025-12-09 13:25:54 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 2113
-  Matched in OSM: 2113 (100.0%)
+  Total Swisstopo municipalities: 19
+  Matched in OSM: 19 (100.0%)
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.1575
-  Median IoU: 0.1066
-  Mean area difference: 70.35%
-  Mean symmetric difference: 95.64%
-  Mean Hausdorff distance: 596.504031°
+  Mean IoU: 0.7204
+  Median IoU: 0.8479
+  Mean area difference: 24.97%
+  Mean symmetric difference: 30.26%
+  Mean Hausdorff distance: 73.499592°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 5 (0.2%)
-  Good (IoU ≥ 0.95): 4 (0.2%)
-  Fair (IoU ≥ 0.90): 6 (0.3%)
-  Poor (IoU < 0.90): 2098 (99.3%)
+  Excellent (IoU ≥ 0.98): 5 (26.3%)
+  Good (IoU ≥ 0.95): 3 (15.8%)
+  Fair (IoU ≥ 0.90): 1 (5.3%)
+  Poor (IoU < 0.90): 10 (52.6%)
 
-Historical Comparison (vs 2025-12-08):
+Historical Comparison (vs 2025-12-09):
   Previous mean IoU: 0.1575
-  Current mean IoU: 0.1575
-  Change: -0.0000 (-0.00%)
+  Current mean IoU: 0.7204
+  Change: +0.5629 (+357.28%)
 
 Worst 10 Matches (by IoU):
-               name bfs_nummer      iou  area_diff_pct
-            Leytron       6135 0.000147      69.353072
-    Bourg-en-Lavaux       5613 0.000177      99.491976
-         Mont-Vully       2284 0.000214      81.768246
-Les Ponts-de-Martel       6437 0.000219      72.222872
-     Forel (Lavaux)       5604 0.000253      73.022654
-          Gerzensee        866 0.000254      92.954588
-          Stansstad       1510 0.000256      83.487565
-           Bussnang       4921 0.000292      64.499092
-           Bellevue       6606 0.000300      54.131882
-              Dully       5855 0.000347      94.642197
+          name bfs_nummer      iou  area_diff_pct
+       Anières       6602 0.097395      79.591879
+        Lauwil       2889 0.192246      57.905528
+     Meienried        389 0.248668      56.476183
+       Böckten       2842 0.318511      67.166541
+      Paradiso       5210 0.476833      52.094691
+        Morlon       2143 0.492958      50.058474
+      Scheuren        747 0.560095      23.148309
+    Buchs (AG)       4003 0.783114      20.844422
+       Greppen       1056 0.838536      16.093612
+Châtillon (FR)       2008 0.847885       2.012459
 
 Most Improved (if historical data available):
   No significant improvements detected
