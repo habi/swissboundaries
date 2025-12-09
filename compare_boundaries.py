@@ -65,7 +65,7 @@ def query_overpass_osm():
                                     polygons = [Polygon(c) for c in coords if len(c) >= 3]
                                     geom = MultiPolygon(polygons) if len(polygons) > 1 else polygons[0]
 
-                                geom = fix_geometry(geom)                                
+                                # geom = fix_geometry(geom)                                
 
                                 feature = {
                                     'type': 'Feature',
@@ -88,8 +88,8 @@ def query_overpass_osm():
             
             gdf = gpd.GeoDataFrame.from_features(geojson, crs='EPSG:4326')
 
-            print("Fixing OSM geometries...")
-            gdf["geometry"] = gdf["geometry"].apply(fix_geometry)
+            # print("Fixing OSM geometries...")
+            # gdf["geometry"] = gdf["geometry"].apply(fix_geometry)
 
             print(f"Successfully created GeoDataFrame with {len(gdf)} features")
             return gdf
@@ -111,32 +111,32 @@ def load_swisstopo_data(gpkg_path):
     return municipalities
 
 
-def fix_geometry(geom):
-    """Fix invalid geometries using buffer(0) and unary_union fallback."""
-    if geom.is_valid:
-        return geom
+# def fix_geometry(geom):
+#     """Fix invalid geometries using buffer(0) and unary_union fallback."""
+#     if geom.is_valid:
+#         return geom
 
-    # Try standard fix
-    fixed = geom.buffer(0)
-    if fixed.is_valid:
-        return fixed
+#     # Try standard fix
+#     fixed = geom.buffer(0)
+#     if fixed.is_valid:
+#         return fixed
 
-    # Fallback: explode, union, rebuild
-    try:
-        if isinstance(geom, (Polygon, MultiPolygon)):
-            fixed = unary_union(geom)
-            if fixed.is_valid:
-                return fixed
-    except:
-        pass
+#     # Fallback: explode, union, rebuild
+#     try:
+#         if isinstance(geom, (Polygon, MultiPolygon)):
+#             fixed = unary_union(geom)
+#             if fixed.is_valid:
+#                 return fixed
+#     except:
+#         pass
 
     return geom  # last resort
 
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
-        geom1 = fix_geometry(geom1)
-        geom2 = fix_geometry(geom2)
+        # geom1 = fix_geometry(geom1)
+        # geom2 = fix_geometry(geom2)
         
         # PROJECT TO SWISS COORDINATE SYSTEM FOR ACCURATE AREA CALCULATIONS
         # Convert from EPSG:4326 (degrees) to EPSG:2056 (meters)
@@ -186,7 +186,11 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
         bfs_num = str(row['bfs_nummer'])
         
         if bfs_num in osm_lookup:
-            metrics = calculate_metrics(fix_geometry(row.geometry), fix_geometry(osm_lookup[bfs_num]))
+            metrics = calculate_metrics(
+                #fix_geometry(
+                row.geometry#)
+                , #fix_geometry(
+                osm_lookup[bfs_num])#)
             if metrics:
                 results.append({
                     'name': name,
