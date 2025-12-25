@@ -1,12 +1,12 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2025-12-24 02:41:11 UTC
+Generated: 2025-12-25 02:43:25 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 20
-  Matched in OSM: 19 (95.0%)
-  Missing in OSM: 1 (5.0%)
+  Total Swisstopo municipalities: 19
+  Matched in OSM: 19 (100.0%)
+  Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.7204
@@ -21,7 +21,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 1 (5.3%)
   Poor (IoU < 0.90): 10 (52.6%)
 
-Historical Comparison (vs 2025-12-23):
+Historical Comparison (vs 2025-12-24):
   Previous mean IoU: 0.7204
   Current mean IoU: 0.7204
   Change: +0.0000 (+0.00%)
@@ -41,7 +41,3 @@ Châtillon (FR)       2008 0.847885       2.012459
 
 Most Improved (if historical data available):
   No significant improvements detected
-
-Missing Municipalities (showing first 20):
-    name bfs_nummer
-Adliswil        131
