@@ -1,12 +1,12 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-01 02:52:27 UTC
+Generated: 2026-01-02 02:45:09 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 19
-  Matched in OSM: 19 (100.0%)
-  Missing in OSM: 0 (0.0%)
+  Total Swisstopo municipalities: 26
+  Matched in OSM: 19 (73.1%)
+  Missing in OSM: 7 (26.9%)
 
 Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.7204
@@ -21,7 +21,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 1 (5.3%)
   Poor (IoU < 0.90): 10 (52.6%)
 
-Historical Comparison (vs 2025-12-31):
+Historical Comparison (vs 2026-01-01):
   Previous mean IoU: 0.7204
   Current mean IoU: 0.7204
   Change: +0.0000 (+0.00%)
@@ -41,3 +41,13 @@ Châtillon (FR)       2008 0.847885       2.012459
 
 Most Improved (if historical data available):
   No significant improvements detected
+
+Missing Municipalities (showing first 20):
+       name bfs_nummer
+      Ulmiz       2278
+    Moutier        700
+    Fétigny       2016
+   Oekingen       2529
+   Ménières       2027
+Villnachern       4122
+     Halten       2520
