@@ -1,6 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-06 15:40:54 UTC
+Generated: 2026-01-06 16:45:58 UTC
 ================================================================================
 
 Dataset Overview:
@@ -9,35 +9,35 @@ Dataset Overview:
   Missing in OSM: 16 (0.7%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.0000
-  Median IoU: 0.0000
-  Mean area difference: nan%
-  Mean symmetric difference: nan%
-  Mean Hausdorff distance: inf°
+  Mean IoU: 0.9845
+  Median IoU: 0.9981
+  Mean area difference: 1.41%
+  Mean symmetric difference: 1.71%
+  Mean Hausdorff distance: 207.943227°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 0 (0.0%)
-  Good (IoU ≥ 0.95): 0 (0.0%)
-  Fair (IoU ≥ 0.90): 0 (0.0%)
-  Poor (IoU < 0.90): 2120 (100.0%)
+  Excellent (IoU ≥ 0.98): 1951 (92.0%)
+  Good (IoU ≥ 0.95): 71 (3.3%)
+  Fair (IoU ≥ 0.90): 29 (1.4%)
+  Poor (IoU < 0.90): 69 (3.3%)
 
 Historical Comparison (vs 2026-01-06):
-  Previous mean IoU: 0.7205
-  Current mean IoU: 0.0000
-  Change: -0.7205 (-100.00%)
+  Previous mean IoU: 0.0000
+  Current mean IoU: 0.9845
+  Change: +0.9845 (+inf%)
 
 Worst 10 Matches (by IoU):
-      name bfs_nummer  iou  area_diff_pct
-  Adliswil        131  0.0            NaN
- Rheinwald       3714  0.0            NaN
-     Grens       5722  0.0            NaN
- Val Terbi       6730  0.0            NaN
-  Windisch       4123  0.0            NaN
-   Pleigne       6719  0.0            NaN
-     Risch       1707  0.0            NaN
-    Zeihen       4183  0.0            NaN
- Vucherens       5692  0.0            NaN
-Roche (VD)       5413  0.0            NaN
+             name bfs_nummer      iou  area_diff_pct
+     Baltschieder       6281 0.071437      92.830315
+Turtmann-Unterems       6119 0.192606      80.725843
+       Altstätten       3251 0.210974      78.885258
+         Valbroye       5831 0.259060      74.070294
+  Ponte Capriasca       5212 0.281508      70.646392
+     Seedorf (UR)       1214 0.284757      71.506697
+        Spiringen       1218 0.349588      65.023792
+             Fiez       5556 0.352118      64.704937
+           Thusis       3668 0.405624      59.369142
+            Stäfa        158 0.426448     134.323907
 
 Most Improved (if historical data available):
   No significant improvements detected
