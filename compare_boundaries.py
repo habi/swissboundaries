@@ -14,92 +14,219 @@ import plotly.graph_objects as go
 import plotly.express as px
 import os
 
-OVERPASS_URL = "http://overpass.osm.ch/api/interpreter"
-
-def query_overpass_osm():
-    """Query Overpass API for Swiss municipality boundaries"""
+def load_osm_boundaries(target_crs="EPSG:2056"):
+    """
+    Query Overpass API for Swiss boundaries with swisstopo:BFS_NUMMER.
+    
+    Args:
+        target_crs: Target coordinate reference system (default: WGS84)
+    
+    Returns:
+        GeoDataFrame with OSM boundaries
+    """
+    
     print("Querying Overpass API for OSM boundaries...")
     
+    # Overpass QL query
     overpass_query = """
-    [out:json][timeout:300];
-    area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
+    [out:json][timeout:90];
+    area["ISO3166-1"="CH"][admin_level=2];
     (
-        relation["boundary"="administrative"]["admin_level"="8"]["swisstopo:BFS_NUMMER"](area.switzerland);
+      relation["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area);
+      way["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area);
     );
     out geom;
     """
     
-    for attempt in range(3):
-        try:
-            print(f"Attempt {attempt + 1}/3...")
-            response = requests.post(
-                OVERPASS_URL,
-                data={'data': overpass_query},
-                timeout=400
-            )
-            response.raise_for_status()
-            data = response.json()
-            
-            print(f"Retrieved {len(data.get('elements', []))} relations")
-            
-            features = []
-            for element in data.get('elements', []):
-                if element['type'] == 'relation':
-                    tags = element.get('tags', {})
-                    bfs_num = tags.get('swisstopo:BFS_NUMMER')
-                    
-                    if bfs_num and 'members' in element:
-                        try:
-                            coords = []
-                            for member in element['members']:
-                                if member['type'] == 'way' and member.get('role') == 'outer':
-                                    way_coords = [(node['lon'], node['lat']) 
-                                                for node in member.get('geometry', [])]
-                                    if way_coords:
-                                        coords.append(way_coords)
-                            
-                            if coords:
-                                if len(coords) == 1:
-                                    geom = Polygon(coords[0])
-                                else:
-                                    polygons = [Polygon(c) for c in coords if len(c) >= 3]
-                                    geom = MultiPolygon(polygons) if len(polygons) > 1 else polygons[0]
+    try:
+        response = requests.post(
+            "http://overpass.osm.ch/api/interpreter",
+            data=overpass_query,
+            timeout=120
+        )
+        response.raise_for_status()
+        
+        osm_data = response.json()
+        
+        if not osm_data.get('elements'):
+            print("  - No boundaries found with swisstopo:BFS_NUMMER tag")
+            return None
+        
+        print(f"  - Found {len(osm_data['elements'])} OSM elements")
+        
+        # Convert to GeoJSON
+        geojson = osm_to_geojson(osm_data)
+        
+        # Convert to GeoDataFrame
+        gdf = gpd.GeoDataFrame.from_features(geojson['features'], crs="EPSG:2056")
+        
+        # Reproject if needed
+        if target_crs != "EPSG:2056":
+            gdf = gdf.to_crs(target_crs)
+            print(f"  - Reprojected to: {target_crs}")
+        
+        print(f"  - Created GeoDataFrame with {len(gdf)} features")
+        print(f"  - Columns: {', '.join(gdf.columns)}")
+        
+        return gdf
+        
+    except Exception as e:
+        print(f"Error loading OSM data: {e}")
+        return None
 
-                                # geom = fix_geometry(geom)                                
 
-                                feature = {
-                                    'type': 'Feature',
-                                    'properties': {
-                                        'swisstopo:BFS_NUMMER': bfs_num,
-                                        'name': tags.get('name', ''),
-                                        'osm_id': element['id']
-                                    },
-                                    'geometry': mapping(geom)
-                                }
-                                features.append(feature)
-                        except Exception as e:
-                            print(f"Warning: Could not process relation {element['id']}: {e}")
-            
-            geojson = {'type': 'FeatureCollection', 'features': features}
-            
-            timestamp = datetime.now().strftime('%Y%m%d')
-            with open(f'history/osm_boundaries_{timestamp}.geojson', 'w') as f:
-                json.dump(geojson, f)
-            
-            gdf = gpd.GeoDataFrame.from_features(geojson, crs='EPSG:4326')
+def osm_to_geojson(osm_data):
+    """Convert OSM JSON format to GeoJSON."""
+    
+    geojson = {
+        "type": "FeatureCollection",
+        "features": []
+    }
+    
+    for element in osm_data.get('elements', []):
+        feature = create_feature(element)
+        if feature:
+            geojson['features'].append(feature)
+    
+    return geojson
 
-            # print("Fixing OSM geometries...")
-            # gdf["geometry"] = gdf["geometry"].apply(fix_geometry)
 
-            print(f"Successfully created GeoDataFrame with {len(gdf)} features")
-            return gdf
+def create_feature(element):
+    """Create a GeoJSON feature from an OSM element."""
+    
+    properties = {
+        'osm_id': element.get('id'),
+        'osm_type': element.get('type'),
+        **element.get('tags', {})
+    }
+    
+    geometry = None
+    
+    # Handle ways
+    if element['type'] == 'way' and 'geometry' in element:
+        coords = [[node['lon'], node['lat']] for node in element['geometry']]
+        
+        if len(coords) > 2 and coords[0] == coords[-1]:
+            geometry = {
+                "type": "Polygon",
+                "coordinates": [coords]
+            }
+        else:
+            geometry = {
+                "type": "LineString",
+                "coordinates": coords
+            }
+    
+    # Handle relations
+    elif element['type'] == 'relation' and 'members' in element:
+        outer_ways = []
+        inner_ways = []
+        
+        for member in element['members']:
+            if 'geometry' in member:
+                coords = [[node['lon'], node['lat']] for node in member['geometry']]
+                
+                if member.get('role') == 'outer':
+                    outer_ways.append(coords)
+                elif member.get('role') == 'inner':
+                    inner_ways.append(coords)
+        
+        if outer_ways:
+            merged_outer = merge_ways(outer_ways)
             
-        except Exception as e:
-            print(f"Attempt {attempt + 1} failed: {e}")
-            if attempt < 2:
-                time.sleep(30)
+            if merged_outer:
+                merged_inners = []
+                if inner_ways:
+                    for inner_group in group_connected_ways(inner_ways):
+                        merged_inner = merge_ways(inner_group)
+                        if merged_inner:
+                            merged_inners.append(merged_inner)
+                
+                geometry = {
+                    "type": "Polygon",
+                    "coordinates": [merged_outer] + merged_inners
+                }
+    
+    if geometry:
+        return {
+            "type": "Feature",
+            "properties": properties,
+            "geometry": geometry
+        }
     
     return None
+
+
+def merge_ways(ways):
+    """Merge multiple ways into a single closed ring."""
+    if not ways:
+        return None
+    
+    if len(ways) == 1:
+        return ways[0]
+    
+    merged = list(ways[0])
+    remaining = list(ways[1:])
+    
+    while remaining:
+        added = False
+        for i, way in enumerate(remaining):
+            if merged[-1] == way[0]:
+                merged.extend(way[1:])
+                remaining.pop(i)
+                added = True
+                break
+            elif merged[-1] == way[-1]:
+                merged.extend(reversed(way[:-1]))
+                remaining.pop(i)
+                added = True
+                break
+            elif merged[0] == way[-1]:
+                merged = way[:-1] + merged
+                remaining.pop(i)
+                added = True
+                break
+            elif merged[0] == way[0]:
+                merged = list(reversed(way[1:])) + merged
+                remaining.pop(i)
+                added = True
+                break
+        
+        if not added:
+            break
+    
+    if merged[0] != merged[-1]:
+        merged.append(merged[0])
+    
+    return merged
+
+
+def group_connected_ways(ways):
+    """Group ways that connect to each other."""
+    if not ways:
+        return []
+    
+    groups = []
+    remaining = list(ways)
+    
+    while remaining:
+        current_group = [remaining.pop(0)]
+        changed = True
+        
+        while changed:
+            changed = False
+            for i in range(len(remaining) - 1, -1, -1):
+                way = remaining[i]
+                for group_way in current_group:
+                    if (way[0] == group_way[0] or way[0] == group_way[-1] or
+                        way[-1] == group_way[0] or way[-1] == group_way[-1]):
+                        current_group.append(remaining.pop(i))
+                        changed = True
+                        break
+        
+        groups.append(current_group)
+    
+    return groups
 
 def load_swisstopo_data(gpkg_path):
     """Load official Swisstopo boundaries"""
