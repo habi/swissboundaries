@@ -1,43 +1,62 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-06 15:25:52 UTC
+Generated: 2026-01-06 15:40:54 UTC
 ================================================================================
 
 Dataset Overview:
-  Total Swisstopo municipalities: 19
-  Matched in OSM: 19 (100.0%)
-  Missing in OSM: 0 (0.0%)
+  Total Swisstopo municipalities: 2136
+  Matched in OSM: 2120 (99.3%)
+  Missing in OSM: 16 (0.7%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.7205
-  Median IoU: 0.8479
-  Mean area difference: 24.95%
-  Mean symmetric difference: 30.26%
-  Mean Hausdorff distance: 73.499592°
+  Mean IoU: 0.0000
+  Median IoU: 0.0000
+  Mean area difference: nan%
+  Mean symmetric difference: nan%
+  Mean Hausdorff distance: inf°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 5 (26.3%)
-  Good (IoU ≥ 0.95): 3 (15.8%)
-  Fair (IoU ≥ 0.90): 1 (5.3%)
-  Poor (IoU < 0.90): 10 (52.6%)
+  Excellent (IoU ≥ 0.98): 0 (0.0%)
+  Good (IoU ≥ 0.95): 0 (0.0%)
+  Fair (IoU ≥ 0.90): 0 (0.0%)
+  Poor (IoU < 0.90): 2120 (100.0%)
 
 Historical Comparison (vs 2026-01-06):
-  Previous mean IoU: 0.7204
-  Current mean IoU: 0.7205
-  Change: +0.0000 (+0.00%)
+  Previous mean IoU: 0.7205
+  Current mean IoU: 0.0000
+  Change: -0.7205 (-100.00%)
 
 Worst 10 Matches (by IoU):
-          name bfs_nummer      iou  area_diff_pct
-       Anières       6602 0.097395      79.591879
-        Lauwil       2889 0.192246      57.905528
-     Meienried        389 0.248668      56.476183
-       Böckten       2842 0.318511      67.166541
-      Paradiso       5210 0.476833      52.094691
-        Morlon       2143 0.492958      50.058474
-      Scheuren        747 0.560095      23.148309
-    Buchs (AG)       4003 0.783114      20.844422
-       Greppen       1056 0.838536      16.093612
-Châtillon (FR)       2008 0.847885       2.012459
+      name bfs_nummer  iou  area_diff_pct
+  Adliswil        131  0.0            NaN
+ Rheinwald       3714  0.0            NaN
+     Grens       5722  0.0            NaN
+ Val Terbi       6730  0.0            NaN
+  Windisch       4123  0.0            NaN
+   Pleigne       6719  0.0            NaN
+     Risch       1707  0.0            NaN
+    Zeihen       4183  0.0            NaN
+ Vucherens       5692  0.0            NaN
+Roche (VD)       5413  0.0            NaN
 
 Most Improved (if historical data available):
   No significant improvements detected
+
+Missing Municipalities (showing first 20):
+                 name bfs_nummer
+       Zürichsee (ZH)       9051
+          Triesenberg       7004
+         Schellenberg       7011
+              Ruggell       7010
+               Mauren       7008
+              Triesen       7002
+           Greifensee       9040
+               Schaan       7005
+                Vaduz       7001
+        Bodensee (TG)       9329
+              Balzers       7003
+Büsingen am Hochrhein       7101
+    Campione d'Italia       7301
+               Eschen       7007
+              Gamprin       7009
+              Planken       7006

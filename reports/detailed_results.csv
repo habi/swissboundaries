@@ -1,20 +1,2137 @@
 name,bfs_nummer,relation,iou,area_diff_pct,hausdorff_distance,symmetric_diff_pct,swisstopo_area,osm_area
-Morlon,2143,https://osm.org/relation/1683367,0.4929584089174193,50.058473595280994,7.028721807052763,50.92344814396368,4236409.305734751,2115727.4720354937
-Abtwil,4221,https://osm.org/relation/1684253,0.9906289625710789,0.04674636753604212,14.87111218950441,0.9417352922078395,4136312.8892459124,4138246.46527156
-Paradiso,5210,https://osm.org/relation/1684735,0.4768326758857759,52.0946911363944,44.602769961293276,52.39539043517561,2200511.4837302575,1054161.82286009
-Buchs (AG),4003,https://osm.org/relation/1684283,0.7831135690742992,20.844422019558614,22.689070288492253,21.791328697465342,5321595.445210387,4212339.632437125
-Greppen,1056,https://osm.org/relation/1682840,0.8385355954689236,16.09361245780111,3.409683222240939,16.15107992858248,5247185.586102734,4402723.87293376
-Hüniken,2524,https://osm.org/relation/1683530,0.9384845779543657,5.87494284356426,3.1717429593107043,6.160319744824973,1019192.2967573787,959315.3318568729
-Le Pâquier (FR),2145,https://osm.org/relation/1683353,0.9900904544173741,0.1369316713823101,161.02712891498132,0.9952071180933278,4499003.791983564,4492843.230895648
-Bister,6172,https://osm.org/relation/1685277,0.9985558643322352,0.01192344781092341,6.060269351256522,0.1445093027575145,5807362.392447083,5806669.954623029
-Grancia,5186,https://osm.org/relation/1684683,0.9650165828369439,2.2871457767610073,34.67886550804108,3.601341418307707,612286.9319015044,626290.8266061492
-Meienried,389,https://osm.org/relation/1682549,0.24866815197793138,56.476182825931886,3.440334423506862,86.35922572522462,652534.2024968595,284007.79329299653
-Meyriez,2271,https://osm.org/relation/1683362,0.9994300729073081,0.01771342526829984,2.2686477760418624,0.057014003862421864,1847526.4104779214,1847853.6706879535
-Linescio,5315,https://osm.org/relation/1684696,0.9782692568597834,39.62162941366433,92.48532009497798,2.185355881556324,6682991.332198928,9330901.391590096
-Anières,6602,https://osm.org/relation/1685445,0.09739533106669446,79.59187921935903,603.9536254137647,99.03535117873218,8772040.72107725,1790208.665284455
-Schattenhalb,786,https://osm.org/relation/1682649,0.9973340768839604,0.07188448328131503,74.26345191517576,0.26704409036354193,31536484.871920444,31559154.711115714
-Lauwil,2889,https://osm.org/relation/1683667,0.19224583367731968,57.90552759258758,44.56371088126952,96.26991250998145,7295481.560932228,3070994.4726544777
-Scheuren,747,https://osm.org/relation/1682652,0.5600950132552817,23.148309069947732,20.521281694176977,49.867437619730694,2107794.5034993305,1619875.7172699352
-Massagno,5196,https://osm.org/relation/1684709,0.9746332214690275,0.5554984118974591,56.249408459573175,2.5621287264891244,739442.7525988913,735335.1598513136
-Böckten,2842,https://osm.org/relation/1683638,0.3185106408826012,67.16654090392483,22.89950457837218,68.65669953799186,2282340.7065811,749371.4023283784
-Châtillon (FR),2008,https://osm.org/relation/1683292,0.8478853935115671,2.0124593009686493,178.30760436865327,16.629302802125288,1276203.7990803923,1301886.881134301
+Adliswil,131,https://osm.org/relation/1682077,0.0,,inf,,,7766145.270086995
+Rheinwald,3714,https://osm.org/relation/9173036,0.0,,inf,,,136801953.52939716
+Grens,5722,https://osm.org/relation/1684998,0.0,,inf,,,2552508.7920610784
+Val Terbi,6730,https://osm.org/relation/2758687,0.0,,inf,,,46680439.12517373
+Windisch,4123,https://osm.org/relation/1684461,0.0,,inf,,,4905627.475799329
+Pleigne,6719,https://osm.org/relation/1685621,0.0,,inf,,,17831144.4826133
+Risch,1707,https://osm.org/relation/1683147,0.0,,inf,,,22963468.05955836
+Zeihen,4183,https://osm.org/relation/1684470,0.0,,inf,,,6874057.06030668
+Vucherens,5692,https://osm.org/relation/1685197,0.0,,inf,,,3274997.0925442344
+Roche (VD),5413,https://osm.org/relation/1685121,0.0,,inf,,,6447790.932119464
+Schönenwerd,2583,https://osm.org/relation/1683574,0.0,,inf,,,3713119.4534360995
+Corcelles-près-Payerne,5816,https://osm.org/relation/1684921,0.0,,inf,,,12123967.702188548
+Reinach (AG),4141,https://osm.org/relation/1684398,0.0,,inf,,,9472016.329530107
+Missy,5821,https://osm.org/relation/1685049,0.0,,inf,,,3113894.1981914886
+Düdingen,2293,https://osm.org/relation/1683310,0.0,,inf,,,30761697.229533054
+Montpreveyres,5792,https://osm.org/relation/1685061,0.0,,inf,,,4122737.409414238
+Schattdorf,1213,https://osm.org/relation/1683102,0.0,,inf,,,16326484.609287106
+Gachnang,4571,https://osm.org/relation/1684523,0.0,,inf,,,9731196.886646936
+Treytorrens (Payerne),5828,https://osm.org/relation/1685167,0.0,,inf,,,3072206.0409189593
+Chavannes-des-Bois,5708,https://osm.org/relation/1684890,0.0,,inf,,,2125440.692737734
+Horn,4421,https://osm.org/relation/1684531,0.0,,inf,,,1753746.2962652328
+Arni (BE),602,https://osm.org/relation/1682366,0.0,,inf,,,10433929.295402018
+Morlon,2143,https://osm.org/relation/1683367,0.0,,inf,,,4236463.437771821
+Saubraz,5437,https://osm.org/relation/1685147,0.0,,inf,,,3708159.3498949776
+Berlingen,4801,https://osm.org/relation/1684503,0.0,,inf,,,3579052.3984442446
+Münsingen,616,https://osm.org/relation/1682570,0.0,,inf,,,15775375.403693395
+Falera,3572,https://osm.org/relation/1684074,0.0,,inf,,,22363225.12529279
+Marsens,2140,https://osm.org/relation/1683359,0.0,,inf,,,8312506.655241743
+L'Isle,5486,https://osm.org/relation/1685009,0.0,,inf,,,16219667.176261479
+Wuppenau,4791,https://osm.org/relation/1684572,0.0,,inf,,,12119539.893399742
+Wynigen,424,https://osm.org/relation/1682733,0.0,,inf,,,28332332.507726733
+Fisibach,4306,https://osm.org/relation/1684308,0.0,,inf,,,5773398.397495636
+Tentlingen,2307,https://osm.org/relation/1683410,0.0,,inf,,,3611035.2086247317
+Unterengstringen,249,https://osm.org/relation/1682222,0.0,,inf,,,3338062.0590953953
+Wiggiswil,553,https://osm.org/relation/1682722,0.0,,inf,,,1440315.735065448
+Crans-Montana,6253,https://osm.org/relation/6820012,0.0,,inf,,,59646952.131544754
+Root,1065,https://osm.org/relation/1682912,0.0,,inf,,,9901456.69324477
+Seon,4209,https://osm.org/relation/1684425,0.0,,inf,,,9623097.087599201
+Kloten,62,https://osm.org/relation/1682154,0.0,,inf,,,19171680.662700698
+Lantsch/Lenz,3513,https://osm.org/relation/1684100,0.0,,inf,,,21808620.237972364
+Brunegg,4193,https://osm.org/relation/1684282,0.0,,inf,,,1556486.993433529
+Sissach,2861,https://osm.org/relation/1683708,0.0,,inf,,,8897480.370797161
+Ammerswil,4191,https://osm.org/relation/1684254,0.0,,inf,,,3185399.3741520825
+Le Noirmont,6754,https://osm.org/relation/1685608,0.0,,inf,,,20386803.742807478
+Crassier,5714,https://osm.org/relation/1684929,0.0,,inf,,,2032761.6855884255
+La Baroche,6810,https://osm.org/relation/1685604,0.0,,inf,,,31065073.173560407
+Meyrin,6630,https://osm.org/relation/1685516,0.0,,inf,,,9942799.062452318
+Veltheim (AG),4120,https://osm.org/relation/1684450,0.0,,inf,,,5235371.454259519
+Suscévaz,5930,https://osm.org/relation/1685158,0.0,,inf,,,4155487.8405692275
+Endingen,4305,https://osm.org/relation/3411173,0.0,,inf,,,11922533.116803735
+Morschach,1366,https://osm.org/relation/1683091,0.0,,inf,,,23510803.546179894
+Gränichen,4006,https://osm.org/relation/1684319,0.0,,inf,,,17238883.756494757
+Cheseaux-sur-Lausanne,5582,https://osm.org/relation/1684899,0.0,,inf,,,4588157.727468261
+Mont-Tramelan,437,https://osm.org/relation/1682557,0.0,,inf,,,4307952.289056965
+Buckten,2843,https://osm.org/relation/1683635,0.0,,inf,,,1998461.1851643096
+Nidau,743,https://osm.org/relation/1682573,0.0,,inf,,,1701427.133767771
+Staffelbach,4284,https://osm.org/relation/1684430,0.0,,inf,,,8936220.508164007
+Grenchen,2546,https://osm.org/relation/1683510,0.0,,inf,,,26025719.120635625
+Rüttenen,2555,https://osm.org/relation/1683572,0.0,,inf,,,8766235.067004416
+Magliaso,5193,https://osm.org/relation/1684704,0.0,,inf,,,1752224.5202454154
+Eschenbach (SG),3342,https://osm.org/relation/2743488,0.0,,inf,,,54891828.667024374
+Winterthur,230,https://osm.org/relation/1682243,0.0,,inf,,,68073524.11589961
+Bercher,5512,https://osm.org/relation/1684849,0.0,,inf,,,4267177.383484131
+Saint-Martin (FR),2335,https://osm.org/relation/1683395,0.0,,inf,,,9783342.575583607
+Güttingen,4656,https://osm.org/relation/1684525,0.0,,inf,,,9545883.909401517
+Benken (SG),3312,https://osm.org/relation/1683864,0.0,,inf,,,16499441.90847237
+Dully,5855,https://osm.org/relation/1684950,0.0,,inf,,,5758718.290593056
+Forel (Lavaux),5604,https://osm.org/relation/1684977,0.0,,inf,,,18510690.80415654
+Liedertswil,2890,https://osm.org/relation/1683668,0.0,,inf,,,1944073.3577105557
+Terre di Pedemonte,5396,https://osm.org/relation/2888313,0.0,,inf,,,11376006.946627175
+Laupen,667,https://osm.org/relation/1682527,0.0,,inf,,,4129184.1256309994
+Echarlens,2131,https://osm.org/relation/1683311,0.0,,inf,,,4750547.738490207
+Bedano,5148,https://osm.org/relation/1684622,0.0,,inf,,,1870959.966777246
+Erschwil,2615,https://osm.org/relation/1683501,0.0,,inf,,,7428165.088252262
+Mézières (FR),2087,https://osm.org/relation/1683372,0.0,,inf,,,8924595.350608608
+Schaffhausen,2939,https://osm.org/relation/1683703,0.0,,inf,,,41859754.027720325
+Quarten,3295,https://osm.org/relation/1683920,0.0,,inf,,,73211129.92931288
+Hergiswil (NW),1507,https://osm.org/relation/1683080,0.0,,inf,,,16984589.652775116
+Frauenkappelen,663,https://osm.org/relation/1682444,0.0,,inf,,,9286824.637936974
+Amden,3311,https://osm.org/relation/1683858,0.0,,inf,,,47618545.95027723
+Gansingen,4164,https://osm.org/relation/1684314,0.0,,inf,,,8767587.065663112
+Orny,5493,https://osm.org/relation/1685084,0.0,,inf,,,5548755.572058562
+Künten,4031,https://osm.org/relation/1684345,0.0,,inf,,,4889588.267050014
+Leutwil,4138,https://osm.org/relation/1684353,0.0,,inf,,,3747036.2301447014
+Walliswil bei Wangen,991,https://osm.org/relation/1682713,0.0,,inf,,,3072991.3628661777
+Baulmes,5745,https://osm.org/relation/1684843,0.0,,inf,,,22484312.977744035
+Sion,6266,https://osm.org/relation/1685377,0.0,,inf,,,34846457.702425875
+Langrickenbach,4681,https://osm.org/relation/1684538,0.0,,inf,,,10825085.858381765
+Oensingen,2407,https://osm.org/relation/1683565,0.0,,inf,,,12110841.196828077
+Titterten,2894,https://osm.org/relation/1683716,0.0,,inf,,,3712753.3435664033
+Zürichsee (ZH),9051,Not found in OSM,,,,,,
+Unterlunkhofen,4079,https://osm.org/relation/1684448,0.0,,inf,,,4492142.440041895
+Rechthalten,2301,https://osm.org/relation/1683385,0.0,,inf,,,7316305.871146592
+Aeschi (SO),2511,https://osm.org/relation/1683474,0.0,,inf,,,3818682.5718198125
+Cortaillod,6408,https://osm.org/relation/1685476,0.0,,inf,,,3728671.6156928777
+Mumpf,4255,https://osm.org/relation/1684369,0.0,,inf,,,3123184.393218916
+Dietwil,4231,https://osm.org/relation/1684292,0.0,,inf,,,5494922.92720766
+Flumenthal,2545,https://osm.org/relation/1683505,0.0,,inf,,,3106264.792904475
+Davos,3851,https://osm.org/relation/1684068,0.0,,inf,,,284000013.8457684
+Pieterlen,392,https://osm.org/relation/1682605,0.0,,inf,,,8353171.704032402
+Küttigen,4008,https://osm.org/relation/1684346,0.0,,inf,,,11892035.714635292
+Mont-Vully,2284,https://osm.org/relation/5817420,0.0,,inf,,,24335725.937431052
+Mammern,4826,https://osm.org/relation/1684541,0.0,,inf,,,5456016.196630494
+Vufflens-le-Château,5653,https://osm.org/relation/1685199,0.0,,inf,,,2134119.324991401
+Tolochenaz,5649,https://osm.org/relation/1685164,0.0,,inf,,,5599014.310429892
+Avegno Gordevio,5324,https://osm.org/relation/1684620,0.0,,inf,,,27281665.598343533
+Braunau,4723,https://osm.org/relation/1684510,0.0,,inf,,,9170874.718224552
+Champéry,6151,https://osm.org/relation/1685287,0.0,,inf,,,38888530.43267368
+Acquarossa,5048,https://osm.org/relation/1684610,0.0,,inf,,,61648110.086392365
+Inwil,1033,https://osm.org/relation/1682882,0.0,,inf,,,10316365.255497182
+Bernex,6607,https://osm.org/relation/1685451,0.0,,inf,,,12952712.96970496
+Commugny,5711,https://osm.org/relation/1684914,0.0,,inf,,,6524899.070990766
+Wiesendangen,298,https://osm.org/relation/3411226,0.0,,inf,,,19170643.78835872
+Yvonand,5939,https://osm.org/relation/1685207,0.0,,inf,,,20823021.711657513
+Benken (ZH),22,https://osm.org/relation/1682088,0.0,,inf,,,5659861.773086425
+Cornaux,6451,https://osm.org/relation/1685474,0.0,,inf,,,4728945.190919396
+Hirschthal,4007,https://osm.org/relation/1684328,0.0,,inf,,,3530578.1295155925
+Essertines-sur-Yverdon,5520,https://osm.org/relation/1684966,0.0,,inf,,,9752175.08688815
+Rottenschwil,4238,https://osm.org/relation/1684407,0.0,,inf,,,4483018.5089124795
+Boussens,5473,https://osm.org/relation/1684865,0.0,,inf,,,3153275.8913126984
+Ramsen,2963,https://osm.org/relation/1683692,0.0,,inf,,,13502577.212458337
+Rolle,5861,https://osm.org/relation/1685122,0.0,,inf,,,13507941.748428527
+Mandach,4105,https://osm.org/relation/1684358,0.0,,inf,,,5544110.162271277
+Altdorf (UR),1201,https://osm.org/relation/1683055,0.0,,inf,,,10204248.058401242
+Gampel-Bratsch,6118,https://osm.org/relation/1685309,0.0,,inf,,,23037440.538415045
+Oulens-sous-Echallens,5529,https://osm.org/relation/1685088,0.0,,inf,,,5869162.331649958
+Kaisten,4169,https://osm.org/relation/1684338,0.0,,inf,,,18071501.44442984
+Trub,908,https://osm.org/relation/1682691,0.0,,inf,,,61986418.49883869
+Pohlern,936,https://osm.org/relation/1682607,0.0,,inf,,,9867088.522558674
+Hinwil,117,https://osm.org/relation/1682138,0.0,,inf,,,22284011.18705165
+Triesenberg,7004,Not found in OSM,,,,,,
+Blatten,6192,https://osm.org/relation/1685279,0.0,,inf,,,90463295.92960437
+Ringgenberg (BE),590,https://osm.org/relation/1682621,0.0,,inf,,,9206988.615362477
+Dürnten,113,https://osm.org/relation/1682112,0.0,,inf,,,10220813.7529443
+Montilliez,5540,https://osm.org/relation/1868687,0.0,,inf,,,11863023.770306963
+Deitingen,2516,https://osm.org/relation/1683493,0.0,,inf,,,7597425.984936639
+Arlesheim,2763,https://osm.org/relation/1683616,0.0,,inf,,,6928952.128829529
+Eggerberg,6004,https://osm.org/relation/1685295,0.0,,inf,,,6055519.819882732
+Siglistorf,4319,https://osm.org/relation/1684426,0.0,,inf,,,5508954.559103472
+Bardonnex,6605,https://osm.org/relation/1685449,0.0,,inf,,,4758220.033924395
+Bettlach,2543,https://osm.org/relation/1683481,0.0,,inf,,,12196578.490457183
+Boécourt,6702,https://osm.org/relation/1685577,0.0,,inf,,,12353903.56835753
+Le Cerneux-Péquignot,6434,https://osm.org/relation/1685503,0.0,,inf,,,15643394.009505894
+Schellenberg,7011,Not found in OSM,,,,,,
+Port-Valais,6154,https://osm.org/relation/1685352,0.0,,inf,,,15076673.06709093
+Chavannes-sur-Moudon,5665,https://osm.org/relation/1684894,0.0,,inf,,,5147662.247258552
+Oberdiessbach,619,https://osm.org/relation/3411235,0.0,,inf,,,16467025.81531606
+Rain,1037,https://osm.org/relation/1682907,0.0,,inf,,,9422333.788993342
+Stadel,100,https://osm.org/relation/1682210,0.0,,inf,,,12883237.793649666
+Abtwil,4221,https://osm.org/relation/1684253,0.0,,inf,,,4138246.465271558
+Thayngen,2920,https://osm.org/relation/1683713,0.0,,inf,,,19919194.402195647
+Serravalle,5050,https://osm.org/relation/2569271,0.0,,inf,,,96923302.89566052
+Giornico,5073,https://osm.org/relation/1684678,0.0,,inf,,,25924811.375431858
+Thal,3237,https://osm.org/relation/1683948,0.0,,inf,,,9613723.282162929
+Ursenbach,344,https://osm.org/relation/1682701,0.0,,inf,,,9170322.903820615
+Bofflens,5747,https://osm.org/relation/1684857,0.0,,inf,,,4206338.276392699
+Saint-Livres,5435,https://osm.org/relation/1685137,0.0,,inf,,,8123693.615345216
+Ruggell,7010,Not found in OSM,,,,,,
+Lohn (SH),2917,https://osm.org/relation/1683671,0.0,,inf,,,4873256.812041911
+Auswil,322,https://osm.org/relation/1682368,0.0,,inf,,,4623296.994079196
+Ursins,5932,https://osm.org/relation/1685169,0.0,,inf,,,3356845.6113680643
+Hettlingen,221,https://osm.org/relation/1682137,0.0,,inf,,,5900011.293915974
+Neckertal,3396,https://osm.org/relation/1683910,0.0,,inf,,,81841055.79034145
+Trun,3987,https://osm.org/relation/1684193,0.0,,inf,,,51901075.795580484
+Grosswangen,1086,https://osm.org/relation/1682846,0.0,,inf,,,19704550.59208312
+Härkingen,2402,https://osm.org/relation/1683529,0.0,,inf,,,5510325.518011662
+Degersheim,3401,https://osm.org/relation/1683872,0.0,,inf,,,13964713.476553371
+Klosters,3871,https://osm.org/relation/5817235,0.0,,inf,,,219813284.840132
+Trogen,3025,https://osm.org/relation/1683949,0.0,,inf,,,10023922.161735054
+Lützelflüh,955,https://osm.org/relation/1682544,0.0,,inf,,,21162207.909293454
+Grosshöchstetten,608,https://osm.org/relation/1682459,0.0,,inf,,,6929514.584458098
+Démoret,5912,https://osm.org/relation/1684951,0.0,,inf,,,4276807.340916352
+Lutzenberg,3033,https://osm.org/relation/1683903,0.0,,inf,,,1443596.0556781807
+Rorschacherberg,3216,https://osm.org/relation/1683928,0.0,,inf,,,7096467.070949989
+Sarmenstorf,4076,https://osm.org/relation/1684413,0.0,,inf,,,8305294.758557084
+Premier,5759,https://osm.org/relation/1685108,0.0,,inf,,,6119154.357716369
+Isenthal,1211,https://osm.org/relation/1683085,0.0,,inf,,,61670161.841144
+Kappel am Albis,6,https://osm.org/relation/1682151,0.0,,inf,,,7913690.963756507
+Grandson,5561,https://osm.org/relation/1684995,0.0,,inf,,,13791875.765322559
+Vully-les-Lacs,5464,https://osm.org/relation/1868690,0.0,,inf,,,34722740.74648738
+Villigen,4121,https://osm.org/relation/1684451,0.0,,inf,,,11218688.123485854
+Mellikon,4314,https://osm.org/relation/1684360,0.0,,inf,,,2702936.1933600237
+Vevey,5890,https://osm.org/relation/1685178,0.0,,inf,,,8567997.410000958
+Hünenberg,1703,https://osm.org/relation/1683143,0.0,,inf,,,18665327.410063524
+Eichberg,3252,https://osm.org/relation/1683876,0.0,,inf,,,5437359.253603665
+Alpthal,1361,https://osm.org/relation/1683054,0.0,,inf,,,22876126.232025743
+Arth,1362,https://osm.org/relation/1683058,0.0,,inf,,,48509196.66823066
+Adligenswil,1051,https://osm.org/relation/1682811,0.0,,inf,,,7198345.39484574
+Zwingen,2793,https://osm.org/relation/1683727,0.0,,inf,,,4606220.969499778
+Altikon,211,https://osm.org/relation/1682082,0.0,,inf,,,7695446.222987887
+Stetten (AG),4041,https://osm.org/relation/1684433,0.0,,inf,,,4412593.658263016
+Diegten,2884,https://osm.org/relation/1683640,0.0,,inf,,,9636854.452260723
+Leuzigen,388,https://osm.org/relation/1682533,0.0,,inf,,,10278918.517119028
+Schwadernau,748,https://osm.org/relation/1682654,0.0,,inf,,,4138949.952010585
+Bellwald,6052,https://osm.org/relation/1685273,0.0,,inf,,,13957153.055296557
+Valbirse,717,https://osm.org/relation/4449080,0.0,,inf,,,18684345.76094273
+Guttet-Feschel,6117,https://osm.org/relation/1685315,0.0,,inf,,,10428771.81803474
+Hofstetten bei Brienz,580,https://osm.org/relation/1682482,0.0,,inf,,,8774689.845065862
+Bätterkinden,533,https://osm.org/relation/1682401,0.0,,inf,,,10189319.668466002
+Coppet,5712,https://osm.org/relation/1684917,0.0,,inf,,,5860821.027822408
+Chiasso,5250,https://osm.org/relation/1684659,0.0,,inf,,,5331938.232133176
+Lussery-Villars,5487,https://osm.org/relation/1685037,0.0,,inf,,,3738136.6592401625
+Sommeri,4446,https://osm.org/relation/1684558,0.0,,inf,,,4215516.846494312
+Bülach,53,https://osm.org/relation/1682100,0.0,,inf,,,16092809.478042683
+Schwanden bei Brienz,592,https://osm.org/relation/1682655,0.0,,inf,,,7055076.531944845
+Luins,5858,https://osm.org/relation/1685035,0.0,,inf,,,2666664.5271575996
+Morbio Inferiore,5257,https://osm.org/relation/1684722,0.0,,inf,,,2263512.0027315374
+Berolle,5424,https://osm.org/relation/1684850,0.0,,inf,,,9608483.836458461
+Vuadens,2160,https://osm.org/relation/1683425,0.0,,inf,,,10444893.623827092
+Melide,5198,https://osm.org/relation/1684711,0.0,,inf,,,5192189.604376887
+Saint-Barthélemy (VD),5535,https://osm.org/relation/1685133,0.0,,inf,,,4123505.3519635964
+Saillon,6140,https://osm.org/relation/1685364,0.0,,inf,,,9067914.264246533
+Blenio,5049,https://osm.org/relation/1684630,0.0,,inf,,,201986782.45509082
+Aubonne,5422,https://osm.org/relation/1868681,0.0,,inf,,,14334541.59677196
+Ormont-Dessus,5411,https://osm.org/relation/1685083,0.0,,inf,,,61954997.4742602
+Bedretto,5063,https://osm.org/relation/1684624,0.0,,inf,,,75148127.71367265
+Habkern,579,https://osm.org/relation/1682467,0.0,,inf,,,51029431.52912996
+Raperswilen,4846,https://osm.org/relation/1684549,0.0,,inf,,,7685177.918963291
+Ehrendingen,4049,https://osm.org/relation/1684300,0.0,,inf,,,7286494.049420886
+La Neuveville,723,https://osm.org/relation/1682521,0.0,,inf,,,6775889.535366927
+Heiligenschwendi,927,https://osm.org/relation/1682471,0.0,,inf,,,5549692.803260312
+Les Planchettes,6422,https://osm.org/relation/1685511,0.0,,inf,,,11732924.223665206
+Etoy,5636,https://osm.org/relation/1684968,0.0,,inf,,,4916115.947158065
+Montcherand,5756,https://osm.org/relation/1685058,0.0,,inf,,,3068006.7665092763
+Baden,4021,https://osm.org/relation/1684261,0.0,,inf,,,13994564.721444022
+Zizers,3947,https://osm.org/relation/1684212,0.0,,inf,,,11032428.221535971
+Aarburg,4271,https://osm.org/relation/1684252,0.0,,inf,,,4415849.578480279
+Reitnau,4281,https://osm.org/relation/1684399,0.0,,inf,,,8022824.6713703405
+Chénens,2177,https://osm.org/relation/1683294,0.0,,inf,,,3940340.4892205093
+Freimettigen,607,https://osm.org/relation/1682445,0.0,,inf,,,2963323.1255341484
+Turbenthal,228,https://osm.org/relation/1682219,0.0,,inf,,,25218578.46736827
+Horrenbach-Buchen,932,https://osm.org/relation/1682484,0.0,,inf,,,17693553.637486536
+Wartau,3276,https://osm.org/relation/1683961,0.0,,inf,,,41715450.96074418
+Beckenried,1501,https://osm.org/relation/1683061,0.0,,inf,,,32988860.163535718
+Gossau (SG),3443,https://osm.org/relation/1683889,0.0,,inf,,,27507887.37887955
+Bournens,5472,https://osm.org/relation/1684864,0.0,,inf,,,3911741.6525579975
+Zuzwil (BE),557,https://osm.org/relation/1682738,0.0,,inf,,,3469128.404844225
+Waldkirch,3444,https://osm.org/relation/1683957,0.0,,inf,,,31341296.560279507
+Signau,907,https://osm.org/relation/1682664,0.0,,inf,,,22124953.30011124
+Burgdorf,404,https://osm.org/relation/1682397,0.0,,inf,,,15561724.108079167
+Bullet,5552,https://osm.org/relation/1684871,0.0,,inf,,,16803530.65352641
+Ermatingen,4646,https://osm.org/relation/1684517,0.0,,inf,,,10476426.085887132
+Thun,942,https://osm.org/relation/1682682,0.0,,inf,,,22155537.118011385
+Linden,614,https://osm.org/relation/1682536,0.0,,inf,,,13230088.300721934
+Embrach,56,https://osm.org/relation/1682118,0.0,,inf,,,12694819.266890688
+Böztal,4185,https://osm.org/relation/13622957,0.0,,inf,,,22310019.49473118
+Seehof,709,https://osm.org/relation/1682662,0.0,,inf,,,8422463.027047584
+Laconnex,6627,https://osm.org/relation/1685501,0.0,,inf,,,3831824.791286803
+Bretigny-sur-Morrens,5515,https://osm.org/relation/1684868,0.0,,inf,,,2867978.191310344
+Péry-La Heutte,450,https://osm.org/relation/1682611,0.0,,inf,,,23783441.235860355
+Mendrisio,5254,https://osm.org/relation/2888450,0.0,,inf,,,32313715.971466854
+Uesslingen-Buch,4616,https://osm.org/relation/1684565,0.0,,inf,,,14022619.660972351
+Collombey-Muraz,6152,https://osm.org/relation/1685291,0.0,,inf,,,29749454.30210933
+Münchwilen (AG),4172,https://osm.org/relation/1684378,0.0,,inf,,,2458634.392078998
+Faido,5072,https://osm.org/relation/1684675,0.0,,inf,,,132638347.56319842
+Mümliswil-Ramiswil,2428,https://osm.org/relation/1683553,0.0,,inf,,,35486836.392246544
+Bovernier,6131,https://osm.org/relation/1685282,0.0,,inf,,,13073775.102911979
+Aigle,5401,https://osm.org/relation/1684831,0.0,,inf,,,16410366.046421286
+Randa,6287,https://osm.org/relation/1685353,0.0,,inf,,,54494012.4185661
+Coeuve,6781,https://osm.org/relation/1685584,0.0,,inf,,,11627543.46364481
+Lengnau (BE),387,https://osm.org/relation/1682531,0.0,,inf,,,7408348.299415909
+La Praz,5758,https://osm.org/relation/1685011,0.0,,inf,,,5119684.946685544
+Fully,6133,https://osm.org/relation/1685308,0.0,,inf,,,37803740.0421215
+Echichens,5634,https://osm.org/relation/1868683,0.0,,inf,,,13272341.710022867
+Steckborn,4864,https://osm.org/relation/1684559,0.0,,inf,,,8784559.661308108
+Hefenhofen,4416,https://osm.org/relation/1684527,0.0,,inf,,,6083044.608194004
+Vuisternens-devant-Romont,2113,https://osm.org/relation/1683428,0.0,,inf,,,24037602.499352448
+Kriegstetten,2525,https://osm.org/relation/1683536,0.0,,inf,,,5373013.624745555
+Dägerlen,214,https://osm.org/relation/1682107,0.0,,inf,,,7955182.155285799
+Vaux-sur-Morges,5650,https://osm.org/relation/1685177,0.0,,inf,,,2101644.5489590717
+Vordemwald,4287,https://osm.org/relation/1684454,0.0,,inf,,,10128531.501249325
+Rapperswil-Jona,3340,https://osm.org/relation/1683921,0.0,,inf,,,31373205.166898597
+Wisen (SO),2502,https://osm.org/relation/1683589,0.0,,inf,,,4793851.629579765
+Corsier-sur-Vevey,5884,https://osm.org/relation/1684925,0.0,,inf,,,6744077.846530787
+Holziken,4136,https://osm.org/relation/1684330,0.0,,inf,,,2864288.501758605
+Erlinsbach (SO),2503,https://osm.org/relation/1683500,0.0,,inf,,,8870766.413499203
+La Rippe,5726,https://osm.org/relation/1685012,0.0,,inf,,,16591369.390402714
+Bönigen,572,https://osm.org/relation/1682403,0.0,,inf,,,15647236.002931623
+Ogens,5680,https://osm.org/relation/1685075,0.0,,inf,,,3402412.6316160313
+Cama,3831,https://osm.org/relation/1684055,0.0,,inf,,,15004006.00962894
+Niederweningen,91,https://osm.org/relation/1682173,0.0,,inf,,,6844353.229425323
+Steinach,3217,https://osm.org/relation/1683946,0.0,,inf,,,4507278.009712928
+La Côte-aux-Fées,6504,https://osm.org/relation/1685497,0.0,,inf,,,12827895.427772956
+Bubikon,112,https://osm.org/relation/1682095,0.0,,inf,,,11601995.689326014
+Teuffenthal (BE),940,https://osm.org/relation/1682680,0.0,,inf,,,4532061.360532638
+Le Vaud,5731,https://osm.org/relation/1685024,0.0,,inf,,,3107149.841436834
+Reinach (BL),2773,https://osm.org/relation/1683694,0.0,,inf,,,6971941.62751157
+Presinge,6635,https://osm.org/relation/1685525,0.0,,inf,,,4707067.98959701
+Olten,2581,https://osm.org/relation/1683566,0.0,,inf,,,11486162.109313747
+Seedorf (UR),1214,https://osm.org/relation/1683105,0.0,,inf,,,7254041.883867486
+Uerkheim,4286,https://osm.org/relation/1684442,0.0,,inf,,,7095792.102151519
+Flaach,28,https://osm.org/relation/1682123,0.0,,inf,,,10172518.665921137
+Teufen (AR),3024,https://osm.org/relation/1683947,0.0,,inf,,,15235433.572283471
+Münsterlingen,4691,https://osm.org/relation/1684546,0.0,,inf,,,5465839.174947768
+Stettlen,358,https://osm.org/relation/1682675,0.0,,inf,,,3501303.5842609773
+Chêne-Pâquier,5908,https://osm.org/relation/1684908,0.0,,inf,,,2108901.663741054
+Bürchen,6193,https://osm.org/relation/1685284,0.0,,inf,,,13442533.036427284
+Château-d'Oex,5841,https://osm.org/relation/1684905,0.0,,inf,,,113777856.95372331
+Haute-Sorne,6729,https://osm.org/relation/2759181,0.0,,inf,,,71038229.09925269
+Herznach-Ueken,4186,https://osm.org/relation/15073595,0.0,,inf,,,11380391.148197317
+Tannay,5729,https://osm.org/relation/1685161,0.0,,inf,,,3512978.4521438065
+Wallisellen,69,https://osm.org/relation/1682229,0.0,,inf,,,6420577.288208096
+Vérossaz,6220,https://osm.org/relation/1685402,0.0,,inf,,,14296231.911696928
+Itingen,2849,https://osm.org/relation/1683660,0.0,,inf,,,3129752.1606050837
+Engelberg,1402,https://osm.org/relation/1683067,0.0,,inf,,,74866510.15849215
+Oppligen,622,https://osm.org/relation/1682600,0.0,,inf,,,3401537.1385971666
+Chigny,5628,https://osm.org/relation/1684904,0.0,,inf,,,893085.6100405407
+Champvent,5905,https://osm.org/relation/1684885,0.0,,inf,,,9030667.220874695
+Soazza,3823,https://osm.org/relation/1684171,0.0,,inf,,,46427852.88539028
+Nesslau,3360,https://osm.org/relation/1683911,0.0,,inf,,,92700042.27328525
+Balm bei Günsberg,2541,https://osm.org/relation/1683477,0.0,,inf,,,5464379.472298292
+Rüegsau,956,https://osm.org/relation/1682635,0.0,,inf,,,15060520.244888447
+Hauenstein-Ifenthal,2491,https://osm.org/relation/1683517,0.0,,inf,,,5355151.910772985
+Broc,2124,https://osm.org/relation/1683278,0.0,,inf,,,10033312.37864688
+Ausserberg,6191,https://osm.org/relation/1685269,0.0,,inf,,,15003813.306229297
+Niederhelfenschwil,3423,https://osm.org/relation/1683913,0.0,,inf,,,16370517.537783498
+Buch (SH),2961,https://osm.org/relation/1683633,0.0,,inf,,,3783437.645979662
+Diessenhofen,4545,https://osm.org/relation/1684513,0.0,,inf,,,10061687.95793913
+Avully,6603,https://osm.org/relation/1685447,0.0,,inf,,,4621311.542609461
+Rohrbachgraben,339,https://osm.org/relation/1682625,0.0,,inf,,,6463217.255023354
+Huttwil,954,https://osm.org/relation/1682485,0.0,,inf,,,17235976.911860164
+Hausen am Albis,4,https://osm.org/relation/1682133,0.0,,inf,,,13602633.812404089
+Staufen,4210,https://osm.org/relation/1684431,0.0,,inf,,,3569563.4735023286
+Känerkinden,2850,https://osm.org/relation/1683662,0.0,,inf,,,1479884.9997010014
+Gempen,2474,https://osm.org/relation/1683507,0.0,,inf,,,5987406.471348229
+Grandcour,5817,https://osm.org/relation/1684993,0.0,,inf,,,10197497.288689736
+Safnern,746,https://osm.org/relation/1682642,0.0,,inf,,,5620085.9122923575
+Romainmôtier-Envy,5761,https://osm.org/relation/1685123,0.0,,inf,,,6980449.262841945
+Schleinikon,98,https://osm.org/relation/1682203,0.0,,inf,,,5677896.050234445
+Albula/Alvra,3542,https://osm.org/relation/4449887,0.0,,inf,,,93925515.24368967
+Trüllikon,40,https://osm.org/relation/1682218,0.0,,inf,,,9556375.398868749
+Dorénaz,6212,https://osm.org/relation/1685294,0.0,,inf,,,12579915.654593129
+Corminboeuf,2183,https://osm.org/relation/1683297,0.0,,inf,,,7231458.411619109
+Gottlieben,4651,https://osm.org/relation/1684524,0.0,,inf,,,323243.38478157384
+Wittnau,4181,https://osm.org/relation/1684463,0.0,,inf,,,11248595.103346558
+Rapperswil (BE),310,https://osm.org/relation/5817396,0.0,,inf,,,22579788.38555443
+Wäldi,4701,https://osm.org/relation/1684573,0.0,,inf,,,12210128.15733446
+Speicher,3023,https://osm.org/relation/1683940,0.0,,inf,,,8173483.541061748
+Andermatt,1202,https://osm.org/relation/1683057,0.0,,inf,,,62250958.30370555
+Dardagny,6620,https://osm.org/relation/1685479,0.0,,inf,,,8604360.190326555
+Versoix,6644,https://osm.org/relation/1685541,0.0,,inf,,,15152934.542119624
+Etagnières,5521,https://osm.org/relation/1684967,0.0,,inf,,,3777305.8143810467
+Hasle bei Burgdorf,406,https://osm.org/relation/1682469,0.0,,inf,,,21886392.564531345
+Paradiso,5210,https://osm.org/relation/1684735,0.0,,inf,,,2198662.269154343
+Rickenbach (ZH),225,https://osm.org/relation/1682195,0.0,,inf,,,6025770.168764411
+Wegenstetten,4262,https://osm.org/relation/1684457,0.0,,inf,,,7122580.084618733
+Jens,738,https://osm.org/relation/1682499,0.0,,inf,,,4581654.290521165
+Hallwil,4197,https://osm.org/relation/1684321,0.0,,inf,,,2183023.292139602
+Bürglen (TG),4911,https://osm.org/relation/1684512,0.0,,inf,,,11710711.366265913
+Sils im Domleschg,3640,https://osm.org/relation/1684168,0.0,,inf,,,9282204.065031573
+Merenschwand,4234,https://osm.org/relation/1684365,0.0,,inf,,,13517768.83769854
+Biberist,2513,https://osm.org/relation/1683482,0.0,,inf,,,12250453.042211618
+Illgau,1363,https://osm.org/relation/1683082,0.0,,inf,,,10954550.144613696
+Hohenrain,1032,https://osm.org/relation/1682874,0.0,,inf,,,23528352.380356506
+Mesocco,3822,https://osm.org/relation/1684118,0.0,,inf,,,164760493.28713945
+Ernen,6056,https://osm.org/relation/1685300,0.0,,inf,,,35372316.84462328
+Confignon,6618,https://osm.org/relation/1685472,0.0,,inf,,,2768035.24725924
+Kesswil,4426,https://osm.org/relation/1684535,0.0,,inf,,,4479775.195289801
+Ormont-Dessous,5410,https://osm.org/relation/1685082,0.0,,inf,,,63875322.78978771
+Dompierre (VD),5671,https://osm.org/relation/1684946,0.0,,inf,,,3211224.1405025194
+Brusino Arsizio,5160,https://osm.org/relation/1684638,0.0,,inf,,,6078350.695607565
+Grandval,694,https://osm.org/relation/1682456,0.0,,inf,,,8245546.668705743
+Tavannes,713,https://osm.org/relation/1682679,0.0,,inf,,,14773467.024878817
+Sâles,2152,https://osm.org/relation/1683407,0.0,,inf,,,18820237.356816303
+Neuheim,1705,https://osm.org/relation/1683145,0.0,,inf,,,7928107.273545522
+Oberentfelden,4010,https://osm.org/relation/1684384,0.0,,inf,,,7155116.466372332
+Stettfurt,4606,https://osm.org/relation/1684560,0.0,,inf,,,6366881.48760819
+Bosco/Gurin,5304,https://osm.org/relation/1684633,0.0,,inf,,,22042671.27864593
+Airolo,5061,https://osm.org/relation/1684612,0.0,,inf,,,94307904.6192554
+Muttenz,2770,https://osm.org/relation/1683677,0.0,,inf,,,16630070.57370998
+Lignerolle,5755,https://osm.org/relation/1685030,0.0,,inf,,,10611113.479257066
+Valeyres-sous-Rances,5763,https://osm.org/relation/1685171,0.0,,inf,,,6347550.709544669
+Oberweningen,93,https://osm.org/relation/1682180,0.0,,inf,,,4946612.667150944
+Epalinges,5584,https://osm.org/relation/1684959,0.0,,inf,,,4578944.491206041
+Lac de Neuchâtel (BE),9152,https://osm.org/relation/18625441,0.0,,inf,,,1945879.5060731256
+Meltingen,2620,https://osm.org/relation/1683549,0.0,,inf,,,5764673.893197755
+Belfaux,2175,https://osm.org/relation/1683274,0.0,,inf,,,8877164.447990725
+Seltisberg,2833,https://osm.org/relation/1683706,0.0,,inf,,,3562549.2425378477
+Schinznach,4125,https://osm.org/relation/3411171,0.0,,inf,,,12226673.670708617
+Orsières,6034,https://osm.org/relation/1685351,0.0,,inf,,,165072489.10441005
+Givrins,5720,https://osm.org/relation/1684987,0.0,,inf,,,3962398.6074165823
+Givisiez,2197,https://osm.org/relation/1683324,0.0,,inf,,,3456683.3584336415
+Burg im Leimental,2783,https://osm.org/relation/1683636,0.0,,inf,,,2843202.4573896145
+Wangen (SZ),1349,https://osm.org/relation/1683120,0.0,,inf,,,10996443.391676277
+Bubendorf,2823,https://osm.org/relation/1683632,0.0,,inf,,,10799591.816500027
+Seegräben,119,https://osm.org/relation/1682208,0.0,,inf,,,3774800.9397118497
+Kammersrohr,2549,https://osm.org/relation/1683531,0.0,,inf,,,950915.536972332
+Essertines-sur-Rolle,5856,https://osm.org/relation/1684965,0.0,,inf,,,6948011.96919619
+Herbligen,610,https://osm.org/relation/1682476,0.0,,inf,,,2756036.2341588386
+Mervelier,6715,https://osm.org/relation/1685615,0.0,,inf,,,9764779.834417135
+Basadingen-Schlattingen,4536,https://osm.org/relation/1684501,0.0,,inf,,,15657063.110784696
+Hermance,6625,https://osm.org/relation/1685492,0.0,,inf,,,4911671.578222979
+Saulcy,6722,https://osm.org/relation/1685628,0.0,,inf,,,7861603.840586633
+Böttstein,4303,https://osm.org/relation/1684287,0.0,,inf,,,7414727.084878377
+Wildberg,182,https://osm.org/relation/1682241,0.0,,inf,,,10562376.273111893
+Hallau,2971,https://osm.org/relation/1683654,0.0,,inf,,,15311747.31549026
+Wädenswil,293,https://osm.org/relation/1682244,0.0,,inf,,,43183420.5015353
+Kriechenwil,666,https://osm.org/relation/1682517,0.0,,inf,,,4739268.632973962
+Innertkirchen,784,https://osm.org/relation/1682491,0.0,,inf,,,236533136.88746184
+Saint-Gingolph,6155,https://osm.org/relation/1685365,0.0,,inf,,,24320784.157660652
+Eschenz,4806,https://osm.org/relation/1684518,0.0,,inf,,,11985479.508051606
+Lohn-Ammannsegg,2526,https://osm.org/relation/1683541,0.0,,inf,,,4476381.715487143
+Oetwil an der Limmat,246,https://osm.org/relation/1682183,0.0,,inf,,,2765729.0318914927
+Brienz (BE),573,https://osm.org/relation/1682391,0.0,,inf,,,48949528.10958958
+Orpund,744,https://osm.org/relation/1682601,0.0,,inf,,,3969783.8703337577
+Cottens (FR),2186,https://osm.org/relation/1683300,0.0,,inf,,,4970300.536243348
+Liestal,2829,https://osm.org/relation/1683670,0.0,,inf,,,18179745.057177067
+Fehraltorf,172,https://osm.org/relation/1682120,0.0,,inf,,,9476328.10311542
+Gerzensee,866,https://osm.org/relation/1682451,0.0,,inf,,,7809991.273948533
+Zeneggen,6299,https://osm.org/relation/1685405,0.0,,inf,,,7548710.920776502
+Mauren,7008,Not found in OSM,,,,,,
+Valeyres-sous-Montagny,5933,https://osm.org/relation/1685170,0.0,,inf,,,2280597.7515802965
+Dachsen,25,https://osm.org/relation/1682101,0.0,,inf,,,2701456.1783496775
+Bussy-sur-Moudon,5663,https://osm.org/relation/1684878,0.0,,inf,,,3119403.4793534162
+Islisberg,4084,https://osm.org/relation/1684334,0.0,,inf,,,1657944.5656832005
+Zielebach,556,https://osm.org/relation/1682736,0.0,,inf,,,1915541.801870592
+Rheinfelden,4258,https://osm.org/relation/1684403,0.0,,inf,,,16056560.278684607
+Eriz,924,https://osm.org/relation/1682430,0.0,,inf,,,21778100.91029875
+Villars-Sainte-Croix,5651,https://osm.org/relation/1685185,0.0,,inf,,,1651218.6189649545
+Avenches,5451,https://osm.org/relation/1868682,0.0,,inf,,,21096984.56417152
+Rothenthurm,1370,https://osm.org/relation/1683098,0.0,,inf,,,22747530.407632146
+Quinto,5079,https://osm.org/relation/1684746,0.0,,inf,,,92038802.34314378
+Ried-Brig,6008,https://osm.org/relation/1685358,0.0,,inf,,,47522542.38123655
+Buchs (AG),4003,https://osm.org/relation/1684283,0.0,,inf,,,5328221.493083199
+Bulle,2125,https://osm.org/relation/1683280,0.0,,inf,,,23865154.72122276
+Greppen,1056,https://osm.org/relation/1682840,0.0,,inf,,,5246146.997522645
+Bühl,734,https://osm.org/relation/1682405,0.0,,inf,,,2971070.089866618
+Ruswil,1098,https://osm.org/relation/1682914,0.0,,inf,,,45250481.6503272
+Gaiserwald,3442,https://osm.org/relation/1683882,0.0,,inf,,,12637995.974879721
+Anniviers,6252,https://osm.org/relation/1685266,0.0,,inf,,,243364645.3114529
+Corbières,2129,https://osm.org/relation/1683296,0.0,,inf,,,10760373.189839771
+Porrentruy,6800,https://osm.org/relation/1685622,0.0,,inf,,,14759495.680683307
+Trin,3734,https://osm.org/relation/1684192,0.0,,inf,,,47193215.365024395
+Ueberstorf,2308,https://osm.org/relation/1683413,0.0,,inf,,,16110519.335413937
+Boncourt,6774,https://osm.org/relation/1685574,0.0,,inf,,,9013614.580848766
+Yens,5655,https://osm.org/relation/1685205,0.0,,inf,,,9512058.880141368
+Beinwil am See,4131,https://osm.org/relation/1684264,0.0,,inf,,,5769920.062977515
+Bannwil,323,https://osm.org/relation/1682370,0.0,,inf,,,4777644.878101803
+Muri (AG),4236,https://osm.org/relation/1684371,0.0,,inf,,,12337713.583451688
+Schmerikon,3338,https://osm.org/relation/1683933,0.0,,inf,,,5976479.999252061
+Lauterbrunnen,584,https://osm.org/relation/1682529,0.0,,inf,,,164449681.00034696
+Bellikon,4022,https://osm.org/relation/1684265,0.0,,inf,,,4949241.56559408
+Gams,3272,https://osm.org/relation/1683883,0.0,,inf,,,22269160.012168378
+Siblingen,2953,https://osm.org/relation/1683707,0.0,,inf,,,9407494.79897707
+Möriken-Wildegg,4203,https://osm.org/relation/1684375,0.0,,inf,,,6597245.971959985
+La Sonnaz,2235,https://osm.org/relation/1683346,0.0,,inf,,,6958369.801718266
+Reigoldswil,2893,https://osm.org/relation/1683693,0.0,,inf,,,9249619.5137065
+Morrens (VD),5527,https://osm.org/relation/1685065,0.0,,inf,,,3666923.6722783106
+Arni (AG),4061,https://osm.org/relation/1684256,0.0,,inf,,,3377587.507839424
+Thürnen,2864,https://osm.org/relation/1683715,0.0,,inf,,,2260017.48975386
+Chexbres,5601,https://osm.org/relation/1684903,0.0,,inf,,,2146457.543925006
+Fürstenau,3633,https://osm.org/relation/1684084,0.0,,inf,,,1317400.2968603568
+Savièse,6265,https://osm.org/relation/1685372,0.0,,inf,,,70971067.41144598
+Agarn,6101,https://osm.org/relation/1685264,0.0,,inf,,,7647880.242227856
+Unterschächen,1219,https://osm.org/relation/1683118,0.0,,inf,,,80280225.95754878
+Villars-Epeney,5935,https://osm.org/relation/1685183,0.0,,inf,,,863362.6964730142
+Grône,6238,https://osm.org/relation/1685314,0.0,,inf,,,20741569.975714702
+Hüniken,2524,https://osm.org/relation/1683530,0.0,,inf,,,1018875.5560469803
+Sils im Engadin/Segl,3789,https://osm.org/relation/1684169,0.0,,inf,,,63569999.45458428
+Meierskappel,1064,https://osm.org/relation/1682897,0.0,,inf,,,9236484.545540014
+Sonceboz-Sombeval,444,https://osm.org/relation/1682667,0.0,,inf,,,14960695.05707346
+Chêne-Bougeries,6612,https://osm.org/relation/1685465,0.0,,inf,,,4140576.4118678197
+Vallon,2045,https://osm.org/relation/1683416,0.0,,inf,,,3511608.5934316735
+Roches (BE),704,https://osm.org/relation/1682622,0.0,,inf,,,9066040.59805432
+Bellevue,6606,https://osm.org/relation/1685450,0.0,,inf,,,6347190.388566209
+Champoz,683,https://osm.org/relation/1682408,0.0,,inf,,,7172516.329843355
+Bäretswil,111,https://osm.org/relation/1682099,0.0,,inf,,,22195114.037454426
+Sullens,5501,https://osm.org/relation/1685157,0.0,,inf,,,3909540.9888645336
+Chavornay,5749,https://osm.org/relation/1684895,0.0,,inf,,,19283069.649107188
+Chêne-Bourg,6613,https://osm.org/relation/1685466,0.0,,inf,,,1280112.1927287716
+Bursinel,5852,https://osm.org/relation/1684872,0.0,,inf,,,7704199.399030835
+Trient,6142,https://osm.org/relation/1685383,0.0,,inf,,,39667300.45303604
+Buchs (SG),3271,https://osm.org/relation/1683869,0.0,,inf,,,15947714.484127916
+La Tour-de-Peilz,5889,https://osm.org/relation/1685014,0.0,,inf,,,11329466.158289364
+Tübach,3218,https://osm.org/relation/1683950,0.0,,inf,,,1991644.1541019708
+Stalden (VS),6293,https://osm.org/relation/1685379,0.0,,inf,,,10508468.899762388
+Thierachern,941,https://osm.org/relation/1682681,0.0,,inf,,,7527292.840048948
+Romont (BE),442,https://osm.org/relation/1682626,0.0,,inf,,,7021326.132636302
+Köniz,355,https://osm.org/relation/1682518,0.0,,inf,,,51013069.685158186
+Churwalden,3911,https://osm.org/relation/1684064,0.0,,inf,,,48527510.92553366
+Gilly,5857,https://osm.org/relation/1684984,0.0,,inf,,,7756496.159069651
+Brusio,3551,https://osm.org/relation/1684052,0.0,,inf,,,46320500.27321039
+Krattigen,566,https://osm.org/relation/1682515,0.0,,inf,,,6207952.684138557
+Thusis,3668,https://osm.org/relation/1684187,0.0,,inf,,,6814540.776290771
+Riva San Vitale,5263,https://osm.org/relation/1684747,0.0,,inf,,,7602041.281687224
+Lüscherz,497,https://osm.org/relation/1682542,0.0,,inf,,,5434077.647490017
+Rebstein,3255,https://osm.org/relation/1683922,0.0,,inf,,,4394185.535090225
+Hausen (AG),4100,https://osm.org/relation/1684323,0.0,,inf,,,3205689.379721649
+Delémont,6711,https://osm.org/relation/1685596,0.0,,inf,,,21988817.330826923
+Pfäffikon,177,https://osm.org/relation/1682189,0.0,,inf,,,19560849.1259432
+Rubigen,623,https://osm.org/relation/1682627,0.0,,inf,,,6919475.601021768
+Marchissy,5430,https://osm.org/relation/1685041,0.0,,inf,,,11982999.58073951
+Disentis/Mustér,3982,https://osm.org/relation/1684070,0.0,,inf,,,90977805.98404042
+Oberkirch,1095,https://osm.org/relation/1682903,0.0,,inf,,,10954930.95900252
+Birrhard,4093,https://osm.org/relation/1684274,0.0,,inf,,,2991928.2971504577
+Gletterens,2022,https://osm.org/relation/1683325,0.0,,inf,,,7115447.325210591
+Kleinlützel,2619,https://osm.org/relation/1683535,0.0,,inf,,,16318838.772990264
+Crans (VD),5713,https://osm.org/relation/1684928,0.0,,inf,,,8858061.400804987
+Rorbas,68,https://osm.org/relation/1682197,0.0,,inf,,,4436076.1272961
+Reiden,1140,https://osm.org/relation/1682908,0.0,,inf,,,27038352.729351677
+Coinsins,5710,https://osm.org/relation/1684910,0.0,,inf,,,2906147.6180734304
+Martigny,6136,https://osm.org/relation/1685332,0.0,,inf,,,32592887.798773974
+Oberriet (SG),3254,https://osm.org/relation/1683917,0.0,,inf,,,34608483.41964243
+Kemmental,4666,https://osm.org/relation/1684534,0.0,,inf,,,25042518.80265211
+Lauerz,1365,https://osm.org/relation/1683089,0.0,,inf,,,9185084.935837878
+Froideville,5523,https://osm.org/relation/1684980,0.0,,inf,,,7085948.199858943
+Mauborget,5562,https://osm.org/relation/1685045,0.0,,inf,,,5503700.6353182355
+Binn,6054,https://osm.org/relation/1685275,0.0,,inf,,,65041086.837305866
+Courtételle,6710,https://osm.org/relation/1685594,0.0,,inf,,,13564312.638614334
+Schnottwil,2461,https://osm.org/relation/1683573,0.0,,inf,,,7165036.4641444655
+Oberwil-Lieli,4074,https://osm.org/relation/1684393,0.0,,inf,,,5349939.530921056
+Ronco sopra Ascona,5125,https://osm.org/relation/1684748,0.0,,inf,,,8897480.934953062
+Triesen,7002,Not found in OSM,,,,,,
+Lengwil,4683,https://osm.org/relation/1684539,0.0,,inf,,,8886451.190829495
+Steg-Hohtenn,6204,https://osm.org/relation/1685381,0.0,,inf,,,14028735.978156053
+Lax,6061,https://osm.org/relation/1685325,0.0,,inf,,,5418839.720131863
+Wohlenschwil,4046,https://osm.org/relation/1684466,0.0,,inf,,,4389935.843212528
+Häggenschwil,3201,https://osm.org/relation/1683897,0.0,,inf,,,8890839.082491647
+Eggersriet,3212,https://osm.org/relation/1683875,0.0,,inf,,,8902655.877241861
+Belprahon,681,https://osm.org/relation/1682376,0.0,,inf,,,3814673.0176254776
+Icogne,6239,https://osm.org/relation/1685317,0.0,,inf,,,24851006.595663078
+Weiach,102,https://osm.org/relation/1682233,0.0,,inf,,,9583147.803466354
+Landiswil,613,https://osm.org/relation/1682523,0.0,,inf,,,10256123.115936836
+Heimiswil,407,https://osm.org/relation/1682474,0.0,,inf,,,22178703.495089367
+Lonay,5638,https://osm.org/relation/1685031,0.0,,inf,,,3714809.0595589955
+Gsteigwiler,577,https://osm.org/relation/1682461,0.0,,inf,,,7017655.301906492
+Yverdon-les-Bains,5938,https://osm.org/relation/1868691,0.0,,inf,,,15023015.939199682
+Courchapoix,6706,https://osm.org/relation/1685587,0.0,,inf,,,6393051.743244481
+Kirchdorf (BE),872,https://osm.org/relation/1682510,0.0,,inf,,,14620461.165454373
+Ballaigues,5744,https://osm.org/relation/1684840,0.0,,inf,,,9054379.620560598
+Wauwil,1146,https://osm.org/relation/1682928,0.0,,inf,,,2963372.0855107736
+Obergoms,6076,https://osm.org/relation/1685350,0.0,,inf,,,155967357.27507326
+Ried bei Kerzers,2276,https://osm.org/relation/1683388,0.0,,inf,,,7558748.943013535
+Teufenthal (AG),4145,https://osm.org/relation/1684437,0.0,,inf,,,3569070.3152011377
+Leuk,6110,https://osm.org/relation/1685328,0.0,,inf,,,55145144.10568001
+Oberuzwil,3407,https://osm.org/relation/1683918,0.0,,inf,,,14083604.603599777
+Eiken,4161,https://osm.org/relation/1684301,0.0,,inf,,,7084061.424243027
+Crémines,691,https://osm.org/relation/1682417,0.0,,inf,,,9478749.877141295
+Stabio,5266,https://osm.org/relation/1684761,0.0,,inf,,,6151834.635389105
+Hittnau,173,https://osm.org/relation/1682140,0.0,,inf,,,12967987.970567146
+Chevilly,5476,https://osm.org/relation/1684901,0.0,,inf,,,3887968.1404617294
+Feuerthalen,27,https://osm.org/relation/1682121,0.0,,inf,,,2482845.3092524777
+Rheineck,3235,https://osm.org/relation/1683925,0.0,,inf,,,2204691.6320113856
+Lovatens,5674,https://osm.org/relation/1685033,0.0,,inf,,,3469915.860918996
+Knonau,7,https://osm.org/relation/1682155,0.0,,inf,,,6467819.268224467
+Niederried bei Interlaken,588,https://osm.org/relation/1682577,0.0,,inf,,,4378236.468061219
+Chardonne,5882,https://osm.org/relation/1684888,0.0,,inf,,,15366262.34777525
+Wald (ZH),120,https://osm.org/relation/1682228,0.0,,inf,,,25261330.281498272
+Dierikon,1053,https://osm.org/relation/1682823,0.0,,inf,,,2775156.7632624274
+Merishausen,2936,https://osm.org/relation/1683676,0.0,,inf,,,17559391.5992546
+Willisau,1151,https://osm.org/relation/1682932,0.0,,inf,,,47218946.69212269
+Schongau,1041,https://osm.org/relation/1682918,0.0,,inf,,,12427461.176635595
+Lostorf,2493,https://osm.org/relation/1683543,0.0,,inf,,,13245324.72590668
+Wyssachen,960,https://osm.org/relation/1682734,0.0,,inf,,,11701130.550287364
+Hellikon,4251,https://osm.org/relation/1684324,0.0,,inf,,,7043601.694846293
+Daillens,5480,https://osm.org/relation/1684940,0.0,,inf,,,5519657.550803805
+Sauge,449,https://osm.org/relation/3411230,0.0,,inf,,,13457700.93431828
+Corsier (GE),6619,https://osm.org/relation/1685475,0.0,,inf,,,4292795.2353918
+Aeschi bei Spiez,562,https://osm.org/relation/1682360,0.0,,inf,,,30991088.08592442
+Schupfart,4259,https://osm.org/relation/1684421,0.0,,inf,,,7038968.854040829
+Ettiswil,1128,https://osm.org/relation/1682834,0.0,,inf,,,12582077.605026692
+Samnaun,3752,https://osm.org/relation/1684151,0.0,,inf,,,56285124.04362747
+Mägenwil,4032,https://osm.org/relation/1684372,0.0,,inf,,,3484810.0979859573
+Ennetbaden,4026,https://osm.org/relation/1684304,0.0,,inf,,,2109517.9640157893
+Bière,5425,https://osm.org/relation/1684855,0.0,,inf,,,25053847.12666506
+Zell (LU),1150,https://osm.org/relation/1682934,0.0,,inf,,,13903861.255868815
+Egolzwil,1127,https://osm.org/relation/1682827,0.0,,inf,,,4180235.9344629385
+Santa Maria in Calanca,3810,https://osm.org/relation/1684153,0.0,,inf,,,9313585.311904183
+Vals,3603,https://osm.org/relation/1684202,0.0,,inf,,,175564820.71977973
+Greifensee,9040,Not found in OSM,,,,,,
+Nottwil,1094,https://osm.org/relation/1682902,0.0,,inf,,,14834590.536793754
+Bielersee (BE),9149,https://osm.org/relation/1682381,0.0,,inf,,,37721102.948603496
+Egg,192,https://osm.org/relation/1682113,0.0,,inf,,,14527168.746577479
+Urtenen-Schönbühl,551,https://osm.org/relation/1682702,0.0,,inf,,,7188802.905320311
+Bleienbach,324,https://osm.org/relation/1682383,0.0,,inf,,,5693953.587531455
+Prez,2237,https://osm.org/relation/10523738,0.0,,inf,,,16038071.32980066
+Hochwald,2475,https://osm.org/relation/1683523,0.0,,inf,,,8348018.598397981
+Grellingen,2786,https://osm.org/relation/1683651,0.0,,inf,,,3294710.78560438
+Denges,5632,https://osm.org/relation/1684943,0.0,,inf,,,1654028.4171249066
+Amlikon-Bissegg,4881,https://osm.org/relation/1684498,0.0,,inf,,,14452627.31492012
+Amriswil,4461,https://osm.org/relation/1684499,0.0,,inf,,,19014131.94587949
+Bünzen,4229,https://osm.org/relation/1684289,0.0,,inf,,,5770831.236727953
+Vendlincourt,6806,https://osm.org/relation/1685634,0.0,,inf,,,9177491.368085293
+Echandens,5633,https://osm.org/relation/1684953,0.0,,inf,,,3879912.990318531
+Fideris,3861,https://osm.org/relation/1684077,0.0,,inf,,,25355415.525111757
+Attinghausen,1203,https://osm.org/relation/1683059,0.0,,inf,,,46890572.79000739
+Renan (BE),441,https://osm.org/relation/1682618,0.0,,inf,,,12628256.130193384
+Emmetten,1504,https://osm.org/relation/1683066,0.0,,inf,,,28490849.7532034
+Münchwilen (TG),4746,https://osm.org/relation/1684545,0.0,,inf,,,7812929.025507543
+Genève,6621,https://osm.org/relation/1685488,0.0,,inf,,,18290896.612653956
+Männedorf,155,https://osm.org/relation/1682167,0.0,,inf,,,8101157.464706549
+Henggart,31,https://osm.org/relation/1682135,0.0,,inf,,,3032518.3494386566
+Lalden,6286,https://osm.org/relation/1685324,0.0,,inf,,,1301482.9594698513
+Hüntwangen,61,https://osm.org/relation/1682147,0.0,,inf,,,4907988.507302876
+Soubey,6759,https://osm.org/relation/1685629,0.0,,inf,,,13462230.090210896
+Arbedo-Castione,5001,https://osm.org/relation/1684616,0.0,,inf,,,21291845.879274733
+Provence,5566,https://osm.org/relation/1685110,0.0,,inf,,,31862823.203071292
+Chéserex,5709,https://osm.org/relation/1684907,0.0,,inf,,,10570824.904695496
+Maienfeld,3953,https://osm.org/relation/1684110,0.0,,inf,,,32262932.663213357
+Romanel-sur-Morges,5645,https://osm.org/relation/1685126,0.0,,inf,,,1758118.9458486957
+Hägendorf,2579,https://osm.org/relation/1683528,0.0,,inf,,,13934371.844992418
+Stäfa,158,https://osm.org/relation/1682214,0.0,,inf,,,20132199.034172952
+Mutrux,5563,https://osm.org/relation/1685068,0.0,,inf,,,3230507.846542942
+Uznach,3339,https://osm.org/relation/1683953,0.0,,inf,,,7535842.703841644
+Lully (FR),2025,https://osm.org/relation/1683355,0.0,,inf,,,5478397.187222252
+Gonten,3102,https://osm.org/relation/1683888,0.0,,inf,,,24727375.103469953
+Welschenrohr-Gänsbrunnen,2430,https://osm.org/relation/1683587,0.0,,inf,,,24461668.69873413
+Onsernone,5136,https://osm.org/relation/6155156,0.0,,inf,,,105377068.31453317
+Klingnau,4309,https://osm.org/relation/1684342,0.0,,inf,,,6716165.631882178
+Ettingen,2768,https://osm.org/relation/1683646,0.0,,inf,,,6321431.379168189
+Metzerlen-Mariastein,2477,https://osm.org/relation/1683551,0.0,,inf,,,8481087.927311752
+Egerkingen,2401,https://osm.org/relation/1683498,0.0,,inf,,,6948396.23907448
+Villars-sur-Glâne,2228,https://osm.org/relation/1683420,0.0,,inf,,,5480377.491716052
+Wohlen (AG),4082,https://osm.org/relation/1684464,0.0,,inf,,,12476335.115305377
+Bennwil,2882,https://osm.org/relation/1683621,0.0,,inf,,,6531520.580432594
+Oberbuchsiten,2406,https://osm.org/relation/1683560,0.0,,inf,,,9387466.026675763
+Villeret,448,https://osm.org/relation/1682707,0.0,,inf,,,16234234.615413457
+Zwischbergen,6011,https://osm.org/relation/1685407,0.0,,inf,,,86039304.33265989
+Langenbruck,2888,https://osm.org/relation/1683664,0.0,,inf,,,15664971.01148224
+Magden,4253,https://osm.org/relation/1684356,0.0,,inf,,,11014690.65208659
+Donneloye,5913,https://osm.org/relation/1684947,0.0,,inf,,,9009068.785469651
+Scuol,3762,https://osm.org/relation/4447223,0.0,,inf,,,438599661.6581574
+Madulain,3783,https://osm.org/relation/1684109,0.0,,inf,,,8403887.043153973
+Cudrefin,5456,https://osm.org/relation/1684936,0.0,,inf,,,31892340.008968472
+Orbe,5757,https://osm.org/relation/1685080,0.0,,inf,,,12042979.285090065
+Puidoux,5607,https://osm.org/relation/1685113,0.0,,inf,,,33123020.09387733
+Cossonay,5477,https://osm.org/relation/1684926,0.0,,inf,,,8284857.620193314
+Bretzwil,2883,https://osm.org/relation/1683630,0.0,,inf,,,7331046.771536773
+Schaan,7005,Not found in OSM,,,,,,
+Le Pâquier (FR),2145,https://osm.org/relation/1683353,0.0,,inf,,,4492843.230895641
+Marly,2206,https://osm.org/relation/1683358,0.0,,inf,,,7720695.721867555
+Hüttwilen,4821,https://osm.org/relation/1684533,0.0,,inf,,,17660741.496941216
+Luterbach,2527,https://osm.org/relation/1683544,0.0,,inf,,,4524534.56066076
+Plasselb,2300,https://osm.org/relation/1683379,0.0,,inf,,,18157895.930024244
+Grancy,5485,https://osm.org/relation/1684992,0.0,,inf,,,5666011.794024963
+Rüschegg,853,https://osm.org/relation/1682637,0.0,,inf,,,57296577.83721481
+Staldenried,6294,https://osm.org/relation/1685380,0.0,,inf,,,14278203.356470339
+Collonge-Bellerive,6616,https://osm.org/relation/1685469,0.0,,inf,,,10692133.02062914
+Lengnau (AG),4312,https://osm.org/relation/1684350,0.0,,inf,,,12666350.980422918
+Payerne,5822,https://osm.org/relation/1685094,0.0,,inf,,,24177457.326184385
+Göschenen,1208,https://osm.org/relation/1683079,0.0,,inf,,,104146224.3747991
+Aesch (LU),1021,https://osm.org/relation/1682812,0.0,,inf,,,5799442.915094922
+Wahlen,2792,https://osm.org/relation/1683718,0.0,,inf,,,5409078.295843678
+Cartigny,6609,https://osm.org/relation/1685460,0.0,,inf,,,4383871.009397547
+Lachen,1344,https://osm.org/relation/1683088,0.0,,inf,,,4340747.781787171
+Neuenkirch,1093,https://osm.org/relation/1682901,0.0,,inf,,,26268251.198948994
+Oberhallau,2972,https://osm.org/relation/1683685,0.0,,inf,,,6033265.755062398
+Grüsch,3961,https://osm.org/relation/1684086,0.0,,inf,,,43298096.268981256
+Einsiedeln,1301,https://osm.org/relation/1683065,0.0,,inf,,,109744078.51822172
+Dornach,2473,https://osm.org/relation/1683495,0.0,,inf,,,5786879.945613599
+Tresa,5239,https://osm.org/relation/12597254,0.0,,inf,,,11182605.078186838
+Derendingen,2517,https://osm.org/relation/1683494,0.0,,inf,,,5624657.897677024
+Weesen,3316,https://osm.org/relation/1683963,0.0,,inf,,,5745444.889602446
+Fischbach-Göslikon,4067,https://osm.org/relation/1684307,0.0,,inf,,,3068607.025444849
+Morges,5642,https://osm.org/relation/1685064,0.0,,inf,,,13576388.527977739
+Busswil bei Melchnau,325,https://osm.org/relation/1682399,0.0,,inf,,,2861837.911193739
+Sirnach,4761,https://osm.org/relation/1684557,0.0,,inf,,,12386299.681700837
+Boswil,4228,https://osm.org/relation/1684277,0.0,,inf,,,11775409.458842106
+Brione sopra Minusio,5096,https://osm.org/relation/1684636,0.0,,inf,,,3850100.076207295
+Feldbrunnen-St. Niklaus,2544,https://osm.org/relation/1683504,0.0,,inf,,,2510741.808733166
+Stans,1509,https://osm.org/relation/1683112,0.0,,inf,,,11082816.573951988
+Mettmenstetten,9,https://osm.org/relation/1682166,0.0,,inf,,,13025221.851123502
+Orselina,5121,https://osm.org/relation/1684732,0.0,,inf,,,1945709.9339455792
+Niederbipp,981,https://osm.org/relation/1682574,0.0,,inf,,,19760263.037745923
+Lyssach,415,https://osm.org/relation/1682541,0.0,,inf,,,6046392.575770401
+Dörflingen,2915,https://osm.org/relation/1683644,0.0,,inf,,,5824999.113865792
+Rüeggisberg,880,https://osm.org/relation/1682634,0.0,,inf,,,31928981.742152695
+Escholzmatt-Marbach,1010,https://osm.org/relation/2741953,0.0,,inf,,,106393782.69410267
+Russin,6637,https://osm.org/relation/1685528,0.0,,inf,,,4909149.1202029735
+Tafers,2306,https://osm.org/relation/12120617,0.0,,inf,,,41337920.40838915
+Kaiseraugst,4252,https://osm.org/relation/1684336,0.0,,inf,,,4913203.234540792
+Lufingen,63,https://osm.org/relation/1682161,0.0,,inf,,,5181562.1838324815
+Cugy (FR),2011,https://osm.org/relation/1683306,0.0,,inf,,,9879092.651414791
+Buttwil,4230,https://osm.org/relation/1684285,0.0,,inf,,,4540956.9995733835
+Mettauertal,4184,https://osm.org/relation/1684366,0.0,,inf,,,21594589.296439204
+Ropraz,5798,https://osm.org/relation/1685127,0.0,,inf,,,4692166.339386946
+Lyss,306,https://osm.org/relation/1682540,0.0,,inf,,,14826893.105584385
+Flawil,3402,https://osm.org/relation/1683879,0.0,,inf,,,11466747.527135076
+La Brillaz,2234,https://osm.org/relation/1683343,0.0,,inf,,,10312678.124783056
+Hospental,1210,https://osm.org/relation/1683081,0.0,,inf,,,35167331.80804577
+Chamblon,5904,https://osm.org/relation/1684882,0.0,,inf,,,2859444.5023902077
+Curtilles,5669,https://osm.org/relation/1684939,0.0,,inf,,,4961249.871603152
+Stammheim,292,https://osm.org/relation/9173171,0.0,,inf,,,23957027.52575681
+Zufikon,4083,https://osm.org/relation/1684474,0.0,,inf,,,4806378.332739175
+Oberrieden,137,https://osm.org/relation/1682178,0.0,,inf,,,4341672.300310678
+Schönenbuch,2774,https://osm.org/relation/1683705,0.0,,inf,,,1344543.6763944335
+Auenstein,4091,https://osm.org/relation/1684258,0.0,,inf,,,5686579.832317698
+Willadingen,423,https://osm.org/relation/1682726,0.0,,inf,,,2165932.4938726714
+Beatenberg,571,https://osm.org/relation/1682372,0.0,,inf,,,29560586.687771674
+Fribourg,2196,https://osm.org/relation/1683318,0.0,,inf,,,9287020.206219481
+Eppenberg-Wöschnau,2574,https://osm.org/relation/1683499,0.0,,inf,,,1811088.1063096276
+Crésuz,2130,https://osm.org/relation/1683305,0.0,,inf,,,1781085.112189418
+Attiswil,971,https://osm.org/relation/1682367,0.0,,inf,,,7647633.721641491
+Remaufens,2333,https://osm.org/relation/1683386,0.0,,inf,,,5905462.691000725
+Préverenges,5643,https://osm.org/relation/1685111,0.0,,inf,,,10122380.101634778
+Fischenthal,114,https://osm.org/relation/1682122,0.0,,inf,,,30257416.71511845
+Ligerz,740,https://osm.org/relation/1682534,0.0,,inf,,,1797646.2489165019
+La Verrerie,2338,https://osm.org/relation/1683347,0.0,,inf,,,13433309.768948955
+Les Genevez (JU),6748,https://osm.org/relation/1685613,0.0,,inf,,,13626531.084111424
+Alto Malcantone,5237,https://osm.org/relation/1684613,0.0,,inf,,,21921499.51118114
+Ergisch,6104,https://osm.org/relation/1685299,0.0,,inf,,,29533376.746594127
+Aedermannsdorf,2421,https://osm.org/relation/1683473,0.0,,inf,,,12913784.22839816
+Arbon,4401,https://osm.org/relation/1684500,0.0,,inf,,,6109860.528114069
+Châtel-sur-Montsalvens,2128,https://osm.org/relation/1683291,0.0,,inf,,,2041088.1335409158
+Oberbipp,983,https://osm.org/relation/1682585,0.0,,inf,,,8453125.049521422
+Evolène,6083,https://osm.org/relation/1685303,0.0,,inf,,,209948434.11857152
+Homburg,4816,https://osm.org/relation/1684530,0.0,,inf,,,24126889.263305772
+Oberburg,418,https://osm.org/relation/1682586,0.0,,inf,,,11664810.160428097
+Eggiwil,901,https://osm.org/relation/1682427,0.0,,inf,,,60298473.98418094
+Lindau,176,https://osm.org/relation/1682160,0.0,,inf,,,11988314.468506932
+Oeschgen,4175,https://osm.org/relation/1684394,0.0,,inf,,,4379233.69075919
+Kaltbrunn,3313,https://osm.org/relation/1683899,0.0,,inf,,,18641515.86015787
+Breggia,5269,https://osm.org/relation/1684634,0.0,,inf,,,25479599.277653698
+Bister,6172,https://osm.org/relation/1685277,0.0,,inf,,,5806669.95462303
+Bettwil,4227,https://osm.org/relation/1684270,0.0,,inf,,,4247140.326264045
+Schwarzenburg,855,https://osm.org/relation/1682656,0.0,,inf,,,44806147.20227575
+Hasliberg,783,https://osm.org/relation/1682470,0.0,,inf,,,41781314.611679636
+Wiedlisbach,995,https://osm.org/relation/1682721,0.0,,inf,,,7503820.329087049
+Rüfenach,4112,https://osm.org/relation/1684410,0.0,,inf,,,4169503.456778832
+Roggwil (BE),337,https://osm.org/relation/1682623,0.0,,inf,,,7842419.221781631
+Rudolfstetten-Friedlisberg,4075,https://osm.org/relation/1684408,0.0,,inf,,,4911804.721989778
+Matran,2208,https://osm.org/relation/1683361,0.0,,inf,,,2913949.1628662357
+Horriwil,2523,https://osm.org/relation/1683526,0.0,,inf,,,2636186.917464563
+Soral,6639,https://osm.org/relation/1685533,0.0,,inf,,,2932331.68640711
+Bolken,2514,https://osm.org/relation/1683485,0.0,,inf,,,2117214.8899512347
+Bremgarten bei Bern,353,https://osm.org/relation/1682389,0.0,,inf,,,1897887.0966509979
+Conters im Prättigau,3881,https://osm.org/relation/1684065,0.0,,inf,,,18397066.452292286
+Gampelen,495,https://osm.org/relation/1682449,0.0,,inf,,,10844857.600328678
+Steinhausen,1708,https://osm.org/relation/1683148,0.0,,inf,,,5046241.775301416
+Erlinsbach (AG),4005,https://osm.org/relation/1684305,0.0,,inf,,,9853733.852848025
+Wolfenschiessen,1511,https://osm.org/relation/1683122,0.0,,inf,,,92696680.16722868
+Oberdorf (SO),2553,https://osm.org/relation/1683561,0.0,,inf,,,11913215.91231743
+Oberwil (BL),2771,https://osm.org/relation/1683686,0.0,,inf,,,7884100.296022323
+Trasadingen,2973,https://osm.org/relation/1683717,0.0,,inf,,,4138578.6106962115
+Ferrera,3713,https://osm.org/relation/1684076,0.0,,inf,,,75014121.69221903
+Silvaplana,3790,https://osm.org/relation/1684170,0.0,,inf,,,44779328.09815217
+Niederbüren,3422,https://osm.org/relation/1683912,0.0,,inf,,,15837709.102903124
+Campo (Vallemaggia),5307,https://osm.org/relation/1684646,0.0,,inf,,,43268639.64184281
+Dallenwil,1503,https://osm.org/relation/1683064,0.0,,inf,,,15474955.708521929
+Spiez,768,https://osm.org/relation/1682672,0.0,,inf,,,18435274.043522995
+Soyhières,6724,https://osm.org/relation/1685631,0.0,,inf,,,7501226.11897098
+Oberglatt,92,https://osm.org/relation/1682177,0.0,,inf,,,8247774.621877393
+Blauen,2781,https://osm.org/relation/1683627,0.0,,inf,,,7124447.161513256
+Niedermuhlern,877,https://osm.org/relation/1682576,0.0,,inf,,,7255831.844226644
+Tobel-Tägerschen,4776,https://osm.org/relation/1684563,0.0,,inf,,,7104740.474617805
+Himmelried,2618,https://osm.org/relation/1683522,0.0,,inf,,,6022458.652503606
+Orzens,5925,https://osm.org/relation/1685087,0.0,,inf,,,4196321.358099333
+Schüpfheim,1008,https://osm.org/relation/1682921,0.0,,inf,,,38376719.29586185
+Dürrenroth,952,https://osm.org/relation/1682426,0.0,,inf,,,14124659.901168898
+Balsthal,2422,https://osm.org/relation/1683478,0.0,,inf,,,15709323.825344682
+Rütschelen,340,https://osm.org/relation/1682640,0.0,,inf,,,3981718.888111887
+Stocken-Höfen,770,https://osm.org/relation/3411388,0.0,,inf,,,14219164.886386072
+Leytron,6135,https://osm.org/relation/1685330,0.0,,inf,,,26829351.498569723
+Lavizzara,5323,https://osm.org/relation/1684694,0.0,,inf,,,187466875.2365863
+Trimmis,3945,https://osm.org/relation/1684191,0.0,,inf,,,42870598.492648385
+Büren an der Aare,383,https://osm.org/relation/1682406,0.0,,inf,,,12622770.006353484
+Ardon,6021,https://osm.org/relation/1685268,0.0,,inf,,,20398340.19521638
+Langnau im Emmental,902,https://osm.org/relation/1682525,0.0,,inf,,,48363181.88389879
+Sempach,1102,https://osm.org/relation/1682922,0.0,,inf,,,11676071.003420921
+Bourrignon,6703,https://osm.org/relation/1685576,0.0,,inf,,,13548610.010061128
+Pratteln,2831,https://osm.org/relation/1683690,0.0,,inf,,,10705978.345117075
+Breitenbach,2613,https://osm.org/relation/1683487,0.0,,inf,,,6801340.799908321
+Sargans,3296,https://osm.org/relation/1683931,0.0,,inf,,,9457938.72874965
+Schwarzhäusern,341,https://osm.org/relation/1682657,0.0,,inf,,,3796790.2949347845
+Rüschlikon,139,https://osm.org/relation/1682200,0.0,,inf,,,4373803.081842375
+Wilen (TG),4786,https://osm.org/relation/1684571,0.0,,inf,,,2250087.00971133
+Lens,6240,https://osm.org/relation/1685326,0.0,,inf,,,13978479.191240136
+Lamone,5189,https://osm.org/relation/1684692,0.0,,inf,,,1862186.302881313
+Schwaderloch,4176,https://osm.org/relation/1684422,0.0,,inf,,,2774923.830391822
+Rorschach,3215,https://osm.org/relation/1683927,0.0,,inf,,,1784528.321808813
+Porza,5214,https://osm.org/relation/1684741,0.0,,inf,,,1586356.2848799534
+Gals,494,https://osm.org/relation/1682448,0.0,,inf,,,7865794.235871762
+Grancia,5186,https://osm.org/relation/1684683,0.0,,inf,,,626290.8266061492
+Schönholzerswilen,4756,https://osm.org/relation/1684556,0.0,,inf,,,10932629.029411022
+Prangins,5725,https://osm.org/relation/1685107,0.0,,inf,,,11559498.569926798
+Rumisberg,987,https://osm.org/relation/1682629,0.0,,inf,,,5135743.103392132
+Semsales,2336,https://osm.org/relation/1683398,0.0,,inf,,,29360656.079538822
+Wolfwil,2408,https://osm.org/relation/1683591,0.0,,inf,,,6879299.041594318
+Rafz,67,https://osm.org/relation/1682190,0.0,,inf,,,10683793.104581635
+Heimberg,928,https://osm.org/relation/1682472,0.0,,inf,,,5437788.608232262
+Villars-le-Terroir,5537,https://osm.org/relation/1685189,0.0,,inf,,,7092728.929981851
+Ollon,5409,https://osm.org/relation/1685077,0.0,,inf,,,59552333.702418536
+Lommiswil,2551,https://osm.org/relation/1683542,0.0,,inf,,,5756402.095726814
+Lugano,5192,https://osm.org/relation/2888417,0.0,,inf,,,86268433.34578818
+Collonges,6211,https://osm.org/relation/1685292,0.0,,inf,,,12205908.095648412
+Hölstein,2886,https://osm.org/relation/1683659,0.0,,inf,,,6024415.009853534
+Koblenz,4310,https://osm.org/relation/1684343,0.0,,inf,,,4070440.05889452
+Fieschertal,6058,https://osm.org/relation/1685306,0.0,,inf,,,172923015.390636
+Vico Morcote,5233,https://osm.org/relation/1684771,0.0,,inf,,,2384134.8313896614
+Herbetswil,2424,https://osm.org/relation/1683519,0.0,,inf,,,16297256.863346053
+Goldach,3213,https://osm.org/relation/1683885,0.0,,inf,,,4753930.969310385
+Neftenbach,223,https://osm.org/relation/1682170,0.0,,inf,,,15069087.73955255
+Volken,43,https://osm.org/relation/1682226,0.0,,inf,,,3201813.039760104
+Tschugg,501,https://osm.org/relation/1682693,0.0,,inf,,,3293837.972471921
+Laténa,6513,https://osm.org/relation/18488711,0.0,,inf,,,16441937.666980516
+Pontresina,3784,https://osm.org/relation/1684131,0.0,,inf,,,118203365.34050426
+Stansstad,1510,https://osm.org/relation/1683113,0.0,,inf,,,17134879.468814
+Nendaz,6024,https://osm.org/relation/1685346,0.0,,inf,,,85932892.28056532
+Tenniken,2863,https://osm.org/relation/1683712,0.0,,inf,,,4673675.372508276
+Le Mouret,2220,https://osm.org/relation/1683352,0.0,,inf,,,18560466.734908983
+Zunzgen,2869,https://osm.org/relation/1683726,0.0,,inf,,,6856759.707249766
+Gündlischwand,578,https://osm.org/relation/1682466,0.0,,inf,,,16797439.814691227
+Gurbrü,665,https://osm.org/relation/1682463,0.0,,inf,,,1861529.7746986703
+Hüttikon,87,https://osm.org/relation/1682149,0.0,,inf,,,1589922.213035954
+Genolier,5718,https://osm.org/relation/1684982,0.0,,inf,,,4873394.476903713
+Val-de-Ruz,6487,https://osm.org/relation/2761758,0.0,,inf,,,124322078.5408194
+Marthalen,35,https://osm.org/relation/1682162,0.0,,inf,,,14128424.458818143
+Würenlingen,4047,https://osm.org/relation/1684468,0.0,,inf,,,9381697.648764666
+Ferenbalm,662,https://osm.org/relation/1682440,0.0,,inf,,,7821970.43281989
+Felsberg,3731,https://osm.org/relation/1684075,0.0,,inf,,,13395102.3576984
+Unterkulm,4146,https://osm.org/relation/1684447,0.0,,inf,,,8886485.85349755
+Suchy,5929,https://osm.org/relation/1685155,0.0,,inf,,,6636741.184593549
+Mathod,5919,https://osm.org/relation/1685044,0.0,,inf,,,6588830.437754239
+Wohlen bei Bern,360,https://osm.org/relation/1682728,0.0,,inf,,,36318110.75065271
+Wattenwil,886,https://osm.org/relation/1682718,0.0,,inf,,,14535939.894360747
+Wittenbach,3204,https://osm.org/relation/1683967,0.0,,inf,,,11766328.596242005
+Vullierens,5654,https://osm.org/relation/1685204,0.0,,inf,,,6844484.588929571
+Moosseedorf,544,https://osm.org/relation/1682558,0.0,,inf,,,6378822.792438433
+Wil (ZH),71,https://osm.org/relation/1682239,0.0,,inf,,,8944986.602157824
+Haute-Ajoie,6809,https://osm.org/relation/1685603,0.0,,inf,,,40952790.08193527
+Albinen,6102,https://osm.org/relation/1685265,0.0,,inf,,,15554512.59379664
+Gächlingen,2901,https://osm.org/relation/1683653,0.0,,inf,,,7146922.105809515
+Corcelles (BE),687,https://osm.org/relation/1682411,0.0,,inf,,,6786183.738244156
+Freienbach,1322,https://osm.org/relation/1683073,0.0,,inf,,,20692128.537666637
+L'Abbaye,5871,https://osm.org/relation/1685007,0.0,,inf,,,36273333.309604496
+Furna,3862,https://osm.org/relation/1684083,0.0,,inf,,,33317480.287793566
+Lotzwil,331,https://osm.org/relation/1682538,0.0,,inf,,,6209030.912073825
+Courchavon,6783,https://osm.org/relation/1685588,0.0,,inf,,,6187499.402245681
+Neerach,88,https://osm.org/relation/1682169,0.0,,inf,,,6048122.931984979
+Densbüren,4004,https://osm.org/relation/1684291,0.0,,inf,,,12512698.80622348
+Pomy,5926,https://osm.org/relation/1685105,0.0,,inf,,,5623479.65954581
+Mühlau,4235,https://osm.org/relation/1684376,0.0,,inf,,,5523761.009959966
+Vallorbe,5764,https://osm.org/relation/1685174,0.0,,inf,,,23195162.85332969
+Marbach (SG),3253,https://osm.org/relation/1683905,0.0,,inf,,,4380957.3298293045
+Hemmiken,2848,https://osm.org/relation/1683656,0.0,,inf,,,3389902.699217356
+Eggenwil,4066,https://osm.org/relation/1684298,0.0,,inf,,,2460851.7284792853
+Kandergrund,564,https://osm.org/relation/1682501,0.0,,inf,,,32089436.021886576
+Zuoz,3791,https://osm.org/relation/1684213,0.0,,inf,,,56804537.86764677
+Silenen,1216,https://osm.org/relation/1683108,0.0,,inf,,,144785938.640368
+Birr,4092,https://osm.org/relation/1684273,0.0,,inf,,,5046140.977771716
+Besenbüren,4226,https://osm.org/relation/1684269,0.0,,inf,,,2380700.7460422576
+Burgistein,863,https://osm.org/relation/1682398,0.0,,inf,,,7524717.663405697
+Rueyres,5534,https://osm.org/relation/1685132,0.0,,inf,,,2005085.9234424345
+Bielersee (NE),9150,https://osm.org/relation/1685453,0.0,,inf,,,490627.5607205021
+Medel (Lucmagn),3983,https://osm.org/relation/1684117,0.0,,inf,,,136222189.97340846
+Cazis,3661,https://osm.org/relation/1684061,0.0,,inf,,,31177546.449770287
+Hermrigen,737,https://osm.org/relation/1682478,0.0,,inf,,,3426897.8613180663
+Ellikon an der Thur,218,https://osm.org/relation/1682116,0.0,,inf,,,5019752.804243616
+Buochs,1502,https://osm.org/relation/1683062,0.0,,inf,,,12109177.873286271
+Billens-Hennens,2063,https://osm.org/relation/1683275,0.0,,inf,,,4894584.3181018615
+Ponte Capriasca,5212,https://osm.org/relation/1684739,0.0,,inf,,,1809789.463074195
+Küsnacht (ZH),154,https://osm.org/relation/1682157,0.0,,inf,,,14927750.388126368
+Chur,3901,https://osm.org/relation/1684063,0.0,,inf,,,81988765.51810376
+Schänis,3315,https://osm.org/relation/1683936,0.0,,inf,,,39906066.99160968
+Vétroz,6025,https://osm.org/relation/1685403,0.0,,inf,,,10430790.676831486
+Brissago,5097,https://osm.org/relation/1684637,0.0,,inf,,,23337124.358148593
+Bürglen (UR),1205,https://osm.org/relation/1683063,0.0,,inf,,,53060881.94831656
+Riemenstalden,1369,https://osm.org/relation/1683097,0.0,,inf,,,11185589.652332868
+Eschert,692,https://osm.org/relation/1682435,0.0,,inf,,,6583256.906926214
+Seftigen,883,https://osm.org/relation/1682663,0.0,,inf,,,3894184.9756541094
+Matzingen,4591,https://osm.org/relation/1684542,0.0,,inf,,,7681009.323510057
+Dottikon,4065,https://osm.org/relation/1684294,0.0,,inf,,,3880483.4567039176
+Comunanza Cadenazzo/Monteceneri,5391,https://osm.org/relation/1684666,0.0,,inf,,,2877390.5925192987
+Oberengstringen,245,https://osm.org/relation/1682176,0.0,,inf,,,2152415.4531025533
+Bichelsee-Balterswil,4721,https://osm.org/relation/1684505,0.0,,inf,,,11966803.497064732
+Nusshof,2854,https://osm.org/relation/1683683,0.0,,inf,,,1722460.8388490113
+Wachseldorn,946,https://osm.org/relation/1682709,0.0,,inf,,,3512480.3399679535
+Meienried,389,https://osm.org/relation/1682549,0.0,,inf,,,652185.661369556
+Moiry,5490,https://osm.org/relation/1685050,0.0,,inf,,,6663635.93047493
+Vandoeuvres,6642,https://osm.org/relation/1685538,0.0,,inf,,,4419162.87586587
+Lichtensteig,3374,https://osm.org/relation/1683902,0.0,,inf,,,2820524.650273878
+Saas-Balen,6289,https://osm.org/relation/1685361,0.0,,inf,,,30237490.892755225
+Hagenbuch,220,https://osm.org/relation/1682132,0.0,,inf,,,8124168.765537561
+Nyon,5724,https://osm.org/relation/1685074,0.0,,inf,,,11433850.021341735
+Gommiswald,3341,https://osm.org/relation/2754666,0.0,,inf,,,33587085.828541785
+Oltingen,2855,https://osm.org/relation/1683687,0.0,,inf,,,7178823.102596218
+Diepflingen,2845,https://osm.org/relation/1683641,0.0,,inf,,,1437414.2120739562
+Val Mara,5240,https://osm.org/relation/14040250,0.0,,inf,,,12504712.111219266
+Céligny,6610,https://osm.org/relation/1685478,0.0,,inf,,,7944234.842182009
+Niederhünigen,617,https://osm.org/relation/1682575,0.0,,inf,,,5420962.433399361
+Veytaux,5891,https://osm.org/relation/1685179,0.0,,inf,,,9614406.003265798
+Celerina/Schlarigna,3782,https://osm.org/relation/1684062,0.0,,inf,,,24024529.896413393
+Ependes (VD),5914,https://osm.org/relation/1684960,0.0,,inf,,,4810712.070151378
+Plateau de Diesse,726,https://osm.org/relation/3411353,0.0,,inf,,,25546503.405909497
+Riggisberg,879,https://osm.org/relation/1682620,0.0,,inf,,,34505785.81127618
+Graben,976,https://osm.org/relation/1682454,0.0,,inf,,,3160118.353678166
+Bellinzona,5002,https://osm.org/relation/1684625,0.0,,inf,,,164452702.2174389
+Cologny,6617,https://osm.org/relation/1685470,0.0,,inf,,,7434359.721431766
+Schneisingen,4318,https://osm.org/relation/1684420,0.0,,inf,,,8260085.386671763
+Doppleschwand,1001,https://osm.org/relation/1682824,0.0,,inf,,,6944313.0059059905
+Chavannes-le-Veyron,5475,https://osm.org/relation/1684892,0.0,,inf,,,2646298.965256544
+Münchenstein,2769,https://osm.org/relation/1683678,0.0,,inf,,,7191687.2253952995
+Prilly,5589,https://osm.org/relation/1685109,0.0,,inf,,,2202208.4530653832
+Stein am Rhein,2964,https://osm.org/relation/1683709,0.0,,inf,,,5769334.454169498
+Cressier (FR),2257,https://osm.org/relation/1683304,0.0,,inf,,,4169252.9910578583
+Fehren,2616,https://osm.org/relation/1683503,0.0,,inf,,,1475587.7450064262
+Chippis,6235,https://osm.org/relation/1685290,0.0,,inf,,,1972298.768082839
+Meyriez,2271,https://osm.org/relation/1683362,0.0,,inf,,,1847853.6706879537
+Arosa,3921,https://osm.org/relation/1684041,0.0,,inf,,,154784464.0398154
+La Chaux-du-Milieu,6435,https://osm.org/relation/1685496,0.0,,inf,,,17312634.439889252
+Oeschenbach,335,https://osm.org/relation/1682599,0.0,,inf,,,3913971.0210034903
+Küblis,3882,https://osm.org/relation/1684095,0.0,,inf,,,8141556.753986216
+Plaffeien,2299,https://osm.org/relation/1683378,0.0,,inf,,,66551807.36261104
+Wünnewil-Flamatt,2309,https://osm.org/relation/1683431,0.0,,inf,,,13267629.91322271
+Oberhofen am Thunersee,934,https://osm.org/relation/1682588,0.0,,inf,,,3086474.7869084897
+Thalheim (AG),4117,https://osm.org/relation/1684438,0.0,,inf,,,9910537.767443093
+Fontaines-sur-Grandson,5557,https://osm.org/relation/1684975,0.0,,inf,,,7866852.338912696
+Le Bémont (JU),6741,https://osm.org/relation/1685607,0.0,,inf,,,11675424.693721088
+Schübelbach,1346,https://osm.org/relation/1683104,0.0,,inf,,,29009133.864464056
+Hohentannen,4495,https://osm.org/relation/1684529,0.0,,inf,,,8006600.124344374
+Ersigen,405,https://osm.org/relation/5817429,0.0,,inf,,,15455248.808483867
+Deisswil bei Münchenbuchsee,535,https://osm.org/relation/1682418,0.0,,inf,,,2156887.6866442906
+Les Ponts-de-Martel,6437,https://osm.org/relation/1685512,0.0,,inf,,,18172659.256608516
+Obergösgen,2497,https://osm.org/relation/1683563,0.0,,inf,,,3630485.547455085
+Wettingen,4045,https://osm.org/relation/1684458,0.0,,inf,,,10608357.152843364
+Beinwil (Freiamt),4224,https://osm.org/relation/1684263,0.0,,inf,,,11282296.33514108
+Pregny-Chambésy,6634,https://osm.org/relation/1685524,0.0,,inf,,,6270539.548832913
+Eriswil,953,https://osm.org/relation/1682429,0.0,,inf,,,11331939.543355303
+Laax,3575,https://osm.org/relation/1684097,0.0,,inf,,,31710971.528808616
+Amsoldingen,921,https://osm.org/relation/1682364,0.0,,inf,,,4713088.742663381
+Bütschwil-Ganterschwil,3395,https://osm.org/relation/2727986,0.0,,inf,,,21833873.24840464
+Tegerfelden,4320,https://osm.org/relation/1684436,0.0,,inf,,,7112450.925432903
+Meinier,6629,https://osm.org/relation/1685515,0.0,,inf,,,6952831.3190773185
+Weinfelden,4946,https://osm.org/relation/1684569,0.0,,inf,,,15481368.979469253
+Basse-Allaine,6807,https://osm.org/relation/1685570,0.0,,inf,,,23045815.898789395
+Horgen,295,https://osm.org/relation/1682144,0.0,,inf,,,34798867.1487761
+Sattel,1371,https://osm.org/relation/1683101,0.0,,inf,,,17388374.678977787
+Thörigen,989,https://osm.org/relation/1682685,0.0,,inf,,,4548037.107845751
+Moudon,5678,https://osm.org/relation/1685066,0.0,,inf,,,15650518.85978223
+Isérables,6134,https://osm.org/relation/1685319,0.0,,inf,,,15253609.624947354
+Troistorrents,6156,https://osm.org/relation/1685384,0.0,,inf,,,36958945.648972325
+Courgenay,6784,https://osm.org/relation/1685590,0.0,,inf,,,18429809.798564516
+Bretonnières,5748,https://osm.org/relation/1684869,0.0,,inf,,,5450364.2291853875
+Schleitheim,2952,https://osm.org/relation/1683704,0.0,,inf,,,21602192.59863076
+Weggis,1069,https://osm.org/relation/1682929,0.0,,inf,,,25308624.708758567
+Cheseaux-Noréaz,5909,https://osm.org/relation/1684898,0.0,,inf,,,13968938.551161919
+Arnex-sur-Orbe,5743,https://osm.org/relation/1684835,0.0,,inf,,,7610157.732047756
+Hunzenschwil,4200,https://osm.org/relation/1684332,0.0,,inf,,,3264119.3444136335
+Roggwil (TG),4431,https://osm.org/relation/1684551,0.0,,inf,,,12024520.822240323
+Schlierbach,1100,https://osm.org/relation/1682917,0.0,,inf,,,7169490.547216576
+Saint-Cergue,5727,https://osm.org/relation/1685134,0.0,,inf,,,24277949.28896116
+Oberbalm,357,https://osm.org/relation/1682584,0.0,,inf,,,12388218.33358547
+Lupfig,4104,https://osm.org/relation/1684355,0.0,,inf,,,8454924.14800439
+Freienwil,4028,https://osm.org/relation/1684310,0.0,,inf,,,3998566.255781889
+Hautemorges,5656,https://osm.org/relation/12534686,0.0,,inf,,,32989185.27886837
+Cugnasco-Gerra,5138,https://osm.org/relation/1684671,0.0,,inf,,,18080912.63708481
+Rickenbach (LU),1097,https://osm.org/relation/1682909,0.0,,inf,,,11851725.241282323
+Zofingen,4289,https://osm.org/relation/1684473,0.0,,inf,,,11088492.787514886
+Gland,5721,https://osm.org/relation/1684988,0.0,,inf,,,17271074.05870358
+Vaduz,7001,Not found in OSM,,,,,,
+Damphreux-Lugnez,6811,https://osm.org/relation/15071858,0.0,,inf,,,10764640.858300906
+Oberhof,4173,https://osm.org/relation/1684386,0.0,,inf,,,8206116.042548638
+Schenkon,1099,https://osm.org/relation/1682916,0.0,,inf,,,7675936.870283755
+Affeltrangen,4711,https://osm.org/relation/1684496,0.0,,inf,,,14425882.46286794
+Sisikon,1217,https://osm.org/relation/1683110,0.0,,inf,,,19841898.685175963
+Ossingen,37,https://osm.org/relation/1682185,0.0,,inf,,,13092639.185672287
+Küssnacht (SZ),1331,https://osm.org/relation/1683087,0.0,,inf,,,36197722.45092737
+Inkwil,980,https://osm.org/relation/1682490,0.0,,inf,,,3376197.676106163
+Häutligen,609,https://osm.org/relation/1682486,0.0,,inf,,,3066406.0007524593
+Bettwiesen,4716,https://osm.org/relation/1684504,0.0,,inf,,,3849436.1637276877
+Senarclens,5499,https://osm.org/relation/1685150,0.0,,inf,,,3969141.7518111244
+Salgesch,6113,https://osm.org/relation/1685369,0.0,,inf,,,11362723.887822248
+Bad Ragaz,3291,https://osm.org/relation/1683862,0.0,,inf,,,25395720.1085872
+Schwyz,1372,https://osm.org/relation/1683103,0.0,,inf,,,53177756.63836961
+Reichenburg,1345,https://osm.org/relation/1683096,0.0,,inf,,,11554987.848641597
+Loveresse,696,https://osm.org/relation/1682539,0.0,,inf,,,4686622.293414753
+Valsot,3764,https://osm.org/relation/2754686,0.0,,inf,,,147986824.60225874
+Syens,5688,https://osm.org/relation/1685159,0.0,,inf,,,2522340.841733588
+Bolligen,352,https://osm.org/relation/1682386,0.0,,inf,,,16571230.634063467
+Vouvry,6159,https://osm.org/relation/1685401,0.0,,inf,,,33510855.04501188
+Niederwil (AG),4072,https://osm.org/relation/1684382,0.0,,inf,,,6148654.227630728
+Berg am Irchel,23,https://osm.org/relation/1682089,0.0,,inf,,,7013549.128278894
+Möhlin,4254,https://osm.org/relation/1684373,0.0,,inf,,,18775300.160316627
+Attalens,2321,https://osm.org/relation/1683266,0.0,,inf,,,9743184.27835616
+Boniswil,4192,https://osm.org/relation/1684276,0.0,,inf,,,2791235.198864793
+Oftringen,4280,https://osm.org/relation/1684395,0.0,,inf,,,12852430.666034944
+Rhäzüns,3723,https://osm.org/relation/1684135,0.0,,inf,,,13375038.361110134
+Pierrafortscha,2216,https://osm.org/relation/1683377,0.0,,inf,,,5055896.366023521
+Cadempino,5162,https://osm.org/relation/1684640,0.0,,inf,,,763192.4601213142
+Buchegg,2465,https://osm.org/relation/3411895,0.0,,inf,,,25651738.737633258
+Oberthal,620,https://osm.org/relation/1682594,0.0,,inf,,,10540191.45056374
+Rupperswil,4206,https://osm.org/relation/1684409,0.0,,inf,,,6206763.481978198
+Faoug,5458,https://osm.org/relation/1684970,0.0,,inf,,,5756638.523895606
+L'Abergement,5741,https://osm.org/relation/1685008,0.0,,inf,,,5761409.676821182
+Madiswil,332,https://osm.org/relation/1682545,0.0,,inf,,,23180621.93002017
+Grolley-Ponthaux,2239,https://osm.org/relation/18488676,0.0,,inf,,,11249326.656244218
+Nebikon,1137,https://osm.org/relation/1682899,0.0,,inf,,,3727242.31977606
+Riedholz,2554,https://osm.org/relation/1683569,0.0,,inf,,,7155660.297999553
+Signy-Avenex,5728,https://osm.org/relation/1685153,0.0,,inf,,,1942193.820268666
+Niederglatt,89,https://osm.org/relation/1682171,0.0,,inf,,,3604806.568936442
+Schmiedrued,4143,https://osm.org/relation/1684419,0.0,,inf,,,8641160.862644587
+Hermenches,5673,https://osm.org/relation/1685002,0.0,,inf,,,4773813.69270477
+Lumnezia,3618,https://osm.org/relation/2742612,0.0,,inf,,,165470645.05622396
+Ascona,5091,https://osm.org/relation/1684618,0.0,,inf,,,12201458.117435783
+Sorens,2153,https://osm.org/relation/1683401,0.0,,inf,,,8712951.782805802
+Rovray,5928,https://osm.org/relation/1685131,0.0,,inf,,,3191062.5567182037
+Boningen,2571,https://osm.org/relation/1683486,0.0,,inf,,,2755828.6642725803
+Trachselwald,958,https://osm.org/relation/1682687,0.0,,inf,,,15969338.634621248
+Bure,6778,https://osm.org/relation/1685579,0.0,,inf,,,13698737.49407301
+Messen,2457,https://osm.org/relation/1683550,0.0,,inf,,,11891141.435826391
+Courtelary,434,https://osm.org/relation/1682416,0.0,,inf,,,22204083.349035986
+Opfikon,66,https://osm.org/relation/1682184,0.0,,inf,,,5587170.39212434
+Saint-Oyens,5436,https://osm.org/relation/1685139,0.0,,inf,,,3057783.8747166237
+Pont-en-Ogoz,2122,https://osm.org/relation/1683380,0.0,,inf,,,11971398.450262802
+Zweisimmen,794,https://osm.org/relation/1682739,0.0,,inf,,,73000429.106245
+Saas-Grund,6291,https://osm.org/relation/1685363,0.0,,inf,,,24781722.756367676
+Giffers,2294,https://osm.org/relation/1683323,0.0,,inf,,,5215267.617974166
+Saint-Imier,443,https://osm.org/relation/1682644,0.0,,inf,,,20871249.33694202
+Wiliberg,4288,https://osm.org/relation/1684460,0.0,,inf,,,1172545.0713079125
+Höri,60,https://osm.org/relation/1682146,0.0,,inf,,,4777973.321290796
+Les Bois,6742,https://osm.org/relation/1685609,0.0,,inf,,,24714795.0314287
+Arbaz,6261,https://osm.org/relation/1685267,0.0,,inf,,,19231659.617354658
+Bassersdorf,52,https://osm.org/relation/1682086,0.0,,inf,,,9027098.538090618
+Würenlos,4048,https://osm.org/relation/1684469,0.0,,inf,,,9011982.405617144
+Eschlikon,4724,https://osm.org/relation/1684519,0.0,,inf,,,6220719.642863408
+Fiez,5556,https://osm.org/relation/1684974,0.0,,inf,,,2409625.988717346
+Aesch (ZH),241,https://osm.org/relation/1682078,0.0,,inf,,,5243326.61552166
+Leibstadt,4311,https://osm.org/relation/1684348,0.0,,inf,,,6402644.480263224
+Mörschwil,3214,https://osm.org/relation/1683909,0.0,,inf,,,9842469.273952914
+Evilard,372,https://osm.org/relation/1682437,0.0,,inf,,,3700473.6281851465
+Roggenburg,2790,https://osm.org/relation/1683697,0.0,,inf,,,6655230.244796807
+Greng,2261,https://osm.org/relation/1683330,0.0,,inf,,,2470550.9647090733
+Arzier-Le Muids,5702,https://osm.org/relation/1684836,0.0,,inf,,,51901707.43068528
+Nuvilly,2035,https://osm.org/relation/1683375,0.0,,inf,,,3982746.1474056933
+Rohrbach,338,https://osm.org/relation/1682624,0.0,,inf,,,4078452.9932550713
+Onex,6631,https://osm.org/relation/1685520,0.0,,inf,,,2815492.2852584217
+Bottighofen,4643,https://osm.org/relation/1684509,0.0,,inf,,,2423244.689199251
+Bitsch,6173,https://osm.org/relation/1685278,0.0,,inf,,,5792239.25833542
+Avers,3681,https://osm.org/relation/1684043,0.0,,inf,,,93125602.80155408
+Novazzano,5260,https://osm.org/relation/1684729,0.0,,inf,,,5193967.916231174
+Mülligen,4107,https://osm.org/relation/1684377,0.0,,inf,,,3157922.688779104
+Hildisrieden,1088,https://osm.org/relation/1682859,0.0,,inf,,,7042010.791151713
+Gryon,5405,https://osm.org/relation/1685000,0.0,,inf,,,15217706.499027222
+Granges (Veveyse),2328,https://osm.org/relation/1683327,0.0,,inf,,,4465781.772594977
+Gy,6624,https://osm.org/relation/1685490,0.0,,inf,,,3285562.098263452
+Berikon,4062,https://osm.org/relation/1684268,0.0,,inf,,,5369742.308476271
+Dintikon,4194,https://osm.org/relation/1684293,0.0,,inf,,,3729339.917790386
+Frutigen,563,https://osm.org/relation/1682446,0.0,,inf,,,72274267.83929385
+Le Grand-Saconnex,6623,https://osm.org/relation/1685504,0.0,,inf,,,4382287.503224941
+Unterseen,593,https://osm.org/relation/1682700,0.0,,inf,,,14387591.911038352
+Kirchberg (SG),3392,https://osm.org/relation/1683900,0.0,,inf,,,42541531.17231791
+Chessel,5403,https://osm.org/relation/1684900,0.0,,inf,,,3555907.0832250086
+Muntelier,2274,https://osm.org/relation/1683368,0.0,,inf,,,2504206.5796593237
+Büren (SO),2472,https://osm.org/relation/1683491,0.0,,inf,,,6232865.664173234
+Toffen,884,https://osm.org/relation/1682686,0.0,,inf,,,4884724.908163619
+Cureglia,5180,https://osm.org/relation/1684672,0.0,,inf,,,1063207.0721723023
+Aefligen,401,https://osm.org/relation/1682358,0.0,,inf,,,2041662.2626870652
+Castaneda,3805,https://osm.org/relation/1684056,0.0,,inf,,,3961165.123469422
+Jorat-Menthue,5804,https://osm.org/relation/1868685,0.0,,inf,,,17653340.433531884
+Therwil,2775,https://osm.org/relation/1683714,0.0,,inf,,,7659915.4619579725
+Lausanne,5586,https://osm.org/relation/1685018,0.0,,inf,,,63207347.8764248
+Törbel,6296,https://osm.org/relation/1685387,0.0,,inf,,,17552248.4109943
+Jonschwil,3405,https://osm.org/relation/1683898,0.0,,inf,,,10949516.30065775
+Wil (SG),3427,https://osm.org/relation/1683965,0.0,,inf,,,20818766.785800826
+Seuzach,227,https://osm.org/relation/1682209,0.0,,inf,,,7562493.045217545
+Sursee,1103,https://osm.org/relation/1682923,0.0,,inf,,,6056389.615547807
+Hemishofen,2962,https://osm.org/relation/1683655,0.0,,inf,,,7901407.355007489
+Gunzgen,2578,https://osm.org/relation/1683513,0.0,,inf,,,3925991.6345244898
+Schmitten (FR),2305,https://osm.org/relation/1683397,0.0,,inf,,,13497072.575209403
+Vex,6089,https://osm.org/relation/1685394,0.0,,inf,,,13064338.91729445
+Diepoldsau,3234,https://osm.org/relation/1683873,0.0,,inf,,,11245954.339688633
+Müllheim,4831,https://osm.org/relation/1684544,0.0,,inf,,,8744409.306349829
+Stüsslingen,2499,https://osm.org/relation/1683580,0.0,,inf,,,8387199.405579861
+Denens,5631,https://osm.org/relation/1684941,0.0,,inf,,,3298147.9329719176
+Sonvilier,445,https://osm.org/relation/1682668,0.0,,inf,,,23787431.56222447
+Tamins,3733,https://osm.org/relation/1684184,0.0,,inf,,,40711669.7996852
+Bachs,81,https://osm.org/relation/1682085,0.0,,inf,,,9134551.32289236
+Belp,861,https://osm.org/relation/1682374,0.0,,inf,,,23256332.65532541
+Seewis im Prättigau,3972,https://osm.org/relation/1684163,0.0,,inf,,,49626973.08269228
+Alpnach,1401,https://osm.org/relation/1683053,0.0,,inf,,,56353748.89694194
+Hochdorf,1031,https://osm.org/relation/1682868,0.0,,inf,,,10300856.094111059
+Buchillon,5623,https://osm.org/relation/1684870,0.0,,inf,,,21038716.002217367
+Bonaduz,3721,https://osm.org/relation/1684047,0.0,,inf,,,14397986.480707342
+Mont-sur-Rolle,5859,https://osm.org/relation/1685055,0.0,,inf,,,3858924.2453650213
+Boulens,5661,https://osm.org/relation/1684863,0.0,,inf,,,3416895.0020496147
+Rickenbach (BL),2857,https://osm.org/relation/1683695,0.0,,inf,,,2901761.015626335
+Mont-Noble,6090,https://osm.org/relation/1685339,0.0,,inf,,,43435823.506049864
+Regensberg,95,https://osm.org/relation/1682191,0.0,,inf,,,2366903.006970022
+Arboldswil,2881,https://osm.org/relation/1683614,0.0,,inf,,,3465444.465010995
+Oetwil am See,157,https://osm.org/relation/1682182,0.0,,inf,,,6107948.296710304
+Erlach,492,https://osm.org/relation/1682432,0.0,,inf,,,2925364.9321731883
+Cornol,6782,https://osm.org/relation/1685586,0.0,,inf,,,10445329.336823523
+Courrendlin,6708,https://osm.org/relation/1685591,0.0,,inf,,,21522762.720575746
+Ingenbohl,1364,https://osm.org/relation/1683083,0.0,,inf,,,16664220.725253362
+Nods,724,https://osm.org/relation/1682582,0.0,,inf,,,26613761.288475025
+Rothrist,4282,https://osm.org/relation/1684406,0.0,,inf,,,11844444.109202836
+Vionnaz,6158,https://osm.org/relation/1685397,0.0,,inf,,,20951251.2313987
+Masein,3663,https://osm.org/relation/1684114,0.0,,inf,,,4199215.037868912
+Kerns,1404,https://osm.org/relation/1683086,0.0,,inf,,,92585442.1893108
+Volketswil,199,https://osm.org/relation/1682227,0.0,,inf,,,14042224.24753822
+Berg (TG),4891,https://osm.org/relation/1684502,0.0,,inf,,,13138405.634556975
+Oberbüren,3424,https://osm.org/relation/1683914,0.0,,inf,,,17732379.011215284
+Arogno,5144,https://osm.org/relation/1684617,0.0,,inf,,,8489198.031237463
+Cressier (NE),6452,https://osm.org/relation/1685477,0.0,,inf,,,8571652.5914732
+Vernayaz,6219,https://osm.org/relation/1685393,0.0,,inf,,,5591779.471405437
+Oberdorf (NW),1508,https://osm.org/relation/1683093,0.0,,inf,,,16202436.179362906
+Cademario,5161,https://osm.org/relation/1684639,0.0,,inf,,,3957041.7892917152
+Andeer,3701,https://osm.org/relation/1684038,0.0,,inf,,,46298591.00315159
+Hauptwil-Gottshaus,4486,https://osm.org/relation/1684526,0.0,,inf,,,12498627.30732493
+Hedingen,5,https://osm.org/relation/1682134,0.0,,inf,,,6530758.512914372
+Vacallo,5268,https://osm.org/relation/1684765,0.0,,inf,,,1637616.7856600904
+Läufelfingen,2852,https://osm.org/relation/1683673,0.0,,inf,,,8154381.44676994
+Hellsau,408,https://osm.org/relation/1682475,0.0,,inf,,,1476080.673453133
+Giebenach,2826,https://osm.org/relation/1683650,0.0,,inf,,,1336341.6947132149
+Emmen,1024,https://osm.org/relation/1682829,0.0,,inf,,,20362401.918958105
+Gontenschwil,4135,https://osm.org/relation/1684318,0.0,,inf,,,9743484.143926699
+Vaulion,5765,https://osm.org/relation/1685176,0.0,,inf,,,13152370.170887314
+Tujetsch,3986,https://osm.org/relation/1684197,0.0,,inf,,,133907211.67232083
+Bioley-Magnoux,5903,https://osm.org/relation/1684853,0.0,,inf,,,4285721.15213986
+Bonvillars,5551,https://osm.org/relation/1684859,0.0,,inf,,,8471630.909854703
+Büttikon,4064,https://osm.org/relation/1684290,0.0,,inf,,,2818518.734885151
+Udligenswil,1067,https://osm.org/relation/1682925,0.0,,inf,,,6224772.721103269
+Hersberg,2827,https://osm.org/relation/1683657,0.0,,inf,,,1648287.6025707915
+Duggingen,2785,https://osm.org/relation/1683643,0.0,,inf,,,5857181.980250823
+Val Müstair,3847,https://osm.org/relation/1684200,0.0,,inf,,,198622136.36840913
+Bettens,5471,https://osm.org/relation/1684851,0.0,,inf,,,3744331.5331826336
+Heimenhausen,977,https://osm.org/relation/1682473,0.0,,inf,,,5841848.058983837
+Villmergen,4080,https://osm.org/relation/1684452,0.0,,inf,,,11944209.621606944
+Arnex-sur-Nyon,5701,https://osm.org/relation/1684834,0.0,,inf,,,2041804.2225233535
+Jegenstorf,540,https://osm.org/relation/3411472,0.0,,inf,,,11316364.812807536
+Saint-George,5434,https://osm.org/relation/1685136,0.0,,inf,,,12315496.65014304
+Döttingen,4304,https://osm.org/relation/1684295,0.0,,inf,,,6917593.317177566
+Löhningen,2903,https://osm.org/relation/1683674,0.0,,inf,,,6864370.3068333035
+Le Landeron,6455,https://osm.org/relation/1685505,0.0,,inf,,,10321271.596894711
+Unterbäch,6201,https://osm.org/relation/1685388,0.0,,inf,,,22088146.165756512
+Seengen,4208,https://osm.org/relation/1684424,0.0,,inf,,,10326978.317775683
+Vitznau,1068,https://osm.org/relation/1682927,0.0,,inf,,,11745273.706821797
+Oberegg,3111,https://osm.org/relation/1683915,0.0,,inf,,,9348109.438530965
+Lommis,4741,https://osm.org/relation/1684540,0.0,,inf,,,8606392.45766659
+Geltwil,4232,https://osm.org/relation/1684316,0.0,,inf,,,3303196.2448520684
+Warth-Weiningen,4621,https://osm.org/relation/1684568,0.0,,inf,,,8215127.489384736
+Schwerzenbach,197,https://osm.org/relation/1682205,0.0,,inf,,,2823613.6791180153
+Onnens (VD),5565,https://osm.org/relation/1685078,0.0,,inf,,,7101151.268582427
+Aadorf,4551,https://osm.org/relation/1684495,0.0,,inf,,,19945003.300621178
+Fällanden,193,https://osm.org/relation/1682126,0.0,,inf,,,7300592.16913371
+Court,690,https://osm.org/relation/1682415,0.0,,inf,,,24606200.494892932
+Saxon,6141,https://osm.org/relation/1685373,0.0,,inf,,,23219486.961095277
+Vuiteboeuf,5766,https://osm.org/relation/1685202,0.0,,inf,,,5063699.941791758
+Minusio,5118,https://osm.org/relation/1684717,0.0,,inf,,,8833390.68491252
+Sergey,5762,https://osm.org/relation/1685151,0.0,,inf,,,1447819.661481787
+Manno,5194,https://osm.org/relation/1684707,0.0,,inf,,,2383095.487933415
+Murgenthal,4279,https://osm.org/relation/1684370,0.0,,inf,,,18617931.828633066
+Chevroux,5813,https://osm.org/relation/1684902,0.0,,inf,,,13196746.293395994
+Wiler bei Utzenstorf,554,https://osm.org/relation/1682724,0.0,,inf,,,3820211.212300374
+Bottenwil,4273,https://osm.org/relation/1684278,0.0,,inf,,,5098092.466291116
+Bischofszell,4471,https://osm.org/relation/1684507,0.0,,inf,,,11576056.530866383
+Glarus Süd,1631,https://osm.org/relation/1683141,0.0,,inf,,,430072931.72762066
+Bodensee (TG),9329,Not found in OSM,,,,,,
+Niederbuchsiten,2405,https://osm.org/relation/1683556,0.0,,inf,,,5486504.78746686
+Ottenbach,11,https://osm.org/relation/1682187,0.0,,inf,,,5013200.841993388
+Aire-la-Ville,6601,https://osm.org/relation/1685444,0.0,,inf,,,2926056.3522365973
+Seeberg,988,https://osm.org/relation/5817433,0.0,,inf,,,16795942.595080756
+Giez,5559,https://osm.org/relation/1684983,0.0,,inf,,,4758617.6625398435
+Beromünster,1081,https://osm.org/relation/1682818,0.0,,inf,,,42365738.133037515
+Heitenried,2296,https://osm.org/relation/1683338,0.0,,inf,,,9128145.62460904
+Pfungen,224,https://osm.org/relation/1682188,0.0,,inf,,,4989973.2624569675
+Rossemaison,6721,https://osm.org/relation/1685625,0.0,,inf,,,1893013.8346453006
+Hérémence,6084,https://osm.org/relation/1685316,0.0,,inf,,,107454261.37525238
+Affoltern am Albis,2,https://osm.org/relation/1682080,0.0,,inf,,,10592279.952153394
+Losone,5115,https://osm.org/relation/1684699,0.0,,inf,,,9497442.73258517
+Aristau,4222,https://osm.org/relation/1684255,0.0,,inf,,,8638161.557182979
+Thurnen,889,https://osm.org/relation/10523927,0.0,,inf,,,5951678.258803206
+Rüdtligen-Alchenflüh,420,https://osm.org/relation/1682633,0.0,,inf,,,2720545.6097174217
+Habsburg,4099,https://osm.org/relation/1684320,0.0,,inf,,,2229915.1057796986
+Müntschemier,498,https://osm.org/relation/1682571,0.0,,inf,,,4871212.131732369
+Eischoll,6194,https://osm.org/relation/1685296,0.0,,inf,,,14094122.25875804
+Turtmann-Unterems,6119,https://osm.org/relation/2757461,0.0,,inf,,,8176674.078160291
+Selzach,2556,https://osm.org/relation/1683576,0.0,,inf,,,19467388.44976522
+Pollegio,5077,https://osm.org/relation/1684738,0.0,,inf,,,5866265.213371778
+Rue,2097,https://osm.org/relation/1683391,0.0,,inf,,,20033799.225093856
+Neggio,5206,https://osm.org/relation/1684727,0.0,,inf,,,901458.2714057676
+Chamoson,6022,https://osm.org/relation/1685286,0.0,,inf,,,32468629.313491214
+Paudex,5588,https://osm.org/relation/1685093,0.0,,inf,,,3903222.1072962647
+Schönengrund,3003,https://osm.org/relation/1683937,0.0,,inf,,,5198142.854121256
+Uttwil,4451,https://osm.org/relation/1684566,0.0,,inf,,,4376216.269029978
+Bergün Filisur,3544,https://osm.org/relation/1684044,0.0,,inf,,,190137087.00109026
+Uetendorf,944,https://osm.org/relation/1682698,0.0,,inf,,,10175456.390904104
+Herrliberg,152,https://osm.org/relation/1682136,0.0,,inf,,,10588842.60138543
+Brütten,213,https://osm.org/relation/1682094,0.0,,inf,,,6599815.483308664
+Thalheim an der Thur,39,https://osm.org/relation/1682215,0.0,,inf,,,6444170.156789137
+Nuglar-St. Pantaleon,2478,https://osm.org/relation/1683558,0.0,,inf,,,6343295.512833274
+Zurzach,4324,https://osm.org/relation/13623634,0.0,,inf,,,25685303.382172
+Aarwangen,321,https://osm.org/relation/1682356,0.0,,inf,,,9898539.597896686
+Oberdorf (BL),2892,https://osm.org/relation/1683684,0.0,,inf,,,6210990.423885298
+Truttikon,41,https://osm.org/relation/1682217,0.0,,inf,,,4412039.193396756
+Uetikon am See,159,https://osm.org/relation/1682220,0.0,,inf,,,4338478.303674502
+Lussy-sur-Morges,5640,https://osm.org/relation/1685038,0.0,,inf,,,2341800.411869569
+Grossdietwil,1131,https://osm.org/relation/1682841,0.0,,inf,,,6581103.740454258
+Cugy (VD),5516,https://osm.org/relation/1684937,0.0,,inf,,,2907585.817386229
+Novalles,5564,https://osm.org/relation/1685072,0.0,,inf,,,2061625.6965501355
+Cuarny,5911,https://osm.org/relation/1684935,0.0,,inf,,,4561836.7756025335
+Rossinière,5842,https://osm.org/relation/1685129,0.0,,inf,,,23353826.38361111
+Matten bei Interlaken,587,https://osm.org/relation/1682547,0.0,,inf,,,3829226.0094759995
+Worben,755,https://osm.org/relation/1682731,0.0,,inf,,,2755592.703776025
+Bassins,5703,https://osm.org/relation/1684842,0.0,,inf,,,20772385.055430256
+Spreitenbach,4040,https://osm.org/relation/1684429,0.0,,inf,,,8598319.114256887
+Meikirch,307,https://osm.org/relation/1682550,0.0,,inf,,,10233778.36171377
+Fétigny-Ménières,2056,https://osm.org/relation/1683320,0.0,,inf,,,8484457.162629802
+Gambarogno,5398,https://osm.org/relation/1684677,0.0,,inf,,,65359837.414285235
+Winkel,72,https://osm.org/relation/1682242,0.0,,inf,,,8112819.751245409
+Pailly,5530,https://osm.org/relation/1685090,0.0,,inf,,,5768377.431544382
+Kallnach,304,https://osm.org/relation/1682500,0.0,,inf,,,17977290.569681905
+Salmsach,4441,https://osm.org/relation/1684554,0.0,,inf,,,2721343.948968963
+Rumendingen,421,https://osm.org/relation/1682628,0.0,,inf,,,2438386.068052678
+Sant'Antonino,5017,https://osm.org/relation/1684751,0.0,,inf,,,6551254.614341207
+Waldenburg,2895,https://osm.org/relation/1683719,0.0,,inf,,,8323623.8686200185
+Steinerberg,1374,https://osm.org/relation/1683115,0.0,,inf,,,6920298.592162225
+Mels,3293,https://osm.org/relation/1683906,0.0,,inf,,,139139849.7286386
+Haut-Intyamon,2121,https://osm.org/relation/1683334,0.0,,inf,,,60295161.96472042
+Balzers,7003,Not found in OSM,,,,,,
+Wichtrach,632,https://osm.org/relation/1682720,0.0,,inf,,,11601591.491287772
+Schangnau,906,https://osm.org/relation/1682648,0.0,,inf,,,36482057.41045806
+Altstätten,3251,https://osm.org/relation/1683857,0.0,,inf,,,8332348.414337302
+Schwende-Rüte,3112,https://osm.org/relation/14096673,0.0,,inf,,,98350030.92113145
+Isone,5009,https://osm.org/relation/1684688,0.0,,inf,,,12819607.09432192
+Obersaxen Mundaun,3988,https://osm.org/relation/5817201,0.0,,inf,,,70349846.61452751
+Saint-Prex,5646,https://osm.org/relation/1685140,0.0,,inf,,,25250577.5604006
+Riederalp,6181,https://osm.org/relation/1685359,0.0,,inf,,,19091034.56908118
+Ferden,6195,https://osm.org/relation/1685304,0.0,,inf,,,27905228.05233202
+Reichenbach im Kandertal,567,https://osm.org/relation/1682616,0.0,,inf,,,125773978.1739972
+Aesch (BL),2761,https://osm.org/relation/1683611,0.0,,inf,,,7394868.364321863
+Drei Höfe,2535,https://osm.org/relation/2744225,0.0,,inf,,,4575783.9099726435
+Flums,3292,https://osm.org/relation/1683880,0.0,,inf,,,75154716.15761805
+Aranno,5143,https://osm.org/relation/1684615,0.0,,inf,,,2710508.3695771503
+Leukerbad,6111,https://osm.org/relation/1685329,0.0,,inf,,,67279603.39065002
+Bauma,297,https://osm.org/relation/1682087,0.0,,inf,,,29524122.199765086
+Unterlangenegg,945,https://osm.org/relation/1682699,0.0,,inf,,,6802421.921045177
+Brienzwiler,574,https://osm.org/relation/1682393,0.0,,inf,,,7610596.76364546
+Radelfingen,309,https://osm.org/relation/1682612,0.0,,inf,,,14714052.96390624
+Oron,5805,https://osm.org/relation/1948073,0.0,,inf,,,26282849.446369033
+Inden,6109,https://osm.org/relation/1685318,0.0,,inf,,,9735912.222166529
+Lungern,1405,https://osm.org/relation/1683090,0.0,,inf,,,46472056.85117532
+Ursy,2102,https://osm.org/relation/1683415,0.0,,inf,,,17131932.843323477
+Courtedoux,6785,https://osm.org/relation/1685593,0.0,,inf,,,8222798.696738633
+Raron,6199,https://osm.org/relation/1685355,0.0,,inf,,,30348777.48617316
+Maggia,5317,https://osm.org/relation/1684703,0.0,,inf,,,111140729.38720801
+Jonen,4071,https://osm.org/relation/1684335,0.0,,inf,,,5699409.403428115
+Jongny,5885,https://osm.org/relation/1685003,0.0,,inf,,,2159358.3976224475
+Vernate,5230,https://osm.org/relation/1684768,0.0,,inf,,,1505927.9982353342
+Wangen-Brüttisellen,200,https://osm.org/relation/1682231,0.0,,inf,,,7920337.10093159
+Waltenschwil,4240,https://osm.org/relation/1684456,0.0,,inf,,,4559919.967096007
+Saint-Léonard,6246,https://osm.org/relation/1685366,0.0,,inf,,,3883915.164477829
+Wagenhausen,4871,https://osm.org/relation/1684567,0.0,,inf,,,11817109.537252529
+Kaufdorf,869,https://osm.org/relation/1682504,0.0,,inf,,,2058285.6025285893
+Dagmersellen,1125,https://osm.org/relation/1682822,0.0,,inf,,,23866883.247000434
+Oberrüti,4237,https://osm.org/relation/1684391,0.0,,inf,,,5371243.22553166
+Sorengo,5225,https://osm.org/relation/1684760,0.0,,inf,,,839935.4033270451
+Rheinau,38,https://osm.org/relation/1682193,0.0,,inf,,,8934584.614510251
+Andelfingen,291,https://osm.org/relation/1682083,0.0,,inf,,,16988628.105710063
+Mollens (VD),5431,https://osm.org/relation/1685051,0.0,,inf,,,10988046.678028038
+Glarus Nord,1630,https://osm.org/relation/1683140,0.0,,inf,,,151604871.37717867
+Carouge (GE),6608,https://osm.org/relation/1685459,0.0,,inf,,,2699806.4463917785
+Estavayer,2054,https://osm.org/relation/6838556,0.0,,inf,,,54612910.11382899
+Lenk,792,https://osm.org/relation/1682532,0.0,,inf,,,123046495.47123042
+Werthenstein,1009,https://osm.org/relation/1682930,0.0,,inf,,,15802621.804332398
+Oberlangenegg,935,https://osm.org/relation/1682590,0.0,,inf,,,9158919.029724896
+Märstetten,4941,https://osm.org/relation/1684543,0.0,,inf,,,9965298.362703137
+Farnern,975,https://osm.org/relation/1682439,0.0,,inf,,,3679438.323348991
+Bourg-Saint-Pierre,6032,https://osm.org/relation/1685281,0.0,,inf,,,89736559.5636408
+Uezwil,4078,https://osm.org/relation/1684443,0.0,,inf,,,2440602.1102471626
+Tschappina,3669,https://osm.org/relation/1684194,0.0,,inf,,,24667087.32771868
+Avusy,6604,https://osm.org/relation/1685448,0.0,,inf,,,5171953.474107387
+Gollion,5484,https://osm.org/relation/1684989,0.0,,inf,,,5448132.3076422075
+Pully,5590,https://osm.org/relation/1685114,0.0,,inf,,,17064736.130321007
+Bärschwil,2611,https://osm.org/relation/1683489,0.0,,inf,,,11184632.384918347
+Worb,627,https://osm.org/relation/1682730,0.0,,inf,,,21084553.93571803
+Lütschental,586,https://osm.org/relation/1682543,0.0,,inf,,,12286511.471569564
+Aeugst am Albis,1,https://osm.org/relation/1682079,0.0,,inf,,,7912125.2530616345
+Holderbank (SO),2425,https://osm.org/relation/1683525,0.0,,inf,,,7751975.041376771
+Sins,4239,https://osm.org/relation/1684427,0.0,,inf,,,20307727.72622984
+Mies,5723,https://osm.org/relation/1685048,0.0,,inf,,,6636511.207142059
+Lüsslingen-Nennigkofen,2464,https://osm.org/relation/2742593,0.0,,inf,,,7810442.837126325
+Bettenhausen,973,https://osm.org/relation/1682379,0.0,,inf,,,3931980.9927764237
+Brienzersee,9089,https://osm.org/relation/1682392,0.0,,inf,,,25530548.66246995
+Wald (AR),3036,https://osm.org/relation/1683956,0.0,,inf,,,6821989.473101716
+Gravesano,5187,https://osm.org/relation/1684684,0.0,,inf,,,686543.5688257486
+Wilchingen,2974,https://osm.org/relation/1683721,0.0,,inf,,,21098596.555649932
+Sennwald,3274,https://osm.org/relation/1683938,0.0,,inf,,,41567362.48661937
+Neuhausen am Rheinfall,2937,https://osm.org/relation/1683680,0.0,,inf,,,8032650.944841777
+Milvignes,6416,https://osm.org/relation/2758642,0.0,,inf,,,8846569.91551714
+Bachenbülach,51,https://osm.org/relation/1682084,0.0,,inf,,,4312047.492212207
+Brüttelen,491,https://osm.org/relation/1682395,0.0,,inf,,,6612537.743298345
+Noble-Contrée,6254,https://osm.org/relation/1685395,0.0,,inf,,,6498739.748510368
+Buseno,3804,https://osm.org/relation/1684053,0.0,,inf,,,11148382.945987644
+Grangettes,2079,https://osm.org/relation/1683329,0.0,,inf,,,3307742.713159136
+Innerthal,1343,https://osm.org/relation/1683084,0.0,,inf,,,50157645.7693312
+Bavois,5746,https://osm.org/relation/1684844,0.0,,inf,,,9350133.304567572
+Grindelwald,576,https://osm.org/relation/1682457,0.0,,inf,,,171281905.77539942
+Uebeschi,943,https://osm.org/relation/1682697,0.0,,inf,,,4419077.192380151
+Birwinken,4901,https://osm.org/relation/1684506,0.0,,inf,,,12294383.187368888
+Widen,4081,https://osm.org/relation/1684459,0.0,,inf,,,2616652.010993184
+Eschenbach (LU),1026,https://osm.org/relation/1682832,0.0,,inf,,,13207743.323920751
+Lauperswil,903,https://osm.org/relation/1682528,0.0,,inf,,,21198839.20870278
+Urdorf,250,https://osm.org/relation/1682224,0.0,,inf,,,7582991.391136586
+Büron,1082,https://osm.org/relation/1682821,0.0,,inf,,,5367351.193336183
+Orges,5924,https://osm.org/relation/1685081,0.0,,inf,,,4024959.038773002
+Tramelan,446,https://osm.org/relation/1682688,0.0,,inf,,,24827151.00782407
+Mauensee,1091,https://osm.org/relation/1682895,0.0,,inf,,,7212284.334306361
+Bern,351,https://osm.org/relation/1682378,0.0,,inf,,,51616831.93160339
+Brislach,2782,https://osm.org/relation/1683631,0.0,,inf,,,9418599.382259423
+Belmont-sur-Lausanne,5581,https://osm.org/relation/1684847,0.0,,inf,,,2641304.2753299335
+Herisau,3001,https://osm.org/relation/1683894,0.0,,inf,,,25195145.935158797
+Mettembert,6716,https://osm.org/relation/1685616,0.0,,inf,,,2322536.2145578363
+Romanshorn,4436,https://osm.org/relation/1684552,0.0,,inf,,,8824073.576915784
+Rennaz,5412,https://osm.org/relation/1685117,0.0,,inf,,,2187659.4395553092
+Buch am Irchel,24,https://osm.org/relation/1682097,0.0,,inf,,,10213572.94420564
+Treyvaux,2226,https://osm.org/relation/1683412,0.0,,inf,,,11389934.96858648
+Birmensdorf (ZH),242,https://osm.org/relation/1682091,0.0,,inf,,,11421443.70040908
+Mörel-Filet,6203,https://osm.org/relation/1685343,0.0,,inf,,,8546125.01327385
+Reconvilier,703,https://osm.org/relation/1682615,0.0,,inf,,,8247577.973717222
+Fahrni,925,https://osm.org/relation/1682438,0.0,,inf,,,6683173.185472041
+Kippel,6197,https://osm.org/relation/1685321,0.0,,inf,,,11664298.11477641
+Kehrsatz,870,https://osm.org/relation/1682505,0.0,,inf,,,4437419.211911765
+Burtigny,5854,https://osm.org/relation/1684874,0.0,,inf,,,5680930.212901503
+Tévenon,5571,https://osm.org/relation/1868688,0.0,,inf,,,14289471.554322224
+Lignières,6456,https://osm.org/relation/1685514,0.0,,inf,,,12517735.281833788
+Jorat-Mézières,5806,https://osm.org/relation/6376490,0.0,,inf,,,11083427.515521875
+Kirchlindach,354,https://osm.org/relation/1682512,0.0,,inf,,,11964635.29816301
+Mühleberg,668,https://osm.org/relation/1682563,0.0,,inf,,,26260417.878460016
+Arch,381,https://osm.org/relation/1682365,0.0,,inf,,,6375049.71838442
+Agiez,5742,https://osm.org/relation/1684830,0.0,,inf,,,5467160.248378254
+Riviera,5287,https://osm.org/relation/7187847,0.0,,inf,,,86589795.2631864
+Starrkirch-Wil,2584,https://osm.org/relation/1683578,0.0,,inf,,,1843995.9240840531
+Erlen,4476,https://osm.org/relation/1684516,0.0,,inf,,,12192859.363456575
+Schötz,1143,https://osm.org/relation/1682920,0.0,,inf,,,15267633.52892889
+Bissone,5154,https://osm.org/relation/1684629,0.0,,inf,,,3683088.442600106
+Vezia,5231,https://osm.org/relation/1684770,0.0,,inf,,,1386521.1684836282
+Witterswil,2481,https://osm.org/relation/1683590,0.0,,inf,,,2668435.4011950567
+Assens,5511,https://osm.org/relation/1684837,0.0,,inf,,,8461316.92862664
+Erlenbach im Simmental,763,https://osm.org/relation/1682433,0.0,,inf,,,36693946.571420215
+Saint-Brais,6758,https://osm.org/relation/1685627,0.0,,inf,,,15015388.328720268
+Ebnat-Kappel,3352,https://osm.org/relation/1683874,0.0,,inf,,,43545572.97024061
+Safenwil,4283,https://osm.org/relation/1684412,0.0,,inf,,,5987847.229624755
+Pura,5216,https://osm.org/relation/1684744,0.0,,inf,,,3034990.862225287
+Bottens,5514,https://osm.org/relation/1684861,0.0,,inf,,,6884114.277902176
+Rossenges,5684,https://osm.org/relation/1685128,0.0,,inf,,,1076811.1750342636
+Finhaut,6214,https://osm.org/relation/1685307,0.0,,inf,,,22854125.996003293
+Oberwil im Simmental,766,https://osm.org/relation/1682596,0.0,,inf,,,46065065.840476505
+Lampenberg,2887,https://osm.org/relation/1683663,0.0,,inf,,,4009514.915994357
+Oberägeri,1706,https://osm.org/relation/1683146,0.0,,inf,,,36236877.022578016
+Ins,496,https://osm.org/relation/1682492,0.0,,inf,,,23864507.999941666
+Röschenz,2791,https://osm.org/relation/1683699,0.0,,inf,,,10074903.60401925
+Fiesch,6057,https://osm.org/relation/1685305,0.0,,inf,,,11032630.220645271
+Torny,2115,https://osm.org/relation/1683411,0.0,,inf,,,10189373.956501633
+Berken,972,https://osm.org/relation/1682377,0.0,,inf,,,1388290.6347406174
+Schöftland,4144,https://osm.org/relation/1684423,0.0,,inf,,,6276198.079830434
+Neyruz (FR),2211,https://osm.org/relation/1683373,0.0,,inf,,,5528793.080048242
+Fischingen,4726,https://osm.org/relation/1684521,0.0,,inf,,,30578193.264186062
+Lauenen,842,https://osm.org/relation/1682526,0.0,,inf,,,58482095.26893288
+St. Moritz,3787,https://osm.org/relation/1684175,0.0,,inf,,,28680347.391924277
+Grabs,3273,https://osm.org/relation/1683890,0.0,,inf,,,54649700.33843332
+Seewen,2480,https://osm.org/relation/1683575,0.0,,inf,,,16305527.808590721
+Baar,1701,https://osm.org/relation/1683138,0.0,,inf,,,24847326.96083108
+Laufen-Uhwiesen,34,https://osm.org/relation/1682159,0.0,,inf,,,6283311.1027524965
+Jenins,3952,https://osm.org/relation/1684093,0.0,,inf,,,10537517.397589115
+Egnach,4411,https://osm.org/relation/1684515,0.0,,inf,,,18585681.4328111
+Rougemont,5843,https://osm.org/relation/1685130,0.0,,inf,,,48541298.98819855
+Fraubrunnen,538,https://osm.org/relation/3411722,0.0,,inf,,,31908938.46520216
+Wolfhalden,3038,https://osm.org/relation/1683968,0.0,,inf,,,6953459.86367292
+Personico,5076,https://osm.org/relation/1684736,0.0,,inf,,,39038506.40133299
+Torricella-Taverne,5227,https://osm.org/relation/1684764,0.0,,inf,,,5237603.692504641
+La Brévine,6432,https://osm.org/relation/1685494,0.0,,inf,,,41813552.23219207
+Geuensee,1085,https://osm.org/relation/1682838,0.0,,inf,,,6474393.581939478
+Penthalaz,5495,https://osm.org/relation/1685096,0.0,,inf,,,3869651.7535342467
+Neuchâtel,6458,https://osm.org/relation/1685519,0.0,,inf,,,30173077.262110412
+Steinen,1373,https://osm.org/relation/1683114,0.0,,inf,,,11849855.189132031
+Molondin,5921,https://osm.org/relation/1685052,0.0,,inf,,,5495772.050760894
+Günsberg,2547,https://osm.org/relation/1683515,0.0,,inf,,,5263275.965881888
+Muzzano,5205,https://osm.org/relation/1684726,0.0,,inf,,,1713094.0409977448
+Geroldswil,244,https://osm.org/relation/1682127,0.0,,inf,,,1933259.4245527962
+Meggen,1063,https://osm.org/relation/1682896,0.0,,inf,,,13389221.340340894
+Ayent,6082,https://osm.org/relation/1685270,0.0,,inf,,,55159365.15696224
+Niederdorf,2891,https://osm.org/relation/1683682,0.0,,inf,,,4402555.387622407
+Ebikon,1054,https://osm.org/relation/1682826,0.0,,inf,,,9685387.782291088
+Zermatt,6300,https://osm.org/relation/1685406,0.0,,inf,,,242816166.8685183
+Wölflinswil,4182,https://osm.org/relation/1684467,0.0,,inf,,,9506461.208383154
+Büetigen,382,https://osm.org/relation/1682404,0.0,,inf,,,3613571.2352849017
+Walperswil,754,https://osm.org/relation/1682714,0.0,,inf,,,6953132.14904709
+Pont-la-Ville,2147,https://osm.org/relation/1683381,0.0,,inf,,,5509931.040128146
+Cheyres-Châbles,2055,https://osm.org/relation/1683288,0.0,,inf,,,22352365.492029842
+Hauteville,2137,https://osm.org/relation/1683337,0.0,,inf,,,11865988.321056228
+Buchrain,1052,https://osm.org/relation/1682819,0.0,,inf,,,4803779.170085682
+Gretzenbach,2576,https://osm.org/relation/1683511,0.0,,inf,,,5834398.032121608
+Siviriez,2099,https://osm.org/relation/1683400,0.0,,inf,,,20282185.525179457
+Rongellen,3711,https://osm.org/relation/1684139,0.0,,inf,,,2017162.6040740572
+Leissigen,585,https://osm.org/relation/1682530,0.0,,inf,,,10796682.48928537
+Vich,5732,https://osm.org/relation/1685180,0.0,,inf,,,1553168.9800641958
+Jouxtens-Mézery,5585,https://osm.org/relation/1685004,0.0,,inf,,,1933869.809230546
+Calanca,3837,https://osm.org/relation/1684042,0.0,,inf,,,37721328.978216425
+Caslano,5171,https://osm.org/relation/1684651,0.0,,inf,,,4673059.476143424
+Féchy,5427,https://osm.org/relation/1684981,0.0,,inf,,,2698790.3343785075
+Unteriberg,1375,https://osm.org/relation/1683117,0.0,,inf,,,46556838.57155848
+Dänikon,85,https://osm.org/relation/1682109,0.0,,inf,,,2864641.528388694
+Juriens,5754,https://osm.org/relation/1685005,0.0,,inf,,,9352337.751901023
+Romoos,1007,https://osm.org/relation/1682911,0.0,,inf,,,37390334.559909254
+Triengen,1104,https://osm.org/relation/1682924,0.0,,inf,,,22087432.713573992
+Leysin,5407,https://osm.org/relation/1685029,0.0,,inf,,,18579112.144467592
+Galgenen,1342,https://osm.org/relation/1683074,0.0,,inf,,,13262767.305369794
+Schöfflisdorf,99,https://osm.org/relation/1682206,0.0,,inf,,,4011017.4468253907
+Hasle (LU),1005,https://osm.org/relation/1682850,0.0,,inf,,,40312325.23470045
+Winznau,2501,https://osm.org/relation/1683588,0.0,,inf,,,3940579.532688891
+Bühler,3021,https://osm.org/relation/1683870,0.0,,inf,,,5599178.596504323
+Moosleerau,4277,https://osm.org/relation/1684367,0.0,,inf,,,3808469.1163289873
+Leuggern,4313,https://osm.org/relation/1684352,0.0,,inf,,,13756955.920277255
+Lutry,5606,https://osm.org/relation/1685039,0.0,,inf,,,16628953.476461118
+La Sarraz,5498,https://osm.org/relation/1685013,0.0,,inf,,,7705294.254097043
+Rüti (ZH),118,https://osm.org/relation/1682201,0.0,,inf,,,10058296.692926029
+Orvin,438,https://osm.org/relation/1682602,0.0,,inf,,,21593247.020039324
+Fischbach,1129,https://osm.org/relation/1682835,0.0,,inf,,,8047245.363504838
+Sainte-Croix,5568,https://osm.org/relation/1685144,0.0,,inf,,,39483658.6040694
+Leimbach (AG),4137,https://osm.org/relation/1684349,0.0,,inf,,,1146665.5542953352
+Simplon,6009,https://osm.org/relation/1685376,0.0,,inf,,,90977824.65957278
+Bözberg,4124,https://osm.org/relation/2743442,0.0,,inf,,,15522145.127120122
+Les Breuleux,6743,https://osm.org/relation/1685610,0.0,,inf,,,14862351.099913716
+Blumenstein,922,https://osm.org/relation/1682385,0.0,,inf,,,15518612.622835606
+Walterswil (BE),959,https://osm.org/relation/1682715,0.0,,inf,,,7873391.420340808
+Wengi,394,https://osm.org/relation/1682719,0.0,,inf,,,7081490.49275196
+Coldrerio,5251,https://osm.org/relation/1684663,0.0,,inf,,,2458445.2485800693
+Grandevent,5560,https://osm.org/relation/1684994,0.0,,inf,,,3450450.1563044796
+Lavertezzo,5112,https://osm.org/relation/1684693,0.0,,inf,,,870166.2239029725
+Jaun,2138,https://osm.org/relation/1683339,0.0,,inf,,,55194773.25765497
+Iffwil,541,https://osm.org/relation/1682489,0.0,,inf,,,5060569.0840364965
+La Chaux-de-Fonds,6421,https://osm.org/relation/1685495,0.0,,inf,,,55707472.81971935
+Steinmaur,101,https://osm.org/relation/1682212,0.0,,inf,,,9392530.05808306
+Courroux,6709,https://osm.org/relation/1685592,0.0,,inf,,,19737956.839788504
+Veyrier,6645,https://osm.org/relation/1685542,0.0,,inf,,,6495394.750910082
+Penthéréaz,5531,https://osm.org/relation/1685098,0.0,,inf,,,5674301.487320729
+Allmendingen,630,https://osm.org/relation/1682363,0.0,,inf,,,3809823.839015664
+Boudry,6404,https://osm.org/relation/1685455,0.0,,inf,,,16797691.24590423
+Grengiols,6177,https://osm.org/relation/1685311,0.0,,inf,,,58452959.98841541
+Les Enfers,6745,https://osm.org/relation/1685611,0.0,,inf,,,7070616.541088467
+Zug,1711,https://osm.org/relation/1683151,0.0,,inf,,,32777192.928928103
+Lavey-Morcles,5406,https://osm.org/relation/1685019,0.0,,inf,,,14196949.340351863
+Liddes,6033,https://osm.org/relation/1685331,0.0,,inf,,,60185018.78785384
+Feusisberg,1321,https://osm.org/relation/1683071,0.0,,inf,,,17501469.173298977
+Muotathal,1367,https://osm.org/relation/1683092,0.0,,inf,,,172051261.26804894
+Reutigen,767,https://osm.org/relation/1682619,0.0,,inf,,,13751156.545529585
+Hofstetten-Flüh,2476,https://osm.org/relation/1683524,0.0,,inf,,,7514404.461574694
+Brenzikofen,606,https://osm.org/relation/1682390,0.0,,inf,,,2194870.066136656
+Aegerten,731,https://osm.org/relation/1682359,0.0,,inf,,,2156549.174564211
+Brittnau,4274,https://osm.org/relation/1684280,0.0,,inf,,,13689562.548298277
+Salenstein,4851,https://osm.org/relation/1684553,0.0,,inf,,,6552209.033558084
+Comunanza Capriasca/Lugano,5394,https://osm.org/relation/1684667,0.0,,inf,,,79807.62496921499
+Remetschwil,4039,https://osm.org/relation/1684401,0.0,,inf,,,3885114.9423104967
+Mörigen,742,https://osm.org/relation/1682561,0.0,,inf,,,2106049.058200307
+Vinelz,502,https://osm.org/relation/1682708,0.0,,inf,,,4974282.865694515
+Prévonloup,5683,https://osm.org/relation/1685112,0.0,,inf,,,1836698.351165998
+Misery-Courtion,2272,https://osm.org/relation/1683363,0.0,,inf,,,11370567.400842082
+Bever,3781,https://osm.org/relation/1684045,0.0,,inf,,,22622873.851047717
+Zihlschlacht-Sitterdorf,4511,https://osm.org/relation/1684575,0.0,,inf,,,12206445.185080353
+Puplinge,6636,https://osm.org/relation/1685526,0.0,,inf,,,2671799.7435162235
+Saint-Martin (VS),6087,https://osm.org/relation/1685367,0.0,,inf,,,37008321.26990452
+Schelten,708,https://osm.org/relation/1682650,0.0,,inf,,,5560353.095715127
+Rickenbach (SO),2582,https://osm.org/relation/1683568,0.0,,inf,,,2756947.129984095
+Rüti bei Lyssach,422,https://osm.org/relation/1682639,0.0,,inf,,,1293953.1111240983
+Aclens,5621,https://osm.org/relation/1684829,0.0,,inf,,,3896818.912827505
+Rehetobel,3034,https://osm.org/relation/1683923,0.0,,inf,,,6716674.729704498
+Linescio,5315,https://osm.org/relation/1684696,0.0,,inf,,,6612484.733402054
+Vilters-Wangs,3297,https://osm.org/relation/1683955,0.0,,inf,,,32715532.878778834
+Dalpe,5071,https://osm.org/relation/1684674,0.0,,inf,,,14526182.056189738
+Obermumpf,4256,https://osm.org/relation/1684389,0.0,,inf,,,5028056.39720663
+Petit-Val,716,https://osm.org/relation/4449432,0.0,,inf,,,23902652.67604924
+Mezzovico-Vira,5199,https://osm.org/relation/1684715,0.0,,inf,,,10210528.94789603
+Beinwil (SO),2612,https://osm.org/relation/1683479,0.0,,inf,,,22661911.783524662
+Martigny-Combe,6137,https://osm.org/relation/1685333,0.0,,inf,,,37406008.13586234
+Untervaz,3946,https://osm.org/relation/1684198,0.0,,inf,,,27721407.273276936
+Le Flon,2337,https://osm.org/relation/1683350,0.0,,inf,,,9567335.797741493
+Widnau,3238,https://osm.org/relation/1683964,0.0,,inf,,,4216384.773310957
+Killwangen,4030,https://osm.org/relation/1684340,0.0,,inf,,,2433303.2038098816
+Felben-Wellhausen,4561,https://osm.org/relation/1684520,0.0,,inf,,,7380267.442626071
+Dietlikon,54,https://osm.org/relation/1682104,0.0,,inf,,,4245067.968930935
+Wangen an der Aare,992,https://osm.org/relation/1682716,0.0,,inf,,,8133152.774922069
+Oberhünigen,629,https://osm.org/relation/1682589,0.0,,inf,,,6011593.084591597
+Zell (ZH),231,https://osm.org/relation/1682245,0.0,,inf,,,12971472.379193315
+Grindel,2617,https://osm.org/relation/1683512,0.0,,inf,,,3082880.1248277826
+Rossa,3808,https://osm.org/relation/1684140,0.0,,inf,,,58882625.18058038
+Thundorf,4611,https://osm.org/relation/1684562,0.0,,inf,,,15619694.426429894
+Bowil,605,https://osm.org/relation/1682388,0.0,,inf,,,14687748.546332592
+Oberems,6112,https://osm.org/relation/1685349,0.0,,inf,,,50259209.50796829
+Thunersee,9073,https://osm.org/relation/1682683,0.0,,inf,,,42347459.04961206
+Meisterschwanden,4202,https://osm.org/relation/1684359,0.0,,inf,,,6860497.340416546
+Stein (AG),4260,https://osm.org/relation/1684432,0.0,,inf,,,2814033.2745336685
+Bussigny,5624,https://osm.org/relation/1684875,0.0,,inf,,,4811756.867722094
+Lumino,5010,https://osm.org/relation/1684702,0.0,,inf,,,9947820.833181083
+Unterramsern,2463,https://osm.org/relation/1683584,0.0,,inf,,,1575946.1313143792
+Horw,1058,https://osm.org/relation/1682879,0.0,,inf,,,20769943.789274886
+Basel,2701,https://osm.org/relation/1683619,0.0,,inf,,,23858280.808990203
+Croy,5752,https://osm.org/relation/1684933,0.0,,inf,,,4173357.6726259454
+Anières,6602,https://osm.org/relation/1685445,0.0,,inf,,,8775070.672914542
+Matzendorf,2427,https://osm.org/relation/1683548,0.0,,inf,,,11271006.625421446
+Zäziwil,628,https://osm.org/relation/1682741,0.0,,inf,,,5405580.644280981
+Chavannes-le-Chêne,5907,https://osm.org/relation/1684891,0.0,,inf,,,3997275.27456711
+Chavannes-de-Bogis,5707,https://osm.org/relation/1684889,0.0,,inf,,,2859344.233231811
+Sulgen,4506,https://osm.org/relation/1684561,0.0,,inf,,,9118363.635302823
+Wald (BE),888,https://osm.org/relation/1682710,0.0,,inf,,,13296897.932709778
+Samedan,3786,https://osm.org/relation/1684150,0.0,,inf,,,50369680.19181985
+Cerentino,5309,https://osm.org/relation/1684656,0.0,,inf,,,20063786.734352026
+Saanen,843,https://osm.org/relation/1682641,0.0,,inf,,,120057686.56848244
+Tuggen,1347,https://osm.org/relation/1683116,0.0,,inf,,,15084374.848869104
+St. Ursen,2304,https://osm.org/relation/1683404,0.0,,inf,,,15718146.195420012
+Pfäfers,3294,https://osm.org/relation/1683919,0.0,,inf,,,128460654.02417661
+Rothenbrunnen,3637,https://osm.org/relation/1684141,0.0,,inf,,,3110127.796541109
+Greifensee,194,https://osm.org/relation/1682130,0.0,,inf,,,4324310.348954401
+Cormoret,432,https://osm.org/relation/1682413,0.0,,inf,,,13477632.472321033
+Twann-Tüscherz,756,https://osm.org/relation/1682694,0.0,,inf,,,11204370.721252477
+Schlatt (TG),4546,https://osm.org/relation/1684555,0.0,,inf,,,15548876.170401026
+Büsingen am Hochrhein,7101,Not found in OSM,,,,,,
+Basse-Vendline,6812,https://osm.org/relation/16915085,0.0,,inf,,,18656738.031379182
+Alberswil,1121,https://osm.org/relation/1682813,0.0,,inf,,,3535622.5862569204
+Kirchleerau,4275,https://osm.org/relation/1684341,0.0,,inf,,,4364642.451598919
+Saint-Maurice,6217,https://osm.org/relation/1685368,0.0,,inf,,,14920832.855547382
+Bremblens,5622,https://osm.org/relation/1684866,0.0,,inf,,,2905826.956022592
+Gersau,1311,https://osm.org/relation/1683075,0.0,,inf,,,23581514.572753858
+S-chanf,3788,https://osm.org/relation/1684145,0.0,,inf,,,138036734.7026643
+Reisiswil,336,https://osm.org/relation/1682617,0.0,,inf,,,2008131.4713131713
+Dozwil,4406,https://osm.org/relation/1684514,0.0,,inf,,,1304290.7116884019
+Hundwil,3002,https://osm.org/relation/1683895,0.0,,inf,,,23946557.73880031
+Iseltwald,582,https://osm.org/relation/1682495,0.0,,inf,,,23414233.720440827
+Nenzlingen,2789,https://osm.org/relation/1683679,0.0,,inf,,,3658954.301468124
+Russikon,178,https://osm.org/relation/1682198,0.0,,inf,,,14202422.333987366
+Sigriswil,938,https://osm.org/relation/1682665,0.0,,inf,,,56191151.451301925
+Montfaucon,6751,https://osm.org/relation/1685617,0.0,,inf,,,18243351.289768748
+Bergdietikon,4023,https://osm.org/relation/1684267,0.0,,inf,,,5926250.599159337
+Zeiningen,4263,https://osm.org/relation/1684471,0.0,,inf,,,11368627.516477251
+Giswil,1403,https://osm.org/relation/1683077,0.0,,inf,,,85955796.63532516
+Rifferswil,12,https://osm.org/relation/1682196,0.0,,inf,,,6508497.09193142
+Campione d'Italia,7301,Not found in OSM,,,,,,
+Kleinandelfingen,33,https://osm.org/relation/1682153,0.0,,inf,,,10294192.117837954
+Chalais,6232,https://osm.org/relation/1685285,0.0,,inf,,,24331432.128074974
+Riddes,6139,https://osm.org/relation/1685357,0.0,,inf,,,23896735.745935395
+Mosnang,3394,https://osm.org/relation/1683907,0.0,,inf,,,50501300.4693578
+Schlatt-Haslen,3104,https://osm.org/relation/1683932,0.0,,inf,,,17917643.773011077
+Bourg-en-Lavaux,5613,https://osm.org/relation/373404,0.0,,inf,,,27430668.0485545
+Belmont-Broye,2053,https://osm.org/relation/5817631,0.0,,inf,,,25797409.961933445
+Anwil,2841,https://osm.org/relation/1683613,0.0,,inf,,,3952298.252063857
+Sisseln,4177,https://osm.org/relation/1684428,0.0,,inf,,,2511910.562322421
+Ipsach,739,https://osm.org/relation/1682494,0.0,,inf,,,2032385.5802657283
+Freienstein-Teufen,57,https://osm.org/relation/1682125,0.0,,inf,,,8402721.882765444
+Mauraz,5488,https://osm.org/relation/1685046,0.0,,inf,,,495972.9148611005
+Chancy,6611,https://osm.org/relation/1685462,0.0,,inf,,,5385291.238459835
+Veysonnaz,6267,https://osm.org/relation/1685396,0.0,,inf,,,1143685.0259585097
+Hauterive (FR),2233,https://osm.org/relation/1683336,0.0,,inf,,,11965341.784484917
+Châtel-Saint-Denis,2325,https://osm.org/relation/1683290,0.0,,inf,,,47932299.285685785
+Le Lieu,5873,https://osm.org/relation/1685022,0.0,,inf,,,35939543.878174394
+Sembrancher,6035,https://osm.org/relation/1685374,0.0,,inf,,,17682413.525558494
+Ermensee,1025,https://osm.org/relation/1682831,0.0,,inf,,,5691520.309973319
+Dotzigen,386,https://osm.org/relation/1682423,0.0,,inf,,,4230391.94046064
+Hindelbank,409,https://osm.org/relation/1682481,0.0,,inf,,,9692830.560243344
+Champtauroz,5812,https://osm.org/relation/1684884,0.0,,inf,,,3053536.9446481057
+Höchstetten,410,https://osm.org/relation/1682487,0.0,,inf,,,2636528.520721435
+Locarno,5113,https://osm.org/relation/1684697,0.0,,inf,,,13162789.771633597
+Gossau (ZH),115,https://osm.org/relation/1682129,0.0,,inf,,,18264471.59723334
+Recherswil,2530,https://osm.org/relation/1683567,0.0,,inf,,,3361809.615263676
+Prévondavaux,2038,https://osm.org/relation/1683384,0.0,,inf,,,1820836.329913699
+Le Locle,6436,https://osm.org/relation/1685506,0.0,,inf,,,34662309.78270055
+Biasca,5281,https://osm.org/relation/1684627,0.0,,inf,,,59122148.142156534
+Eisten,6282,https://osm.org/relation/1685297,0.0,,inf,,,38006813.15764468
+Oberembrach,65,https://osm.org/relation/1682175,0.0,,inf,,,10256493.40647679
+Kienberg,2492,https://osm.org/relation/1683534,0.0,,inf,,,8529352.685076583
+Homberg,931,https://osm.org/relation/1682483,0.0,,inf,,,6512602.023504729
+Ennetbürgen,1505,https://osm.org/relation/1683068,0.0,,inf,,,17707173.810720667
+Sachseln,1406,https://osm.org/relation/1683099,0.0,,inf,,,57472800.53946447
+Wimmis,769,https://osm.org/relation/1682727,0.0,,inf,,,22359420.51561773
+Gsteig,841,https://osm.org/relation/1682460,0.0,,inf,,,62330912.90363393
+Koppigen,413,https://osm.org/relation/1682514,0.0,,inf,,,6930121.638799964
+Urmein,3670,https://osm.org/relation/1684199,0.0,,inf,,,4325807.076006086
+Grandfontaine,6792,https://osm.org/relation/1685602,0.0,,inf,,,8978223.960128505
+Collina d'Oro,5236,https://osm.org/relation/1684664,0.0,,inf,,,7409199.668836846
+Andwil (SG),3441,https://osm.org/relation/1683859,0.0,,inf,,,6308016.540494822
+Kerzers,2265,https://osm.org/relation/1683341,0.0,,inf,,,12280182.451533988
+Malters,1062,https://osm.org/relation/1682893,0.0,,inf,,,28570689.375451438
+Montreux,5886,https://osm.org/relation/1685062,0.0,,inf,,,44483395.477617204
+Flüelen,1207,https://osm.org/relation/1683072,0.0,,inf,,,15749041.966476114
+Rothenfluh,2858,https://osm.org/relation/1683698,0.0,,inf,,,10945464.28805159
+Rances,5760,https://osm.org/relation/1685115,0.0,,inf,,,9843044.837299887
+Olsberg,4257,https://osm.org/relation/1684396,0.0,,inf,,,4209616.101220192
+Murten,2275,https://osm.org/relation/5817743,0.0,,inf,,,35320932.08172133
+Glattfelden,58,https://osm.org/relation/1682128,0.0,,inf,,,11897088.082150752
+Trimbach,2500,https://osm.org/relation/1683582,0.0,,inf,,,7596090.250322673
+Bioggio,5151,https://osm.org/relation/1684628,0.0,,inf,,,6424321.0310889585
+Mönthal,4106,https://osm.org/relation/1684374,0.0,,inf,,,3934680.113257739
+Utzenstorf,552,https://osm.org/relation/1682704,0.0,,inf,,,16931108.45724715
+Alle,6771,https://osm.org/relation/1685569,0.0,,inf,,,10598561.39247358
+Choulex,6614,https://osm.org/relation/1685463,0.0,,inf,,,3908238.7602147073
+Niederrohrdorf,4035,https://osm.org/relation/1684381,0.0,,inf,,,3335228.099803656
+Oberlunkhofen,4073,https://osm.org/relation/1684388,0.0,,inf,,,3249984.3079820806
+Bäriswil,403,https://osm.org/relation/1682400,0.0,,inf,,,2734877.025695977
+Laufenburg,4170,https://osm.org/relation/1684347,0.0,,inf,,,14479503.763682667
+Gais,3022,https://osm.org/relation/1683881,0.0,,inf,,,21199649.100893855
+Naters,6007,https://osm.org/relation/1685345,0.0,,inf,,,147218127.90858266
+Langnau am Albis,136,https://osm.org/relation/1682158,0.0,,inf,,,8664923.574976785
+Trubschachen,909,https://osm.org/relation/1682692,0.0,,inf,,,15653005.274179788
+Illnau-Effretikon,296,https://osm.org/relation/5817371,0.0,,inf,,,32908122.671074215
+Sumvitg,3985,https://osm.org/relation/1684179,0.0,,inf,,,101886343.09223016
+Elsau,219,https://osm.org/relation/1682117,0.0,,inf,,,8065405.903041081
+Cortébert,433,https://osm.org/relation/1682414,0.0,,inf,,,14758515.003493859
+Langenthal,329,https://osm.org/relation/1682524,0.0,,inf,,,21147024.66617597
+Wetzikon (ZH),121,https://osm.org/relation/1682237,0.0,,inf,,,16759470.96119985
+Walzenhausen,3037,https://osm.org/relation/1683960,0.0,,inf,,,6996280.130901929
+Poliez-Pittet,5533,https://osm.org/relation/1685102,0.0,,inf,,,5009618.494367366
+Wasterkingen,70,https://osm.org/relation/1682232,0.0,,inf,,,3958308.413810265
+Pompaples,5497,https://osm.org/relation/1685104,0.0,,inf,,,4450490.496205211
+Biglen,603,https://osm.org/relation/1682382,0.0,,inf,,,3588314.7728735986
+Erlenbach (ZH),151,https://osm.org/relation/1682119,0.0,,inf,,,4590968.148456013
+Hagneck,736,https://osm.org/relation/1682468,0.0,,inf,,,1888147.1368444317
+Plan-les-Ouates,6633,https://osm.org/relation/1685523,0.0,,inf,,,6095754.456064962
+Rünenberg,2860,https://osm.org/relation/1683702,0.0,,inf,,,4972466.917575901
+Täsch,6295,https://osm.org/relation/1685386,0.0,,inf,,,58736782.036358975
+Ennetmoos,1506,https://osm.org/relation/1683069,0.0,,inf,,,14941745.736776689
+Jussy,6626,https://osm.org/relation/1685493,0.0,,inf,,,11349763.205527922
+Sumiswald,957,https://osm.org/relation/1682677,0.0,,inf,,,59336751.36062554
+Unterentfelden,4013,https://osm.org/relation/1684446,0.0,,inf,,,2882052.992914587
+Maracon,5790,https://osm.org/relation/1685040,0.0,,inf,,,4383027.170770201
+Nürensdorf,64,https://osm.org/relation/1682174,0.0,,inf,,,10139257.823696498
+Vuarrens,5539,https://osm.org/relation/1685196,0.0,,inf,,,8969389.499500925
+Satigny,6638,https://osm.org/relation/1685531,0.0,,inf,,,18925822.277665496
+Walenstadt,3298,https://osm.org/relation/1683959,0.0,,inf,,,48841978.87002254
+Perrefitte,701,https://osm.org/relation/1682604,0.0,,inf,,,8569516.872642662
+Poschiavo,3561,https://osm.org/relation/1684132,0.0,,inf,,,191008237.5602915
+Bättwil,2471,https://osm.org/relation/1683490,0.0,,inf,,,1670108.4225736652
+Ferpicloz,2194,https://osm.org/relation/1683316,0.0,,inf,,,1017847.577628488
+Schwarzenberg,1066,https://osm.org/relation/1682919,0.0,,inf,,,39298247.43961078
+Surpierre,2044,https://osm.org/relation/1683406,0.0,,inf,,,14794115.179009503
+Appenzell,3101,https://osm.org/relation/1683860,0.0,,inf,,,16882232.152948927
+Konolfingen,612,https://osm.org/relation/1682513,0.0,,inf,,,12767806.438861445
+Roggliswil,1142,https://osm.org/relation/1682910,0.0,,inf,,,6203755.774352575
+Hilterfingen,929,https://osm.org/relation/1682480,0.0,,inf,,,3056557.8180544963
+Agno,5141,https://osm.org/relation/1684611,0.0,,inf,,,3037260.3323804173
+Berg (SG),3211,https://osm.org/relation/1683865,0.0,,inf,,,2768438.254853439
+Hüttlingen,4590,https://osm.org/relation/1684532,0.0,,inf,,,11604606.581376862
+Riniken,4111,https://osm.org/relation/1684405,0.0,,inf,,,4745781.340625113
+Bursins,5853,https://osm.org/relation/1684873,0.0,,inf,,,3372387.0756923985
+Uttigen,885,https://osm.org/relation/3411264,0.0,,inf,,,3806719.1929615065
+Zuzwil (SG),3426,https://osm.org/relation/1683969,0.0,,inf,,,8968199.057992207
+Courtepin,2254,https://osm.org/relation/1683303,0.0,,inf,,,21853476.97637159
+Othmarsingen,4205,https://osm.org/relation/1684397,0.0,,inf,,,4733677.438996167
+Gebenstorf,4029,https://osm.org/relation/1684315,0.0,,inf,,,5647957.347177479
+Genthod,6622,https://osm.org/relation/1685487,0.0,,inf,,,5299564.153845895
+Steffisburg,939,https://osm.org/relation/1682674,0.0,,inf,,,14809351.316000333
+Port,745,https://osm.org/relation/1682609,0.0,,inf,,,2456799.164652608
+Ramlinsburg,2832,https://osm.org/relation/1683691,0.0,,inf,,,2247872.067041984
+Servion,5799,https://osm.org/relation/1685152,0.0,,inf,,,6320619.7916471865
+Diemtigen,762,https://osm.org/relation/1682420,0.0,,inf,,,129933821.98043464
+Castel San Pietro,5249,https://osm.org/relation/1684652,0.0,,inf,,,11835585.595416473
+Borex,5706,https://osm.org/relation/1684860,0.0,,inf,,,1985043.5055555042
+Beringen,2932,https://osm.org/relation/2754655,0.0,,inf,,,18650786.221347395
+Adelboden,561,https://osm.org/relation/1682357,0.0,,inf,,,87626953.71080141
+Richterswil,138,https://osm.org/relation/1682194,0.0,,inf,,,12806556.976532957
+Fulenbach,2575,https://osm.org/relation/1683506,0.0,,inf,,,4485638.598112019
+Bas-Intyamon,2162,https://osm.org/relation/1683272,0.0,,inf,,,33335596.94137871
+Bex,5402,https://osm.org/relation/1684852,0.0,,inf,,,96350105.37241615
+Villaz,2117,https://osm.org/relation/10523801,0.0,,inf,,,15434071.779457342
+Wigoltingen,4951,https://osm.org/relation/1684570,0.0,,inf,,,17135518.6330438
+Eysins,5716,https://osm.org/relation/1684969,0.0,,inf,,,2383814.242204439
+Roveredo (GR),3834,https://osm.org/relation/1684142,0.0,,inf,,,38796759.98479311
+Zullwil,2622,https://osm.org/relation/1683593,0.0,,inf,,,3640322.1190977255
+Bremgarten (AG),4063,https://osm.org/relation/3411166,0.0,,inf,,,11368246.620975718
+Menzingen,1704,https://osm.org/relation/1683144,0.0,,inf,,,27509554.082297403
+Rothenburg,1040,https://osm.org/relation/1682913,0.0,,inf,,,15495186.393707233
+Niedergesteln,6198,https://osm.org/relation/1685347,0.0,,inf,,,17632071.870588362
+Uitikon,248,https://osm.org/relation/1682221,0.0,,inf,,,4377795.546506228
+Ormalingen,2856,https://osm.org/relation/1683688,0.0,,inf,,,6931712.239535052
+Hägglingen,4068,https://osm.org/relation/1684333,0.0,,inf,,,7745334.167011799
+Seelisberg,1215,https://osm.org/relation/1683106,0.0,,inf,,,18898918.23670805
+Walterswil (SO),2585,https://osm.org/relation/1683585,0.0,,inf,,,4476492.885037704
+Villars-sous-Yens,5652,https://osm.org/relation/1685191,0.0,,inf,,,3043178.508089764
+Hergiswil bei Willisau,1132,https://osm.org/relation/1682856,0.0,,inf,,,31340940.35404998
+Delley-Portalban,2051,https://osm.org/relation/1683307,0.0,,inf,,,16604908.998302497
+Monthey,6153,https://osm.org/relation/1685341,0.0,,inf,,,20044263.533776563
+Jenaz,3863,https://osm.org/relation/1684092,0.0,,inf,,,25910470.248481233
+Corgémont,431,https://osm.org/relation/1682412,0.0,,inf,,,17666028.97596774
+La Sagne,6423,https://osm.org/relation/1685498,0.0,,inf,,,25549600.065115944
+Meinisberg,390,https://osm.org/relation/1682551,0.0,,inf,,,4376027.175720025
+Schwellbrunn,3004,https://osm.org/relation/1683934,0.0,,inf,,,17410179.531241175
+Obersiggenthal,4038,https://osm.org/relation/1684392,0.0,,inf,,,8358408.446422355
+Finsterhennen,493,https://osm.org/relation/1682441,0.0,,inf,,,3569143.7992982613
+Bodensee (SG),9328,https://osm.org/relation/1683867,0.0,,inf,,,43591720.15232928
+Blonay - Saint-Légier,5892,https://osm.org/relation/13623865,0.0,,inf,,,31244010.748819083
+Sorvilier,711,https://osm.org/relation/1682670,0.0,,inf,,,6903438.922388794
+Moutier,6831,https://osm.org/relation/1682559,0.0,,inf,,,19612460.525324587
+Movelier,6718,https://osm.org/relation/1685619,0.0,,inf,,,8084421.046834514
+Domleschg,3673,https://osm.org/relation/4450590,0.0,,inf,,,45942278.25772988
+Gondiswil,326,https://osm.org/relation/1682453,0.0,,inf,,,9406302.609081153
+Goms,6077,https://osm.org/relation/1685348,0.0,,inf,,,129601944.08974688
+Dürrenäsch,4134,https://osm.org/relation/1684296,0.0,,inf,,,5904844.9993675025
+Glarus,1632,https://osm.org/relation/1683142,0.0,,inf,,,103673866.36527447
+Etziken,2518,https://osm.org/relation/1683502,0.0,,inf,,,3366244.8478010986
+Henniez,5819,https://osm.org/relation/1685001,0.0,,inf,,,2612387.181903478
+Centovalli,5397,https://osm.org/relation/1684655,0.0,,inf,,,53555937.34162036
+Zuzgen,4264,https://osm.org/relation/1684475,0.0,,inf,,,8393638.594361152
+Muntogna da Schons,3715,https://osm.org/relation/12120535,0.0,,inf,,,53588741.25981524
+Ferreyres,5483,https://osm.org/relation/1684972,0.0,,inf,,,3153987.826962447
+Zumikon,160,https://osm.org/relation/1682247,0.0,,inf,,,5480658.47122662
+Gurzelen,867,https://osm.org/relation/1682464,0.0,,inf,,,4524584.335332114
+Rochefort,6413,https://osm.org/relation/1685527,0.0,,inf,,,25848066.15974804
+Avry,2174,https://osm.org/relation/1683270,0.0,,inf,,,5827903.471836648
+Eschen,7007,Not found in OSM,,,,,,
+Dulliken,2573,https://osm.org/relation/1683496,0.0,,inf,,,6042365.805196989
+Oberkulm,4140,https://osm.org/relation/1684387,0.0,,inf,,,9415803.594207956
+Sutz-Lattrigen,750,https://osm.org/relation/1682678,0.0,,inf,,,3581960.6988973776
+Troinex,6641,https://osm.org/relation/1685535,0.0,,inf,,,3428263.0635330174
+Niedergösgen,2495,https://osm.org/relation/1683557,0.0,,inf,,,4324372.539011622
+Bösingen,2295,https://osm.org/relation/1683282,0.0,,inf,,,14317331.435164997
+Visperterminen,6298,https://osm.org/relation/1685399,0.0,,inf,,,51639170.721892774
+Oberwil bei Büren,391,https://osm.org/relation/1682595,0.0,,inf,,,6740284.631030357
+Kleinbösingen,2266,https://osm.org/relation/1683342,0.0,,inf,,,3015598.692646062
+Flims,3732,https://osm.org/relation/1684080,0.0,,inf,,,50507710.59946541
+Saas-Almagell,6288,https://osm.org/relation/1685360,0.0,,inf,,,110397960.25355168
+Kriens,1059,https://osm.org/relation/1682888,0.0,,inf,,,27301881.09446408
+Clos du Doubs,6808,https://osm.org/relation/1685583,0.0,,inf,,,61770524.496289805
+Les Montets,2050,https://osm.org/relation/1683354,0.0,,inf,,,10307043.26821947
+Mont-la-Ville,5491,https://osm.org/relation/1685054,0.0,,inf,,,19791631.09368217
+Vernier,6643,https://osm.org/relation/1685540,0.0,,inf,,,7687532.417066601
+Mellingen,4033,https://osm.org/relation/1684362,0.0,,inf,,,4865710.717946671
+St. Gallen,3203,https://osm.org/relation/1683941,0.0,,inf,,,39378869.735543
+Subingen,2532,https://osm.org/relation/1683581,0.0,,inf,,,6274013.460839587
+Arisdorf,2821,https://osm.org/relation/1683615,0.0,,inf,,,9998729.504136065
+Schattenhalb,786,https://osm.org/relation/1682649,0.0,,inf,,,31559154.711115748
+Rüti bei Büren,393,https://osm.org/relation/1682638,0.0,,inf,,,6502384.804834492
+Hubersdorf,2548,https://osm.org/relation/1683527,0.0,,inf,,,1353252.5786667855
+Termen,6010,https://osm.org/relation/1685382,0.0,,inf,,,18657189.019170523
+Vechigen,359,https://osm.org/relation/1682706,0.0,,inf,,,24829862.4524719
+Savigny,5611,https://osm.org/relation/1685148,0.0,,inf,,,16014472.440463465
+Herzogenbuchsee,979,https://osm.org/relation/1682479,0.0,,inf,,,9822402.684164148
+Corcelles-près-Concise,5555,https://osm.org/relation/1684920,0.0,,inf,,,8481758.319725433
+Saint-Sulpice (VD),5648,https://osm.org/relation/1685143,0.0,,inf,,,24125646.236811966
+Tecknau,2862,https://osm.org/relation/1683711,0.0,,inf,,,2344359.564701918
+Bougy-Villars,5426,https://osm.org/relation/1684862,0.0,,inf,,,1767619.9509459836
+Frenkendorf,2824,https://osm.org/relation/1683647,0.0,,inf,,,4590329.569645335
+Dietikon,243,https://osm.org/relation/1682103,0.0,,inf,,,9334509.08119002
+Zetzwil,4147,https://osm.org/relation/1684472,0.0,,inf,,,5801667.386294317
+Schlossrued,4142,https://osm.org/relation/1684418,0.0,,inf,,,7221322.601314241
+Stallikon,13,https://osm.org/relation/1682211,0.0,,inf,,,12021376.720811142
+Neuendorf,2404,https://osm.org/relation/1683555,0.0,,inf,,,7143446.870210074
+Strengelbach,4285,https://osm.org/relation/1684434,0.0,,inf,,,6021775.732769967
+Dizy,5481,https://osm.org/relation/1684944,0.0,,inf,,,3035668.9992874023
+Biezwil,2445,https://osm.org/relation/1683484,0.0,,inf,,,4154990.36103199
+Herdern,4811,https://osm.org/relation/1684528,0.0,,inf,,,13726882.16861711
+Develier,6712,https://osm.org/relation/1685597,0.0,,inf,,,12466553.357846418
+Maisprach,2853,https://osm.org/relation/1683675,0.0,,inf,,,5074611.87355179
+Niederönz,982,https://osm.org/relation/1682580,0.0,,inf,,,2792382.6980143166
+Neunkirch,2904,https://osm.org/relation/1683681,0.0,,inf,,,17925631.578932602
+Schlatt (ZH),226,https://osm.org/relation/1682202,0.0,,inf,,,8964556.945892274
+Fontenais,6790,https://osm.org/relation/1685600,0.0,,inf,,,19998221.852396756
+Sarnen,1407,https://osm.org/relation/1683100,0.0,,inf,,,76882484.6259636
+Spiringen,1218,https://osm.org/relation/1683111,0.0,,inf,,,22622963.613222614
+Ballwil,1023,https://osm.org/relation/1682817,0.0,,inf,,,8767754.43094972
+Zollikon,161,https://osm.org/relation/1682246,0.0,,inf,,,9272097.994186219
+Weisslingen,180,https://osm.org/relation/1682235,0.0,,inf,,,12806499.450471202
+Villarzel,5830,https://osm.org/relation/1685192,0.0,,inf,,,7658129.1297396
+Altishofen,1123,https://osm.org/relation/1682825,0.0,,inf,,,14031764.040263204
+Massongex,6215,https://osm.org/relation/1685335,0.0,,inf,,,6634683.538173316
+Bellach,2542,https://osm.org/relation/1683480,0.0,,inf,,,5290191.689309624
+Meilen,156,https://osm.org/relation/1682165,0.0,,inf,,,17007151.074542724
+Wynau,345,https://osm.org/relation/1682732,0.0,,inf,,,5076475.725166046
+Kreuzlingen,4671,https://osm.org/relation/1684537,0.0,,inf,,,11567819.826849489
+Buttisholz,1083,https://osm.org/relation/1682820,0.0,,inf,,,16712045.069771744
+Conthey,6023,https://osm.org/relation/1685293,0.0,,inf,,,84895890.94472444
+Mergoscia,5117,https://osm.org/relation/1684713,0.0,,inf,,,12142459.357656157
+Wileroltigen,671,https://osm.org/relation/1682725,0.0,,inf,,,4153442.542479597
+Lenzburg,4201,https://osm.org/relation/1684351,0.0,,inf,,,11330901.881302355
+Origlio,5208,https://osm.org/relation/1684731,0.0,,inf,,,2077652.7723154186
+Lucens,5675,https://osm.org/relation/1868686,0.0,,inf,,,12332773.508317256
+Scharans,3638,https://osm.org/relation/1684156,0.0,,inf,,,14287967.383048585
+Gimel,5428,https://osm.org/relation/1684985,0.0,,inf,,,18880012.34109781
+Rüthi (SG),3256,https://osm.org/relation/1683930,0.0,,inf,,,9336527.648651436
+Visp,6297,https://osm.org/relation/1685398,0.0,,inf,,,13190850.743643425
+Cronay,5910,https://osm.org/relation/1684932,0.0,,inf,,,6582890.416158737
+Epsach,735,https://osm.org/relation/1682428,0.0,,inf,,,3414141.415497263
+Rivaz,5609,https://osm.org/relation/1685120,0.0,,inf,,,2946770.762832389
+Embd,6283,https://osm.org/relation/1685298,0.0,,inf,,,13393795.329451447
+Liesberg,2788,https://osm.org/relation/1683669,0.0,,inf,,,12462816.6275336
+Verzasca,5399,https://osm.org/relation/1684758,0.0,,inf,,,218283328.80224273
+Corcelles-le-Jorat,5785,https://osm.org/relation/1684919,0.0,,inf,,,7941145.5503926035
+Begnins,5704,https://osm.org/relation/1684845,0.0,,inf,,,4784719.32173539
+Granges-Paccot,2198,https://osm.org/relation/1683328,0.0,,inf,,,3990832.6514164223
+Renens (VD),5591,https://osm.org/relation/1685116,0.0,,inf,,,2949859.2414414985
+Lüterkofen-Ichertswil,2455,https://osm.org/relation/1683546,0.0,,inf,,,4429631.168200662
+La Grande Béroche,6417,https://osm.org/relation/7859091,0.0,,inf,,,42291154.9452676
+Kappel (SO),2580,https://osm.org/relation/1683532,0.0,,inf,,,5106905.011540387
+Valeyres-sous-Ursins,5934,https://osm.org/relation/1685172,0.0,,inf,,,2872831.857784556
+Le Mont-sur-Lausanne,5587,https://osm.org/relation/1685023,0.0,,inf,,,9793932.169107683
+Stein (AR),3005,https://osm.org/relation/1683944,0.0,,inf,,,9376518.754809339
+Wenslingen,2865,https://osm.org/relation/1683720,0.0,,inf,,,5914629.070892691
+Kiesen,611,https://osm.org/relation/1682508,0.0,,inf,,,4686806.813193571
+Canobbio,5167,https://osm.org/relation/1684647,0.0,,inf,,,1290427.5385013781
+Muralto,5120,https://osm.org/relation/1684725,0.0,,inf,,,809785.3157148559
+Wila,181,https://osm.org/relation/1682240,0.0,,inf,,,9192050.213339707
+Flerden,3662,https://osm.org/relation/1684079,0.0,,inf,,,4379861.136283703
+Longirod,5429,https://osm.org/relation/1685032,0.0,,inf,,,9451465.045082234
+Wintersingen,2866,https://osm.org/relation/1683722,0.0,,inf,,,6952825.1602524305
+Val-de-Travers,6512,https://osm.org/relation/1685536,0.0,,inf,,,124693404.58876765
+Stetten (SH),2919,https://osm.org/relation/1683710,0.0,,inf,,,4697807.539303024
+Châtonnaye,2068,https://osm.org/relation/1683293,0.0,,inf,,,6312462.502617325
+Realp,1212,https://osm.org/relation/1683095,0.0,,inf,,,77876021.29162768
+La Ferrière,435,https://osm.org/relation/1682519,0.0,,inf,,,14164392.5569153
+Collex-Bossy,6615,https://osm.org/relation/1685468,0.0,,inf,,,6891354.137872243
+Walliswil bei Niederbipp,990,https://osm.org/relation/1682712,0.0,,inf,,,1471081.4918177265
+Sevelen,3275,https://osm.org/relation/1683939,0.0,,inf,,,30325015.91453234
+Ufhusen,1145,https://osm.org/relation/1682926,0.0,,inf,,,12207981.941688534
+Kestenholz,2403,https://osm.org/relation/1683533,0.0,,inf,,,8589225.201178141
+Wängi,4781,https://osm.org/relation/1684574,0.0,,inf,,,16426759.201984158
+Walkringen,626,https://osm.org/relation/1682711,0.0,,inf,,,17212318.884986136
+Cham,1702,https://osm.org/relation/1683139,0.0,,inf,,,19121792.57407826
+Buchberg,2933,https://osm.org/relation/1683634,0.0,,inf,,,4913854.831829839
+Oberrohrdorf,4037,https://osm.org/relation/1684390,0.0,,inf,,,4296412.591466487
+Boppelsen,82,https://osm.org/relation/1682093,0.0,,inf,,,3962917.762585417
+Gisikon,1055,https://osm.org/relation/1682839,0.0,,inf,,,1076840.3773489671
+Safiental,3672,https://osm.org/relation/2742004,0.0,,inf,,,151420066.64395663
+Otelfingen,94,https://osm.org/relation/1682186,0.0,,inf,,,7149624.793397967
+Frick,4163,https://osm.org/relation/1684311,0.0,,inf,,,9961510.215223797
+Dittingen,2784,https://osm.org/relation/1683642,0.0,,inf,,,6750575.894807657
+Binningen,2765,https://osm.org/relation/1683625,0.0,,inf,,,4464577.624663523
+Clarmont,5629,https://osm.org/relation/1684909,0.0,,inf,,,1004436.8622400933
+Siselen,499,https://osm.org/relation/1682666,0.0,,inf,,,5509884.437577701
+Vinzel,5863,https://osm.org/relation/1685195,0.0,,inf,,,1097315.8942976375
+Lac de Neuchâtel (NE),9155,https://osm.org/relation/1685500,0.0,,inf,,,84312335.57179445
+Fey,5522,https://osm.org/relation/1684973,0.0,,inf,,,7339969.408606427
+Pfaffnau,1139,https://osm.org/relation/1682905,0.0,,inf,,,17681709.33064601
+Biel-Benken,2764,https://osm.org/relation/1683624,0.0,,inf,,,4115547.746172588
+Römerswil,1039,https://osm.org/relation/1682915,0.0,,inf,,,17378357.726151664
+Gamprin,7009,Not found in OSM,,,,,,
+Knutwil,1089,https://osm.org/relation/1682885,0.0,,inf,,,9744395.002294673
+Remigen,4110,https://osm.org/relation/1684402,0.0,,inf,,,7873968.552949968
+Vorderthal,1348,https://osm.org/relation/1683119,0.0,,inf,,,27969324.865349535
+Maschwanden,8,https://osm.org/relation/1682163,0.0,,inf,,,4687482.413409168
+Kölliken,4276,https://osm.org/relation/1684344,0.0,,inf,,,8890746.16518758
+Noville,5408,https://osm.org/relation/1685073,0.0,,inf,,,19945163.534993477
+Val de Bagnes,6037,https://osm.org/relation/1685271,0.0,,inf,,,300032330.0814661
+Lütisburg,3393,https://osm.org/relation/1683904,0.0,,inf,,,14097816.583857125
+Walchwil,1710,https://osm.org/relation/1683150,0.0,,inf,,,15877667.023629751
+Lancy,6628,https://osm.org/relation/1685502,0.0,,inf,,,4771337.235531374
+Lostallo,3821,https://osm.org/relation/1684104,0.0,,inf,,,50858384.79665062
+Oppens,5923,https://osm.org/relation/1685079,0.0,,inf,,,3595229.4944215706
+St. Stephan,793,https://osm.org/relation/1682673,0.0,,inf,,,60916943.98422825
+Lajoux (JU),6750,https://osm.org/relation/1685606,0.0,,inf,,,12381430.092454083
+Balerna,5242,https://osm.org/relation/1684621,0.0,,inf,,,2538399.1105002956
+Birrwil,4132,https://osm.org/relation/1684275,0.0,,inf,,,5531725.423613111
+Grüningen,116,https://osm.org/relation/1682131,0.0,,inf,,,8787500.584377926
+Rickenbach (TG),4751,https://osm.org/relation/1684550,0.0,,inf,,,1617784.0389911258
+Studen (BE),749,https://osm.org/relation/1682676,0.0,,inf,,,2728772.228845666
+Lausen,2828,https://osm.org/relation/1683666,0.0,,inf,,,5568374.967647617
+Villarsel-sur-Marly,2230,https://osm.org/relation/1683421,0.0,,inf,,,1393451.6611143805
+Wollerau,1323,https://osm.org/relation/1683123,0.0,,inf,,,6528811.457072399
+Erstfeld,1206,https://osm.org/relation/1683070,0.0,,inf,,,59088402.73039674
+Sévaz,2043,https://osm.org/relation/1683408,0.0,,inf,,,2500040.248132165
+Capriasca,5226,https://osm.org/relation/1684648,0.0,,inf,,,36291607.26699349
+Zollikofen,361,https://osm.org/relation/1682737,0.0,,inf,,,5389413.531066776
+Melchnau,333,https://osm.org/relation/1682553,0.0,,inf,,,10275098.700856173
+Vaulruz,2155,https://osm.org/relation/1683417,0.0,,inf,,,10102818.168736676
+Luthern,1135,https://osm.org/relation/1682890,0.0,,inf,,,37763327.74065908
+Grossaffoltern,303,https://osm.org/relation/1682458,0.0,,inf,,,15078464.398162235
+Surses,3543,https://osm.org/relation/5818092,0.0,,inf,,,323817551.9587062
+Le Châtelard,2067,https://osm.org/relation/1683349,0.0,,inf,,,7514373.88874338
+Waldstatt,3007,https://osm.org/relation/1683958,0.0,,inf,,,6744634.023915995
+Kilchberg (BL),2851,https://osm.org/relation/1683661,0.0,,inf,,,1591291.9615007124
+Buchs (ZH),83,https://osm.org/relation/1682098,0.0,,inf,,,5842922.921998658
+Montricher,5492,https://osm.org/relation/1685063,0.0,,inf,,,26013202.05302785
+Thalwil,141,https://osm.org/relation/1682216,0.0,,inf,,,7788223.888727754
+Wilderswil,594,https://osm.org/relation/1682723,0.0,,inf,,,13542563.174954908
+Fislisbach,4027,https://osm.org/relation/1684309,0.0,,inf,,,5055237.438532293
+Hombrechtikon,153,https://osm.org/relation/1682143,0.0,,inf,,,15578116.132512953
+Lavigny,5637,https://osm.org/relation/1685020,0.0,,inf,,,4002996.073444788
+Buchholterberg,923,https://osm.org/relation/1682396,0.0,,inf,,,15331817.905775107
+Wassen,1220,https://osm.org/relation/1683121,0.0,,inf,,,96880239.17610475
+Däniken,2572,https://osm.org/relation/1683497,0.0,,inf,,,5432713.025507697
+Neuenhof,4034,https://osm.org/relation/1684379,0.0,,inf,,,5378857.903317648
+Wallbach,4261,https://osm.org/relation/1684455,0.0,,inf,,,4512790.771640615
+Breil/Brigels,3981,https://osm.org/relation/1684050,0.0,,inf,,,96580885.74178733
+Trélex,5730,https://osm.org/relation/1685168,0.0,,inf,,,5770611.444125943
+Goumoëns,5541,https://osm.org/relation/1868684,0.0,,inf,,,10692485.446147934
+Zeglingen,2868,https://osm.org/relation/1683724,0.0,,inf,,,7912782.224830082
+Treiten,500,https://osm.org/relation/1682689,0.0,,inf,,,4740727.23330644
+Corbeyrier,5404,https://osm.org/relation/1684918,0.0,,inf,,,22002325.743338007
+Duillier,5715,https://osm.org/relation/1684949,0.0,,inf,,,4105223.9079858284
+Tägerig,4077,https://osm.org/relation/1684440,0.0,,inf,,,3291088.043127435
+Dättlikon,215,https://osm.org/relation/1682110,0.0,,inf,,,2881367.048700949
+Aarberg,301,https://osm.org/relation/1682355,0.0,,inf,,,7926841.880765641
+Holderbank (AG),4199,https://osm.org/relation/1684329,0.0,,inf,,,2322702.0561216054
+Eptingen,2885,https://osm.org/relation/1683645,0.0,,inf,,,11179960.428903658
+Schiers,3962,https://osm.org/relation/1684157,0.0,,inf,,,61667004.75030813
+Langendorf,2550,https://osm.org/relation/1683539,0.0,,inf,,,1954043.1958547542
+Penthaz,5496,https://osm.org/relation/1685097,0.0,,inf,,,3835455.3944234457
+Dielsdorf,86,https://osm.org/relation/1682102,0.0,,inf,,,5864511.473723266
+Wolhusen,1107,https://osm.org/relation/1682933,0.0,,inf,,,14293342.583270239
+Laupersdorf,2426,https://osm.org/relation/1683540,0.0,,inf,,,15501592.635712342
+Schluein,3582,https://osm.org/relation/1684159,0.0,,inf,,,4786429.274410928
+Ittigen,362,https://osm.org/relation/1682496,0.0,,inf,,,4204464.731530507
+Därligen,575,https://osm.org/relation/1682424,0.0,,inf,,,7286316.050016172
+Wittinsburg,2867,https://osm.org/relation/1683723,0.0,,inf,,,3203706.5126708206
+Birsfelden,2766,https://osm.org/relation/1683626,0.0,,inf,,,2509892.952890521
+Bettmeralp,6205,https://osm.org/relation/3411183,0.0,,inf,,,28840278.18532441
+Cevio,5310,https://osm.org/relation/1684658,0.0,,inf,,,151457756.42168546
+Baltschieder,6281,https://osm.org/relation/1685272,0.0,,inf,,,2238374.449362344
+Röthenbach im Emmental,904,https://osm.org/relation/1682631,0.0,,inf,,,36796354.00705267
+Maur,195,https://osm.org/relation/1682164,0.0,,inf,,,17799752.121434882
+Grimisuat,6263,https://osm.org/relation/1685312,0.0,,inf,,,4448307.601995313
+Füllinsdorf,2825,https://osm.org/relation/1683648,0.0,,inf,,,4618963.158389651
+Weiningen (ZH),251,https://osm.org/relation/1682234,0.0,,inf,,,5375705.388963558
+Wangen bei Olten,2586,https://osm.org/relation/1683586,0.0,,inf,,,6963436.7839959385
+Lauwil,2889,https://osm.org/relation/1683667,0.0,,inf,,,7296026.913076162
+Schmitten (GR),3514,https://osm.org/relation/1684160,0.0,,inf,,,11348375.658929149
+Bregaglia,3792,https://osm.org/relation/1684049,0.0,,inf,,,251388601.3222645
+Luzern,1061,https://osm.org/relation/1682891,0.0,,inf,,,31072509.191225626
+Corseaux,5883,https://osm.org/relation/1684924,0.0,,inf,,,7635367.077931941
+Lully (VD),5639,https://osm.org/relation/1685036,0.0,,inf,,,2048718.1483968727
+Treycovagnes,5931,https://osm.org/relation/1685166,0.0,,inf,,,2077103.1080082783
+Muri bei Bern,356,https://osm.org/relation/1682560,0.0,,inf,,,7626522.496957901
+Oberried am Brienzersee,589,https://osm.org/relation/1682591,0.0,,inf,,,20770466.0752608
+Riaz,2148,https://osm.org/relation/1683387,0.0,,inf,,,7754368.806638793
+Brugg,4095,https://osm.org/relation/1684281,0.0,,inf,,,13999397.795240171
+Hitzkirch,1030,https://osm.org/relation/1682865,0.0,,inf,,,31240096.860460136
+Heiden,3032,https://osm.org/relation/1683892,0.0,,inf,,,7469924.739430777
+Planken,7006,Not found in OSM,,,,,,
+Fläsch,3951,https://osm.org/relation/1684081,0.0,,inf,,,13969447.09525384
+Saules (BE),707,https://osm.org/relation/1682645,0.0,,inf,,,4280567.932408528
+Ballens,5423,https://osm.org/relation/1684841,0.0,,inf,,,8447919.618144268
+Urnäsch,3006,https://osm.org/relation/1683952,0.0,,inf,,,48306439.45461711
+Rüdlingen,2938,https://osm.org/relation/1683700,0.0,,inf,,,5518330.509509105
+Entlebuch,1002,https://osm.org/relation/1682830,0.0,,inf,,,56242880.43278287
+La Punt Chamues-ch,3785,https://osm.org/relation/1684096,0.0,,inf,,,63274099.01235514
+Montagny (FR),2029,https://osm.org/relation/1683364,0.0,,inf,,,17514084.59399871
+Rüderswil,905,https://osm.org/relation/1682632,0.0,,inf,,,17203193.89769761
+St. Margrethen,3236,https://osm.org/relation/1683943,0.0,,inf,,,6869904.140006152
+Altnau,4641,https://osm.org/relation/1684497,0.0,,inf,,,6731124.400363774
+Schafisheim,4207,https://osm.org/relation/1684414,0.0,,inf,,,6335343.977922179
+Gordola,5108,https://osm.org/relation/1684681,0.0,,inf,,,7034022.168229256
+Vaz/Obervaz,3506,https://osm.org/relation/1684203,0.0,,inf,,,42511479.25620301
+Sierre,6248,https://osm.org/relation/1685375,0.0,,inf,,,19132449.915622037
+Zuchwil,2534,https://osm.org/relation/1683592,0.0,,inf,,,4625817.491527176
+Ederswiler,6713,https://osm.org/relation/1685598,0.0,,inf,,,3312749.648894132
+Jaberg,868,https://osm.org/relation/1682497,0.0,,inf,,,1309147.4723076764
+Ziefen,2834,https://osm.org/relation/1683725,0.0,,inf,,,7822496.751084071
+Vufflens-la-Ville,5503,https://osm.org/relation/1685198,0.0,,inf,,,5379520.857547468
+Chavannes-près-Renens,5627,https://osm.org/relation/1684893,0.0,,inf,,,1648411.20549848
+Saint-Aubin (FR),2041,https://osm.org/relation/1683394,0.0,,inf,,,7885680.716064863
+Saas-Fee,6290,https://osm.org/relation/1685362,0.0,,inf,,,40304793.46717648
+Büsserach,2614,https://osm.org/relation/1683492,0.0,,inf,,,7551096.276418902
+Reute (AR),3035,https://osm.org/relation/1683924,0.0,,inf,,,4992114.69796768
+Riehen,2703,https://osm.org/relation/1683696,0.0,,inf,,,10873388.552705511
+Egliswil,4195,https://osm.org/relation/1684299,0.0,,inf,,,6288209.354879243
+Kradolf-Schönenberg,4501,https://osm.org/relation/1684536,0.0,,inf,,,10947795.39152664
+Krauchthal,414,https://osm.org/relation/1682516,0.0,,inf,,,19432973.490761742
+Boltigen,791,https://osm.org/relation/1682387,0.0,,inf,,,77073274.79348253
+Suhr,4012,https://osm.org/relation/1684435,0.0,,inf,,,10611563.193420244
+Founex,5717,https://osm.org/relation/1684979,0.0,,inf,,,8114786.338414063
+Bussnang,4921,https://osm.org/relation/1684511,0.0,,inf,,,18883826.143031456
+Mex (VD),5489,https://osm.org/relation/1685047,0.0,,inf,,,2826115.328776788
+Scheuren,747,https://osm.org/relation/1682652,0.0,,inf,,,2114137.338671881
+Affoltern im Emmental,951,https://osm.org/relation/1682361,0.0,,inf,,,11504836.612261228
+Kernenried,411,https://osm.org/relation/1682506,0.0,,inf,,,3330210.8171441983
+Mirchel,615,https://osm.org/relation/1682555,0.0,,inf,,,2342007.5646031946
+Romont (FR),2096,https://osm.org/relation/1683389,0.0,,inf,,,10898725.270130385
+Berneck,3233,https://osm.org/relation/1683866,0.0,,inf,,,5621973.795484235
+Muriaux,6753,https://osm.org/relation/1685620,0.0,,inf,,,10974545.337821638
+Ochlenberg,985,https://osm.org/relation/1682598,0.0,,inf,,,12115208.856387313
+Forst-Längenbühl,948,https://osm.org/relation/1682442,0.0,,inf,,,4498294.276644262
+St. Niklaus,6292,https://osm.org/relation/1685378,0.0,,inf,,,89262542.98982331
+Eclépens,5482,https://osm.org/relation/1684956,0.0,,inf,,,5801789.811239018
+Buus,2844,https://osm.org/relation/1683637,0.0,,inf,,,8845232.482029825
+Uster,198,https://osm.org/relation/1682225,0.0,,inf,,,30455436.450965486
+Wettswil am Albis,14,https://osm.org/relation/1682236,0.0,,inf,,,3769686.0794252176
+Unterägeri,1709,https://osm.org/relation/1683149,0.0,,inf,,,26696630.499355316
+Auw,4223,https://osm.org/relation/1684259,0.0,,inf,,,8566825.29036195
+Alchenstorf,402,https://osm.org/relation/1682362,0.0,,inf,,,6569247.239499077
+Kappelen,305,https://osm.org/relation/1682503,0.0,,inf,,,10968312.067696558
+Echallens,5518,https://osm.org/relation/1684952,0.0,,inf,,,6663606.393961883
+Nunningen,2621,https://osm.org/relation/1683559,0.0,,inf,,,10330936.829464316
+Birmenstorf (AG),4024,https://osm.org/relation/1684272,0.0,,inf,,,7791257.292383299
+Savosa,5221,https://osm.org/relation/1684753,0.0,,inf,,,745901.4710666962
+Villeneuve (VD),5414,https://osm.org/relation/1685193,0.0,,inf,,,34668591.21023153
+Saignelégier,6757,https://osm.org/relation/1685626,0.0,,inf,,,31659662.01009845
+Evionnaz,6213,https://osm.org/relation/1685302,0.0,,inf,,,48076345.8811561
+Balgach,3232,https://osm.org/relation/1683863,0.0,,inf,,,6518588.402272757
+Altendorf,1341,https://osm.org/relation/1683056,0.0,,inf,,,24564868.00362713
+Elgg,294,https://osm.org/relation/1682115,0.0,,inf,,,24395112.98211633
+Landquart,3955,https://osm.org/relation/1948063,0.0,,inf,,,10876697.050841141
+Perroy,5860,https://osm.org/relation/1685099,0.0,,inf,,,16222526.289639669
+Altbüron,1122,https://osm.org/relation/1682814,0.0,,inf,,,6751664.950292261
+Augst,2822,https://osm.org/relation/1683617,0.0,,inf,,,1668409.7149951856
+Allaman,5851,https://osm.org/relation/1684832,0.0,,inf,,,11534765.48166017
+Menznau,1136,https://osm.org/relation/1682898,0.0,,inf,,,30338621.804938257
+Zürich,261,https://osm.org/relation/1682248,0.0,,inf,,,91878541.4335842
+Wattwil,3379,https://osm.org/relation/2727987,0.0,,inf,,,51175416.29252117
+San Vittore,3835,https://osm.org/relation/1684152,0.0,,inf,,,19222568.355681922
+Bonstetten,3,https://osm.org/relation/1682092,0.0,,inf,,,7431260.845526172
+Laufen,2787,https://osm.org/relation/1683665,0.0,,inf,,,11397514.859194828
+Sagogn,3581,https://osm.org/relation/1684148,0.0,,inf,,,6917874.644135974
+Salvan,6218,https://osm.org/relation/1685371,0.0,,inf,,,53482195.761441186
+Gipf-Oberfrick,4165,https://osm.org/relation/1684317,0.0,,inf,,,10175834.882492537
+Wildhaus-Alt St. Johann,3359,https://osm.org/relation/1683966,0.0,,inf,,,87527576.63599399
+Bargen (SH),2931,https://osm.org/relation/1683618,0.0,,inf,,,8273154.576741234
+Solothurn,2601,https://osm.org/relation/1683577,0.0,,inf,,,6279769.280851075
+Häfelfingen,2847,https://osm.org/relation/1683658,0.0,,inf,,,3971637.3900767844
+Kallern,4233,https://osm.org/relation/1684339,0.0,,inf,,,2682380.8515603566
+Fräschels,2258,https://osm.org/relation/1683319,0.0,,inf,,,3106621.5714098616
+Grandvillard,2134,https://osm.org/relation/1683326,0.0,,inf,,,24239916.628320128
+Rümlang,97,https://osm.org/relation/1682199,0.0,,inf,,,12417269.204803005
+Fahrwangen,4196,https://osm.org/relation/1684306,0.0,,inf,,,4998133.945149355
+Au (SG),3231,https://osm.org/relation/1683861,0.0,,inf,,,4655682.441385541
+Mönchaltorf,196,https://osm.org/relation/1682168,0.0,,inf,,,7395172.018016962
+Zillis-Reischen,3712,https://osm.org/relation/1684211,0.0,,inf,,,24475139.23017249
+Wiler (Lötschen),6202,https://osm.org/relation/1685404,0.0,,inf,,,14857989.34484051
+Dällikon,84,https://osm.org/relation/1682108,0.0,,inf,,,4506114.986731832
+Hochfelden,59,https://osm.org/relation/1682141,0.0,,inf,,,6170086.111658389
+Bois-d'Amont,2238,https://osm.org/relation/1683265,0.0,,inf,,,12264745.816233007
+Ostermundigen,363,https://osm.org/relation/1682603,0.0,,inf,,,5964851.1046738215
+Bossonnens,2323,https://osm.org/relation/1683276,0.0,,inf,,,4116508.6748799346
+Hendschiken,4198,https://osm.org/relation/1684325,0.0,,inf,,,3507788.3868404888
+Bogis-Bossey,5705,https://osm.org/relation/1684858,0.0,,inf,,,2452971.154490713
+Comano,5176,https://osm.org/relation/1684665,0.0,,inf,,,2056776.5679331126
+Champagne,5553,https://osm.org/relation/1684883,0.0,,inf,,,3914082.841787255
+Schlieren,247,https://osm.org/relation/1682204,0.0,,inf,,,6592801.977314098
+Belmont-sur-Yverdon,5902,https://osm.org/relation/1684848,0.0,,inf,,,6472936.882725782
+Full-Reuenthal,4307,https://osm.org/relation/1684312,0.0,,inf,,,4784184.745754874
+Fahy,6789,https://osm.org/relation/1685599,0.0,,inf,,,7778490.593861755
+Staatswald Galm,2391,https://osm.org/relation/1683405,0.0,,inf,,,2570649.7050428414
+Thunstetten,342,https://osm.org/relation/1682684,0.0,,inf,,,9643566.207113016
+Malans,3954,https://osm.org/relation/1684112,0.0,,inf,,,11401345.5321948
+Saxeten,591,https://osm.org/relation/1682646,0.0,,inf,,,19121636.740034383
+Guggisberg,852,https://osm.org/relation/1682462,0.0,,inf,,,54888218.73827306
+Saint-Saphorin (Lavaux),5610,https://osm.org/relation/1685141,0.0,,inf,,,5297555.3046166105
+Brügg,733,https://osm.org/relation/1682394,0.0,,inf,,,5001530.634667649
+Lupsingen,2830,https://osm.org/relation/1683672,0.0,,inf,,,3114004.6932453415
+Massagno,5196,https://osm.org/relation/1684709,0.0,,inf,,,735335.1598513136
+Niederlenz,4204,https://osm.org/relation/1684380,0.0,,inf,,,3305073.666682318
+Romanel-sur-Lausanne,5592,https://osm.org/relation/1685125,0.0,,inf,,,2880271.7461249176
+Grub (AR),3031,https://osm.org/relation/1683891,0.0,,inf,,,4215911.574095553
+Oberiberg,1368,https://osm.org/relation/1683094,0.0,,inf,,,33082544.74877513
+Diessbach bei Büren,385,https://osm.org/relation/1682421,0.0,,inf,,,6334731.996769609
+Kilchberg (ZH),135,https://osm.org/relation/1682152,0.0,,inf,,,4867724.063056605
+Neuenegg,670,https://osm.org/relation/1682572,0.0,,inf,,,21825343.923131775
+Botterens,2123,https://osm.org/relation/1683277,0.0,,inf,,,4525845.015684707
+Regensdorf,96,https://osm.org/relation/1682192,0.0,,inf,,,14619391.038252484
+Münchenbuchsee,546,https://osm.org/relation/1682567,0.0,,inf,,,11669962.44759276
+Eich,1084,https://osm.org/relation/1682828,0.0,,inf,,,9218544.064332895
+Interlaken,581,https://osm.org/relation/1682493,0.0,,inf,,,4321486.601584709
+Villars-le-Comte,5690,https://osm.org/relation/1685187,0.0,,inf,,,4195016.52376183
+Guttannen,782,https://osm.org/relation/1682465,0.0,,inf,,,200780123.0441461
+Mattstetten,543,https://osm.org/relation/1682548,0.0,,inf,,,3784842.756799725
+Flurlingen,29,https://osm.org/relation/1682124,0.0,,inf,,,2413767.7423587274
+Pfeffingen,2772,https://osm.org/relation/1683689,0.0,,inf,,,4887587.042907347
+Valbroye,5831,https://osm.org/relation/1868689,0.0,,inf,,,8698700.679213423
+Münchenwiler,669,https://osm.org/relation/1682568,0.0,,inf,,,2478255.469933708
+Muolen,3202,https://osm.org/relation/1683908,0.0,,inf,,,10325165.443647524
+Aarau,4001,https://osm.org/relation/1684251,0.0,,inf,,,12339383.457428126
+Yvorne,5415,https://osm.org/relation/1685208,0.0,,inf,,,12200398.707436994
+Bettingen,2702,https://osm.org/relation/1683623,0.0,,inf,,,2224841.1414710185
+Brig-Glis,6002,https://osm.org/relation/1685283,0.0,,inf,,,37661524.330935225
+Gruyères,2135,https://osm.org/relation/1683332,0.0,,inf,,,28435485.738797154
+Domat/Ems,3722,https://osm.org/relation/1684071,0.0,,inf,,,24219685.269811828
+Monteceneri,5238,https://osm.org/relation/1684720,0.0,,inf,,,37045874.67842883
+Menziken,4139,https://osm.org/relation/1684363,0.0,,inf,,,7328304.044932965
+Flühli,1004,https://osm.org/relation/1682836,0.0,,inf,,,108172978.97199094
+Obergerlafingen,2528,https://osm.org/relation/1683562,0.0,,inf,,,1512984.3832645323
+Meiringen,785,https://osm.org/relation/1682552,0.0,,inf,,,40629285.05205023
+Tägerwilen,4696,https://osm.org/relation/1684564,0.0,,inf,,,11538216.303349767
+Rümlingen,2859,https://osm.org/relation/1683701,0.0,,inf,,,2279610.6800995744
+Lema,5395,https://osm.org/relation/18953122,0.0,,inf,,,18567099.266998596
+Zernez,3746,https://osm.org/relation/4447274,0.0,,inf,,,344030234.4546611
+La Chaux (Cossonay),5474,https://osm.org/relation/1685010,0.0,,inf,,,6738399.368682461
+Ecublens (VD),5635,https://osm.org/relation/1684958,0.0,,inf,,,5725854.818832248
+Kandersteg,565,https://osm.org/relation/1682502,0.0,,inf,,,134461927.01116335
+Montagny-près-Yverdon,5922,https://osm.org/relation/1685056,0.0,,inf,,,3518860.189277673
+Niederhasli,90,https://osm.org/relation/1682172,0.0,,inf,,,11301823.787654964
+Gelterkinden,2846,https://osm.org/relation/1683649,0.0,,inf,,,9782072.91146725
+Morcote,5203,https://osm.org/relation/1684723,0.0,,inf,,,5284901.7670094855
+Brünisried,2292,https://osm.org/relation/1683279,0.0,,inf,,,3237759.932704869
+Perly-Certoux,6632,https://osm.org/relation/1685521,0.0,,inf,,,2537338.896803401
+Villorsonnens,2114,https://osm.org/relation/1683424,0.0,,inf,,,15464517.065745978
+Eglisau,55,https://osm.org/relation/1682114,0.0,,inf,,,9059383.29141563
+Brot-Plamboz,6433,https://osm.org/relation/1685457,0.0,,inf,,,16090153.600721665
+Gibloux,2236,https://osm.org/relation/5817663,0.0,,inf,,,36299304.39508204
+Täuffelen,751,https://osm.org/relation/1682696,0.0,,inf,,,4397516.272896258
+Kirchberg (BE),412,https://osm.org/relation/1682509,0.0,,inf,,,9057103.336582841
+Böckten,2842,https://osm.org/relation/1683638,0.0,,inf,,,2283077.1962429564
+Tartegnin,5862,https://osm.org/relation/1685162,0.0,,inf,,,1087466.924110099
+Les Verrières,6511,https://osm.org/relation/1685513,0.0,,inf,,,28900764.229820855
+Gurmels,2262,https://osm.org/relation/1683333,0.0,,inf,,,18816440.61945669
+Neunforn,4601,https://osm.org/relation/1684547,0.0,,inf,,,11359962.972024903
+Untersiggenthal,4044,https://osm.org/relation/1684449,0.0,,inf,,,8271573.518716922
+Val-de-Charmey,2163,https://osm.org/relation/3411331,0.0,,inf,,,112086473.92213367
+Cuarnens,5479,https://osm.org/relation/1684934,0.0,,inf,,,7135247.381174487
+Courgevaux,2250,https://osm.org/relation/1683301,0.0,,inf,,,3384071.9213899733
+Obfelden,10,https://osm.org/relation/1682181,0.0,,inf,,,7546738.494712082
+Gurtnellen,1209,https://osm.org/relation/1683078,0.0,,inf,,,83310550.71625416
+Dorf,26,https://osm.org/relation/1682106,0.0,,inf,,,5556243.134509515
+Luzein,3891,https://osm.org/relation/5817241,0.0,,inf,,,83887472.79975097
+Uzwil,3408,https://osm.org/relation/1683954,0.0,,inf,,,14486618.069744937
+Concise,5554,https://osm.org/relation/1684915,0.0,,inf,,,21543624.36545329
+Merzligen,741,https://osm.org/relation/1682554,0.0,,inf,,,2289820.5224258346
+Châtillon (FR),2008,https://osm.org/relation/1683292,0.0,,inf,,,1301886.881134301
+Därstetten,761,https://osm.org/relation/1682425,0.0,,inf,,,32839276.331689343
+Beggingen,2951,https://osm.org/relation/1683620,0.0,,inf,,,12602183.264846833
+Sufers,3695,https://osm.org/relation/1684178,0.0,,inf,,,34617965.34706647
+Frauenfeld,4566,https://osm.org/relation/1684522,0.0,,inf,,,27356189.803322323
+Autigny,2173,https://osm.org/relation/1683269,0.0,,inf,,,6220642.344095393
+Büttenhardt,2914,https://osm.org/relation/1683639,0.0,,inf,,,4011594.946461152
+Le Chenit,5872,https://osm.org/relation/1685021,0.0,,inf,,,100223884.97118656
+Grono,3832,https://osm.org/relation/1684085,0.0,,inf,,,28800493.96542062
+Tenero-Contra,5131,https://osm.org/relation/1684763,0.0,,inf,,,5359869.801561713
+Untereggen,3219,https://osm.org/relation/1683951,0.0,,inf,,,7123246.967273785
+Trey,5827,https://osm.org/relation/1685165,0.0,,inf,,,3791641.021876221
+Gingins,5719,https://osm.org/relation/1684986,0.0,,inf,,,12570294.021083651
+Grächen,6285,https://osm.org/relation/1685313,0.0,,inf,,,14267594.137670828
+Allschwil,2762,https://osm.org/relation/1683612,0.0,,inf,,,8896585.327814842
+Saicourt,706,https://osm.org/relation/1682643,0.0,,inf,,,13767365.585439213
+Crissier,5583,https://osm.org/relation/1684931,0.0,,inf,,,5498244.222226901
+Gerlafingen,2519,https://osm.org/relation/1683508,0.0,,inf,,,1855105.407866159
+St. Silvester,2303,https://osm.org/relation/1683403,0.0,,inf,,,7039853.012859038
+Biel/Bienne,371,https://osm.org/relation/1682380,0.0,,inf,,,21629708.192829512
+Schüpfen,311,https://osm.org/relation/1682659,0.0,,inf,,,19840799.63022752
+La Roche,2149,https://osm.org/relation/1683345,0.0,,inf,,,24115373.357301254
+Varen,6116,https://osm.org/relation/1685391,0.0,,inf,,,12816403.759340866
+Seedorf (BE),312,https://osm.org/relation/1682661,0.0,,inf,,,20868522.020485174
+Les Clées,5750,https://osm.org/relation/1685025,0.0,,inf,,,7037075.529597169
+Muhen,4009,https://osm.org/relation/1684368,0.0,,inf,,,7023444.135220267
+Dübendorf,191,https://osm.org/relation/1682111,0.0,,inf,,,13622276.658450684
+Massonnens,2086,https://osm.org/relation/1683360,0.0,,inf,,,4252791.193085775
+Vugelles-La Mothe,5937,https://osm.org/relation/1685200,0.0,,inf,,,3067978.3154511275
+Montanaire,5693,https://osm.org/relation/2759363,0.0,,inf,,,33494443.111382812
+Ilanz/Glion,3619,https://osm.org/relation/3411942,0.0,,inf,,,133482083.87954293
+Wikon,1147,https://osm.org/relation/1682931,0.0,,inf,,,8281490.619421857
+Bargen (BE),302,https://osm.org/relation/1682371,0.0,,inf,,,7857891.393880188
+Dinhard,216,https://osm.org/relation/1682105,0.0,,inf,,,7070273.099477752
+Thônex,6640,https://osm.org/relation/1685534,0.0,,inf,,,3820546.1951284003
+Bellmund,732,https://osm.org/relation/1682373,0.0,,inf,,,3795781.9763115933
+Rebévelier,715,https://osm.org/relation/1682614,0.0,,inf,,,3547293.612578354
+Cadenazzo,5003,https://osm.org/relation/1684641,0.0,,inf,,,8375393.744536642
+Châtillon (JU),6704,https://osm.org/relation/1685582,0.0,,inf,,,5308144.732125219
+Rodersdorf,2479,https://osm.org/relation/1683570,0.0,,inf,,,5352743.824514004
+Vulliens,5803,https://osm.org/relation/1685203,0.0,,inf,,,6634196.324918111
+Biberstein,4002,https://osm.org/relation/1684271,0.0,,inf,,,4105070.117461955
+Val-d'Illiez,6157,https://osm.org/relation/1685390,0.0,,inf,,,39269808.08730025
+Pfyn,4841,https://osm.org/relation/1684548,0.0,,inf,,,13139254.458502911
+Bottmingen,2767,https://osm.org/relation/1683629,0.0,,inf,,,2994888.8317466346
