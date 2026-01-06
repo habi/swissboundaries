@@ -228,14 +228,43 @@ def group_connected_ways(ways):
     
     return groups
 
-def load_swisstopo_data(gpkg_path):
-    """Load official Swisstopo boundaries"""
-    print("Loading Swisstopo data...")
-    gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
-    municipalities = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
-    municipalities = municipalities.to_crs('EPSG:4326')
-    print(f"Loaded {len(municipalities)} municipalities")
-    return municipalities
+def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
+    """
+    Load municipalities from swissBOUNDARIES3D GeoPackage.
+    
+    Args:
+        gpkg_path: Path to the swissBOUNDARIES3D_1_5_LV95_LN02.gpkg file
+        target_crs: Target coordinate reference system (default: WGS84)
+    
+    Returns:
+        GeoDataFrame with municipalities
+    """
+    
+    if not Path(gpkg_path).exists():
+        print(f"Error: File not found: {gpkg_path}")
+        return None
+    
+    print(f"Loading SwissTopo municipalities from: {gpkg_path}")
+    
+    try:
+        # Read the municipalities layer
+        gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
+        
+        print(f"  - Loaded {len(gdf)} municipalities")
+        print(f"  - Original CRS: {gdf.crs}")
+        
+        # Reproject if needed
+        if str(gdf.crs) != target_crs:
+            gdf = gdf.to_crs(target_crs)
+            print(f"  - Reprojected to: {target_crs}")
+        
+        print(f"  - Columns: {', '.join(gdf.columns)}")
+        
+        return gdf
+        
+    except Exception as e:
+        print(f"Error loading SwissTopo data: {e}")
+        return None
 
 
 # def fix_geometry(geom):
@@ -855,9 +884,22 @@ if __name__ == "__main__":
         os.makedirs(dir_name, exist_ok=True)
     
     # Load data
-    swisstopo = load_swisstopo_data('swissBOUNDARIES3D_1_5_LV95_LN02.gpkg')
-    osm = query_overpass_osm()
-    
+    gpkg_file = "swissBOUNDARIES3D_1_5_LV95_LN02.gpkg"
+    target_crs = "EPSG:2056"  # https://epsg.io/2056
+    swisstopo = load_swisstopo_municipalities(gpkg_file, target_crs)
+    osm = load_osm_boundaries(target_crs)
+
+    # Compare if both loaded successfully
+    if swisstopo is not None and osm is not None:
+        compare_dataframes(swisstopo, osm)
+        
+        print("\n" + "="*60)
+        print("Both GeoDataFrames loaded successfully!")
+        print("You can now access them as:")
+        print("  - swisstopo")
+        print("  - osm")
+        print("="*60)
+
     if osm is not None and len(osm) > 0:
         # Compare boundaries
         results = compare_boundaries(swisstopo, osm)
