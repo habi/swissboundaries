@@ -342,6 +342,38 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     
     return pd.DataFrame(results)
 
+def compare_dataframes(gdf_swisstopo, gdf_osm):
+    """Compare the two GeoDataFrames."""
+    
+    print("\n" + "="*60)
+    print("COMPARISON")
+    print("="*60)
+    
+    print(f"\nSwissTopo:")
+    print(f"  - Features: {len(gdf_swisstopo)}")
+    print(f"  - CRS: {gdf_swisstopo.crs}")
+    print(f"  - Bounds: {gdf_swisstopo.total_bounds}")
+    
+    print(f"\nOSM:")
+    print(f"  - Features: {len(gdf_osm)}")
+    print(f"  - CRS: {gdf_osm.crs}")
+    print(f"  - Bounds: {gdf_osm.total_bounds}")
+    
+    # Check for BFS_NUMMER overlap
+    if 'BFS_NUMMER' in gdf_swisstopo.columns and 'swisstopo:BFS_NUMMER' in gdf_osm.columns:
+        swisstopo_bfs = set(gdf_swisstopo['BFS_NUMMER'].astype(str))
+        osm_bfs = set(gdf_osm['swisstopo:BFS_NUMMER'].astype(str))
+        
+        common = swisstopo_bfs & osm_bfs
+        only_swisstopo = swisstopo_bfs - osm_bfs
+        only_osm = osm_bfs - swisstopo_bfs
+        
+        print(f"\nBFS_NUMMER comparison:")
+        print(f"  - In both datasets: {len(common)}")
+        print(f"  - Only in SwissTopo: {len(only_swisstopo)}")
+        print(f"  - Only in OSM: {len(only_osm)}")
+
+
 def create_interactive_map(results_df, swisstopo_gdf):
     """Create interactive HTML map with Folium"""
     print("Creating interactive map...")
