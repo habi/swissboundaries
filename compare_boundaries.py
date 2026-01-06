@@ -267,27 +267,6 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
         return None
 
 
-# def fix_geometry(geom):
-#     """Fix invalid geometries using buffer(0) and unary_union fallback."""
-#     if geom.is_valid:
-#         return geom
-
-#     # Try standard fix
-#     fixed = geom.buffer(0)
-#     if fixed.is_valid:
-#         return fixed
-
-#     # Fallback: explode, union, rebuild
-#     try:
-#         if isinstance(geom, (Polygon, MultiPolygon)):
-#             fixed = unary_union(geom)
-#             if fixed.is_valid:
-#                 return fixed
-#     except:
-#         pass
-
-    return geom  # last resort
-
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
