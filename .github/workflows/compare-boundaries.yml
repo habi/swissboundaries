@@ -41,7 +41,7 @@ jobs:
     - name: Download Swisstopo data
       run: |
         echo "Downloading Swisstopo boundary data..."
-        wget -q https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip
+        wget -q https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
         unzip -q swissboundaries3d*.gpkg.zip
         echo "Download complete"
 
