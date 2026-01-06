@@ -1,18 +1,11 @@
 import geopandas as gpd
 import pandas as pd
-from shapely.geometry import shape, mapping, Polygon, MultiPolygon
-from shapely.ops import unary_union
-import json
 import requests
-import time
 from datetime import datetime
 import folium
-from folium import plugins
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
-import plotly.express as px
 import os
+from pathlib import Path
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
