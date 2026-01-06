@@ -50,11 +50,11 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         # Convert to GeoJSON
         geojson = osm_to_geojson(osm_data)
         
-        # Convert to GeoDataFrame
-        gdf = gpd.GeoDataFrame.from_features(geojson['features'], crs="EPSG:2056")
+        # Convert to GeoDataFrame (OSM data is in WGS84)
+        gdf = gpd.GeoDataFrame.from_features(geojson['features'], crs="EPSG:4326")
         
         # Reproject if needed
-        if target_crs != "EPSG:2056":
+        if target_crs != "EPSG:4326":
             gdf = gdf.to_crs(target_crs)
             print(f"  - Reprojected to: {target_crs}")
         
@@ -263,25 +263,54 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
-        # geom1 = fix_geometry(geom1)
-        # geom2 = fix_geometry(geom2)
+        # Debug: Check geometry properties
+        # print(f"  Swisstopo geom: type={geom1.geom_type}, bounds={geom1.bounds}, area={geom1.area}")
+        # print(f"  OSM geom: type={geom2.geom_type}, bounds={geom2.bounds}, area={geom2.area}")
         
-        # PROJECT TO SWISS COORDINATE SYSTEM FOR ACCURATE AREA CALCULATIONS
-        # Convert from EPSG:4326 (degrees) to EPSG:2056 (meters)
-        gdf1 = gpd.GeoDataFrame([1], geometry=[geom1], crs='EPSG:4326').to_crs('EPSG:2056')
-        gdf2 = gpd.GeoDataFrame([1], geometry=[geom2], crs='EPSG:4326').to_crs('EPSG:2056')
+        # Fix invalid geometries
+        if not geom1.is_valid:
+            print("  Fixing invalid Swisstopo geometry")
+            geom1 = geom1.buffer(0)
+        if not geom2.is_valid:
+            print("  Fixing invalid OSM geometry")
+            geom2 = geom2.buffer(0)
         
-        geom1_proj = gdf1.geometry.iloc[0]
-        geom2_proj = gdf2.geometry.iloc[0]
-
-        intersection = geom1_proj.intersection(geom2_proj).area
-        union = geom1_proj.union(geom2_proj).area
-        iou = intersection / union if union > 0 else 0
+        if geom1.is_empty or geom2.is_empty:
+            print("  Empty geometry detected")
+            return None
         
-        area_diff = abs(geom1_proj.area - geom2_proj.area) / geom1_proj.area * 100
-        hausdorff = geom1_proj.hausdorff_distance(geom2_proj)
+        # Geometries are already in EPSG:2056 (loaded with target_crs="EPSG:2056")
+        # No conversion needed - data is already in projected coordinates for accurate area calculations
+        geom1_proj = geom1
+        geom2_proj = geom2
+        
+        # Check centroids distance
+        centroid1 = geom1_proj.centroid
+        centroid2 = geom2_proj.centroid
+        distance = centroid1.distance(centroid2)
+        # print(f"    Centroid distance: {distance} meters")
+        
+        # print(f"    Calculating intersection...")
+        intersection = geom1_proj.intersection(geom2_proj)
+        # print(f"    Intersection: type={intersection.geom_type}, area={intersection.area}")
+        
+        # print(f"    Calculating union...")
+        union = geom1_proj.union(geom2_proj)
+        print(f"    Union: type={union.geom_type}, area={union.area}")
+        
+        iou = intersection.area / union.area if union.area > 0 else 0
+        # print(f"    IoU calculation: {intersection.area} / {union.area} = {iou}")
+        
+        area_diff = abs(geom1_proj.area - geom2_proj.area) / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
+        
+        # Calculate Hausdorff distance with validation
+        try:
+            hausdorff = geom1_proj.hausdorff_distance(geom2_proj)
+        except (ValueError, RuntimeWarning):
+            hausdorff = float('nan')
+        
         sym_diff_area = geom1_proj.symmetric_difference(geom2_proj).area
-        sym_diff_pct = sym_diff_area / geom1_proj.area * 100
+        sym_diff_pct = sym_diff_area / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
         
         return {
             'iou': iou,
