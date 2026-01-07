@@ -221,6 +221,7 @@ def group_connected_ways(ways):
     
     return groups
 
+
 def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
     """
     Load municipalities from swissBOUNDARIES3D GeoPackage.
@@ -324,6 +325,7 @@ def calculate_metrics(geom1, geom2):
         print(f"Error calculating metrics: {e}")
         return None
 
+
 def compare_boundaries(swisstopo_gdf, osm_gdf):
     """Compare matching boundaries"""
     print("Comparing boundaries...")
@@ -363,6 +365,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
             })
     
     return pd.DataFrame(results)
+
 
 def compare_dataframes(gdf_swisstopo, gdf_osm):
     """Compare the two GeoDataFrames."""
@@ -517,6 +520,7 @@ def create_interactive_map(results_df, swisstopo_gdf):
     m.save('docs/boundary_comparison_map.html')
     print("Interactive map saved to docs/boundary_comparison_map.html")
 
+
 def load_historical_data():
     """Load historical comparison data"""
     history_dir = 'history'
@@ -541,6 +545,7 @@ def load_historical_data():
     if historical_data:
         return pd.concat(historical_data, ignore_index=True)
     return pd.DataFrame()
+
 
 def create_trend_visualizations(results_df, historical_df):
     """Create trend charts showing improvements over time"""
@@ -639,6 +644,7 @@ def create_trend_visualizations(results_df, historical_df):
         print("Trend visualizations saved")
     else:
         print("Not enough historical data for trends (need at least 2 data points)")    
+
 
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
@@ -742,6 +748,21 @@ def generate_report(results_df, historical_df):
     with open('reports/comparison_report.txt', 'w') as f:
         f.write(report_text)
     
+    # Add quality_category column for CSV export
+    def categorize_quality(row):
+        if pd.isna(row.get('iou')):
+            return 'Missing'
+        elif row['iou'] >= 0.98:
+            return 'Excellent'
+        elif row['iou'] >= 0.95:
+            return 'Good'
+        elif row['iou'] >= 0.90:
+            return 'Fair'
+        else:
+            return 'Poor'
+    
+    results_df['quality_category'] = results_df.apply(categorize_quality, axis=1)
+    
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
     csv_df.to_csv('reports/detailed_results.csv', index=False)
@@ -751,6 +772,7 @@ def generate_report(results_df, historical_df):
     csv_df.to_csv(f'history/results_{timestamp}.csv', index=False)
     
     return results_df
+
 
 def create_csv_table_page():
     """Create interactive CSV table viewer using csv-to-html-table"""
