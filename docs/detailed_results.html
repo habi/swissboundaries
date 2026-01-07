@@ -195,11 +195,19 @@
                         var iou = parseFloat(row[iouIndex]);
                         if (!isNaN(iou)) {
                             sumIoU += iou;
+                            // Calculate quality if column doesn't exist
+                            if (qualityIndex === -1) {
+                                if (iou >= 0.98) excellentCount++;
+                                else if (iou >= 0.95) goodCount++;
+                            }
                         }
                         
-                        var quality = row[qualityIndex];
-                        if (quality === 'Excellent') excellentCount++;
-                        if (quality === 'Good') goodCount++;
+                        // Use quality_category column if it exists
+                        if (qualityIndex !== -1) {
+                            var quality = row[qualityIndex];
+                            if (quality === 'Excellent') excellentCount++;
+                            if (quality === 'Good') goodCount++;
+                        }
                     });
                     
                     var avgIoU = sumIoU / totalMunicipalities;
