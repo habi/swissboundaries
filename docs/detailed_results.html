@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiss Boundary Comparison - Detailed Results</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap5.min.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: #5568d3;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: white;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+            padding: 20px;
+        }
+        .quality-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .quality-excellent { background-color: #d4edda; color: #155724; }
+        .quality-good { background-color: #cce5ff; color: #004085; }
+        .quality-fair { background-color: #fff3cd; color: #856404; }
+        .quality-poor { background-color: #f8d7da; color: #721c24; }
+        .quality-missing { background-color: #e2e3e5; color: #383d41; }
+        
+        table.dataTable {
+            border-collapse: collapse !important;
+        }
+        table.dataTable thead th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+        table.dataTable tbody tr:hover {
+            background-color: #f1f3f5;
+        }
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        .stats-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stats-label {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+        
+        <div class="header">
+            <h1>🗺️ Swiss Municipality Boundary Comparison</h1>
+            <p>Detailed analysis of boundary accuracy between Swisstopo and OpenStreetMap data</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stats-card">
+                    <div class="stats-number" id="total-municipalities">-</div>
+                    <div class="stats-label">Total Municipalities</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stats-card">
+                    <div class="stats-number quality-excellent" id="excellent-count">-</div>
+                    <div class="stats-label">Excellent (IoU ≥ 0.98)</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stats-card">
+                    <div class="stats-number quality-good" id="good-count">-</div>
+                    <div class="stats-label">Good (IoU ≥ 0.95)</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stats-card">
+                    <div class="stats-number" id="avg-iou">-</div>
+                    <div class="stats-label">Average IoU</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Detailed Results by Municipality</h3>
+            </div>
+            <div class="card-body">
+                <div id="table-container"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Data sources: <a href="https://www.swisstopo.admin.ch/" target="_blank">Swisstopo SwissBOUNDARIES3D</a> | <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a></p>
+            <p>Generated automatically by <a href="https://github.com/habi/swissboundaries" target="_blank">github.com/habi/swissboundaries</a></p>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- DataTables -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- CSV to HTML Table -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+
+    <script>
+        function init() {
+            $.ajax({
+                type: "GET",
+                url: "../reports/detailed_results.csv",
+                dataType: "text",
+                success: function(data) {
+                    var csv_data = $.csv.toArrays(data);
+                    
+                    if (csv_data.length === 0) {
+                        $('#table-container').html('<div class="alert alert-warning">No data available</div>');
+                        return;
+                    }
+
+                    var headers = csv_data[0];
+                    var rows = csv_data.slice(1);
+                    
+                    // Calculate statistics
+                    var totalMunicipalities = rows.length;
+                    var excellentCount = 0;
+                    var goodCount = 0;
+                    var sumIoU = 0;
+                    
+                    var iouIndex = headers.indexOf('iou');
+                    var qualityIndex = headers.indexOf('quality_category');
+                    
+                    rows.forEach(function(row) {
+                        var iou = parseFloat(row[iouIndex]);
+                        if (!isNaN(iou)) {
+                            sumIoU += iou;
+                        }
+                        
+                        var quality = row[qualityIndex];
+                        if (quality === 'Excellent') excellentCount++;
+                        if (quality === 'Good') goodCount++;
+                    });
+                    
+                    var avgIoU = sumIoU / totalMunicipalities;
+                    
+                    // Update stats
+                    $('#total-municipalities').text(totalMunicipalities);
+                    $('#excellent-count').text(excellentCount);
+                    $('#good-count').text(goodCount);
+                    $('#avg-iou').text(avgIoU.toFixed(4));
+                    
+                    // Build table HTML
+                    var tableHTML = '<table id="results-table" class="table table-striped table-hover">';
+                    tableHTML += '<thead><tr>';
+                    
+                    headers.forEach(function(header) {
+                        tableHTML += '<th>' + header + '</th>';
+                    });
+                    
+                    tableHTML += '</tr></thead><tbody>';
+                    
+                    rows.forEach(function(row) {
+                        tableHTML += '<tr>';
+                        row.forEach(function(cell, index) {
+                            if (headers[index] === 'quality_category') {
+                                var qualityClass = 'quality-' + cell.toLowerCase();
+                                tableHTML += '<td><span class="quality-badge ' + qualityClass + '">' + cell + '</span></td>';
+                            } else if (headers[index] === 'iou' || headers[index] === 'area_difference_pct' || headers[index] === 'hausdorff_distance') {
+                                var val = parseFloat(cell);
+                                if (!isNaN(val)) {
+                                    tableHTML += '<td>' + val.toFixed(4) + '</td>';
+                                } else {
+                                    tableHTML += '<td>' + cell + '</td>';
+                                }
+                            } else {
+                                tableHTML += '<td>' + cell + '</td>';
+                            }
+                        });
+                        tableHTML += '</tr>';
+                    });
+                    
+                    tableHTML += '</tbody></table>';
+                    
+                    $('#table-container').html(tableHTML);
+                    
+                    // Initialize DataTable
+                    $('#results-table').DataTable({
+                        "pageLength": 25,
+                        "order": [[headers.indexOf('iou'), "desc"]],
+                        "language": {
+                            "search": "Search municipalities:",
+                            "lengthMenu": "Show _MENU_ municipalities per page",
+                            "info": "Showing _START_ to _END_ of _TOTAL_ municipalities",
+                            "paginate": {
+                                "first": "First",
+                                "last": "Last",
+                                "next": "Next",
+                                "previous": "Previous"
+                            }
+                        }
+                    });
+                },
+                error: function() {
+                    $('#table-container').html('<div class="alert alert-danger">Error loading CSV data. Please make sure detailed_results.csv exists in the reports directory.</div>');
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            init();
+        });
+    </script>
+</body>
+</html>
