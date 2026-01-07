@@ -1228,6 +1228,9 @@ if __name__ == "__main__":
         
         # Generate report
         report = generate_report(results, historical)
+
+        # Create the CSV table HTML page
+        create_csv_table_page()
         
         # Create visualizations
         create_interactive_map(results, swisstopo)
