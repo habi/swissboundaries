@@ -1,5 +1,4 @@
 name: Swiss Municipality Boundary Comparison
-
 on:
   schedule:
     # Run daily at 2 AM UTC
@@ -44,7 +43,7 @@ jobs:
         wget -q https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
         unzip -q swissboundaries3d*.gpkg.zip
         echo "Download complete"
-
+        
     - name: Run boundary comparison
       run: |
         python compare_boundaries.py
@@ -83,25 +82,18 @@ jobs:
           osm_boundaries.geojson
         retention-days: 90
 
-  deploy-pages:
-    needs: compare-boundaries
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        ref: main
-        
+    # Deploy Pages in the same job after committing
     - name: Setup Pages
       uses: actions/configure-pages@v4
+      if: github.ref == 'refs/heads/main'
       
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
+      if: github.ref == 'refs/heads/main'
       with:
         path: './docs'
         
     - name: Deploy to GitHub Pages
       id: deployment
+      if: github.ref == 'refs/heads/main'
       uses: actions/deploy-pages@v4
