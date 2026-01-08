@@ -222,141 +222,6 @@ def group_connected_ways(ways):
     return groups
 
 
-def get_latest_swissboundaries_url():
-    """
-    Find the latest SwissBOUNDARIES3D GeoPackage download URL from data.geo.admin.ch
-    
-    Returns:
-        tuple: (url, version_string) e.g. ('https://...zip', 'swissboundaries3d_2025-04')
-    """
-    print("Finding latest SwissBOUNDARIES3D version...")
-    
-    # The data.geo.admin.ch follows a pattern:
-    # https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_YYYY-MM/
-    
-    base_url = "https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/"
-    
-    try:
-        # Try to get the directory listing
-        response = requests.get(base_url, timeout=30)
-        response.raise_for_status()
-        
-        # Find all version directories using regex
-        # Pattern: swissboundaries3d_YYYY-MM
-        pattern = r'swissboundaries3d_(\d{4})-(\d{2})'
-        matches = re.findall(pattern, response.text)
-        
-        if not matches:
-            print("  - Could not find version directories, using fallback...")
-            # Fallback: try current year and month
-            now = datetime.now()
-            version = f"swissboundaries3d_{now.year}-{now.month:02d}"
-        else:
-            # Sort by year and month to get the latest
-            versions = [(year, month) for year, month in matches]
-            versions.sort(reverse=True)
-            year, month = versions[0]
-            version = f"swissboundaries3d_{year}-{month}"
-            print(f"  - Found latest version: {version}")
-        
-        # Construct the full URL to the GeoPackage zip file
-        # Format: swissboundaries3d_YYYY-MM_2056_5728.gpkg.zip
-        gpkg_filename = f"{version}_2056_5728.gpkg.zip"
-        full_url = f"{base_url}{version}/{gpkg_filename}"
-        
-        # Verify the URL exists
-        head_response = requests.head(full_url, timeout=10)
-        if head_response.status_code == 200:
-            print(f"  - Confirmed URL exists: {full_url}")
-            return full_url, version
-        else:
-            print(f"  - URL not found (status {head_response.status_code}), trying alternative...")
-            # Try without the _5728 suffix (older versions might use different naming)
-            alt_filename = f"{version}_2056.gpkg.zip"
-            alt_url = f"{base_url}{version}/{alt_filename}"
-            alt_response = requests.head(alt_url, timeout=10)
-            if alt_response.status_code == 200:
-                print(f"  - Found alternative: {alt_url}")
-                return alt_url, version
-            else:
-                raise Exception(f"Could not find GeoPackage at {full_url} or {alt_url}")
-                
-    except Exception as e:
-        print(f"  - Error finding latest version: {e}")
-        print("  - Falling back to known recent version...")
-        # Fallback to a known recent version
-        version = "swissboundaries3d_2025-04"
-        gpkg_filename = f"{version}_2056_5728.gpkg.zip"
-        fallback_url = f"{base_url}{version}/{gpkg_filename}"
-        return fallback_url, version
-
-
-def download_latest_swissboundaries():
-    """
-    Download the latest SwissBOUNDARIES3D GeoPackage
-    
-    Returns:
-        str: Path to the extracted .gpkg file
-    """
-    print("="*60)
-    print("DOWNLOADING LATEST SWISSBOUNDARIES3D")
-    print("="*60)
-    
-    # Get the latest URL
-    download_url, version = get_latest_swissboundaries_url()
-    
-    # Download the file
-    zip_filename = f"{version}.gpkg.zip"
-    print(f"\nDownloading from: {download_url}")
-    print(f"Saving to: {zip_filename}")
-    
-    try:
-        response = requests.get(download_url, stream=True, timeout=120)
-        response.raise_for_status()
-        
-        total_size = int(response.headers.get('content-length', 0))
-        
-        with open(zip_filename, 'wb') as f:
-            if total_size == 0:
-                f.write(response.content)
-                print("  - Downloaded (size unknown)")
-            else:
-                downloaded = 0
-                chunk_size = 8192
-                for chunk in response.iter_content(chunk_size=chunk_size):
-                    if chunk:
-                        f.write(chunk)
-                        downloaded += len(chunk)
-                        percent = (downloaded / total_size) * 100
-                        print(f"  - Progress: {percent:.1f}% ({downloaded/1024/1024:.1f}MB / {total_size/1024/1024:.1f}MB)", end='\r')
-                print(f"\n  - Download complete: {total_size/1024/1024:.1f}MB")
-        
-        # Extract the zip file
-        print(f"\nExtracting {zip_filename}...")
-        import zipfile
-        with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
-            zip_ref.extractall('.')
-            files = zip_ref.namelist()
-            gpkg_files = [f for f in files if f.endswith('.gpkg')]
-            
-            if gpkg_files:
-                gpkg_file = gpkg_files[0]
-                print(f"  - Extracted: {gpkg_file}")
-                return gpkg_file
-            else:
-                raise Exception("No .gpkg file found in the archive")
-                
-    except Exception as e:
-        print(f"\nError downloading SwissBOUNDARIES3D: {e}")
-        # If download fails, check if we already have a gpkg file
-        existing_gpkg = list(Path('.').glob('*.gpkg'))
-        if existing_gpkg:
-            print(f"Using existing file: {existing_gpkg[0]}")
-            return str(existing_gpkg[0])
-        else:
-            raise
-
-
 def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
     """
     Load municipalities from swissBOUNDARIES3D GeoPackage.
@@ -915,7 +780,6 @@ def generate_report(results_df, historical_df):
     
     return results_df
 
-
 def create_csv_table_page():
     """Create interactive CSV table viewer using csv-to-html-table"""
     html_content = """<!DOCTYPE html>
@@ -1368,7 +1232,6 @@ def create_dashboard_index():
     
     print("Dashboard index created")
 
-
 def create_dashboard_index():
     """Create main dashboard HTML file"""
     html_content = """
@@ -1536,7 +1399,7 @@ if __name__ == "__main__":
         os.makedirs(dir_name, exist_ok=True)
     
     # Load data
-    gpkg_file = download_latest_swissboundaries()
+    gpkg_file = "swissBOUNDARIES3D_1_5_LV95_LN02.gpkg"
     target_crs = "EPSG:2056"  # https://epsg.io/2056
     swisstopo = load_swisstopo_municipalities(gpkg_file, target_crs)
     osm = load_osm_boundaries(target_crs)
