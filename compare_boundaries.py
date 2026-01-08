@@ -356,6 +356,7 @@ def download_latest_swissboundaries():
         else:
             raise
 
+
 def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
     """
     Load municipalities from swissBOUNDARIES3D GeoPackage.
@@ -377,8 +378,12 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
     try:
         # Read the municipalities layer
         gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
+        print(f"  - Loaded {len(gdf)} total features")
+
+        # Filter for Swiss municipalities only
+        gdf = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
         
-        print(f"  - Loaded {len(gdf)} municipalities")
+        print(f"  - Loaded {len(gdf)} Swiss municipalities")
         print(f"  - Original CRS: {gdf.crs}")
         
         # Reproject if needed
@@ -431,7 +436,7 @@ def calculate_metrics(geom1, geom2):
         
         # print(f"    Calculating union...")
         union = geom1_proj.union(geom2_proj)
-        print(f"    Union: type={union.geom_type}, area={union.area}")
+        # print(f"    Union: type={union.geom_type}, area={union.area}")
         
         iou = intersection.area / union.area if union.area > 0 else 0
         # print(f"    IoU calculation: {intersection.area} / {union.area} = {iou}")
@@ -1539,13 +1544,6 @@ if __name__ == "__main__":
     # Compare if both loaded successfully
     if swisstopo is not None and osm is not None:
         compare_dataframes(swisstopo, osm)
-        
-        print("\n" + "="*60)
-        print("Both GeoDataFrames loaded successfully!")
-        print("You can now access them as:")
-        print("  - swisstopo")
-        print("  - osm")
-        print("="*60)
 
     if osm is not None and len(osm) > 0:
         # Compare boundaries
