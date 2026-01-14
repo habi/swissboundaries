@@ -1,6 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-13 02:43:52 UTC
+Generated: 2026-01-14 02:49:16 UTC
 ================================================================================
 
 Dataset Overview:
@@ -21,7 +21,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 29 (1.4%)
   Poor (IoU < 0.90): 65 (3.1%)
 
-Historical Comparison (vs 2026-01-12):
+Historical Comparison (vs 2026-01-13):
   Previous mean IoU: 0.9848
   Current mean IoU: 0.9848
   Change: -0.0000 (-0.00%)
