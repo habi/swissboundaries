@@ -1,6 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-16 02:45:44 UTC
+Generated: 2026-01-17 02:40:00 UTC
 ================================================================================
 
 Dataset Overview:
@@ -13,7 +13,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9981
   Mean area difference: 1.40%
   Mean symmetric difference: 1.69%
-  Mean Hausdorff distance: 207.223091°
+  Mean Hausdorff distance: 207.221883°
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 1947 (92.3%)
@@ -21,7 +21,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 29 (1.4%)
   Poor (IoU < 0.90): 65 (3.1%)
 
-Historical Comparison (vs 2026-01-15):
+Historical Comparison (vs 2026-01-16):
   Previous mean IoU: 0.9848
   Current mean IoU: 0.9848
   Change: +0.0000 (+0.00%)
