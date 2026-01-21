@@ -844,15 +844,11 @@ if __name__ == "__main__":
         
         # Generate report
         report = generate_report(results, historical)
-
-        # Create the CSV table HTML page
-        create_csv_table_page()
-        
-        # Create visualizations
-        create_interactive_map(results, swisstopo)
         create_trend_visualizations(results, historical)
-        create_dashboard_index()
-        
+
+        # Create inde page for display
+        create_csv_table_page()
+                
         print("\nComparison complete! Check the docs/ folder for interactive visualizations.")
     else:
         print("ERROR: Failed to retrieve OSM data")
