@@ -785,30 +785,99 @@ def create_csv_table_page():
     html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Searchable Data Table</title>
     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+    <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f4f4f9; }
+        .controls { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .search-container { flex-grow: 1; }
+        #search-input { 
+            padding: 8px; width: 100%; max-width: 400px; 
+            border: 1px solid #ccc; border-radius: 4px; 
+        }
+        button { 
+            padding: 8px 15px; cursor: pointer; 
+            background: #007bff; color: white; border: none; border-radius: 4px;
+        }
+        button:hover { background: #0056b3; }
+        #csv-table { border: 1px solid #333; border-radius: 4px; background: white; }
+    </style>
 </head>
 <body>
-    <h2>My CSV Data Table</h2>
+
+    <h2>swissBOUNDARIES3D <-> OpenStreetMap</h2>
+    
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search all columns...">
+        </div>
+        <div class="button-group">
+            <button id="download-csv">CSV</button>
+            <button id="download-json">JSON</button>
+            <button id="download-pdf">PDF</button>
+        </div>
+    </div>
+
     <div id="csv-table"></div>
 
     <script>
-        // 1. Fetch the CSV file
+        var table;
+
         Papa.parse("detailed_results.csv", {
             download: true,
             header: true,
             complete: function(results) {
-                // 2. Initialize the table with the parsed data
-                new Tabulator("#csv-table", {
+                table = new Tabulator("#csv-table", {
                     data: results.data,
-                    autoColumns: true, // Automatically creates columns based on CSV headers
-                    pagination: "local",
-                    paginationSize: 10,
+                    autoColumns: true,
                     layout: "fitColumns",
+                    height: "600px",
+                    renderVertical: "virtual",
+                    pagination: false,
+                });
+
+                // SEARCH LOGIC
+                // Define a custom filter function that checks all columns
+                function customFilter(data, filterParams){
+                    var searchValue = filterParams.value.toLowerCase();
+                    var match = false;
+
+                    for(var key in data){
+                        if(String(data[key]).toLowerCase().includes(searchValue)){
+                            match = true;
+                        }
+                    }
+                    return match;
+                }
+
+                // Trigger filter on input
+                document.getElementById("search-input").addEventListener("keyup", function(e){
+                    table.setFilter(customFilter, {value: e.target.value});
+                    if(!e.target.value){
+                        table.clearFilter();
+                    }
                 });
             }
         });
+
+        // DOWNLOADS
+        document.getElementById("download-csv").addEventListener("click", () => table.download("csv", "export.csv"));
+        document.getElementById("download-json").addEventListener("click", () => table.download("json", "export.json"));
+        document.getElementById("download-pdf").addEventListener("click", () => table.download("pdf", "export.pdf"));
     </script>
 </body>
 </html>"""
