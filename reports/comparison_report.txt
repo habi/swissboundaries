@@ -1,6 +1,6 @@
 ================================================================================
 SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT
-Generated: 2026-01-20 02:46:50 UTC
+Generated: 2026-01-21 02:46:07 UTC
 ================================================================================
 
 Dataset Overview:
@@ -9,26 +9,26 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9848
+  Mean IoU: 0.9853
   Median IoU: 0.9981
-  Mean area difference: 1.39%
-  Mean symmetric difference: 1.68%
-  Mean Hausdorff distance: 206.651416°
+  Mean area difference: 1.37%
+  Mean symmetric difference: 1.64%
+  Mean Hausdorff distance: 199.856038°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 1950 (92.4%)
-  Good (IoU ≥ 0.95): 66 (3.1%)
-  Fair (IoU ≥ 0.90): 29 (1.4%)
+  Excellent (IoU ≥ 0.98): 1965 (93.1%)
+  Good (IoU ≥ 0.95): 55 (2.6%)
+  Fair (IoU ≥ 0.90): 25 (1.2%)
   Poor (IoU < 0.90): 65 (3.1%)
 
-Historical Comparison (vs 2026-01-19):
+Historical Comparison (vs 2026-01-20):
   Previous mean IoU: 0.9848
-  Current mean IoU: 0.9848
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9853
+  Change: +0.0004 (+0.05%)
 
 Worst 10 Matches (by IoU):
              name bfs_nummer      iou  area_diff_pct
-     Baltschieder       6281 0.071437      92.830315
+     Baltschieder       6281 0.071635      92.833914
 Turtmann-Unterems       6119 0.192606      80.725843
        Altstätten       3251 0.210974      78.885258
          Valbroye       5831 0.259060      74.070294
