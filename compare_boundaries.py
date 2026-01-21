@@ -795,7 +795,7 @@ def create_csv_table_page():
 
     <script>
         // 1. Fetch the CSV file
-        Papa.parse("reports/detailed_results.csv", {
+        Papa.parse("detailed_results.csv", {
             download: true,
             header: true,
             complete: function(results) {
