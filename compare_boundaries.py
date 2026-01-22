@@ -796,7 +796,7 @@ def create_csv_table_page():
 </head>
 <body>
 
-    <h2>swissBOUNDARIES3D <-> OpenStreetMap</h2>
+    <h2><a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> <-> <a href="https://overpass-turbo.eu/s/2jcH">OpenStreetMap</a></h2>
     
     <div class="controls">
         <div class="search-container">
