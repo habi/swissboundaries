@@ -403,127 +403,6 @@ def compare_dataframes(gdf_swisstopo, gdf_osm):
         print(f"  - Only in OSM: {len(only_osm)}")
 
 
-def create_interactive_map(results_df, swisstopo_gdf):
-    """Create interactive HTML map with Folium"""
-    print("Creating interactive map...")
-    
-    # Center on Switzerland
-    m = folium.Map(
-        location=[46.8182, 8.2275],
-        zoom_start=8,
-        tiles='OpenStreetMap'
-    )
-    
-    # Add tile layers
-    folium.TileLayer('CartoDB positron', name='CartoDB Positron').add_to(m)
-    
-    # Color mapping for quality
-    def get_color(iou):
-        if pd.isna(iou):
-            return '#888888'  # Grey for missing
-        elif iou >= 0.98:
-            return '#2ecc71'  # Green - Excellent
-        elif iou >= 0.95:
-            return '#3498db'  # Blue - Good
-        elif iou >= 0.90:
-            return '#f39c12'  # Orange - Fair
-        else:
-            return '#e74c3c'  # Red - Poor
-    
-    # Create feature groups
-    excellent_group = folium.FeatureGroup(name='Excellent (IoU ≥ 0.98)')
-    good_group = folium.FeatureGroup(name='Good (IoU ≥ 0.95)')
-    fair_group = folium.FeatureGroup(name='Fair (IoU ≥ 0.90)')
-    poor_group = folium.FeatureGroup(name='Poor (IoU < 0.90)')
-    missing_group = folium.FeatureGroup(name='Missing in OSM')
-    
-    # Add municipalities to appropriate groups
-    for idx, row in results_df.iterrows():
-        if pd.notna(row.get('geometry')):
-            color = get_color(row.get('iou'))
-            
-            # Determine quality category
-            iou = row.get('iou')
-            if pd.isna(iou):
-                group = missing_group
-                quality = 'Missing in OSM'
-            elif iou >= 0.98:
-                group = excellent_group
-                quality = 'Excellent'
-            elif iou >= 0.95:
-                group = good_group
-                quality = 'Good'
-            elif iou >= 0.90:
-                group = fair_group
-                quality = 'Fair'
-            else:
-                group = poor_group
-                quality = 'Poor'
-            
-            # Create popup
-            popup_html = f"""
-            <div style="font-family: Arial; width: 250px;">
-                <h4 style="margin: 0 0 10px 0;">{row['name']}</h4>
-                <table style="width: 100%; font-size: 12px;">
-                    <tr><td><b>BFS Number:</b></td><td>{row['bfs_nummer']}</td></tr>
-                    <tr><td><b>Quality:</b></td><td><span style="color: {color}; font-weight: bold;">{quality}</span></td></tr>
-            """
-            
-            if pd.notna(iou):
-                popup_html += f"""
-                    <tr><td><b>IoU:</b></td><td>{iou:.4f}</td></tr>
-                    <tr><td><b>Area Diff:</b></td><td>{row['area_diff_pct']:.2f}%</td></tr>
-                    <tr><td><b>Sym. Diff:</b></td><td>{row['symmetric_diff_pct']:.2f}%</td></tr>
-                    <tr><td><b>Hausdorff:</b></td><td>{row['hausdorff_distance']:.6f}°</td></tr>
-                """
-            
-            popup_html += """
-                </table>
-            </div>
-            """
-            
-            # Add to map
-            folium.GeoJson(
-                row['geometry'],
-                style_function=lambda x, color=color: {
-                    'fillColor': color,
-                    'color': color,
-                    'weight': 2,
-                    'fillOpacity': 0.4
-                },
-                popup=folium.Popup(popup_html, max_width=300)
-            ).add_to(group)
-    
-    # Add all groups to map
-    excellent_group.add_to(m)
-    good_group.add_to(m)
-    fair_group.add_to(m)
-    poor_group.add_to(m)
-    missing_group.add_to(m)
-    
-    # Add layer control
-    folium.LayerControl().add_to(m)
-    
-    # Add legend
-    legend_html = """
-    <div style="position: fixed; 
-                bottom: 50px; right: 50px; width: 200px; height: 180px; 
-                background-color: white; border:2px solid grey; z-index:9999; 
-                font-size:14px; padding: 10px">
-        <p style="margin: 0 0 10px 0; font-weight: bold;">Quality Legend</p>
-        <p style="margin: 5px 0;"><span style="color: #2ecc71;">⬤</span> Excellent (IoU ≥ 0.98)</p>
-        <p style="margin: 5px 0;"><span style="color: #3498db;">⬤</span> Good (IoU ≥ 0.95)</p>
-        <p style="margin: 5px 0;"><span style="color: #f39c12;">⬤</span> Fair (IoU ≥ 0.90)</p>
-        <p style="margin: 5px 0;"><span style="color: #e74c3c;">⬤</span> Poor (IoU < 0.90)</p>
-        <p style="margin: 5px 0;"><span style="color: #888888;">⬤</span> Missing in OSM</p>
-    </div>
-    """
-    m.get_root().html.add_child(folium.Element(legend_html))
-    
-    # Save map
-    m.save('docs/boundary_comparison_map.html')
-    print("Interactive map saved to docs/boundary_comparison_map.html")
-
 
 def load_historical_data():
     """Load historical comparison data"""
@@ -747,13 +626,13 @@ def generate_report(results_df, historical_df):
     print(report_text)
     
     # Save reports
-    with open('docs/comparison_report.txt', 'w') as f:
+    with open('output/comparison_report.txt', 'w') as f:
         f.write(report_text)
 
     
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
-    csv_df.to_csv('docs/detailed_results.csv', 
+    csv_df.to_csv('output/detailed_results.csv',
                   header=['Name', 'BFS Number', 'OSM Relation', 'IoU', 'Area Diff (%)',
                           'Hausdorff Distance (°)', 'Symmetric Diff (%)',
                           'Area swisstopo (m²)', 'Area OSM (m²)'],
@@ -867,7 +746,7 @@ def create_csv_table_page():
 </body>
 </html>"""
     
-    with open('docs/index.html', 'w') as f:
+    with open('output/index.html', 'w') as f:
         f.write(html_content)
     
     print("CSV table page created")
@@ -876,7 +755,7 @@ def create_csv_table_page():
 # Main execution
 if __name__ == "__main__":
     # Create necessary directories
-    for dir_name in ['history', 'docs']:
+    for dir_name in ['history', 'output']:
         os.makedirs(dir_name, exist_ok=True)
     
     # Load data
