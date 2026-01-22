@@ -9,7 +9,7 @@ on:
   workflow_dispatch:  # Allow manual triggering
   
 permissions:
-  contents: write       # Needed to commit reports/history/docs
+  contents: write       # Needed to commit output and history folders
   id-token: write       # Required for GitHub Pages authentication
   pages: write          # Required to deploy to GitHub Pages
   actions: read         # Recommended for artifact access
@@ -52,21 +52,16 @@ jobs:
       run: |
         cat > $GITHUB_STEP_SUMMARY << 'EOF'
         # Swiss Municipality Boundary Comparison Report
-        
-        ## 📊 Latest Results
-        
+                
         EOF
-        cat reports/comparison_report.txt >> $GITHUB_STEP_SUMMARY
+        cat output/comparison_report.txt >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "## 🗺️ Interactive Visualizations" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "View the [interactive dashboard](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) with maps and trend charts." >> $GITHUB_STEP_SUMMARY
         
     - name: Commit results
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add reports/ history/ docs/
+        git add output/ history/
         git diff --quiet && git diff --staged --quiet || git commit -m "Update boundary comparison results - $(date +'%Y-%m-%d')"
         git push
       continue-on-error: true
@@ -76,8 +71,7 @@ jobs:
       with:
         name: boundary-comparison-results
         path: |
-          reports/
-          docs/
+          output/
           history/
           osm_boundaries.geojson
         retention-days: 90
@@ -91,7 +85,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       if: github.ref == 'refs/heads/main'
       with:
-        path: './docs'
+        path: './output'
         
     - name: Deploy to GitHub Pages
       id: deployment

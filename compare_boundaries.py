@@ -746,17 +746,13 @@ def generate_report(results_df, historical_df):
     print(report_text)
     
     # Save reports
-    with open('reports/comparison_report.txt', 'w') as f:
+    with open('docs/comparison_report.txt', 'w') as f:
         f.write(report_text)
 
     
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
-    csv_df.to_csv('reports/detailed_results.csv', index=False)
-    
-    # IMPORTANT: Also save CSV to docs folder for GitHub Pages
-    csv_df.to_csv('docs/detailed_results.csv', index=False)
-    
+    csv_df.to_csv('docs/detailed_results.csv', 
     # Save to history
     timestamp = datetime.now().strftime('%Y%m%d')
     csv_df.to_csv(f'history/results_{timestamp}.csv', index=False)
@@ -874,7 +870,7 @@ def create_csv_table_page():
 # Main execution
 if __name__ == "__main__":
     # Create necessary directories
-    for dir_name in ['reports', 'history', 'docs']:
+    for dir_name in ['history', 'docs']:
         os.makedirs(dir_name, exist_ok=True)
     
     # Load data
@@ -901,7 +897,7 @@ if __name__ == "__main__":
         # Create inde page for display
         create_csv_table_page()
                 
-        print("\nComparison complete! Check the docs/ folder for interactive visualizations.")
+        print("\nComparison complete!")
     else:
         print("ERROR: Failed to retrieve OSM data")
         exit(1)
