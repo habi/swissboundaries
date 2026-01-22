@@ -496,7 +496,7 @@ def create_trend_visualizations(results_df, historical_df):
             template='plotly_white',
             height=500
         )
-        fig_iou.write_html('docs/iou_trend.html')
+        fig_iou.write_html('output/iou_trend.html')
         
         # Quality distribution stacked area chart
         fig_quality = go.Figure()
@@ -522,7 +522,7 @@ def create_trend_visualizations(results_df, historical_df):
             template='plotly_white',
             height=500
         )
-        fig_quality.write_html('docs/quality_distribution.html')
+        fig_quality.write_html('output/quality_distribution.html')
         
         print("Trend visualizations saved")
     else:
