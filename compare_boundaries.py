@@ -267,8 +267,6 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
 
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
-    # Geometries are already in EPSG:2056 (loaded with target_crs="EPSG:2056")
-    # No conversion needed - data is already in projected coordinates for accurate area calculations
     try:
         # Debug: Check geometry properties
         # print(f"  Swisstopo geom: type={geom1.geom_type}, bounds={geom1.bounds}, area={geom1.area}")
@@ -286,41 +284,46 @@ def calculate_metrics(geom1, geom2):
             print("  Empty geometry detected")
             return None
         
+        # Geometries are already in EPSG:2056 (loaded with target_crs="EPSG:2056")
+        # No conversion needed - data is already in projected coordinates for accurate area calculations
+        geom1_proj = geom1
+        geom2_proj = geom2
+        
         # Check centroids distance
-        centroid1 = geom1.centroid
-        centroid2 = geom2.centroid
+        centroid1 = geom1_proj.centroid
+        centroid2 = geom2_proj.centroid
         distance = centroid1.distance(centroid2)
         # print(f"    Centroid distance: {distance} meters")
         
         # print(f"    Calculating intersection...")
-        intersection = geom1.intersection(geom2)
+        intersection = geom1_proj.intersection(geom2_proj)
         # print(f"    Intersection: type={intersection.geom_type}, area={intersection.area}")
         
         # print(f"    Calculating union...")
-        union = geom1.union(geom2)
+        union = geom1_proj.union(geom2_proj)
         # print(f"    Union: type={union.geom_type}, area={union.area}")
         
         iou = intersection.area / union.area if union.area > 0 else 0
         # print(f"    IoU calculation: {intersection.area} / {union.area} = {iou}")
         
-        area_diff = abs(geom1.area - geom2.area) / geom1.area * 100 if geom1.area > 0 else 0
+        area_diff = abs(geom1_proj.area - geom2_proj.area) / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
         
         # Calculate Hausdorff distance with validation
         try:
-            hausdorff = geom1.hausdorff_distance(geom2)
+            hausdorff = geom1_proj.hausdorff_distance(geom2_proj)
         except (ValueError, RuntimeWarning):
             hausdorff = float('nan')
         
-        sym_diff_area = geom1.symmetric_difference(geom2).area
-        sym_diff_pct = sym_diff_area / geom1.area * 100 if geom1.area > 0 else 0
+        sym_diff_area = geom1_proj.symmetric_difference(geom2_proj).area
+        sym_diff_pct = sym_diff_area / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
         
         return {
-            'IOU    ': iou,
-            'Area differene [%]': area_diff,
-            'Hausdorff distance': hausdorff,
-            'Symmetric differene [%]': sym_diff_pct,
-            'Area swisstopo [m^2]': geom1.area,
-            'Area OSM [m^2]': geom2.area
+            'iou': iou,
+            'area_diff_pct': area_diff,
+            'hausdorff_distance': hausdorff,
+            'symmetric_diff_pct': sym_diff_pct,
+            'swisstopo_area': geom1_proj.area,
+            'osm_area': geom2_proj.area
         }
     except Exception as e:
         print(f"Error calculating metrics: {e}")
