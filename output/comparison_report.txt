@@ -1,0 +1,41 @@
+Swiss municipality boundary comparison report
+Generated: 2026-01-22 20:15:48 UTC
+
+Dataset Overview:
+  Total Swisstopo municipalities: 2110
+  Matched in OSM: 2110 (100.0%)
+  Missing in OSM: 0 (0.0%)
+
+Accuracy Metrics (for matched municipalities):
+  Mean IoU: 0.9853
+  Median IoU: 0.9981
+  Mean area difference: 1.37%
+  Mean symmetric difference: 1.64%
+  Mean Hausdorff distance: 199.856038°
+
+Quality Distribution:
+  Excellent (IoU ≥ 0.98): 1965 (93.1%)
+  Good (IoU ≥ 0.95): 55 (2.6%)
+  Fair (IoU ≥ 0.90): 25 (1.2%)
+  Poor (IoU < 0.90): 65 (3.1%)
+
+Historical Comparison (vs 2026-01-22):
+  Previous mean IoU: 0.9853
+  Current mean IoU: 0.9853
+  Change: +0.0000 (+0.00%)
+
+Worst 10 Matches (by IoU):
+             name bfs_nummer      iou  area_diff_pct
+     Baltschieder       6281 0.071635      92.833914
+Turtmann-Unterems       6119 0.192606      80.725843
+       Altstätten       3251 0.210974      78.885258
+         Valbroye       5831 0.259060      74.070294
+  Ponte Capriasca       5212 0.282219      70.860601
+     Seedorf (UR)       1214 0.284757      71.506697
+        Spiringen       1218 0.349588      65.023792
+             Fiez       5556 0.352118      64.704937
+           Thusis       3668 0.405624      59.369142
+            Stäfa        158 0.426448     134.323907
+
+Most Improved (if historical data available):
+  No significant improvements detected
