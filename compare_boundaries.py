@@ -650,10 +650,8 @@ def create_trend_visualizations(results_df, historical_df):
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
-    report_lines.append("=" * 80)
-    report_lines.append("SWISS MUNICIPALITY BOUNDARY COMPARISON REPORT")
+    report_lines.append("Swiss municipality boundary comparison report")
     report_lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
-    report_lines.append("=" * 80)
     
     total = len(results_df)
     matched = results_df['iou'].notna().sum()
