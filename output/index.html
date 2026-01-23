@@ -59,11 +59,45 @@
             complete: function(results) {
                 table = new Tabulator("#csv-table", {
                     data: results.data,
-                    autoColumns: true,
                     layout: "fitColumns",
                     height: "600px",
                     renderVertical: "virtual",
                     pagination: false,
+                    columns: [
+                        {title: "Name", field: "Name", width: 200},
+                        {
+                            title: "BFS Number", 
+                            field: "BFS Number", 
+                            width: 120,
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
+                        {
+                            title: "OSM Relation", 
+                            field: "OSM Relation", 
+                            width: 150,
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value && value !== '' && value !== 'Not found in OSM') {
+                                    return '<a href="https://osm.org/relation/' + value + '" target="_blank">' + value + '</a>';
+                                } else if (value === '') {
+                                    return 'Not found in OSM';
+                                }
+                                return value;
+                            }
+                        },
+                        {title: "IoU", field: "IoU", width: 100, formatter: "money", formatterParams: {precision: 4}},
+                        {title: "Area Diff (%)", field: "Area Diff (%)", width: 130, formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Hausdorff Distance (°)", field: "Hausdorff Distance (°)", width: 180},
+                        {title: "Symmetric Diff (%)", field: "Symmetric Diff (%)", width: 150, formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Area swisstopo (m²)", field: "Area swisstopo (m²)", width: 150, formatter: "money", formatterParams: {precision: 0}},
+                        {title: "Area OSM (m²)", field: "Area OSM (m²)", width: 150, formatter: "money", formatterParams: {precision: 0}},
+                    ],
                 });
 
                 // SEARCH LOGIC

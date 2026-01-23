@@ -1,66 +1,41 @@
 Swiss municipality boundary comparison report
-<<<<<<< Updated upstream
-Generated: 2026-01-23 12:56:39 UTC
-||||||| Stash base
-Generated: 2026-01-23 02:46:04 UTC
-=======
-Generated: 2026-01-23 14:17:36 UTC
->>>>>>> Stashed changes
+Generated: 2026-01-23 13:54:21 UTC
 
 Dataset Overview:
-  Total Swisstopo municipalities: 2115
-  Matched in OSM: 2108 (99.7%)
-  Missing in OSM: 7 (0.3%)
+  Total Swisstopo municipalities: {total}
+  Matched in OSM: 2110 (100.0%)
+  Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9846
-  Median IoU: 0.9982
-  Mean area difference: 1.58%
-  Mean symmetric difference: 1.86%
-  Mean Hausdorff distance: 202.560532°
+  Mean IoU: 0.9853
+  Median IoU: 0.9981
+  Mean area difference: 1.37%
+  Mean symmetric difference: 1.64%
+  Mean Hausdorff distance: 199.856038°
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 1960 (93.0%)
+  Excellent (IoU ≥ 0.98): 1965 (93.1%)
   Good (IoU ≥ 0.95): 55 (2.6%)
   Fair (IoU ≥ 0.90): 25 (1.2%)
-  Poor (IoU < 0.90): 68 (3.2%)
+  Poor (IoU < 0.90): 65 (3.1%)
 
 Historical Comparison (vs 2026-01-23):
-<<<<<<< Updated upstream
-  Previous mean IoU: 0.9853
+  Previous mean IoU: 0.9851
   Current mean IoU: 0.9853
-||||||| Stash base
-Historical Comparison (vs 2026-01-22):
-  Previous mean IoU: 0.9853
-  Current mean IoU: 0.9853
-=======
-  Previous mean IoU: 0.9846
-  Current mean IoU: 0.9846
->>>>>>> Stashed changes
-  Change: +0.0000 (+0.00%)
+  Change: +0.0002 (+0.02%)
 
 Worst 10 Matches (by IoU):
              name bfs_nummer      iou  area_diff_pct
-     Baltschieder       6281 0.071618      92.835273
+     Baltschieder       6281 0.071635      92.833914
 Turtmann-Unterems       6119 0.192606      80.725843
        Altstätten       3251 0.210974      78.885258
-     Kriegstetten       2525 0.211546     372.452425
          Valbroye       5831 0.259060      74.070294
   Ponte Capriasca       5212 0.282219      70.860601
      Seedorf (UR)       1214 0.284757      71.506697
         Spiringen       1218 0.349588      65.023792
              Fiez       5556 0.352118      64.704937
            Thusis       3668 0.405624      59.369142
+            Stäfa        158 0.426448     134.323907
 
 Most Improved (if historical data available):
   No significant improvements detected
-
-Missing Municipalities (showing first 20):
-       name bfs_nummer
-      Ulmiz       2278
-    Moutier        700
-    Fétigny       2016
-   Oekingen       2529
-   Ménières       2027
-Villnachern       4122
-     Halten       2520
