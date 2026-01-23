@@ -264,6 +264,49 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
         return None
 
 
+def save_boundaries_as_geojson(gdf, output_folder):
+    """Save each boundary as individual GeoJSON files."""
+    from shapely.geometry import mapping
+    from shapely.ops import transform
+    os.makedirs(output_folder, exist_ok=True)
+    
+    # Convert to WGS84 (EPSG:4326) for GeoJSON output
+    # GeoJSON specification requires WGS84 coordinates (latitude/longitude)
+    gdf_wgs84 = gdf.to_crs("EPSG:4326")
+    
+    # Function to strip Z coordinate
+    def remove_z(geom):
+        if geom.has_z:
+            return transform(lambda x, y, z=None: (x, y), geom)
+        return geom
+    
+    for idx, row in gdf_wgs84.iterrows():
+        bfs_num = row['bfs_nummer']
+        geom = row.geometry
+        
+        # Remove Z coordinate (elevation) if present - GeoJSON should be 2D
+        geom_2d = remove_z(geom)
+        
+        feature = {
+            "type": "Feature",
+            "properties": {
+                "bfs_nummer": bfs_num
+            },
+            "geometry": mapping(geom_2d)
+        }
+        geojson = {
+            "type": "FeatureCollection",
+            "features": [feature]
+        }
+        
+        output_path = os.path.join(output_folder, f"{bfs_num}.geojson")
+        with open(output_path, 'w') as f:
+            import json
+            json.dump(geojson, f)
+    
+    print(f"Saved boundaries to {output_folder}")
+
+
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
@@ -758,6 +801,10 @@ if __name__ == "__main__":
     # Compare if both loaded successfully
     if swisstopo is not None and osm is not None:
         compare_dataframes(swisstopo, osm)
+
+    # Save out swisstopo boundaries as individual geoJSON files
+    if swisstopo is not None:
+        save_boundaries_as_geojson(swisstopo, 'output/swisstopo_geojson')
 
     if osm is not None and len(osm) > 0:
         # Compare boundaries
