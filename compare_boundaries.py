@@ -356,7 +356,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 results.append({
                     'name': name,
                     'bfs_nummer': bfs_num,
-                    'relation': 'https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]),
+                    'relation': '<a href="https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]) + '">' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]) + '</a>',
                     **metrics
                 })
         else:
