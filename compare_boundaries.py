@@ -350,10 +350,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
         
         if bfs_num in osm_lookup:
             metrics = calculate_metrics(
-                #fix_geometry(
-                row.geometry#)
-                , #fix_geometry(
-                osm_lookup[bfs_num])#)
+                row.geometry,
+                osm_lookup[bfs_num])
             if metrics:
                 results.append({
                     'name': name,
