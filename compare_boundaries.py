@@ -2,7 +2,6 @@ import geopandas as gpd
 import pandas as pd
 import requests
 from datetime import datetime
-import folium
 import plotly.graph_objects as go
 import os
 from pathlib import Path
