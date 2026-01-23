@@ -389,17 +389,18 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 row.geometry,
                 osm_lookup[bfs_num])
             if metrics:
+                osm_id = str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0])
                 results.append({
                     'name': name,
                     'bfs_nummer': bfs_num,
-                    'relation': '<a href="https://osm.org/relation/' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]) + '">' + str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0]) + '</a>',
+                    'relation': osm_id,
                     **metrics
                 })
         else:
             results.append({
                 'name': name,
                 'bfs_nummer': bfs_num,
-                'relation': 'Not found in OSM'
+                'relation': ''
             })
     
     return pd.DataFrame(results)
@@ -741,11 +742,34 @@ def create_csv_table_page():
             complete: function(results) {
                 table = new Tabulator("#csv-table", {
                     data: results.data,
-                    autoColumns: true,
                     layout: "fitColumns",
                     height: "600px",
                     renderVertical: "virtual",
                     pagination: false,
+                    columns: [
+                        {title: "Name", field: "Name", width: 200},
+                        {title: "BFS Number", field: "BFS Number", width: 120},
+                        {
+                            title: "OSM Relation", 
+                            field: "OSM Relation", 
+                            width: 150,
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value && value !== '' && value !== 'Not found in OSM') {
+                                    return '<a href="https://osm.org/relation/' + value + '" target="_blank">' + value + '</a>';
+                                } else if (value === '') {
+                                    return 'Not found in OSM';
+                                }
+                                return value;
+                            }
+                        },
+                        {title: "IoU", field: "IoU", width: 100, formatter: "money", formatterParams: {precision: 4}},
+                        {title: "Area Diff (%)", field: "Area Diff (%)", width: 130, formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Hausdorff Distance (°)", field: "Hausdorff Distance (°)", width: 180},
+                        {title: "Symmetric Diff (%)", field: "Symmetric Diff (%)", width: 150, formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Area swisstopo (m²)", field: "Area swisstopo (m²)", width: 150, formatter: "money", formatterParams: {precision: 0}},
+                        {title: "Area OSM (m²)", field: "Area OSM (m²)", width: 150, formatter: "money", formatterParams: {precision: 0}},
+                    ],
                 });
 
                 // SEARCH LOGIC
