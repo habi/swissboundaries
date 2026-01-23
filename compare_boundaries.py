@@ -413,12 +413,12 @@ def compare_dataframes(gdf_swisstopo, gdf_osm):
     print("COMPARISON")
     print("="*60)
     
-    print(f"\nSwissTopo:")
+    print("\nSwissTopo:")
     print(f"  - Features: {len(gdf_swisstopo)}")
     print(f"  - CRS: {gdf_swisstopo.crs}")
     print(f"  - Bounds: {gdf_swisstopo.total_bounds}")
     
-    print(f"\nOSM:")
+    print("\nOSM:")
     print(f"  - Features: {len(gdf_osm)}")
     print(f"  - CRS: {gdf_osm.crs}")
     print(f"  - Bounds: {gdf_osm.total_bounds}")
@@ -432,7 +432,7 @@ def compare_dataframes(gdf_swisstopo, gdf_osm):
         only_swisstopo = swisstopo_bfs - osm_bfs
         only_osm = osm_bfs - swisstopo_bfs
         
-        print(f"\nBFS_NUMMER comparison:")
+        print("\nBFS_NUMMER comparison:")
         print(f"  - In both datasets: {len(common)}")
         print(f"  - Only in SwissTopo: {len(only_swisstopo)}")
         print(f"  - Only in OSM: {len(only_osm)}")
@@ -574,15 +574,15 @@ def generate_report(results_df, historical_df):
     matched = results_df['iou'].notna().sum()
     missing = total - matched
     
-    report_lines.append(f"\nDataset Overview:")
-    report_lines.append(f"  Total Swisstopo municipalities: {total}")
+    report_lines.append("\nDataset Overview:")
+    report_lines.append("  Total Swisstopo municipalities: {total}")
     report_lines.append(f"  Matched in OSM: {matched} ({matched/total*100:.1f}%)")
     report_lines.append(f"  Missing in OSM: {missing} ({missing/total*100:.1f}%)")
     
     if matched > 0:
         matched_df = results_df[results_df['iou'].notna()]
         
-        report_lines.append(f"\nAccuracy Metrics (for matched municipalities):")
+        report_lines.append("\nAccuracy Metrics (for matched municipalities):")
         report_lines.append(f"  Mean IoU: {matched_df['iou'].mean():.4f}")
         report_lines.append(f"  Median IoU: {matched_df['iou'].median():.4f}")
         report_lines.append(f"  Mean area difference: {matched_df['area_diff_pct'].mean():.2f}%")
@@ -594,7 +594,7 @@ def generate_report(results_df, historical_df):
         fair = ((matched_df['iou'] >= 0.90) & (matched_df['iou'] < 0.95)).sum()
         poor = (matched_df['iou'] < 0.90).sum()
         
-        report_lines.append(f"\nQuality Distribution:")
+        report_lines.append("\nQuality Distribution:")
         report_lines.append(f"  Excellent (IoU ≥ 0.98): {excellent} ({excellent/matched*100:.1f}%)")
         report_lines.append(f"  Good (IoU ≥ 0.95): {good} ({good/matched*100:.1f}%)")
         report_lines.append(f"  Fair (IoU ≥ 0.90): {fair} ({fair/matched*100:.1f}%)")
@@ -616,11 +616,11 @@ def generate_report(results_df, historical_df):
                 report_lines.append(f"  Current mean IoU: {current_mean_iou:.4f}")
                 report_lines.append(f"  Change: {iou_change:+.4f} ({iou_change/prev_mean_iou*100:+.2f}%)")
         
-        report_lines.append(f"\nWorst 10 Matches (by IoU):")
+        report_lines.append("\nWorst 10 Matches (by IoU):")
         worst = matched_df.nsmallest(10, 'iou')[['name', 'bfs_nummer', 'iou', 'area_diff_pct']]
         report_lines.append(worst.to_string(index=False))
         
-        report_lines.append(f"\nMost Improved (if historical data available):")
+        report_lines.append("\nMost Improved (if historical data available):")
         if len(historical_df) > 0:
             # Find municipalities that improved
             prev_date = historical_df['date'].max()
@@ -653,7 +653,7 @@ def generate_report(results_df, historical_df):
     # Missing municipalities
     missing_df = results_df[results_df['relation'] == 'Not found in OSM']
     if len(missing_df) > 0:
-        report_lines.append(f"\nMissing Municipalities (showing first 20):")
+        report_lines.append("\nMissing Municipalities (showing first 20):")
         missing_list = missing_df.head(20)[['name', 'bfs_nummer']]
         report_lines.append(missing_list.to_string(index=False))
     
@@ -749,8 +749,8 @@ def create_csv_table_page():
                     columns: [
                         {title: "Name", field: "Name", width: 200},
                         {
-                            title: "BFS Number",
-                            field: "BFS Number",
+                            title: "BFS Number", 
+                            field: "BFS Number", 
                             width: 120,
                             formatter: function(cell, formatterParams, onRendered) {
                                 var value = cell.getValue();
