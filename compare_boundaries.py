@@ -289,12 +289,6 @@ def calculate_metrics(geom1, geom2):
         geom1_proj = geom1
         geom2_proj = geom2
         
-        # Check centroids distance
-        centroid1 = geom1_proj.centroid
-        centroid2 = geom2_proj.centroid
-        distance = centroid1.distance(centroid2)
-        # print(f"    Centroid distance: {distance} meters")
-        
         # print(f"    Calculating intersection...")
         intersection = geom1_proj.intersection(geom2_proj)
         # print(f"    Intersection: type={intersection.geom_type}, area={intersection.area}")
