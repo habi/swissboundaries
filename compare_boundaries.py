@@ -748,7 +748,18 @@ def create_csv_table_page():
                     pagination: false,
                     columns: [
                         {title: "Name", field: "Name", width: 200},
-                        {title: "BFS Number", field: "BFS Number", width: 120},
+                        {
+                            title: "BFS Number",
+                            field: "BFS Number",
+                            width: 120,
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
                         {
                             title: "OSM Relation", 
                             field: "OSM Relation", 
