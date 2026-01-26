@@ -49,9 +49,16 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         
         # Convert to GeoJSON
         geojson = osm_to_geojson(osm_data)
-        
-        # Convert to GeoDataFrame (OSM data is in WGS84)
+          
+        if not geojson['features']:
+            print("  - Error: No valid features created from OSM data")
+            return None
+            
+        # Convert to GeoDataFrame
         gdf = gpd.GeoDataFrame.from_features(geojson['features'], crs="EPSG:4326")
+        
+        # 2D ENFORCEMENT: Strip Z-coords if any (OSM sometimes has them in specific tags)
+        gdf.geometry = gdf.geometry.apply(force_2d)
         
         # Reproject if needed
         if target_crs != "EPSG:4326":
@@ -60,7 +67,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         
         print(f"  - Created GeoDataFrame with {len(gdf)} features")
         print(f"  - Columns: {', '.join(gdf.columns)}")
-        
+
         return gdf
         
     except Exception as e:
@@ -85,43 +92,41 @@ def osm_to_geojson(osm_data):
 
 
 def create_feature(element):
-    """
-    Ensures that OSM elements are converted to features 
-    without losing the distinct line segments.
-    """
+    """Refined to ensure valid GeoJSON output for Geopandas."""
     if 'geometry' not in element:
         return None
 
-    # Standard GeoJSON Feature structure
+    # Filter: For boundary conflation, we only want the 'ways' or 'relations'
+    # We ignore 'node' types here to keep the GDF clean
+    if element['type'] not in ['way', 'relation']:
+        return None
+
+    props = element.get('tags', {})
+    # Ensure the ID is easily accessible
+    props['osm_id'] = element['id']
+    props['osm_type'] = element['type']
+
     feature = {
         "type": "Feature",
         "id": f"{element['type']}/{element['id']}",
-        "properties": element.get('tags', {}),
+        "properties": props,
         "geometry": None
     }
 
-    geom_type = element.get('type')
-    
-    if geom_type == 'way':
-        # Single line segment - no collation happens here
+    if element['type'] == 'way':
         feature['geometry'] = {
             "type": "LineString",
             "coordinates": [[n['lon'], n['lat']] for n in element['geometry']]
         }
-    elif geom_type == 'relation':
-        # If you process the relation here, it WILL collate into a MultiLineString/Polygon
-        # unless you handle it carefully.
+    elif element['type'] == 'relation':
         coords = []
         for member in element.get('members', []):
-            if 'geometry' in member and member['type'] == 'way':
+            if member['type'] == 'way' and 'geometry' in member:
                 coords.append([[n['lon'], n['lat']] for n in member['geometry']])
-        
-        feature['geometry'] = {
-            "type": "MultiLineString", 
-            "coordinates": coords
-        }
-        
-    return feature
+        if coords:
+            feature['geometry'] = {"type": "MultiLineString", "coordinates": coords}
+            
+    return feature if feature['geometry'] else None
 
 
 def group_connected_ways(ways):
