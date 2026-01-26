@@ -5,9 +5,10 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
-from shapely.geometry import mapping, shape, Polygon, MultiPolygon, MultiLineString
+from shapely.geometry import mapping, shape, Polygon, MultiPolygon, MultiLineString, LineString
 from shapely.ops import transform, polygonize, unary_union
 import plotly.graph_objects as go
+
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
@@ -182,36 +183,54 @@ def group_connected_ways(ways):
     return groups
 
 
+import json
+import os
+from shapely.geometry import mapping, LineString
+
 def save_boundaries_as_geojson(gdf, output_folder):
-    """
-    Saves Polygons as exploded LineStrings. 
-    This fulfills the 'non-collating' requirement for the final files.
-    """
+    """Saves Polygons as a FeatureCollection of individual LineString segments."""
     os.makedirs(output_folder, exist_ok=True)
+    
+    # Ensure we are in WGS84 for GeoJSON standard
     gdf_wgs84 = gdf.to_crs("EPSG:4326")
 
     for bfs_num, group in gdf_wgs84.groupby('bfs_nummer'):
         features = []
+        
         for _, row in group.iterrows():
-            # Extract the boundary (lines) from the polygon here
+            # 1. Get the boundary (this turns Polygon -> LineString/MultiLineString)
             boundary = row.geometry.boundary
             
-            # Explode MultiLineStrings into individual features
+            # 2. EXPLOSION LOGIC: Break into individual parts
+            # Handles MultiLineStrings (multiple rings/exclaves)
             if hasattr(boundary, 'geoms'):
-                lines = list(boundary.geoms)
+                parts = list(boundary.geoms)
             else:
-                lines = [boundary]
+                parts = [boundary]
 
-            for line in lines:
+            for part in parts:
+                # 3. Create a unique feature for every single segment
+                # This ensures the GeoJSON is a collection of lines, not one big one
                 features.append({
                     "type": "Feature",
-                    "properties": {"bfs_nummer": int(bfs_num)},
-                    "geometry": mapping(line)
+                    "properties": {
+                        "bfs_nummer": int(bfs_num),
+                        "segment_length_m": row.geometry.length if hasattr(row.geometry, 'length') else 0
+                    },
+                    "geometry": mapping(part)
                 })
         
-        geojson = {"type": "FeatureCollection", "features": features}
-        with open(os.path.join(output_folder, f"{int(bfs_num)}.geojson"), 'w') as f:
-            json.dump(geojson, f, indent=2)
+        # 4. Wrap everything in a FeatureCollection
+        geojson_output = {
+            "type": "FeatureCollection",
+            "features": features
+        }
+        
+        file_path = os.path.join(output_folder, f"{int(bfs_num)}.geojson")
+        with open(file_path, 'w') as f:
+            json.dump(geojson_output, f, indent=2)
+
+    print(f"  - Successfully saved {len(gdf_wgs84['bfs_nummer'].unique())} exploded GeoJSON files.")
 
 def calculate_metrics(geom1, geom2):
     """Calculate IoU and Area diff on Polygon geometries."""
