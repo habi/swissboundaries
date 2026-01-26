@@ -599,9 +599,12 @@ def generate_report(results_df, historical_df):
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
     csv_df.to_csv('output/detailed_results.csv',
-                  header=['Name', 'BFS Number', 'OSM Relation', 'IoU', 'Area Diff [%]',
-                          'Hausdorff Distance [m]', 'Symmetric Diff [%]',
-                          'Area swisstopo [m²]', 'Area OSM [m²]'],
+                  header=[
+                      'Name', 'BFS Number', 'OSM Relation', 'IoU', 
+                      'Area Diff [%]', 'Hausdorff Distance [m]', 
+                      'Symmetric Diff [%]', 'Area swisstopo [m²]', 
+                      'Area OSM [m²]', 'Geometry Type'
+                  ],
                   index=False)
 
     # Save to history
