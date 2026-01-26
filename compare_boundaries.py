@@ -27,7 +27,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     relation["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area.switzerland);
     );
     out body;
-    >;  # This fetches all the ways and nodes belonging to those relations
+    >;
     out skel qt;
     """
     
