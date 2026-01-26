@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-26 10:33:21 UTC
+Generated: 2026-01-26 10:51:19 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
