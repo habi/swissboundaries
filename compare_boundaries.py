@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from shapely.geometry import mapping, shape, Polygon, MultiPolygon, MultiLineString
 from shapely.ops import transform, polygonize, unary_union
+import plotly.graph_objects as go
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
