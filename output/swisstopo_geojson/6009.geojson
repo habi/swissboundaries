@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "bfs_nummer": 6009
+        "bfs_nummer": 6009,
+        "segment_length_m": 0.5430625912796118
       },
       "geometry": {
         "type": "LineString",

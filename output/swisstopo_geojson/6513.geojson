@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "bfs_nummer": 6513
+        "bfs_nummer": 6513,
+        "segment_length_m": 0.5175772080113549
       },
       "geometry": {
         "type": "LineString",
@@ -12339,7 +12340,8 @@
     {
       "type": "Feature",
       "properties": {
-        "bfs_nummer": 6513
+        "bfs_nummer": 6513,
+        "segment_length_m": 0.5175772080113549
       },
       "geometry": {
         "type": "LineString",
@@ -13154,7 +13156,8 @@
     {
       "type": "Feature",
       "properties": {
-        "bfs_nummer": 6513
+        "bfs_nummer": 6513,
+        "segment_length_m": 0.5175772080113549
       },
       "geometry": {
         "type": "LineString",
