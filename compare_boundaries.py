@@ -1,10 +1,12 @@
 import geopandas as gpd
 import pandas as pd
 import requests
-from datetime import datetime
-import plotly.graph_objects as go
+import json
 import os
+from datetime import datetime
 from pathlib import Path
+from shapely.geometry import mapping, shape, Polygon, MultiPolygon, MultiLineString
+from shapely.ops import transform, polygonize, unary_union
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
@@ -89,11 +91,8 @@ def osm_to_geojson(osm_data):
     return geojson
 
 
-from shapely.geometry import MultiLineString, Polygon
-from shapely.ops import polygonize
-
 def create_feature(element):
-    """Refined to support Polygons for area metrics."""
+    """Convert OSM element to Polygon/MultiPolygon for Area Metrics."""
     e_type = element.get('type')
     tags = element.get('tags', {})
     bfs_num = tags.get('swisstopo:BFS_NUMMER')
@@ -102,34 +101,56 @@ def create_feature(element):
         member_geoms = []
         for member in element.get('members', []):
             if member.get('type') == 'way' and 'geometry' in member:
-                member_geoms.append([[pt['lon'], pt['lat']] for pt in member['geometry']])
+                # out geom provides the geometry list directly
+                points = [[pt['lon'], pt['lat']] for pt in member['geometry']]
+                member_geoms.append(points)
         
         if not member_geoms:
             return None
 
-        # Create a MultiLineString from members
+        # To get Area Metrics, we must polygonize the lines
         mls = MultiLineString(member_geoms)
-        
-        # Attempt to create a Polygon for area metrics
-        # polygonize returns an iterator of possible polygons
         polygons = list(polygonize(mls))
+        
         if polygons:
-            # If multiple polygons exist (enclaves), union them
-            from shapely.ops import unary_union
             final_geom = unary_union(polygons)
-            geom_type = "Polygon" if len(polygons) == 1 else "MultiPolygon"
         else:
-            # Fallback to MultiLineString if not closed
-            final_geom = mls
-            geom_type = "MultiLineString"
+            # If it won't polygonize, we can't do area metrics effectively
+            return None
 
         return {
             "type": "Feature",
             "id": f"relation/{element['id']}",
-            "properties": {"swisstopo:BFS_NUMMER": bfs_num, **tags},
+            "properties": {
+                "osm_id": element['id'],
+                "swisstopo:BFS_NUMMER": bfs_num,
+                **tags
+            },
             "geometry": mapping(final_geom)
         }
     return None
+
+
+def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
+    """Load municipalities as Polygons to preserve Area Metrics."""
+    if not Path(gpkg_path).exists():
+        return None
+    
+    try:
+        gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
+        gdf = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
+        
+        # Reproject and Force 2D immediately
+        gdf = gdf.to_crs(target_crs)
+        gdf.geometry = gdf.geometry.apply(force_2d)
+        
+        # Ensure geometries are valid for area calculations
+        gdf.geometry = gdf.geometry.make_valid()
+        
+        return gdf
+    except Exception as e:
+        print(f"Error loading SwissTopo data: {e}")
+        return None
 
 
 def group_connected_ways(ways):
@@ -160,120 +181,62 @@ def group_connected_ways(ways):
     return groups
 
 
-def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
-    """
-    Load municipalities from swissBOUNDARIES3D GeoPackage.
-    
-    Args:
-        gpkg_path: Path to the swissBOUNDARIES3D_1_5_LV95_LN02.gpkg file
-        target_crs: Target coordinate reference system (default: WGS84)
-    
-    Returns:
-        GeoDataFrame with municipalities
-    """
-    
-    if not Path(gpkg_path).exists():
-        print(f"Error: File not found: {gpkg_path}")
-        return None
-    
-    print(f"Loading SwissTopo municipalities from: {gpkg_path}")
-    
-    try:
-        # Read the municipalities layer
-        gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
-        print(f"  - Loaded {len(gdf)} total features")
-
-        # Filter for Swiss municipalities only
-        gdf = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
-        
-        print(f"  - Loaded {len(gdf)} Swiss municipalities")
-        print(f"  - Original CRS: {gdf.crs}")
-        
-        # Reproject if needed
-        if str(gdf.crs) != target_crs:
-            gdf = gdf.to_crs(target_crs)
-            print(f"  - Reprojected to: {target_crs}")
-        
-        print(f"  - Columns: {', '.join(gdf.columns)}")
-
-        # # Get the boundary of the polygons (converts Polygons to LineStrings/LinearRings)
-        # gdf.geometry = gdf.geometry.boundary
-
-        # Explode MultiLineStrings into individual LineString segments
-        # This is the "do not collate" step—it ensures each row is a simple line.
-        gdf = gdf.explode(index_parts=False).reset_index(drop=True)
-
-        # Apply transform here to ensure all segments are 2D before any math happens
-        gdf.geometry = gdf.geometry.apply(force_2d)
-        
-        # (Optional) Cast to LineString to ensure geometry consistency
-        # Some tools prefer explicit LineString over LinearRings
-        from shapely.geometry import LineString
-        gdf.geometry = gdf.geometry.apply(lambda x: LineString(x.coords))
-        
-        return gdf
-        
-    except Exception as e:
-        print(f"Error loading SwissTopo data: {e}")
-        return None
-
-
 def save_boundaries_as_geojson(gdf, output_folder):
-    """Save each boundary as individual GeoJSON files with exploded lines."""
-    import os
-    import json
-    from shapely.geometry import mapping
-    from shapely.ops import transform
-    
+    """
+    Saves Polygons as exploded LineStrings. 
+    This fulfills the 'non-collating' requirement for the final files.
+    """
     os.makedirs(output_folder, exist_ok=True)
-    
-    # 1. Force 2D and WGS84
     gdf_wgs84 = gdf.to_crs("EPSG:4326")
-    
-    def remove_z(geom):
-        return transform(lambda x, y, z=None: (x, y), geom) if geom.has_z else geom
 
-    # Group by BFS number so we handle one municipality at a time
     for bfs_num, group in gdf_wgs84.groupby('bfs_nummer'):
         features = []
-        
         for _, row in group.iterrows():
-            # Convert Polygon to Boundary Line right before saving
-            geom_2d = remove_z(row.geometry.boundary)
+            # Extract the boundary (lines) from the polygon here
+            boundary = row.geometry.boundary
             
-            # 2. THE "DO NOT COLLATE" LOGIC:
-            # If the boundary is multi-part, break it into individual LineStrings
-            if geom_2d.geom_type == 'MultiLineString':
-                parts = list(geom_2d.geoms)
-            elif geom_2d.geom_type == 'MultiPolygon':
-                # If you haven't converted to boundary yet, do it here
-                parts = list(geom_2d.boundary.geoms)
-            elif geom_2d.geom_type == 'Polygon':
-                parts = [geom_2d.boundary]
+            # Explode MultiLineStrings into individual features
+            if hasattr(boundary, 'geoms'):
+                lines = list(boundary.geoms)
             else:
-                parts = [geom_2d]
+                lines = [boundary]
 
-            for part in parts:
+            for line in lines:
                 features.append({
                     "type": "Feature",
-                    "properties": {
-                        "bfs_nummer": int(bfs_num),
-                        "part_type": part.geom_type
-                    },
-                    "geometry": mapping(part)
+                    "properties": {"bfs_nummer": int(bfs_num)},
+                    "geometry": mapping(line)
                 })
         
-        # Save as a FeatureCollection containing multiple single LineStrings
-        geojson = {
-            "type": "FeatureCollection",
-            "features": features
-        }
-        
-        output_path = os.path.join(output_folder, f"{int(bfs_num)}.geojson")
-        with open(output_path, 'w') as f:
+        geojson = {"type": "FeatureCollection", "features": features}
+        with open(os.path.join(output_folder, f"{int(bfs_num)}.geojson"), 'w') as f:
             json.dump(geojson, f, indent=2)
-            
-    print(f"Saved exploded boundaries to {output_folder}")
+
+def calculate_metrics(geom1, geom2):
+    """Calculate IoU and Area diff on Polygon geometries."""
+    try:
+        # Validity check
+        if not geom1.is_valid: geom1 = geom1.buffer(0)
+        if not geom2.is_valid: geom2 = geom2.buffer(0)
+        
+        intersection_area = geom1.intersection(geom2).area
+        union_area = geom1.union(geom2).area
+        
+        iou = intersection_area / union_area if union_area > 0 else 0
+        area_diff = abs(geom1.area - geom2.area) / geom1.area * 100 if geom1.area > 0 else 0
+        
+        # Hausdorff distance still works on polygons (measures boundary deviation)
+        hausdorff = geom1.hausdorff_distance(geom2)
+        
+        return {
+            'iou': iou,
+            'area_diff_pct': area_diff,
+            'hausdorff_distance': hausdorff,
+            'swisstopo_area': geom1.area,
+            'osm_area': geom2.area
+        }
+    except Exception as e:
+        return None
 
 
 def force_2d(geom):
@@ -282,6 +245,7 @@ def force_2d(geom):
     if geom is None:
         return None
     return transform(lambda x, y, z=None: (x, y), geom)
+
 
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
