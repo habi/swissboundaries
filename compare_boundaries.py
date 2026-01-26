@@ -21,13 +21,14 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     
     # Overpass QL query
     overpass_query = """
-    [out:json][timeout:90];
-    area["ISO3166-1"="CH"][admin_level=2];
+    [out:json][timeout:120];
+    area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
     (
-      relation["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area);
-      way["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area);
+    relation["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area.switzerland);
     );
-    out geom;
+    out body;
+    >;  # This fetches all the ways and nodes belonging to those relations
+    out skel qt;
     """
     
     try:
