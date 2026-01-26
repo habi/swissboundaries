@@ -85,113 +85,43 @@ def osm_to_geojson(osm_data):
 
 
 def create_feature(element):
-    """Create a GeoJSON feature from an OSM element."""
-    
-    properties = {
-        'osm_id': element.get('id'),
-        'osm_type': element.get('type'),
-        **element.get('tags', {})
-    }
-    
-    geometry = None
-    
-    # Handle ways
-    if element['type'] == 'way' and 'geometry' in element:
-        coords = [[node['lon'], node['lat']] for node in element['geometry']]
-        
-        if len(coords) > 2 and coords[0] == coords[-1]:
-            geometry = {
-                "type": "Polygon",
-                "coordinates": [coords]
-            }
-        else:
-            geometry = {
-                "type": "LineString",
-                "coordinates": coords
-            }
-    
-    # Handle relations
-    elif element['type'] == 'relation' and 'members' in element:
-        outer_ways = []
-        inner_ways = []
-        
-        for member in element['members']:
-            if 'geometry' in member:
-                coords = [[node['lon'], node['lat']] for node in member['geometry']]
-                
-                if member.get('role') == 'outer':
-                    outer_ways.append(coords)
-                elif member.get('role') == 'inner':
-                    inner_ways.append(coords)
-        
-        if outer_ways:
-            merged_outer = merge_ways(outer_ways)
-            
-            if merged_outer:
-                merged_inners = []
-                if inner_ways:
-                    for inner_group in group_connected_ways(inner_ways):
-                        merged_inner = merge_ways(inner_group)
-                        if merged_inner:
-                            merged_inners.append(merged_inner)
-                
-                geometry = {
-                    "type": "Polygon",
-                    "coordinates": [merged_outer] + merged_inners
-                }
-    
-    if geometry:
-        return {
-            "type": "Feature",
-            "properties": properties,
-            "geometry": geometry
-        }
-    
-    return None
-
-
-def merge_ways(ways):
-    """Merge multiple ways into a single closed ring."""
-    if not ways:
+    """
+    Ensures that OSM elements are converted to features 
+    without losing the distinct line segments.
+    """
+    if 'geometry' not in element:
         return None
+
+    # Standard GeoJSON Feature structure
+    feature = {
+        "type": "Feature",
+        "id": f"{element['type']}/{element['id']}",
+        "properties": element.get('tags', {}),
+        "geometry": None
+    }
+
+    geom_type = element.get('type')
     
-    if len(ways) == 1:
-        return ways[0]
-    
-    merged = list(ways[0])
-    remaining = list(ways[1:])
-    
-    while remaining:
-        added = False
-        for i, way in enumerate(remaining):
-            if merged[-1] == way[0]:
-                merged.extend(way[1:])
-                remaining.pop(i)
-                added = True
-                break
-            elif merged[-1] == way[-1]:
-                merged.extend(reversed(way[:-1]))
-                remaining.pop(i)
-                added = True
-                break
-            elif merged[0] == way[-1]:
-                merged = way[:-1] + merged
-                remaining.pop(i)
-                added = True
-                break
-            elif merged[0] == way[0]:
-                merged = list(reversed(way[1:])) + merged
-                remaining.pop(i)
-                added = True
-                break
+    if geom_type == 'way':
+        # Single line segment - no collation happens here
+        feature['geometry'] = {
+            "type": "LineString",
+            "coordinates": [[n['lon'], n['lat']] for n in element['geometry']]
+        }
+    elif geom_type == 'relation':
+        # If you process the relation here, it WILL collate into a MultiLineString/Polygon
+        # unless you handle it carefully.
+        coords = []
+        for member in element.get('members', []):
+            if 'geometry' in member and member['type'] == 'way':
+                coords.append([[n['lon'], n['lat']] for n in member['geometry']])
         
-        if not added:
-            break
-    
-    if merged[0] != merged[-1]:
-        merged.append(merged[0])
-    
-    return merged
+        feature['geometry'] = {
+            "type": "MultiLineString", 
+            "coordinates": coords
+        }
+        
+    return feature
 
 
 def group_connected_ways(ways):
@@ -257,6 +187,21 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
             print(f"  - Reprojected to: {target_crs}")
         
         print(f"  - Columns: {', '.join(gdf.columns)}")
+
+        # Get the boundary of the polygons (converts Polygons to LineStrings/LinearRings)
+        gdf.geometry = gdf.geometry.boundary
+
+        # Explode MultiLineStrings into individual LineString segments
+        # This is the "do not collate" step—it ensures each row is a simple line.
+        gdf = gdf.explode(index_parts=False).reset_index(drop=True)
+
+        # Apply transform here to ensure all segments are 2D before any math happens
+        gdf.geometry = gdf.geometry.apply(force_2d)
+        
+        # (Optional) Cast to LineString to ensure geometry consistency
+        # Some tools prefer explicit LineString over LinearRings
+        from shapely.geometry import LineString
+        gdf.geometry = gdf.geometry.apply(lambda x: LineString(x.coords))
         
         return gdf
         
@@ -266,46 +211,60 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
 
 
 def save_boundaries_as_geojson(gdf, output_folder):
-    """Save each boundary as individual GeoJSON files."""
+    """Save each boundary as individual GeoJSON files with exploded lines."""
+    import os
+    import json
     from shapely.geometry import mapping
     from shapely.ops import transform
+    
     os.makedirs(output_folder, exist_ok=True)
     
-    # Convert to WGS84 (EPSG:4326) for GeoJSON output
-    # GeoJSON specification requires WGS84 coordinates (latitude/longitude)
+    # 1. Force 2D and WGS84
     gdf_wgs84 = gdf.to_crs("EPSG:4326")
     
-    # Function to strip Z coordinate
     def remove_z(geom):
-        if geom.has_z:
-            return transform(lambda x, y, z=None: (x, y), geom)
-        return geom
-    
-    for idx, row in gdf_wgs84.iterrows():
-        bfs_num = row['bfs_nummer']
-        geom = row.geometry
+        return transform(lambda x, y, z=None: (x, y), geom) if geom.has_z else geom
+
+    # Group by BFS number so we handle one municipality at a time
+    for bfs_num, group in gdf_wgs84.groupby('bfs_nummer'):
+        features = []
         
-        # Remove Z coordinate (elevation) if present - GeoJSON should be 2D
-        geom_2d = remove_z(geom)
+        for _, row in group.iterrows():
+            geom_2d = remove_z(row.geometry)
+            
+            # 2. THE "DO NOT COLLATE" LOGIC:
+            # If the boundary is multi-part, break it into individual LineStrings
+            if geom_2d.geom_type == 'MultiLineString':
+                parts = list(geom_2d.geoms)
+            elif geom_2d.geom_type == 'MultiPolygon':
+                # If you haven't converted to boundary yet, do it here
+                parts = list(geom_2d.boundary.geoms)
+            elif geom_2d.geom_type == 'Polygon':
+                parts = [geom_2d.boundary]
+            else:
+                parts = [geom_2d]
+
+            for part in parts:
+                features.append({
+                    "type": "Feature",
+                    "properties": {
+                        "bfs_nummer": int(bfs_num),
+                        "part_type": part.geom_type
+                    },
+                    "geometry": mapping(part)
+                })
         
-        feature = {
-            "type": "Feature",
-            "properties": {
-                "bfs_nummer": bfs_num
-            },
-            "geometry": mapping(geom_2d)
-        }
+        # Save as a FeatureCollection containing multiple single LineStrings
         geojson = {
             "type": "FeatureCollection",
-            "features": [feature]
+            "features": features
         }
         
-        output_path = os.path.join(output_folder, f"{bfs_num}.geojson")
+        output_path = os.path.join(output_folder, f"{int(bfs_num)}.geojson")
         with open(output_path, 'w') as f:
-            import json
-            json.dump(geojson, f)
-    
-    print(f"Saved boundaries to {output_folder}")
+            json.dump(geojson, f, indent=2)
+            
+    print(f"Saved exploded boundaries to {output_folder}")
 
 
 def force_2d(geom):
@@ -326,47 +285,39 @@ def calculate_metrics(geom1, geom2):
         if not geom1.is_valid:
             geom1 = geom1.buffer(0)
         if not geom2.is_valid:
-            print("  Fixing invalid OSM geometry")
             geom2 = geom2.buffer(0)
         
         if geom1.is_empty or geom2.is_empty:
-            print("  Empty geometry detected")
             return None
-        
-        # Geometries are already in EPSG:2056 (loaded with target_crs="EPSG:2056")
-        # No conversion needed - data is already in projected coordinates for accurate area calculations
-        geom1_proj = geom1
-        geom2_proj = geom2
-        
-        # print(f"    Calculating intersection...")
-        intersection = geom1_proj.intersection(geom2_proj)
-        # print(f"    Intersection: type={intersection.geom_type}, area={intersection.area}")
-        
-        # print(f"    Calculating union...")
-        union = geom1_proj.union(geom2_proj)
-        # print(f"    Union: type={union.geom_type}, area={union.area}")
-        
-        iou = intersection.area / union.area if union.area > 0 else 0
-        # print(f"    IoU calculation: {intersection.area} / {union.area} = {iou}")
-        
-        area_diff = abs(geom1_proj.area - geom2_proj.area) / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
-        
-        # Calculate Hausdorff distance with validation
+
+        # 1. AREA METRICS (Only relevant for Polygons/MultiPolygons)
+        if "Polygon" in geom1.geom_type and "Polygon" in geom2.geom_type:
+            intersection = geom1.intersection(geom2)
+            union = geom1.union(geom2)
+            
+            iou = intersection.area / union.area if union.area > 0 else 0
+            area_diff = abs(geom1.area - geom2.area) / geom1.area * 100 if geom1.area > 0 else 0
+            sym_diff_area = geom1.symmetric_difference(geom2).area
+            sym_diff_pct = sym_diff_area / geom1.area * 100 if geom1.area > 0 else 0
+        else:
+            # For Lines, Area metrics are meaningless
+            iou = area_diff = sym_diff_pct = float('nan')
+
+        # 2. DISTANCE METRICS (Crucial for Line Conflation)
+        # Hausdorff distance is already in your code - it's the "max deviation"
         try:
-            hausdorff = geom1_proj.hausdorff_distance(geom2_proj)
-        except (ValueError, RuntimeWarning):
+            hausdorff = geom1.hausdorff_distance(geom2)
+        except:
             hausdorff = float('nan')
-        
-        sym_diff_area = geom1_proj.symmetric_difference(geom2_proj).area
-        sym_diff_pct = sym_diff_area / geom1_proj.area * 100 if geom1_proj.area > 0 else 0
-        
+
         return {
             'iou': iou,
             'area_diff_pct': area_diff,
-            'hausdorff_distance': hausdorff,
+            'hausdorff_distance': hausdorff, # The "Offset" in meters
             'symmetric_diff_pct': sym_diff_pct,
-            'swisstopo_area': geom1_proj.area,
-            'osm_area': geom2_proj.area
+            'swisstopo_area': geom1.area,
+            'osm_area': geom2.area,
+            'geom_type': geom1.geom_type
         }
     except Exception as e:
         print(f"Error calculating metrics: {e}")
