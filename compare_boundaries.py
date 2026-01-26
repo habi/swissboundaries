@@ -268,11 +268,13 @@ def save_boundaries_as_geojson(gdf, output_folder):
 
 
 def force_2d(geom):
-    """Universal 2D enforcer using shapely.ops.transform."""
+    """Force geometry to 2D using shapely.ops.transform."""
     from shapely.ops import transform
     if geom is None:
         return None
-    return transform(lambda x, y, z=None: (x, y), geom)
+    if geom.has_z:
+        return transform(lambda x, y, z=None: (x, y), geom)
+    return geom
 
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
