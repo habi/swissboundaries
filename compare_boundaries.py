@@ -594,7 +594,7 @@ def generate_report(results_df, historical_df):
         report_lines.append(f"  Median IoU: {matched_df['iou'].median():.4f}")
         report_lines.append(f"  Mean area difference: {matched_df['area_diff_pct'].mean():.2f}%")
         report_lines.append(f"  Mean symmetric difference: {matched_df['symmetric_diff_pct'].mean():.2f}%")
-        report_lines.append(f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.6f}°")
+        report_lines.append(f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.6f}m")
         
         excellent = (matched_df['iou'] >= 0.98).sum()
         good = ((matched_df['iou'] >= 0.95) & (matched_df['iou'] < 0.98)).sum()
@@ -675,9 +675,9 @@ def generate_report(results_df, historical_df):
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
     csv_df.to_csv('output/detailed_results.csv',
-                  header=['Name', 'BFS Number', 'OSM Relation', 'IoU', 'Area Diff (%)',
-                          'Hausdorff Distance (°)', 'Symmetric Diff (%)',
-                          'Area swisstopo (m²)', 'Area OSM (m²)'],
+                  header=['Name', 'BFS Number', 'OSM Relation', 'IoU', 'Area Diff [%]',
+                          'Hausdorff Distance [m]', 'Symmetric Diff [%]',
+                          'Area swisstopo [m²]', 'Area OSM [m²]'],
                   index=False)
 
     # Save to history
