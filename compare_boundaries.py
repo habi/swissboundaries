@@ -89,42 +89,47 @@ def osm_to_geojson(osm_data):
     return geojson
 
 
+from shapely.geometry import MultiLineString, Polygon
+from shapely.ops import polygonize
+
 def create_feature(element):
-    """Refined to ensure valid GeoJSON output for Geopandas."""
-    if 'geometry' not in element:
-        return None
+    """Refined to support Polygons for area metrics."""
+    e_type = element.get('type')
+    tags = element.get('tags', {})
+    bfs_num = tags.get('swisstopo:BFS_NUMMER')
 
-    # Filter: For boundary conflation, we only want the 'ways' or 'relations'
-    # We ignore 'node' types here to keep the GDF clean
-    if element['type'] not in ['way', 'relation']:
-        return None
-
-    props = element.get('tags', {})
-    # Ensure the ID is easily accessible
-    props['osm_id'] = element['id']
-    props['osm_type'] = element['type']
-
-    feature = {
-        "type": "Feature",
-        "id": f"{element['type']}/{element['id']}",
-        "properties": props,
-        "geometry": None
-    }
-
-    if element['type'] == 'way':
-        feature['geometry'] = {
-            "type": "LineString",
-            "coordinates": [[n['lon'], n['lat']] for n in element['geometry']]
-        }
-    elif element['type'] == 'relation':
-        coords = []
+    if e_type == 'relation':
+        member_geoms = []
         for member in element.get('members', []):
-            if member['type'] == 'way' and 'geometry' in member:
-                coords.append([[n['lon'], n['lat']] for n in member['geometry']])
-        if coords:
-            feature['geometry'] = {"type": "MultiLineString", "coordinates": coords}
-            
-    return feature if feature['geometry'] else None
+            if member.get('type') == 'way' and 'geometry' in member:
+                member_geoms.append([[pt['lon'], pt['lat']] for pt in member['geometry']])
+        
+        if not member_geoms:
+            return None
+
+        # Create a MultiLineString from members
+        mls = MultiLineString(member_geoms)
+        
+        # Attempt to create a Polygon for area metrics
+        # polygonize returns an iterator of possible polygons
+        polygons = list(polygonize(mls))
+        if polygons:
+            # If multiple polygons exist (enclaves), union them
+            from shapely.ops import unary_union
+            final_geom = unary_union(polygons)
+            geom_type = "Polygon" if len(polygons) == 1 else "MultiPolygon"
+        else:
+            # Fallback to MultiLineString if not closed
+            final_geom = mls
+            geom_type = "MultiLineString"
+
+        return {
+            "type": "Feature",
+            "id": f"relation/{element['id']}",
+            "properties": {"swisstopo:BFS_NUMMER": bfs_num, **tags},
+            "geometry": mapping(final_geom)
+        }
+    return None
 
 
 def group_connected_ways(ways):
@@ -191,8 +196,8 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
         
         print(f"  - Columns: {', '.join(gdf.columns)}")
 
-        # Get the boundary of the polygons (converts Polygons to LineStrings/LinearRings)
-        gdf.geometry = gdf.geometry.boundary
+        # # Get the boundary of the polygons (converts Polygons to LineStrings/LinearRings)
+        # gdf.geometry = gdf.geometry.boundary
 
         # Explode MultiLineStrings into individual LineString segments
         # This is the "do not collate" step—it ensures each row is a simple line.
@@ -233,7 +238,8 @@ def save_boundaries_as_geojson(gdf, output_folder):
         features = []
         
         for _, row in group.iterrows():
-            geom_2d = remove_z(row.geometry)
+            # Convert Polygon to Boundary Line right before saving
+            geom_2d = remove_z(row.geometry.boundary)
             
             # 2. THE "DO NOT COLLATE" LOGIC:
             # If the boundary is multi-part, break it into individual LineStrings
@@ -275,9 +281,7 @@ def force_2d(geom):
     from shapely.ops import transform
     if geom is None:
         return None
-    if geom.has_z:
-        return transform(lambda x, y, z=None: (x, y), geom)
-    return geom
+    return transform(lambda x, y, z=None: (x, y), geom)
 
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
