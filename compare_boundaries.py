@@ -308,16 +308,22 @@ def save_boundaries_as_geojson(gdf, output_folder):
     print(f"Saved boundaries to {output_folder}")
 
 
+def force_2d(geom):
+    """Universal 2D enforcer using shapely.ops.transform."""
+    from shapely.ops import transform
+    if geom is None:
+        return None
+    return transform(lambda x, y, z=None: (x, y), geom)
+
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
-        # Debug: Check geometry properties
-        # print(f"  Swisstopo geom: type={geom1.geom_type}, bounds={geom1.bounds}, area={geom1.area}")
-        # print(f"  OSM geom: type={geom2.geom_type}, bounds={geom2.bounds}, area={geom2.area}")
-        
-        # Fix invalid geometries
+        # ALWAYS use transform before comparison
+        geom1 = force_2d(geom1)
+        geom2 = force_2d(geom2)
+
+        # Standardize/Fix Geometries
         if not geom1.is_valid:
-            print("  Fixing invalid Swisstopo geometry")
             geom1 = geom1.buffer(0)
         if not geom2.is_valid:
             print("  Fixing invalid OSM geometry")
