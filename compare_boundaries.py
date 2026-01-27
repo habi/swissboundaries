@@ -795,7 +795,7 @@ if __name__ == "__main__":
     if swisstopo is not None:
         save_boundaries_as_geojson(swisstopo, 'output/swisstopo_geojson')
 
-    if osm is not None and len(osm) > 0:
+    if swisstopo is not None and osm is not None and len(osm) > 0:
         # Compare boundaries
         results = compare_boundaries(swisstopo, osm)
         
@@ -811,5 +811,8 @@ if __name__ == "__main__":
                 
         print("\nComparison complete!")
     else:
-        print("ERROR: Failed to retrieve OSM data")
+        if swisstopo is None:
+            print("ERROR: Failed to load SwissTopo data")
+        if osm is None or len(osm) == 0:
+            print("ERROR: Failed to retrieve OSM data")
         exit(1)
