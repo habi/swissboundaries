@@ -5,10 +5,9 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
-from shapely.geometry import mapping, shape, Polygon, MultiPolygon, MultiLineString, LineString
-from shapely.ops import transform, polygonize, unary_union
+from shapely.geometry import mapping, MultiLineString
+from shapely.ops import polygonize, unary_union
 import plotly.graph_objects as go
-
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
@@ -182,10 +181,6 @@ def group_connected_ways(ways):
     
     return groups
 
-
-import json
-import os
-from shapely.geometry import mapping, LineString
 
 def save_boundaries_as_geojson(gdf, output_folder):
     """Saves Polygons as a FeatureCollection of individual LineString segments."""
