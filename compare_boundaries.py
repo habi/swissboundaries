@@ -227,32 +227,6 @@ def save_boundaries_as_geojson(gdf, output_folder):
 
     print(f"  - Successfully saved {len(gdf_wgs84['bfs_nummer'].unique())} exploded GeoJSON files.")
 
-def calculate_metrics(geom1, geom2):
-    """Calculate IoU and Area diff on Polygon geometries."""
-    try:
-        # Validity check
-        if not geom1.is_valid: geom1 = geom1.buffer(0)
-        if not geom2.is_valid: geom2 = geom2.buffer(0)
-        
-        intersection_area = geom1.intersection(geom2).area
-        union_area = geom1.union(geom2).area
-        
-        iou = intersection_area / union_area if union_area > 0 else 0
-        area_diff = abs(geom1.area - geom2.area) / geom1.area * 100 if geom1.area > 0 else 0
-        
-        # Hausdorff distance still works on polygons (measures boundary deviation)
-        hausdorff = geom1.hausdorff_distance(geom2)
-        
-        return {
-            'iou': iou,
-            'area_diff_pct': area_diff,
-            'hausdorff_distance': hausdorff,
-            'swisstopo_area': geom1.area,
-            'osm_area': geom2.area
-        }
-    except Exception as e:
-        return None
-
 
 def force_2d(geom):
     """Force geometry to 2D using shapely.ops.transform."""
@@ -265,7 +239,7 @@ def force_2d(geom):
 def calculate_metrics(geom1, geom2):
     """Calculate comparison metrics in projected coordinates (EPSG:2056)"""
     try:
-        # ALWAYS use transform before comparison
+        # Force to 2D before comparing
         geom1 = force_2d(geom1)
         geom2 = force_2d(geom2)
 
@@ -278,7 +252,7 @@ def calculate_metrics(geom1, geom2):
         if geom1.is_empty or geom2.is_empty:
             return None
 
-        # 1. AREA METRICS (Only relevant for Polygons/MultiPolygons)
+        # Area metrics, only relevant for Polygons/MultiPolygons
         if "Polygon" in geom1.geom_type and "Polygon" in geom2.geom_type:
             intersection = geom1.intersection(geom2)
             union = geom1.union(geom2)
@@ -287,12 +261,10 @@ def calculate_metrics(geom1, geom2):
             area_diff = abs(geom1.area - geom2.area) / geom1.area * 100 if geom1.area > 0 else 0
             sym_diff_area = geom1.symmetric_difference(geom2).area
             sym_diff_pct = sym_diff_area / geom1.area * 100 if geom1.area > 0 else 0
-        else:
-            # For Lines, Area metrics are meaningless
+        else: # For Lines, Area metrics are meaningless
             iou = area_diff = sym_diff_pct = float('nan')
 
-        # 2. DISTANCE METRICS (Crucial for Line Conflation)
-        # Hausdorff distance is already in your code - it's the "max deviation"
+        # Distance metrics, helpful for conflation
         try:
             hausdorff = geom1.hausdorff_distance(geom2)
         except:
@@ -301,7 +273,7 @@ def calculate_metrics(geom1, geom2):
         return {
             'iou': iou,
             'area_diff_pct': area_diff,
-            'hausdorff_distance': hausdorff, # The "Offset" in meters
+            'hausdorff_distance': hausdorff,
             'symmetric_diff_pct': sym_diff_pct,
             'swisstopo_area': geom1.area,
             'osm_area': geom2.area,
