@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-29 17:34:19 UTC
+Generated: 2026-01-29 17:48:23 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -25,17 +25,17 @@ Historical Comparison (vs 2026-01-29):
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
-          name bfs_nummer      iou  area_diff_pct
-         Stäfa        158 0.426448     134.323907
-Kilchberg (ZH)        135 0.529736      88.639130
-    Greifensee        194 0.533175      87.185700
-     Männedorf        155 0.587799      69.944382
-   Richterswil        138 0.587874      69.972797
-Erlenbach (ZH)        151 0.627750      58.981995
-    Oberrieden        137 0.641994      55.569030
-    Rüschlikon        139 0.669933      49.117553
-        Meilen        156 0.701710      42.385642
-       Thalwil        141 0.706359      41.468069
+          name  bfs_nummer      iou  area_diff_pct
+         Stäfa         158 0.426448     134.323907
+Kilchberg (ZH)         135 0.529736      88.639130
+    Greifensee         194 0.533175      87.185700
+     Männedorf         155 0.587799      69.944382
+   Richterswil         138 0.587874      69.972797
+Erlenbach (ZH)         151 0.627750      58.981995
+    Oberrieden         137 0.641994      55.569030
+    Rüschlikon         139 0.669933      49.117553
+        Meilen         156 0.701710      42.385642
+       Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
   No significant improvements detected
