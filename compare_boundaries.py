@@ -334,8 +334,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     for idx, row in swisstopo_gdf.iterrows():
         name = row.get('name', row.get('NAME', 'Unknown'))        
         bfs_num = str(row['bfs_nummer'])
-        kantonsnummer = row.get('kantonsnummer')
-        bezirksnummer = row.get('bezirksnummer')
+        kantonsnummer = str(row.get('kantonsnummer'))
+        bezirksnummer = str(row.get('bezirksnummer'))
         
         if bfs_num in osm_lookup:
             metrics = calculate_metrics(
@@ -707,11 +707,10 @@ def create_csv_table_page():
                     renderVertical: "virtual",
                     pagination: false,
                     columns: [
-                        {title: "Name", field: "Name", width: 200},
+                        {title: "Name", field: "Name"},
                         {
                             title: "BFS Number", 
                             field: "BFS Number", 
-                            width: 120,
                             formatter: function(cell, formatterParams, onRendered) {
                                 var value = cell.getValue();
                                 if (value) {
@@ -720,10 +719,13 @@ def create_csv_table_page():
                                 return value;
                             }
                         },
+                        {title: "Kantonsnummer", field: "Kantonsnummer"},
+                        {title: "Bezirksnummer", field: "Bezirksnummer"},
+                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
+
                         {
                             title: "OSM Relation", 
                             field: "OSM Relation", 
-                            width: 150,
                             formatter: function(cell, formatterParams, onRendered) {
                                 var value = cell.getValue();
                                 if (value && value !== '' && value !== 'Not found in OSM') {
@@ -734,12 +736,12 @@ def create_csv_table_page():
                                 return value;
                             }
                         },
-                        {title: "IoU", field: "IoU", width: 100, formatter: "money", formatterParams: {precision: 4}},
-                        {title: "Area Diff [%]", field: "Area Diff [%]", width: 130, formatter: "money", formatterParams: {precision: 2}},
-                        {title: "Hausdorff Distance [m]", field: "Hausdorff Distance [m]", width: 180},
-                        {title: "Symmetric Diff [%]", field: "Symmetric Diff [%]", width: 150, formatter: "money", formatterParams: {precision: 2}},
-                        {title: "Area swisstopo [m²]", field: "Area swisstopo [m²]", width: 150, formatter: "money", formatterParams: {precision: 0}},
-                        {title: "Area OSM [m²]", field: "Area OSM [m²]", width: 150, formatter: "money", formatterParams: {precision: 0}},
+                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
+                        {title: "Area Diff [%]", field: "Area Diff [%]", formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Hausdorff Distance [m]", field: "Hausdorff Distance [m]"},
+                        {title: "Symmetric Diff [%]", field: "Symmetric Diff [%]", formatter: "money", formatterParams: {precision: 2}},
+                        {title: "Area swisstopo [m²]", field: "Area swisstopo [m²]", formatter: "money", formatterParams: {precision: 0}},
+                        {title: "Area OSM [m²]", field: "Area OSM [m²]", formatter: "money", formatterParams: {precision: 0}},
                     ],
                 });
 
