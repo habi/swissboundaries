@@ -333,16 +333,16 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     
     for idx, row in swisstopo_gdf.iterrows():
         name = row.get('name', row.get('NAME', 'Unknown'))        
-        bfs_num = str(row['bfs_nummer'])
-        kantonsnummer = str(row.get('kantonsnummer'))
-        bezirksnummer = str(row.get('bezirksnummer'))
+        bfs_num = int(row['bfs_nummer'])
+        kantonsnummer = int(row.get('kantonsnummer')) if pd.notna(row.get('kantonsnummer')) else None
+        bezirksnummer = int(row.get('bezirksnummer')) if pd.notna(row.get('bezirksnummer')) else None
         
-        if bfs_num in osm_lookup:
+        if str(bfs_num) in osm_lookup:
             metrics = calculate_metrics(
                 row.geometry,
-                osm_lookup[bfs_num])
+                osm_lookup[str(bfs_num)])
             if metrics:
-                osm_id = str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == bfs_num]['osm_id'].values[0])
+                osm_id = str(osm_gdf[osm_gdf['swisstopo:BFS_NUMMER'] == str(bfs_num)]['osm_id'].values[0])
                 results.append({
                     'name': name,
                     'bfs_nummer': bfs_num,
@@ -623,6 +623,12 @@ def generate_report(results_df, historical_df):
 
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
+    
+    # Convert bfs_nummer, kantonsnummer, and bezirksnummer to integer
+    csv_df['bfs_nummer'] = csv_df['bfs_nummer'].astype('Int64')  # Int64 handles NaN values
+    csv_df['kantonsnummer'] = csv_df['kantonsnummer'].astype('Int64')
+    csv_df['bezirksnummer'] = csv_df['bezirksnummer'].astype('Int64')
+    
     csv_df.to_csv('output/detailed_results.csv',
                   header=[
                       'Name', 'BFS Number', 'Kantonsnummer', 'Bezirksnummer',
