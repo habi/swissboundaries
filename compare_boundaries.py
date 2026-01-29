@@ -334,6 +334,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     for idx, row in swisstopo_gdf.iterrows():
         name = row.get('name', row.get('NAME', 'Unknown'))        
         bfs_num = str(row['bfs_nummer'])
+        kantonsnummer = row.get('kantonsnummer')
+        bezirksnummer = row.get('bezirksnummer')
         
         if bfs_num in osm_lookup:
             metrics = calculate_metrics(
@@ -344,12 +346,16 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 results.append({
                     'name': name,
                     'bfs_nummer': bfs_num,
+                    'kantonsnummer': kantonsnummer,
+                    'bezirksnummer': bezirksnummer,
                     'relation': osm_id,
                     **metrics
                 })
         else:
             results.append({
                 'name': name,
+                'kantonsnummer': kantonsnummer,                
+                'bezirksnummer': bezirksnummer,                
                 'bfs_nummer': bfs_num,
                 'relation': ''
             })
@@ -615,15 +621,14 @@ def generate_report(results_df, historical_df):
     with open('output/comparison_report.txt', 'w') as f:
         f.write(report_text)
 
-    
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=['geometry', 'osm_geometry'], errors='ignore')
     csv_df.to_csv('output/detailed_results.csv',
                   header=[
-                      'Name', 'BFS Number', 'OSM Relation', 'IoU', 
-                      'Area Diff [%]', 'Hausdorff Distance [m]', 
-                      'Symmetric Diff [%]', 'Area swisstopo [m²]', 
-                      'Area OSM [m²]', 'Geometry Type'
+                      'Name', 'BFS Number', 'Kantonsnummer', 'Bezirksnummer',
+                      'OSM Relation', 'IoU', 'Area Diff [%]',
+                      'Hausdorff Distance [m]', 'Symmetric Diff [%]',
+                      'Area swisstopo [m²]', 'Area OSM [m²]', 'Geometry Type'
                   ],
                   index=False)
 
@@ -632,6 +637,7 @@ def generate_report(results_df, historical_df):
     csv_df.to_csv(f'history/results_{timestamp}.csv', index=False)
     
     return results_df
+
 
 def create_csv_table_page():
     """Create HTML to display CSV table"""
