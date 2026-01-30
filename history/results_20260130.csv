@@ -1,4 +1,4 @@
-Name,BFS Number,Kantonsnummer,Bezirksnummer,OSM Relation,IoU,Area Diff [%],Hausdorff Distance [m],Symmetric Diff [%],Area swisstopo [m²],Area OSM [m²],Geometry Type
+name,bfs_nummer,kantonsnummer,bezirksnummer,relation,iou,area_diff_pct,hausdorff_distance,symmetric_diff_pct,swisstopo_area,osm_area,geom_type
 Adliswil,131,1,106,1682077,0.9990168020443336,0.024717875184299784,3.766631589069694,0.09835599599163818,7768065.370789585,7766145.270086998,MultiPolygon
 Rheinwald,3714,18,1851,9173036,0.9993322291484457,0.006339227219057491,62.0123504100709,0.06679727121492451,136810626.26585636,136801953.52939755,MultiPolygon
 Grens,5722,22,2228,1684998,0.9945965081334411,0.2816778977827021,67.25357499402331,0.5410499440270264,2559718.954601545,2552508.792061078,MultiPolygon

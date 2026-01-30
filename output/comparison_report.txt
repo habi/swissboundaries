@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-29 17:48:23 UTC
+Generated: 2026-01-30 03:01:53 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,12 +11,12 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9982
   Mean area difference: 0.55%
   Mean symmetric difference: 0.81%
-  Mean Hausdorff distance: 44.201006m
+  Mean Hausdorff distance: 44.017464m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2029 (96.2%)
+  Excellent (IoU ≥ 0.98): 2030 (96.2%)
   Good (IoU ≥ 0.95): 47 (2.2%)
-  Fair (IoU ≥ 0.90): 13 (0.6%)
+  Fair (IoU ≥ 0.90): 12 (0.6%)
   Poor (IoU < 0.90): 21 (1.0%)
 
 Historical Comparison (vs 2026-01-29):
@@ -38,4 +38,6 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-  No significant improvements detected
+       name  bfs_nummer  prev_iou  curr_iou  improvement
+Courchapoix        6706  0.944448  0.980604     0.036156
+  Val Terbi        6730  0.990158  0.995270     0.005112
