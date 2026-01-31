@@ -788,7 +788,7 @@ if __name__ == "__main__":
         os.makedirs(dir_name, exist_ok=True)
     
     # Load data - shapefile should be provided by workflow
-    shp_path = "swissBOUNDARIES3D_1_5_TLM_HOHEITSGEBIET.shp"
+    shp_path = "swissboundaries3d_2026-01_2056_5728.shp"
     target_crs = "EPSG:2056"  # https://epsg.io/2056
     swisstopo = load_swisstopo_municipalities(shp_path, target_crs)
     osm = load_osm_boundaries(target_crs)
