@@ -132,37 +132,25 @@ def create_feature(element):
     return None
 
 
-def load_swisstopo_municipalities(shp_path, target_crs="EPSG:2056"):
-    """Load municipalities from local shapefile as Polygons to preserve Area Metrics."""
+def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
+    """Load municipalities as Polygons to preserve Area Metrics."""
+    if not Path(gpkg_path).exists():
+        return None
+    
     try:
-        print(f"Loading SwissTopo shapefile from {shp_path}...")
+        gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
+        gdf = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
         
-        # Read the shapefile
-        gdf = gpd.read_file(shp_path)
-        
-        # Filter for municipalities (Gemeindegebiet) in Switzerland
-        if 'objektart' in gdf.columns and 'icc' in gdf.columns:
-            gdf = gdf[(gdf['objektart'] == 'Gemeindegebiet') & (gdf['icc'] == 'CH')].copy()
-        else:
-            # If columns don't exist, just use all features
-            print("  - Note: Could not filter by objektart/icc, using all features")
-        
-        # Ensure correct CRS
-        if gdf.crs != target_crs:
-            gdf = gdf.to_crs(target_crs)
-        
-        # Force 2D immediately
+        # Reproject and Force 2D immediately
+        gdf = gdf.to_crs(target_crs)
         gdf.geometry = gdf.geometry.apply(force_2d)
         
         # Ensure geometries are valid for area calculations
         gdf.geometry = gdf.geometry.make_valid()
         
-        print(f"  - Loaded {len(gdf)} municipalities from shapefile")
-        print(f"  - Columns: {', '.join(gdf.columns)}")
-        
         return gdf
     except Exception as e:
-        print(f"Error loading SwissTopo shapefile: {e}")
+        print(f"Error loading SwissTopo data: {e}")
         return None
 
 
@@ -782,15 +770,16 @@ def create_csv_table_page():
     print("CSV table page created")
 
 
+# Main execution
 if __name__ == "__main__":
     # Create necessary directories
     for dir_name in ['history', 'output']:
         os.makedirs(dir_name, exist_ok=True)
     
-    # Load data - shapefile should be provided by workflow
-    shp_path = "swissboundaries3d_2026-01_2056_5728.shp"
+    # Load data
+    gpkg_file = "swissBOUNDARIES3D_1_5_LV95_LN02.gpkg"
     target_crs = "EPSG:2056"  # https://epsg.io/2056
-    swisstopo = load_swisstopo_municipalities(shp_path, target_crs)
+    swisstopo = load_swisstopo_municipalities(gpkg_file, target_crs)
     osm = load_osm_boundaries(target_crs)
 
     # Compare if both loaded successfully
