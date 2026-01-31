@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-31 10:56:22 UTC
+Generated: 2026-01-31 12:47:33 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,11 +11,11 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9982
   Mean area difference: 0.55%
   Mean symmetric difference: 0.81%
-  Mean Hausdorff distance: 44.017464m
+  Mean Hausdorff distance: 43.985451m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2030 (96.2%)
-  Good (IoU ≥ 0.95): 47 (2.2%)
+  Excellent (IoU ≥ 0.98): 2031 (96.3%)
+  Good (IoU ≥ 0.95): 46 (2.2%)
   Fair (IoU ≥ 0.90): 12 (0.6%)
   Poor (IoU < 0.90): 21 (1.0%)
 
@@ -38,4 +38,6 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-  No significant improvements detected
+       name  bfs_nummer  prev_iou  curr_iou  improvement
+Rossemaison        6721  0.954157  0.990372     0.036215
+   Delémont        6711  0.973280  0.976392     0.003112
