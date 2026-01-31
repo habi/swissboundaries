@@ -712,7 +712,17 @@ def create_csv_table_page():
                             }
                         },
                         {title: "Bezirksnummer", field: "Bezirksnummer"},
-                        {title: "Kantonsnummer", field: "Kantonsnummer"},
+                        {
+                            title: "Kantonsnummer", 
+                            field: "Kantonsnummer", 
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://wiki.openstreetmap.org/wiki/Key:swisstopo:KANTONSNUM#' + value" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
                         {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},   
                         {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
                         {title: "Area Diff [%]", field: "Area Diff [%]", formatter: "money", formatterParams: {precision: 2}},
