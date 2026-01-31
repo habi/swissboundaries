@@ -66,21 +66,6 @@
                     columns: [
                         {title: "Name", field: "Name"},
                         {
-                            title: "BFS Number", 
-                            field: "BFS Number", 
-                            formatter: function(cell, formatterParams, onRendered) {
-                                var value = cell.getValue();
-                                if (value) {
-                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
-                                }
-                                return value;
-                            }
-                        },
-                        {title: "Kantonsnummer", field: "Kantonsnummer"},
-                        {title: "Bezirksnummer", field: "Bezirksnummer"},
-                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
-
-                        {
                             title: "OSM Relation", 
                             field: "OSM Relation", 
                             formatter: function(cell, formatterParams, onRendered) {
@@ -93,6 +78,30 @@
                                 return value;
                             }
                         },
+                        {
+                            title: "BFS Number", 
+                            field: "BFS Number", 
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
+                        {title: "Bezirksnummer", field: "Bezirksnummer"},
+                        {
+                            title: "Kantonsnummer", 
+                            field: "Kantonsnummer", 
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://wiki.openstreetmap.org/wiki/Key:swisstopo:KANTONSNUM#' + value" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
+                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},   
                         {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
                         {title: "Area Diff [%]", field: "Area Diff [%]", formatter: "money", formatterParams: {precision: 2}},
                         {title: "Hausdorff Distance [m]", field: "Hausdorff Distance [m]"},
