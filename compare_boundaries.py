@@ -596,10 +596,16 @@ def generate_report(results_df, historical_df):
     csv_df['kantonsnummer'] = csv_df['kantonsnummer'].astype('Int64')
     csv_df['bezirksnummer'] = csv_df['bezirksnummer'].astype('Int64')
     
+    # Reorder columns
+    column_order = ['name', 'relation', 'bfs_nummer', 'bezirksnummer', 'kantonsnummer', 
+                    'iou', 'area_diff_pct', 'hausdorff_distance', 'symmetric_diff_pct',
+                    'swisstopo_area', 'osm_area', 'geom_type']
+    csv_df = csv_df[[col for col in column_order if col in csv_df.columns]]
+    
     csv_df.to_csv('output/detailed_results.csv',
                   header=[
-                      'Name', 'BFS Number', 'Kantonsnummer', 'Bezirksnummer',
-                      'OSM Relation', 'IoU', 'Area Diff [%]',
+                      'Name', 'OSM Relation', 'BFS Number', 'Bezirksnummer', 'Kantonsnummer',
+                      'IoU', 'Area Diff [%]',
                       'Hausdorff Distance [m]', 'Symmetric Diff [%]',
                       'Area swisstopo [m²]', 'Area OSM [m²]', 'Geometry Type'
                   ],
@@ -682,21 +688,6 @@ def create_csv_table_page():
                     columns: [
                         {title: "Name", field: "Name"},
                         {
-                            title: "BFS Number", 
-                            field: "BFS Number", 
-                            formatter: function(cell, formatterParams, onRendered) {
-                                var value = cell.getValue();
-                                if (value) {
-                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
-                                }
-                                return value;
-                            }
-                        },
-                        {title: "Kantonsnummer", field: "Kantonsnummer"},
-                        {title: "Bezirksnummer", field: "Bezirksnummer"},
-                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
-
-                        {
                             title: "OSM Relation", 
                             field: "OSM Relation", 
                             formatter: function(cell, formatterParams, onRendered) {
@@ -709,6 +700,20 @@ def create_csv_table_page():
                                 return value;
                             }
                         },
+                        {
+                            title: "BFS Number", 
+                            field: "BFS Number", 
+                            formatter: function(cell, formatterParams, onRendered) {
+                                var value = cell.getValue();
+                                if (value) {
+                                    return '<a href="https://raw.githubusercontent.com/habi/swissboundaries/refs/heads/main/output/swisstopo_geojson/' + value + '.geojson" target="_blank">' + value + '</a>';
+                                }
+                                return value;
+                            }
+                        },
+                        {title: "Bezirksnummer", field: "Bezirksnummer"},
+                        {title: "Kantonsnummer", field: "Kantonsnummer"},
+                        {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},   
                         {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},
                         {title: "Area Diff [%]", field: "Area Diff [%]", formatter: "money", formatterParams: {precision: 2}},
                         {title: "Hausdorff Distance [m]", field: "Hausdorff Distance [m]"},
