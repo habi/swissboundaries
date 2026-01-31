@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-30 03:01:53 UTC
+Generated: 2026-01-31 02:58:22 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 12 (0.6%)
   Poor (IoU < 0.90): 21 (1.0%)
 
-Historical Comparison (vs 2026-01-29):
+Historical Comparison (vs 2026-01-30):
   Previous mean IoU: 0.9935
   Current mean IoU: 0.9935
   Change: +0.0000 (+0.00%)
@@ -38,6 +38,4 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-       name  bfs_nummer  prev_iou  curr_iou  improvement
-Courchapoix        6706  0.944448  0.980604     0.036156
-  Val Terbi        6730  0.990158  0.995270     0.005112
+  No significant improvements detected
