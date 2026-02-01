@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-01-31 12:47:33 UTC
+Generated: 2026-02-01 03:08:27 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -38,6 +38,4 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-       name  bfs_nummer  prev_iou  curr_iou  improvement
-Rossemaison        6721  0.954157  0.990372     0.036215
-   Delémont        6711  0.973280  0.976392     0.003112
+  No significant improvements detected
