@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-03 03:05:38 UTC
+Generated: 2026-02-03 09:02:48 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,8 +19,8 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 11 (0.5%)
   Poor (IoU < 0.90): 21 (1.0%)
 
-Historical Comparison (vs 2026-02-02):
-  Previous mean IoU: 0.9935
+Historical Comparison (vs 2026-02-03):
+  Previous mean IoU: 0.9936
   Current mean IoU: 0.9936
   Change: +0.0000 (+0.00%)
 
@@ -38,11 +38,4 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-     name  bfs_nummer  prev_iou  curr_iou  improvement
-   Neggio        5206  0.944567  0.986634     0.042068
-Täuffelen         751  0.966198  0.998781     0.032582
-  Vernate        5230  0.951008  0.967460     0.016452
-  Hagneck         736  0.969921  0.974928     0.005007
- Magliaso        5193  0.995455  0.998026     0.002571
-     Pura        5216  0.985216  0.986449     0.001233
-  Mörigen         742  0.973928  0.975103     0.001175
+  No significant improvements detected
