@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-02 03:08:22 UTC
+Generated: 2026-02-03 03:05:38 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,21 +7,21 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9935
+  Mean IoU: 0.9936
   Median IoU: 0.9982
   Mean area difference: 0.55%
-  Mean symmetric difference: 0.81%
-  Mean Hausdorff distance: 43.985451m
+  Mean symmetric difference: 0.80%
+  Mean Hausdorff distance: 43.854541m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2031 (96.3%)
-  Good (IoU ≥ 0.95): 46 (2.2%)
-  Fair (IoU ≥ 0.90): 12 (0.6%)
+  Excellent (IoU ≥ 0.98): 2033 (96.4%)
+  Good (IoU ≥ 0.95): 45 (2.1%)
+  Fair (IoU ≥ 0.90): 11 (0.5%)
   Poor (IoU < 0.90): 21 (1.0%)
 
-Historical Comparison (vs 2026-02-01):
+Historical Comparison (vs 2026-02-02):
   Previous mean IoU: 0.9935
-  Current mean IoU: 0.9935
+  Current mean IoU: 0.9936
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
@@ -38,4 +38,11 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-  No significant improvements detected
+     name  bfs_nummer  prev_iou  curr_iou  improvement
+   Neggio        5206  0.944567  0.986634     0.042068
+Täuffelen         751  0.966198  0.998781     0.032582
+  Vernate        5230  0.951008  0.967460     0.016452
+  Hagneck         736  0.969921  0.974928     0.005007
+ Magliaso        5193  0.995455  0.998026     0.002571
+     Pura        5216  0.985216  0.986449     0.001233
+  Mörigen         742  0.973928  0.975103     0.001175
