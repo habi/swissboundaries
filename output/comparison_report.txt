@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-03 09:02:48 UTC
+Generated: 2026-02-04 03:03:01 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9982
   Mean area difference: 0.55%
   Mean symmetric difference: 0.80%
-  Mean Hausdorff distance: 43.854541m
+  Mean Hausdorff distance: 43.851645m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2033 (96.4%)
