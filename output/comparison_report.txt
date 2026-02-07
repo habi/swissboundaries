@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-06 03:03:43 UTC
+Generated: 2026-02-07 03:00:23 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9982
   Mean area difference: 0.55%
   Mean symmetric difference: 0.80%
-  Mean Hausdorff distance: 43.836619m
+  Mean Hausdorff distance: 43.832255m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2034 (96.4%)
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 11 (0.5%)
   Poor (IoU < 0.90): 21 (1.0%)
 
-Historical Comparison (vs 2026-02-05):
+Historical Comparison (vs 2026-02-06):
   Previous mean IoU: 0.9936
   Current mean IoU: 0.9936
   Change: +0.0000 (+0.00%)
@@ -38,6 +38,7 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-         name  bfs_nummer  prev_iou  curr_iou  improvement
-      Grancia        5186  0.965015  0.996773     0.031758
-Collina d'Oro        5236  0.991723  0.993108     0.001385
+    name  bfs_nummer  prev_iou  curr_iou  improvement
+  Uezwil        4078  0.989019  0.998218     0.009199
+ Kallern        4233  0.981668  0.987181     0.005513
+Büttikon        4064  0.993315  0.995317     0.002002
