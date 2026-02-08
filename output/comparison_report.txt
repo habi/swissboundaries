@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-07 03:00:23 UTC
+Generated: 2026-02-08 03:08:26 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 11 (0.5%)
   Poor (IoU < 0.90): 21 (1.0%)
 
-Historical Comparison (vs 2026-02-06):
+Historical Comparison (vs 2026-02-07):
   Previous mean IoU: 0.9936
   Current mean IoU: 0.9936
   Change: +0.0000 (+0.00%)
@@ -38,7 +38,4 @@ Erlenbach (ZH)         151 0.627750      58.981995
        Thalwil         141 0.706359      41.468069
 
 Most Improved (if historical data available):
-    name  bfs_nummer  prev_iou  curr_iou  improvement
-  Uezwil        4078  0.989019  0.998218     0.009199
- Kallern        4233  0.981668  0.987181     0.005513
-Büttikon        4064  0.993315  0.995317     0.002002
+  No significant improvements detected
