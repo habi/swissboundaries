@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-21 02:59:29 UTC
+Generated: 2026-02-22 03:06:54 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,35 +7,42 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9936
+  Mean IoU: 0.9944
   Median IoU: 0.9982
-  Mean area difference: 0.55%
-  Mean symmetric difference: 0.80%
-  Mean Hausdorff distance: 43.832255m
+  Mean area difference: 0.43%
+  Mean symmetric difference: 0.68%
+  Mean Hausdorff distance: 40.057765m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2034 (96.4%)
+  Excellent (IoU ≥ 0.98): 2040 (96.7%)
   Good (IoU ≥ 0.95): 44 (2.1%)
   Fair (IoU ≥ 0.90): 11 (0.5%)
-  Poor (IoU < 0.90): 21 (1.0%)
+  Poor (IoU < 0.90): 15 (0.7%)
 
-Historical Comparison (vs 2026-02-20):
+Historical Comparison (vs 2026-02-21):
   Previous mean IoU: 0.9936
-  Current mean IoU: 0.9936
-  Change: -0.0000 (-0.00%)
+  Current mean IoU: 0.9944
+  Change: +0.0008 (+0.08%)
 
 Worst 10 Matches (by IoU):
           name  bfs_nummer      iou  area_diff_pct
-         Stäfa         158 0.426448     134.323907
-Kilchberg (ZH)         135 0.529736      88.639130
+         Stäfa         158 0.426348     134.378913
     Greifensee         194 0.533175      87.185700
+    Gottlieben        4651 0.547122      82.157393
      Männedorf         155 0.587799      69.944382
-   Richterswil         138 0.587874      69.972797
 Erlenbach (ZH)         151 0.627750      58.981995
-    Oberrieden         137 0.641994      55.569030
-    Rüschlikon         139 0.669933      49.117553
         Meilen         156 0.701710      42.385642
-       Thalwil         141 0.706359      41.468069
+ Hombrechtikon         153 0.777922      27.819820
+Uetikon am See         159 0.795520      25.464316
+ Küsnacht (ZH)         154 0.827323      20.720118
+          Maur         195 0.829396      20.496005
 
 Most Improved (if historical data available):
-  No significant improvements detected
+          name  bfs_nummer  prev_iou  curr_iou  improvement
+Kilchberg (ZH)         135  0.529736  0.998466     0.468730
+   Richterswil         138  0.587874  0.998769     0.410896
+    Oberrieden         137  0.641994  0.998122     0.356128
+    Rüschlikon         139  0.669933  0.998411     0.328477
+       Thalwil         141  0.706359  0.998843     0.292484
+     Wädenswil         293  0.824846  0.999253     0.174407
+        Horgen         295  0.885424  0.999287     0.113863
