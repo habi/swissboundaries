@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-22 03:06:54 UTC
+Generated: 2026-02-23 03:07:57 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,42 +7,45 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9944
+  Mean IoU: 0.9965
   Median IoU: 0.9982
-  Mean area difference: 0.43%
-  Mean symmetric difference: 0.68%
-  Mean Hausdorff distance: 40.057765m
+  Mean area difference: 0.10%
+  Mean symmetric difference: 0.35%
+  Mean Hausdorff distance: 31.167404m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2040 (96.7%)
-  Good (IoU ≥ 0.95): 44 (2.1%)
-  Fair (IoU ≥ 0.90): 11 (0.5%)
-  Poor (IoU < 0.90): 15 (0.7%)
+  Excellent (IoU ≥ 0.98): 2064 (97.8%)
+  Good (IoU ≥ 0.95): 39 (1.8%)
+  Fair (IoU ≥ 0.90): 6 (0.3%)
+  Poor (IoU < 0.90): 1 (0.0%)
 
-Historical Comparison (vs 2026-02-21):
-  Previous mean IoU: 0.9936
-  Current mean IoU: 0.9944
-  Change: +0.0008 (+0.08%)
+Historical Comparison (vs 2026-02-22):
+  Previous mean IoU: 0.9944
+  Current mean IoU: 0.9965
+  Change: +0.0021 (+0.21%)
 
 Worst 10 Matches (by IoU):
-          name  bfs_nummer      iou  area_diff_pct
-         Stäfa         158 0.426348     134.378913
-    Greifensee         194 0.533175      87.185700
-    Gottlieben        4651 0.547122      82.157393
-     Männedorf         155 0.587799      69.944382
-Erlenbach (ZH)         151 0.627750      58.981995
-        Meilen         156 0.701710      42.385642
- Hombrechtikon         153 0.777922      27.819820
-Uetikon am See         159 0.795520      25.464316
- Küsnacht (ZH)         154 0.827323      20.720118
-          Maur         195 0.829396      20.496005
+                     name  bfs_nummer      iou  area_diff_pct
+                    Nidau         743 0.891620      11.861385
+                   Vinelz         502 0.916843       8.978877
+                   Aranno        5143 0.925694       4.827541
+                Iseltwald         582 0.928511       6.853366
+                   Ipsach         739 0.932205       7.157152
+Niederried bei Interlaken         588 0.936274       5.514235
+                Gravesano        5187 0.949984       3.510707
+                   Meggen        1063 0.960115       3.894993
+          Brusino Arsizio        5160 0.960231       1.865403
+                  Bönigen         572 0.962107       3.773794
 
 Most Improved (if historical data available):
           name  bfs_nummer  prev_iou  curr_iou  improvement
-Kilchberg (ZH)         135  0.529736  0.998466     0.468730
-   Richterswil         138  0.587874  0.998769     0.410896
-    Oberrieden         137  0.641994  0.998122     0.356128
-    Rüschlikon         139  0.669933  0.998411     0.328477
-       Thalwil         141  0.706359  0.998843     0.292484
-     Wädenswil         293  0.824846  0.999253     0.174407
-        Horgen         295  0.885424  0.999287     0.113863
+         Stäfa         158  0.426348  0.999067     0.572720
+    Greifensee         194  0.533175  0.997890     0.464715
+    Gottlieben        4651  0.547122  0.996344     0.449222
+     Männedorf         155  0.587799  0.999381     0.411582
+Erlenbach (ZH)         151  0.627750  0.997646     0.369896
+        Meilen         156  0.701710  0.999083     0.297374
+ Hombrechtikon         153  0.777922  0.993390     0.215468
+Uetikon am See         159  0.795520  0.998537     0.203017
+ Küsnacht (ZH)         154  0.827323  0.998714     0.171391
+          Maur         195  0.829396  0.999098     0.169702
