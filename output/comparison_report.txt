@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-24 08:59:18 UTC
+Generated: 2026-02-25 03:06:26 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,35 +7,45 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9968
+  Mean IoU: 0.9970
   Median IoU: 0.9983
   Mean area difference: 0.07%
-  Mean symmetric difference: 0.32%
-  Mean Hausdorff distance: 29.359266m
+  Mean symmetric difference: 0.31%
+  Mean Hausdorff distance: 28.571858m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2079 (98.5%)
-  Good (IoU ≥ 0.95): 30 (1.4%)
-  Fair (IoU ≥ 0.90): 1 (0.0%)
+  Excellent (IoU ≥ 0.98): 2086 (98.9%)
+  Good (IoU ≥ 0.95): 24 (1.1%)
+  Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
 Historical Comparison (vs 2026-02-24):
   Previous mean IoU: 0.9968
-  Current mean IoU: 0.9968
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9970
+  Change: +0.0001 (+0.01%)
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
-           Gravesano        5187 0.949984       3.510707
      Brusino Arsizio        5160 0.960231       1.865403
           Lavertezzo        5112 0.962585       2.917807
   Torricella-Taverne        5227 0.963962       0.289227
             Pollegio        5077 0.965056       1.568932
-         Courtételle        6710 0.965329       0.054507
         Vico Morcote        5233 0.966914       2.535783
   Ronco sopra Ascona        5125 0.967314       2.924276
              Vernate        5230 0.967460       0.560196
 Brione sopra Minusio        5096 0.967773       0.879787
+           Cadempino        5162 0.967921       0.061913
+            Canobbio        5167 0.968146       1.118731
 
 Most Improved (if historical data available):
-  No significant improvements detected
+         name  bfs_nummer  prev_iou  curr_iou  improvement
+    Gravesano        5187  0.949984  0.999714     0.049730
+  Courtételle        6710  0.965329  0.997515     0.032185
+    Cugy (FR)        2011  0.973773  0.998382     0.024609
+Kleinbösingen        2266  0.973490  0.996565     0.023075
+     Delémont        6711  0.976392  0.997159     0.020768
+       Bedano        5148  0.974601  0.990523     0.015922
+       Lamone        5189  0.977575  0.990251     0.012676
+  Les Montets        2050  0.993303  0.999523     0.006220
+   Lully (FR)        2025  0.974171  0.978981     0.004811
+        Manno        5194  0.986646  0.991231     0.004584
