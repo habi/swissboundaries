@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-25 20:28:09 UTC
+Generated: 2026-02-26 03:03:40 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -9,13 +9,13 @@ Dataset Overview:
 Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.9970
   Median IoU: 0.9983
-  Mean area difference: 0.07%
+  Mean area difference: 0.06%
   Mean symmetric difference: 0.30%
-  Mean Hausdorff distance: 28.428627m
+  Mean Hausdorff distance: 28.416546m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2087 (98.9%)
-  Good (IoU ≥ 0.95): 23 (1.1%)
+  Excellent (IoU ≥ 0.98): 2088 (99.0%)
+  Good (IoU ≥ 0.95): 22 (1.0%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
@@ -26,7 +26,6 @@ Historical Comparison (vs 2026-02-25):
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
-          Lavertezzo        5112 0.962585       2.917807
   Torricella-Taverne        5227 0.963962       0.289227
             Pollegio        5077 0.965056       1.568932
         Vico Morcote        5233 0.966914       2.535783
@@ -36,9 +35,11 @@ Brione sopra Minusio        5096 0.967773       0.879787
            Cadempino        5162 0.967921       0.061913
             Canobbio        5167 0.968146       1.118731
               Savosa        5221 0.968968       0.092433
+              Lugano        5192 0.970746       2.625202
 
 Most Improved (if historical data available):
-           name  bfs_nummer  prev_iou  curr_iou  improvement
-Brusino Arsizio        5160  0.960231  0.999939     0.039708
-Riva San Vitale        5263  0.982727  0.991592     0.008866
-      Mendrisio        5254  0.987527  0.993099     0.005572
+          name  bfs_nummer  prev_iou  curr_iou  improvement
+    Lavertezzo        5112  0.962585  0.999759     0.037175
+       Locarno        5113  0.993387  0.995132     0.001745
+       Gordola        5108  0.971516  0.973221     0.001704
+Cugnasco-Gerra        5138  0.983761  0.985354     0.001593
