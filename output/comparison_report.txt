@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-27 03:03:04 UTC
+Generated: 2026-02-27 07:28:41 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-02-26):
+Historical Comparison (vs 2026-02-27):
   Previous mean IoU: 0.9970
   Current mean IoU: 0.9970
   Change: +0.0000 (+0.00%)
@@ -38,14 +38,4 @@ Brione sopra Minusio        5096 0.967773       0.879787
             Cureglia        5180 0.972171       0.709428
 
 Most Improved (if historical data available):
-              name  bfs_nummer  prev_iou  curr_iou  improvement
-Torricella-Taverne        5227  0.963962  0.999994     0.036031
-        Lully (FR)        2025  0.978981  0.999916     0.020935
-           Hallwil        4197  0.985092  0.992156     0.007063
-            Bedano        5148  0.990523  0.995953     0.005431
-   Alto Malcantone        5237  0.992577  0.997292     0.004716
-          Boniswil        4192  0.989700  0.992767     0.003067
-   Ponte Capriasca        5212  0.981591  0.984116     0.002525
-           Origlio        5208  0.980864  0.982672     0.001808
-       Monteceneri        5238  0.989773  0.991550     0.001776
-    Mezzovico-Vira        5199  0.988179  0.989806     0.001628
+  No significant improvements detected
