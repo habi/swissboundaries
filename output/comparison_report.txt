@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-26 03:03:40 UTC
+Generated: 2026-02-27 03:03:04 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,22 +11,21 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.30%
-  Mean Hausdorff distance: 28.416546m
+  Mean Hausdorff distance: 28.205890m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2088 (99.0%)
-  Good (IoU ≥ 0.95): 22 (1.0%)
+  Excellent (IoU ≥ 0.98): 2090 (99.1%)
+  Good (IoU ≥ 0.95): 20 (0.9%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-02-25):
+Historical Comparison (vs 2026-02-26):
   Previous mean IoU: 0.9970
   Current mean IoU: 0.9970
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
-  Torricella-Taverne        5227 0.963962       0.289227
             Pollegio        5077 0.965056       1.568932
         Vico Morcote        5233 0.966914       2.535783
   Ronco sopra Ascona        5125 0.967314       2.924276
@@ -36,10 +35,17 @@ Brione sopra Minusio        5096 0.967773       0.879787
             Canobbio        5167 0.968146       1.118731
               Savosa        5221 0.968968       0.092433
               Lugano        5192 0.970746       2.625202
+            Cureglia        5180 0.972171       0.709428
 
 Most Improved (if historical data available):
-          name  bfs_nummer  prev_iou  curr_iou  improvement
-    Lavertezzo        5112  0.962585  0.999759     0.037175
-       Locarno        5113  0.993387  0.995132     0.001745
-       Gordola        5108  0.971516  0.973221     0.001704
-Cugnasco-Gerra        5138  0.983761  0.985354     0.001593
+              name  bfs_nummer  prev_iou  curr_iou  improvement
+Torricella-Taverne        5227  0.963962  0.999994     0.036031
+        Lully (FR)        2025  0.978981  0.999916     0.020935
+           Hallwil        4197  0.985092  0.992156     0.007063
+            Bedano        5148  0.990523  0.995953     0.005431
+   Alto Malcantone        5237  0.992577  0.997292     0.004716
+          Boniswil        4192  0.989700  0.992767     0.003067
+   Ponte Capriasca        5212  0.981591  0.984116     0.002525
+           Origlio        5208  0.980864  0.982672     0.001808
+       Monteceneri        5238  0.989773  0.991550     0.001776
+    Mezzovico-Vira        5199  0.988179  0.989806     0.001628
