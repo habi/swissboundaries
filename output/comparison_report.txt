@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-28 02:53:09 UTC
+Generated: 2026-02-28 16:48:18 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,22 +11,21 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.29%
-  Mean Hausdorff distance: 27.864134m
+  Mean Hausdorff distance: 27.785673m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2092 (99.1%)
-  Good (IoU ≥ 0.95): 18 (0.9%)
+  Excellent (IoU ≥ 0.98): 2093 (99.2%)
+  Good (IoU ≥ 0.95): 17 (0.8%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-02-27):
-  Previous mean IoU: 0.9970
+Historical Comparison (vs 2026-02-28):
+  Previous mean IoU: 0.9971
   Current mean IoU: 0.9971
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
-            Pollegio        5077 0.965056       1.568932
         Vico Morcote        5233 0.966914       2.535783
   Ronco sopra Ascona        5125 0.967314       2.924276
              Vernate        5230 0.967460       0.560196
@@ -36,15 +35,10 @@ Brione sopra Minusio        5096 0.967773       0.879787
               Savosa        5221 0.968968       0.092433
               Lugano        5192 0.970746       2.625202
             Cureglia        5180 0.972171       0.709428
+             Gordola        5108 0.973221       1.378347
 
 Most Improved (if historical data available):
-             name  bfs_nummer  prev_iou  curr_iou  improvement
-         Suscévaz        5930  0.978111  0.999948     0.021837
-           Rennaz        5412  0.979432  0.999865     0.020433
-          Geltwil        4232  0.983072  0.999992     0.016920
-          Buttwil        4230  0.986565  0.999916     0.013350
-           Mathod        5919  0.985641  0.998966     0.013325
-       Roche (VD)        5413  0.992322  0.998827     0.006504
-        Champvent        5905  0.996271  0.997978     0.001707
-        Muri (AG)        4236  0.996824  0.997958     0.001135
-Beinwil (Freiamt)        4224  0.993931  0.994989     0.001058
+     name  bfs_nummer  prev_iou  curr_iou  improvement
+ Pollegio        5077  0.965056  0.999995     0.034939
+Personico        5076  0.991036  0.993328     0.002291
+ Giornico        5073  0.989971  0.991387     0.001415

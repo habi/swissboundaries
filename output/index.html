@@ -31,6 +31,30 @@
         }
         button:hover { background: #0056b3; }
         #csv-table { border: 1px solid #333; border-radius: 4px; background: white; }
+        #readme-content {
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        #readme-content pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
+        }
+        #changes-plot {
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        #changes-plot iframe {
+            width: 100%;
+            height: 980px;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +73,101 @@
     </div>
 
     <div id="csv-table"></div>
+
+    
+    <section id="readme-content">
+        <h3>README</h3>
+        <pre># Swiss Municipality Boundary Comparison
+
+Comparison of Swiss municipality boundaries between official Swisstopo data ([swissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d)) and [OpenStreetMap](https://www.openstreetmap.org/#map=9/46.823/7.880)
+
+This repository uses the ideas presented in https://github.com/stalker314314/osm-admin-boundary-conflation and support from Claude.ai, ChatGPT and Google Gemini to produce a report on the matching of the official swisstopo boundaries to the boundaries mapped in OpenStreetMap.
+
+The intital prompts to Claude.ai were:
+
+&gt; I have the boundaries of the swiss municipalities in https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip.
+&gt; Help me produce a report on how well these match geographically with the boundaries mapped in OpenStreetMap, preferrably via Overpass Turbo.
+&gt; The boundaries in the geopackage have `bfs_nummer=355`, the boundaries in OSM have `swisstopo:BFS_NUMMER=355` as a matching ID.
+
+&gt; Can you query Overpass in Python, too?
+
+&gt; Can you make this all work in a GitHub action?
+----
+
+## Latest Results
+
+You can check the [latest comparison results](https://github.com/habi/swissboundaries/blob/main/output/detailed_results.csv), or view the most recent run summary in [the Actions tab].
+The latest results are shown as a table on https://habi.github.io/swissboundaries/
+Historic data is saved as CSV files to the [history](./history/) directory.
+
+## Automation
+
+- **Schedule**: Runs daily at 2 AM UTC via a [GitHub Action](https://github.com/habi/swissboundaries/blob/main/.github/workflows/compare-boundaries.yml)
+- **Manual Trigger**: Can be triggered manually from the Actions tab
+- **Data Sources**:
+  - Official: [Swisstopo SwissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/geodata/landscape/boundaries3d.html)
+  - Community: OpenStreetMap via Overpass API
+
+## Metrics
+
+The comparison calculates:
+
+- **[IoU (Intersection over Union)](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L260)**: Measures boundary overlap quality (1.0 = perfect match).
+- **[Area Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L261)**: Percentage deviation in total area
+- **[Hausdorff Distance](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L269)**: Maximum distance between boundary points
+- **[Symmetric Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L262)**: Amount of non-overlapping area
+
+## 🚀 Running Locally
+```bash
+# Install dependencies
+pip install geopandas shapely pandas requests pyogrio
+
+# Download and extract Swisstopo data
+wget https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
+unzip swissboundaries3d*.zip
+
+# Run comparison (use the script from the GitHub Action)
+python compare_boundaries.py
+```
+
+## Output Files
+
+- `output/comparison_report.txt`: Human-readable summary report
+- `output/detailed_results.csv`: Per-municipality metrics in CSV format
+
+## Contributing
+
+Contributions are welcome! If you find boundary discrepancies:
+
+1. Check the detailed results to identify problematic municipalities
+2. Verify the boundaries in OpenStreetMap
+3. Improve OSM data if needed using JOSM or iD editor
+4. The next automated run will reflect your improvements
+
+## Matching Criteria
+
+Boundaries are matched using:
+- **Swisstopo**: `bfs_nummer` field (official BFS municipality number)
+- **OpenStreetMap**: `swisstopo:BFS_NUMMER` tag
+
+## License
+
+Data sources:
+- Swisstopo data: [Terms of Use](https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/ogd.html)
+- OpenStreetMap data: [ODbL](https://www.openstreetmap.org/copyright)
+
+## Links
+
+- [Swisstopo Geodata Portal](https://www.swisstopo.admin.ch/en/geodata-portal)
+- [OpenStreetMap Switzerland](https://www.openstreetmap.ch/)
+- [Swiss Overpass API](http://overpass.osm.ch/)
+</pre>
+    </section>
+    
+    <section id="changes-plot">
+        <h3>IoU Changes Over Time</h3>
+        <iframe src="iou_changes.html" title="IoU changes plot"></iframe>
+    </section>
 
     <script>
         var table;
