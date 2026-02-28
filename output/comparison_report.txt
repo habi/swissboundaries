@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-27 07:28:41 UTC
+Generated: 2026-02-28 02:53:09 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,21 +7,21 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9970
+  Mean IoU: 0.9971
   Median IoU: 0.9983
   Mean area difference: 0.06%
-  Mean symmetric difference: 0.30%
-  Mean Hausdorff distance: 28.205890m
+  Mean symmetric difference: 0.29%
+  Mean Hausdorff distance: 27.864134m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2090 (99.1%)
-  Good (IoU ≥ 0.95): 20 (0.9%)
+  Excellent (IoU ≥ 0.98): 2092 (99.1%)
+  Good (IoU ≥ 0.95): 18 (0.9%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
 Historical Comparison (vs 2026-02-27):
   Previous mean IoU: 0.9970
-  Current mean IoU: 0.9970
+  Current mean IoU: 0.9971
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
@@ -38,4 +38,13 @@ Brione sopra Minusio        5096 0.967773       0.879787
             Cureglia        5180 0.972171       0.709428
 
 Most Improved (if historical data available):
-  No significant improvements detected
+             name  bfs_nummer  prev_iou  curr_iou  improvement
+         Suscévaz        5930  0.978111  0.999948     0.021837
+           Rennaz        5412  0.979432  0.999865     0.020433
+          Geltwil        4232  0.983072  0.999992     0.016920
+          Buttwil        4230  0.986565  0.999916     0.013350
+           Mathod        5919  0.985641  0.998966     0.013325
+       Roche (VD)        5413  0.992322  0.998827     0.006504
+        Champvent        5905  0.996271  0.997978     0.001707
+        Muri (AG)        4236  0.996824  0.997958     0.001135
+Beinwil (Freiamt)        4224  0.993931  0.994989     0.001058
