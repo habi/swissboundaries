@@ -3,6 +3,7 @@ import pandas as pd
 import requests
 import json
 import os
+import html
 from datetime import datetime
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString
@@ -618,8 +619,23 @@ def generate_report(results_df, historical_df):
     return results_df
 
 
-def create_csv_table_page():
+def create_index_page():
     """Create HTML to display CSV table"""
+    readme_text = ""
+    readme_path = Path("README.md")
+    if readme_path.exists():
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            readme_text = f.read()
+
+    readme_section = ""
+    if readme_text:
+        escaped_readme = html.escape(readme_text)
+        readme_section = f"""
+    <section id=\"readme-content\">
+        <h3>README</h3>
+        <pre>{escaped_readme}</pre>
+    </section>"""
+
     html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -653,6 +669,18 @@ def create_csv_table_page():
         }
         button:hover { background: #0056b3; }
         #csv-table { border: 1px solid #333; border-radius: 4px; background: white; }
+        #readme-content {
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        #readme-content pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -671,6 +699,8 @@ def create_csv_table_page():
     </div>
 
     <div id="csv-table"></div>
+
+    __README_SECTION__
 
     <script>
         var table;
@@ -763,6 +793,8 @@ def create_csv_table_page():
     </script>
 </body>
 </html>"""
+
+    html_content = html_content.replace("__README_SECTION__", readme_section)
     
     with open('output/index.html', 'w') as f:
         f.write(html_content)
@@ -802,7 +834,7 @@ if __name__ == "__main__":
         create_trend_visualizations(results, historical)
 
         # Create inde page for display
-        create_csv_table_page()
+        create_index_page()
                 
         print("\nComparison complete!")
     else:
