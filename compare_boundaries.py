@@ -489,6 +489,267 @@ def create_trend_visualizations(results_df, historical_df):
         print("Not enough historical data for trends (need at least 2 data points)")    
 
 
+KANTON = {
+    1: "ZH", 2: "BE", 3: "LU", 4: "UR", 5: "SZ", 6: "OW", 7: "NW",
+    8: "GL", 9: "ZG", 10: "FR", 11: "SO", 12: "BS", 13: "BL",
+    14: "SH", 15: "AR", 16: "AI", 17: "SG", 18: "GR", 19: "AG",
+    20: "TG", 21: "TI", 22: "VD", 23: "VS", 24: "NE", 25: "GE", 26: "JU",
+}
+
+_CANTON_HEX = [
+    "#4e9af1", "#f4a036", "#56c97a", "#e05c5c", "#a78bfa",
+    "#f472b6", "#34d4c8", "#facc15", "#fb923c", "#86efac",
+    "#67e8f9", "#c084fc", "#fda4af", "#a3e635", "#38bdf8",
+    "#e879f9", "#4ade80", "#fbbf24", "#f87171", "#60a5fa",
+    "#34d399", "#e2e8f0", "#d946ef", "#fb7185", "#818cf8",
+    "#2dd4bf",
+]
+
+
+def _build_municipality_pivot(df):
+    """Return bfs_nummer x date pivot of IoU, keeping municipalities present in >=2 snapshots."""
+    working = df.copy()
+    working['iou'] = pd.to_numeric(working['iou'], errors='coerce')
+    working = working.dropna(subset=['bfs_nummer', '_date'])
+
+    pivot = working.pivot_table(
+        index='bfs_nummer',
+        columns='_date',
+        values='iou',
+        aggfunc='first'
+    )
+    if pivot.empty:
+        return pivot
+
+    pivot.columns = pd.to_datetime(pivot.columns)
+    pivot = pivot.sort_index(axis=1)
+    pivot = pivot[pivot.notna().sum(axis=1) >= 2]
+    return pivot
+
+
+def _attach_names(pivot, df):
+    """Map bfs_nummer to latest known municipality name."""
+    latest_date = df['_date'].max()
+    latest = df[df['_date'] == latest_date].drop_duplicates('bfs_nummer')
+    name_map = latest.set_index('bfs_nummer')['name']
+    mapped = pd.Series(pivot.index.map(name_map), index=pivot.index)
+    fallback = pd.Series(pivot.index.astype(str), index=pivot.index)
+    return mapped.fillna(fallback)
+
+
+def _attach_canton(pivot, df):
+    """Map bfs_nummer to latest known canton abbreviation."""
+    latest_date = df['_date'].max()
+    latest = df[df['_date'] == latest_date].drop_duplicates('bfs_nummer')
+    canton_map = latest.set_index('bfs_nummer')['kantonsnummer']
+    mapped = pd.Series(pivot.index.map(canton_map), index=pivot.index)
+    return mapped.map(lambda value: KANTON.get(int(value), str(value)) if pd.notna(value) else '?')
+
+
+def _compute_changes(pivot, min_delta):
+    """Compute first/last IoU deltas and keep municipalities above threshold."""
+    first = pivot.ffill(axis=1).bfill(axis=1).iloc[:, 0]
+    last = pivot.ffill(axis=1).bfill(axis=1).iloc[:, -1]
+    delta = last - first
+
+    changed = pivot[delta.abs() >= min_delta].copy()
+    meta = pd.DataFrame({
+        'first_iou': first[changed.index],
+        'last_iou': last[changed.index],
+        'net_delta': delta[changed.index],
+        'abs_delta': delta[changed.index].abs(),
+    })
+    return changed, meta
+
+
+def _build_canton_palette(cantons_dict):
+    abbrevs = sorted(set(cantons_dict.values()))
+    return {canton: _CANTON_HEX[i % len(_CANTON_HEX)] for i, canton in enumerate(abbrevs)}
+
+
+def _hex_to_rgb01(hex_color):
+    hex_color = hex_color.lstrip('#')
+    return tuple(int(hex_color[i:i + 2], 16) / 255 for i in (0, 2, 4))
+
+
+def _add_plotly_changes_panel(fig, subset_pivot, subset_meta, names, cantons,
+                              canton_palette, row, max_abs, legend_cantons_shown):
+    for bfs, row_data in subset_meta.iterrows():
+        series = subset_pivot.loc[bfs].dropna()
+        if len(series) < 2:
+            continue
+
+        alpha = 0.20 + 0.75 * (row_data['abs_delta'] / max_abs) ** 0.5
+        canton = cantons.get(bfs, '?')
+        hex_color = canton_palette.get(canton, '#aaaaaa')
+        red, green, blue = _hex_to_rgb01(hex_color)
+        color = f"rgba({int(red * 255)},{int(green * 255)},{int(blue * 255)},{alpha:.2f})"
+
+        municipality_name = names.get(bfs, str(bfs))
+        hover = (
+            f"<b>{municipality_name}</b> ({canton})<br>"
+            f"BFS: {bfs}<br>"
+            f"First: {row_data['first_iou']:.5f}<br>"
+            f"Last:  {row_data['last_iou']:.5f}<br>"
+            f"Δ IoU: {row_data['net_delta']:+.5f}"
+        )
+
+        show_legend = canton not in legend_cantons_shown
+        if show_legend:
+            legend_cantons_shown.add(canton)
+
+        fig.add_trace(go.Scatter(
+            x=series.index,
+            y=series.values,
+            mode='lines',
+            name=canton,
+            legendgroup=canton,
+            line=dict(color=color, width=1.2),
+            hovertemplate=hover + '<extra></extra>',
+            showlegend=show_legend,
+        ), row=row, col=1)
+
+    fig.add_hline(y=1, line_dash='dot', line_color='#2a5a2a', opacity=0.5, row=row, col=1)
+
+    n_bars = min(40, len(subset_meta))
+    top = subset_meta.nlargest(n_bars, 'abs_delta').sort_values('net_delta')
+    bar_labels = [f"{names.get(bfs, str(bfs))} ({cantons.get(bfs, '?')})" for bfs in top.index]
+    bar_colors = [canton_palette.get(cantons.get(bfs, '?'), '#aaaaaa') for bfs in top.index]
+
+    fig.add_trace(go.Bar(
+        x=top['net_delta'].values * 100,
+        y=bar_labels,
+        orientation='h',
+        marker_color=bar_colors,
+        marker_opacity=0.85,
+        hovertemplate='%{y}: %{x:.4f}<extra></extra>',
+        showlegend=False,
+    ), row=row, col=2)
+
+
+def _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, output_file):
+    from plotly.subplots import make_subplots
+
+    gains_meta = meta[meta['net_delta'] > 0]
+    losses_meta = meta[meta['net_delta'] < 0]
+    max_abs = meta['abs_delta'].max()
+
+    names_dict = names.to_dict()
+    cantons_dict = cantons.to_dict()
+    canton_palette = _build_canton_palette(cantons_dict)
+
+    fig = make_subplots(
+        rows=2,
+        cols=2,
+        column_widths=[0.65, 0.35],
+        row_heights=[0.5, 0.5],
+        vertical_spacing=0.12,
+        subplot_titles=[
+            f"IoU gains — trajectories ({len(gains_meta):,} municipalities)",
+            'Top gainers (Δ IoU ×100)',
+            f"IoU losses — trajectories ({len(losses_meta):,} municipalities)",
+            'Top losers (Δ IoU ×100)',
+        ],
+    )
+
+    legend_cantons_shown = set()
+
+    if len(gains_meta):
+        _add_plotly_changes_panel(
+            fig,
+            pivot_changed.loc[gains_meta.index],
+            gains_meta,
+            names_dict,
+            cantons_dict,
+            canton_palette,
+            row=1,
+            max_abs=max_abs,
+            legend_cantons_shown=legend_cantons_shown,
+        )
+
+    if len(losses_meta):
+        _add_plotly_changes_panel(
+            fig,
+            pivot_changed.loc[losses_meta.index],
+            losses_meta,
+            names_dict,
+            cantons_dict,
+            canton_palette,
+            row=2,
+            max_abs=max_abs,
+            legend_cantons_shown=legend_cantons_shown,
+        )
+
+    fig.update_layout(
+        paper_bgcolor='#0f0f1e',
+        plot_bgcolor='#1a1a2e',
+        font=dict(color='#8080b0', family='monospace'),
+        title=dict(text='Per-municipality IoU change  (coloured by canton)', font=dict(color='#e0e0f0', size=15)),
+        hovermode='closest',
+        height=900,
+        legend=dict(
+            bgcolor='#1a1a2e',
+            bordercolor='#2a2a4a',
+            font=dict(color='#e0e0f0', size=10),
+            title=dict(text='Canton', font=dict(color='#a0a0c0')),
+            tracegroupgap=2,
+        ),
+    )
+
+    for row in (1, 2):
+        for col in (1, 2):
+            fig.update_xaxes(showgrid=True, gridcolor='#2a2a4a', zeroline=False, row=row, col=col)
+            fig.update_yaxes(showgrid=True, gridcolor='#2a2a4a', zeroline=False, row=row, col=col)
+
+        fig.update_xaxes(title_text='Snapshot date', row=row, col=1)
+        fig.update_xaxes(
+            title_text='Net Δ IoU (×100)',
+            zerolinecolor='#3a3a5a',
+            zerolinewidth=1,
+            row=row,
+            col=2,
+        )
+        fig.update_yaxes(title_text='IoU', row=row, col=1)
+
+    fig.write_html(output_file)
+
+
+def create_iou_changes_plot(min_delta=0.0001):
+    """Create detailed per-municipality IoU changes plot in output/iou_changes.html."""
+    print("Creating IoU changes plot...")
+
+    try:
+        df = load_historical_data().copy()
+        if df.empty:
+            print("No historical data found for IoU changes plot")
+            return False
+
+        df['_date'] = pd.to_datetime(df['date'])
+        pivot = _build_municipality_pivot(df)
+
+        if pivot.empty:
+            print("Not enough historical snapshots for IoU changes plot")
+            return False
+
+        names = _attach_names(pivot, df)
+        cantons = _attach_canton(pivot, df)
+        pivot_changed, meta = _compute_changes(pivot, min_delta)
+
+        if pivot_changed.empty:
+            print(f"No municipalities changed by more than {min_delta}")
+            return False
+
+        _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, 'output/iou_changes.html')
+        print("IoU changes plot saved")
+        return True
+    except SystemExit as e:
+        print(f"Skipping IoU changes plot: {e}")
+        return False
+    except Exception as e:
+        print(f"Warning: Failed to generate IoU changes plot: {e}")
+        return False
+
+
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
@@ -636,6 +897,15 @@ def create_index_page():
         <pre>{escaped_readme}</pre>
     </section>"""
 
+    changes_plot_section = ""
+    changes_plot_path = Path("output/iou_changes.html")
+    if changes_plot_path.exists():
+        changes_plot_section = """
+    <section id=\"changes-plot\">
+        <h3>IoU Changes Over Time</h3>
+        <iframe src=\"iou_changes.html\" title=\"IoU changes plot\"></iframe>
+    </section>"""
+
     html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -681,6 +951,18 @@ def create_index_page():
             word-break: break-word;
             margin: 0;
         }
+        #changes-plot {
+            margin-top: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        #changes-plot iframe {
+            width: 100%;
+            height: 980px;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -701,6 +983,7 @@ def create_index_page():
     <div id="csv-table"></div>
 
     __README_SECTION__
+    __CHANGES_PLOT_SECTION__
 
     <script>
         var table;
@@ -795,6 +1078,7 @@ def create_index_page():
 </html>"""
 
     html_content = html_content.replace("__README_SECTION__", readme_section)
+    html_content = html_content.replace("__CHANGES_PLOT_SECTION__", changes_plot_section)
     
     with open('output/index.html', 'w') as f:
         f.write(html_content)
@@ -832,6 +1116,7 @@ if __name__ == "__main__":
         # Generate report
         report = generate_report(results, historical)
         create_trend_visualizations(results, historical)
+        create_iou_changes_plot()
 
         # Create inde page for display
         create_index_page()
