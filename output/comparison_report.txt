@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-01 03:08:35 UTC
+Generated: 2026-03-01 08:29:21 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-02-28):
+Historical Comparison (vs 2026-03-01):
   Previous mean IoU: 0.9971
   Current mean IoU: 0.9971
   Change: +0.0000 (+0.00%)
@@ -38,8 +38,4 @@ Brione sopra Minusio        5096 0.967773       0.879787
              Gordola        5108 0.973221       1.378347
 
 Most Improved (if historical data available):
-         name  bfs_nummer  prev_iou  curr_iou  improvement
-   Massonnens        2086  0.981131  0.999993     0.018862
- Le Châtelard        2067  0.992976  0.996579     0.003603
-       Villaz        2117  0.993480  0.994821     0.001341
-Mézières (FR)        2087  0.994451  0.995733     0.001283
+  No significant improvements detected
