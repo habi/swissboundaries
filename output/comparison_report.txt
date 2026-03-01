@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-02-28 16:48:18 UTC
+Generated: 2026-03-01 03:08:35 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.29%
-  Mean Hausdorff distance: 27.785673m
+  Mean Hausdorff distance: 27.748511m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2093 (99.2%)
@@ -38,7 +38,8 @@ Brione sopra Minusio        5096 0.967773       0.879787
              Gordola        5108 0.973221       1.378347
 
 Most Improved (if historical data available):
-     name  bfs_nummer  prev_iou  curr_iou  improvement
- Pollegio        5077  0.965056  0.999995     0.034939
-Personico        5076  0.991036  0.993328     0.002291
- Giornico        5073  0.989971  0.991387     0.001415
+         name  bfs_nummer  prev_iou  curr_iou  improvement
+   Massonnens        2086  0.981131  0.999993     0.018862
+ Le Châtelard        2067  0.992976  0.996579     0.003603
+       Villaz        2117  0.993480  0.994821     0.001341
+Mézières (FR)        2087  0.994451  0.995733     0.001283
