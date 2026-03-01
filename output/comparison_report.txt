@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-01 08:29:21 UTC
+Generated: 2026-03-01 19:04:01 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,35 +7,44 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9971
+  Mean IoU: 0.9972
   Median IoU: 0.9983
   Mean area difference: 0.06%
-  Mean symmetric difference: 0.29%
-  Mean Hausdorff distance: 27.748511m
+  Mean symmetric difference: 0.28%
+  Mean Hausdorff distance: 27.630602m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2093 (99.2%)
-  Good (IoU ≥ 0.95): 17 (0.8%)
+  Excellent (IoU ≥ 0.98): 2097 (99.4%)
+  Good (IoU ≥ 0.95): 13 (0.6%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
 Historical Comparison (vs 2026-03-01):
   Previous mean IoU: 0.9971
-  Current mean IoU: 0.9971
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9972
+  Change: +0.0001 (+0.01%)
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
-        Vico Morcote        5233 0.966914       2.535783
   Ronco sopra Ascona        5125 0.967314       2.924276
              Vernate        5230 0.967460       0.560196
 Brione sopra Minusio        5096 0.967773       0.879787
            Cadempino        5162 0.967921       0.061913
             Canobbio        5167 0.968146       1.118731
-              Savosa        5221 0.968968       0.092433
-              Lugano        5192 0.970746       2.625202
+              Lugano        5192 0.971526       2.572160
             Cureglia        5180 0.972171       0.709428
              Gordola        5108 0.973221       1.378347
+             Sorengo        5225 0.974957       0.730855
+               Vezia        5231 0.977033       0.424165
 
 Most Improved (if historical data available):
-  No significant improvements detected
+        name  bfs_nummer  prev_iou  curr_iou  improvement
+Vico Morcote        5233  0.966914  0.999990     0.033076
+      Savosa        5221  0.968968  0.999984     0.031016
+    Scheuren         747  0.982846  0.999880     0.017034
+    Massagno        5196  0.974634  0.983881     0.009246
+ Schwadernau         748  0.990809  0.999077     0.008268
+     Morcote        5203  0.995054  0.998618     0.003564
+       Porza        5214  0.977682  0.980858     0.003176
+       Vezia        5231  0.974471  0.977033     0.002562
+   Meienried         389  0.995430  0.997607     0.002177
