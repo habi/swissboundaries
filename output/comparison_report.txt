@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-01 19:04:01 UTC
+Generated: 2026-03-02 03:04:16 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,18 +11,18 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.28%
-  Mean Hausdorff distance: 27.630602m
+  Mean Hausdorff distance: 27.580923m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2097 (99.4%)
-  Good (IoU ≥ 0.95): 13 (0.6%)
+  Excellent (IoU ≥ 0.98): 2099 (99.5%)
+  Good (IoU ≥ 0.95): 11 (0.5%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
 Historical Comparison (vs 2026-03-01):
-  Previous mean IoU: 0.9971
+  Previous mean IoU: 0.9972
   Current mean IoU: 0.9972
-  Change: +0.0001 (+0.01%)
+  Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
                 name  bfs_nummer      iou  area_diff_pct
@@ -30,21 +30,18 @@ Worst 10 Matches (by IoU):
              Vernate        5230 0.967460       0.560196
 Brione sopra Minusio        5096 0.967773       0.879787
            Cadempino        5162 0.967921       0.061913
-            Canobbio        5167 0.968146       1.118731
-              Lugano        5192 0.971526       2.572160
+              Lugano        5192 0.971848       2.598970
             Cureglia        5180 0.972171       0.709428
              Gordola        5108 0.973221       1.378347
              Sorengo        5225 0.974957       0.730855
                Vezia        5231 0.977033       0.424165
+            Linescio        5315 0.978269       1.055015
 
 Most Improved (if historical data available):
-        name  bfs_nummer  prev_iou  curr_iou  improvement
-Vico Morcote        5233  0.966914  0.999990     0.033076
-      Savosa        5221  0.968968  0.999984     0.031016
-    Scheuren         747  0.982846  0.999880     0.017034
-    Massagno        5196  0.974634  0.983881     0.009246
- Schwadernau         748  0.990809  0.999077     0.008268
-     Morcote        5203  0.995054  0.998618     0.003564
-       Porza        5214  0.977682  0.980858     0.003176
-       Vezia        5231  0.974471  0.977033     0.002562
-   Meienried         389  0.995430  0.997607     0.002177
+            name  bfs_nummer  prev_iou  curr_iou  improvement
+        Canobbio        5167  0.968146  0.999725     0.031579
+         Vacallo        5268  0.979357  0.999773     0.020416
+Morbio Inferiore        5257  0.980657  0.984846     0.004189
+          Comano        5176  0.983027  0.987034     0.004006
+           Porza        5214  0.980858  0.984317     0.003459
+         Chiasso        5250  0.984613  0.985938     0.001325
