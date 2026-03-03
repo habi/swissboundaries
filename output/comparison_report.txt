@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-02 03:04:16 UTC
+Generated: 2026-03-03 03:05:57 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.28%
-  Mean Hausdorff distance: 27.580923m
+  Mean Hausdorff distance: 27.569592m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2099 (99.5%)
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-01):
+Historical Comparison (vs 2026-03-02):
   Previous mean IoU: 0.9972
   Current mean IoU: 0.9972
   Change: +0.0000 (+0.00%)
@@ -39,9 +39,9 @@ Brione sopra Minusio        5096 0.967773       0.879787
 
 Most Improved (if historical data available):
             name  bfs_nummer  prev_iou  curr_iou  improvement
-        Canobbio        5167  0.968146  0.999725     0.031579
-         Vacallo        5268  0.979357  0.999773     0.020416
-Morbio Inferiore        5257  0.980657  0.984846     0.004189
-          Comano        5176  0.983027  0.987034     0.004006
-           Porza        5214  0.980858  0.984317     0.003459
-         Chiasso        5250  0.984613  0.985938     0.001325
+         Brunegg        4193  0.987874  0.999749     0.011875
+      Wolfhalden        3038  0.990007  0.992996     0.002989
+    Walzenhausen        3037  0.995075  0.998006     0.002931
+Unterengstringen         249  0.993445  0.995459     0.002014
+            Birr        4092  0.995021  0.996669     0.001647
+        Birrhard        4093  0.992228  0.993282     0.001054
