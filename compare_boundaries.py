@@ -681,30 +681,23 @@ def _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, output_file):
         )
 
     fig.update_layout(
-        paper_bgcolor='#0f0f1e',
-        plot_bgcolor='#1a1a2e',
-        font=dict(color='#8080b0', family='monospace'),
-        title=dict(text='Per-municipality IoU change  (coloured by canton)', font=dict(color='#e0e0f0', size=15)),
+        title='Per-municipality IoU change  (coloured by canton)',
         hovermode='closest',
         height=900,
         legend=dict(
-            bgcolor='#1a1a2e',
-            bordercolor='#2a2a4a',
-            font=dict(color='#e0e0f0', size=10),
-            title=dict(text='Canton', font=dict(color='#a0a0c0')),
+            title='Canton',
             tracegroupgap=2,
         ),
     )
 
     for row in (1, 2):
         for col in (1, 2):
-            fig.update_xaxes(showgrid=True, gridcolor='#2a2a4a', zeroline=False, row=row, col=col)
-            fig.update_yaxes(showgrid=True, gridcolor='#2a2a4a', zeroline=False, row=row, col=col)
+            fig.update_xaxes(showgrid=True, zeroline=False, row=row, col=col)
+            fig.update_yaxes(showgrid=True, zeroline=False, row=row, col=col)
 
         fig.update_xaxes(title_text='Snapshot date', row=row, col=1)
         fig.update_xaxes(
             title_text='Net Δ IoU (×100)',
-            zerolinecolor='#3a3a5a',
             zerolinewidth=1,
             row=row,
             col=2,
