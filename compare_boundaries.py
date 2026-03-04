@@ -887,7 +887,7 @@ def create_index_page():
         readme_section = f"""
     <section id=\"readme-content\">
         <h3>README</h3>
-        <div>{escaped_readme}</div>
+        <pre>{escaped_readme}</pre>
     </section>"""
 
     changes_plot_section = ""
@@ -938,6 +938,11 @@ def create_index_page():
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 15px;
+        }
+        #readme-content pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
         }
         #changes-plot {
             margin-top: 20px;
