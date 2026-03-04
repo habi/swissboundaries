@@ -3,7 +3,6 @@ import pandas as pd
 import requests
 import json
 import os
-import html
 from datetime import datetime
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString
@@ -883,18 +882,30 @@ def create_index_page():
 
     readme_section = ""
     if readme_text:
-        escaped_readme = html.escape(readme_text)
+        readme_json = json.dumps(readme_text)
         readme_section = f"""
-    <section>
+    <section class=\"framed-section\">
         <h3>README</h3>
-        <pre>{escaped_readme}</pre>
+        <div id=\"readme-content\"></div>
+        <script>
+            (function() {{
+                const readmeMarkdown = {readme_json};
+                const target = document.getElementById('readme-content');
+                if (!target) return;
+                if (window.marked) {{
+                    target.innerHTML = marked.parse(readmeMarkdown);
+                }} else {{
+                    target.textContent = readmeMarkdown;
+                }}
+            }})();
+        </script>
     </section>"""
 
     changes_plot_section = ""
     changes_plot_path = Path("output/iou_changes.html")
     if changes_plot_path.exists():
         changes_plot_section = """
-    <section id=\"changes-plot\">
+    <section class=\"framed-section\" id=\"changes-plot\">
         <h3>IoU Changes Over Time</h3>
         <iframe src=\"iou_changes.html\" title=\"IoU changes plot\"></iframe>
     </section>"""
@@ -907,6 +918,7 @@ def create_index_page():
     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
@@ -932,7 +944,7 @@ def create_index_page():
         }
         button:hover { background: #0056b3; }
         #csv-table { border: 1px solid #333; border-radius: 4px; background: white; }
-        #changes-plot {
+        .framed-section {
             margin-top: 20px;
             background: white;
             border: 1px solid #ccc;
