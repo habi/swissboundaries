@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-04 16:45:26 UTC
+Generated: 2026-03-04 17:23:41 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -38,8 +38,4 @@ Ronco sopra Ascona        5125 0.970388       3.045911
             Mauraz        5488 0.981719       0.313411
 
 Most Improved (if historical data available):
-              name  bfs_nummer  prev_iou  curr_iou  improvement
-           Gordola        5108  0.973221  0.999992     0.026771
-    Cugnasco-Gerra        5138  0.985354  0.992610     0.007255
-     Tenero-Contra        5131  0.988699  0.995857     0.007158
-Ronco sopra Ascona        5125  0.967314  0.970388     0.003075
+  No significant improvements detected
