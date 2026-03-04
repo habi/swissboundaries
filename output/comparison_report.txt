@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-04 03:01:13 UTC
+Generated: 2026-03-04 16:45:26 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,24 +11,23 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.27%
-  Mean Hausdorff distance: 27.484284m
+  Mean Hausdorff distance: 27.320530m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2105 (99.8%)
-  Good (IoU ≥ 0.95): 5 (0.2%)
+  Excellent (IoU ≥ 0.98): 2106 (99.8%)
+  Good (IoU ≥ 0.95): 4 (0.2%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-03):
-  Previous mean IoU: 0.9972
+Historical Comparison (vs 2026-03-04):
+  Previous mean IoU: 0.9973
   Current mean IoU: 0.9973
-  Change: +0.0001 (+0.01%)
+  Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
-Ronco sopra Ascona        5125 0.967314       2.924276
+Ronco sopra Ascona        5125 0.970388       3.045911
             Lugano        5192 0.971848       2.598970
-           Gordola        5108 0.973221       1.378347
            Sorengo        5225 0.974957       0.730855
           Linescio        5315 0.978269       1.055015
           Cureglia        5180 0.980601       0.385051
@@ -36,16 +35,11 @@ Ronco sopra Ascona        5125 0.967314       2.924276
              Vezia        5231 0.980640       0.503293
            Eschenz        4806 0.981348       1.542493
           Clarmont        5629 0.981381       1.103150
+            Mauraz        5488 0.981719       0.313411
 
 Most Improved (if historical data available):
-                name  bfs_nummer  prev_iou  curr_iou  improvement
-             Vernate        5230  0.967460  0.999990     0.032531
-           Cadempino        5162  0.967921  0.999986     0.032065
-Brione sopra Minusio        5096  0.967773  0.996933     0.029159
-            Cureglia        5180  0.972171  0.980601     0.008430
-             Bioggio        5151  0.978966  0.984961     0.005995
-             Minusio        5118  0.991411  0.997300     0.005889
-           Mergoscia        5117  0.983612  0.988493     0.004880
-              Lamone        5189  0.987916  0.992294     0.004378
-               Vezia        5231  0.977033  0.980640     0.003607
-              Neggio        5206  0.986634  0.989612     0.002978
+              name  bfs_nummer  prev_iou  curr_iou  improvement
+           Gordola        5108  0.973221  0.999992     0.026771
+    Cugnasco-Gerra        5138  0.985354  0.992610     0.007255
+     Tenero-Contra        5131  0.988699  0.995857     0.007158
+Ronco sopra Ascona        5125  0.967314  0.970388     0.003075
