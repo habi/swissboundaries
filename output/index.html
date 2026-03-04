@@ -6,6 +6,7 @@
     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
@@ -31,7 +32,7 @@
         }
         button:hover { background: #0056b3; }
         #csv-table { border: 1px solid #333; border-radius: 4px; background: white; }
-        #changes-plot {
+        .framed-section {
             margin-top: 20px;
             background: white;
             border: 1px solid #ccc;
@@ -63,96 +64,24 @@
     <div id="csv-table"></div>
 
     
-    <section>
+    <section class="framed-section">
         <h3>README</h3>
-        <pre># Swiss Municipality Boundary Comparison
-
-Comparison of Swiss municipality boundaries between official Swisstopo data ([swissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d)) and [OpenStreetMap](https://www.openstreetmap.org/#map=9/46.823/7.880)
-
-This repository uses the ideas presented in https://github.com/stalker314314/osm-admin-boundary-conflation and support from Claude.ai, ChatGPT and Google Gemini to produce a report on the matching of the official swisstopo boundaries to the boundaries mapped in OpenStreetMap.
-
-The intital prompts to Claude.ai were:
-
-&gt; I have the boundaries of the swiss municipalities in https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip.
-&gt; Help me produce a report on how well these match geographically with the boundaries mapped in OpenStreetMap, preferrably via Overpass Turbo.
-&gt; The boundaries in the geopackage have `bfs_nummer=355`, the boundaries in OSM have `swisstopo:BFS_NUMMER=355` as a matching ID.
-
-&gt; Can you query Overpass in Python, too?
-
-&gt; Can you make this all work in a GitHub action?
-----
-
-## Latest Results
-
-You can check the [latest comparison results](https://github.com/habi/swissboundaries/blob/main/output/detailed_results.csv), or view the most recent run summary in [the Actions tab].
-The latest results are shown as a table on https://habi.github.io/swissboundaries/
-Historic data is saved as CSV files to the [history](./history/) directory.
-
-## Automation
-
-- **Schedule**: Runs daily at 2 AM UTC via a [GitHub Action](https://github.com/habi/swissboundaries/blob/main/.github/workflows/compare-boundaries.yml)
-- **Manual Trigger**: Can be triggered manually from the Actions tab
-- **Data Sources**:
-  - Official: [Swisstopo SwissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/geodata/landscape/boundaries3d.html)
-  - Community: OpenStreetMap via Overpass API
-
-## Metrics
-
-The comparison calculates:
-
-- **[IoU (Intersection over Union)](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L260)**: Measures boundary overlap quality (1.0 = perfect match).
-- **[Area Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L261)**: Percentage deviation in total area
-- **[Hausdorff Distance](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L269)**: Maximum distance between boundary points
-- **[Symmetric Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L262)**: Amount of non-overlapping area
-
-## 🚀 Running Locally
-```bash
-# Install dependencies
-pip install geopandas shapely pandas requests pyogrio
-
-# Download and extract Swisstopo data
-wget https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
-unzip swissboundaries3d*.zip
-
-# Run comparison (use the script from the GitHub Action)
-python compare_boundaries.py
-```
-
-## Output Files
-
-- `output/comparison_report.txt`: Human-readable summary report
-- `output/detailed_results.csv`: Per-municipality metrics in CSV format
-
-## Contributing
-
-Contributions are welcome! If you find boundary discrepancies:
-
-1. Check the detailed results to identify problematic municipalities
-2. Verify the boundaries in OpenStreetMap
-3. Improve OSM data if needed using JOSM or iD editor
-4. The next automated run will reflect your improvements
-
-## Matching Criteria
-
-Boundaries are matched using:
-- **Swisstopo**: `bfs_nummer` field (official BFS municipality number)
-- **OpenStreetMap**: `swisstopo:BFS_NUMMER` tag
-
-## License
-
-Data sources:
-- Swisstopo data: [Terms of Use](https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/ogd.html)
-- OpenStreetMap data: [ODbL](https://www.openstreetmap.org/copyright)
-
-## Links
-
-- [Swisstopo Geodata Portal](https://www.swisstopo.admin.ch/en/geodata-portal)
-- [OpenStreetMap Switzerland](https://www.openstreetmap.ch/)
-- [Swiss Overpass API](http://overpass.osm.ch/)
-</pre>
+        <div id="readme-content"></div>
+        <script>
+            (function() {
+                const readmeMarkdown = "# Swiss Municipality Boundary Comparison\n\nComparison of Swiss municipality boundaries between official Swisstopo data ([swissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d)) and [OpenStreetMap](https://www.openstreetmap.org/#map=9/46.823/7.880)\n\nThis repository uses the ideas presented in https://github.com/stalker314314/osm-admin-boundary-conflation and support from Claude.ai, ChatGPT and Google Gemini to produce a report on the matching of the official swisstopo boundaries to the boundaries mapped in OpenStreetMap.\n\nThe intital prompts to Claude.ai were:\n\n> I have the boundaries of the swiss municipalities in https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip.\n> Help me produce a report on how well these match geographically with the boundaries mapped in OpenStreetMap, preferrably via Overpass Turbo.\n> The boundaries in the geopackage have `bfs_nummer=355`, the boundaries in OSM have `swisstopo:BFS_NUMMER=355` as a matching ID.\n\n> Can you query Overpass in Python, too?\n\n> Can you make this all work in a GitHub action?\n----\n\n## Latest Results\n\nYou can check the [latest comparison results](https://github.com/habi/swissboundaries/blob/main/output/detailed_results.csv), or view the most recent run summary in [the Actions tab].\nThe latest results are shown as a table on https://habi.github.io/swissboundaries/\nHistoric data is saved as CSV files to the [history](./history/) directory.\n\n## Automation\n\n- **Schedule**: Runs daily at 2 AM UTC via a [GitHub Action](https://github.com/habi/swissboundaries/blob/main/.github/workflows/compare-boundaries.yml)\n- **Manual Trigger**: Can be triggered manually from the Actions tab\n- **Data Sources**:\n  - Official: [Swisstopo SwissBOUNDARIES3D](https://www.swisstopo.admin.ch/en/geodata/landscape/boundaries3d.html)\n  - Community: OpenStreetMap via Overpass API\n\n## Metrics\n\nThe comparison calculates:\n\n- **[IoU (Intersection over Union)](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L260)**: Measures boundary overlap quality (1.0 = perfect match).\n- **[Area Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L261)**: Percentage deviation in total area\n- **[Hausdorff Distance](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L269)**: Maximum distance between boundary points\n- **[Symmetric Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L262)**: Amount of non-overlapping area\n\n## \ud83d\ude80 Running Locally\n```bash\n# Install dependencies\npip install geopandas shapely pandas requests pyogrio\n\n# Download and extract Swisstopo data\nwget https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip\nunzip swissboundaries3d*.zip\n\n# Run comparison (use the script from the GitHub Action)\npython compare_boundaries.py\n```\n\n## Output Files\n\n- `output/comparison_report.txt`: Human-readable summary report\n- `output/detailed_results.csv`: Per-municipality metrics in CSV format\n\n## Contributing\n\nContributions are welcome! If you find boundary discrepancies:\n\n1. Check the detailed results to identify problematic municipalities\n2. Verify the boundaries in OpenStreetMap\n3. Improve OSM data if needed using JOSM or iD editor\n4. The next automated run will reflect your improvements\n\n## Matching Criteria\n\nBoundaries are matched using:\n- **Swisstopo**: `bfs_nummer` field (official BFS municipality number)\n- **OpenStreetMap**: `swisstopo:BFS_NUMMER` tag\n\n## License\n\nData sources:\n- Swisstopo data: [Terms of Use](https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/ogd.html)\n- OpenStreetMap data: [ODbL](https://www.openstreetmap.org/copyright)\n\n## Links\n\n- [Swisstopo Geodata Portal](https://www.swisstopo.admin.ch/en/geodata-portal)\n- [OpenStreetMap Switzerland](https://www.openstreetmap.ch/)\n- [Swiss Overpass API](http://overpass.osm.ch/)\n";
+                const target = document.getElementById('readme-content');
+                if (!target) return;
+                if (window.marked) {
+                    target.innerHTML = marked.parse(readmeMarkdown);
+                } else {
+                    target.textContent = readmeMarkdown;
+                }
+            })();
+        </script>
     </section>
     
-    <section id="changes-plot">
+    <section class="framed-section" id="changes-plot">
         <h3>IoU Changes Over Time</h3>
         <iframe src="iou_changes.html" title="IoU changes plot"></iframe>
     </section>
