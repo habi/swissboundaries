@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-04 17:56:03 UTC
+Generated: 2026-03-05 03:03:02 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,11 +11,11 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.06%
   Mean symmetric difference: 0.27%
-  Mean Hausdorff distance: 27.320530m
+  Mean Hausdorff distance: 27.263833m
 
 Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2106 (99.8%)
-  Good (IoU ≥ 0.95): 4 (0.2%)
+  Excellent (IoU ≥ 0.98): 2108 (99.9%)
+  Good (IoU ≥ 0.95): 2 (0.1%)
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
@@ -27,15 +27,21 @@ Historical Comparison (vs 2026-03-04):
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
 Ronco sopra Ascona        5125 0.970388       3.045911
-            Lugano        5192 0.971848       2.598970
-           Sorengo        5225 0.974957       0.730855
-          Linescio        5315 0.978269       1.055015
+            Lugano        5192 0.971984       2.597943
           Cureglia        5180 0.980601       0.385051
        Courchapoix        6706 0.980604       0.421453
              Vezia        5231 0.980640       0.503293
            Eschenz        4806 0.981348       1.542493
           Clarmont        5629 0.981381       1.103150
             Mauraz        5488 0.981719       0.313411
+         Coldrerio        5251 0.982058       0.036827
+           Origlio        5208 0.982672       0.160442
 
 Most Improved (if historical data available):
-  No significant improvements detected
+       name  bfs_nummer  prev_iou  curr_iou  improvement
+    Sorengo        5225  0.974957  0.999984     0.025027
+   Linescio        5315  0.978269  0.996728     0.018458
+  Cerentino        5309  0.988693  0.993915     0.005222
+    Muzzano        5205  0.984961  0.988968     0.004007
+      Cevio        5310  0.996118  0.999854     0.003736
+Bosco/Gurin        5304  0.993918  0.995240     0.001322
