@@ -209,8 +209,8 @@ def save_boundaries_as_geojson(gdf, output_folder):
                 features.append({
                     "type": "Feature",
                     "properties": {
-                        "bfs_nummer": int(bfs_num),
-                        "segment_length_m": row.geometry.length if hasattr(row.geometry, 'length') else 0
+                        # "bfs_nummer": int(bfs_num),
+                        # "segment_length_m": row.geometry.length if hasattr(row.geometry, 'length') else 0
                     },
                     "geometry": mapping(part)
                 })
