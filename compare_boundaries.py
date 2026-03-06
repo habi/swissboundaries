@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString
 from shapely.ops import polygonize, unary_union
@@ -27,7 +27,9 @@ def _load_overpass_cache(cache_path=OVERPASS_CACHE_PATH, ttl_seconds=OVERPASS_CA
             return None
 
         fetched_time = datetime.fromisoformat(fetched_at)
-        age_seconds = (datetime.utcnow() - fetched_time).total_seconds()
+        if fetched_time.tzinfo is None:
+            fetched_time = fetched_time.replace(tzinfo=UTC)
+        age_seconds = (datetime.now(UTC) - fetched_time).total_seconds()
         if age_seconds <= ttl_seconds:
             return osm_data
     except Exception:
@@ -40,7 +42,7 @@ def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
     try:
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         payload = {
-            'fetched_at': datetime.utcnow().isoformat(),
+            'fetched_at': datetime.now(UTC).isoformat(),
             'osm_data': osm_data,
         }
         with open(cache_path, 'w', encoding='utf-8') as f:
