@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-06 10:07:56 UTC
+Generated: 2026-03-06 18:11:01 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -9,9 +9,9 @@ Dataset Overview:
 Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.9974
   Median IoU: 0.9983
-  Mean area difference: 0.06%
+  Mean area difference: 0.05%
   Mean symmetric difference: 0.26%
-  Mean Hausdorff distance: 27.015182m
+  Mean Hausdorff distance: 26.941639m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2108 (99.9%)
@@ -27,15 +27,22 @@ Historical Comparison (vs 2026-03-06):
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
 Ronco sopra Ascona        5125 0.970388       3.045911
-            Lugano        5192 0.971994       2.598236
+            Lugano        5192 0.972083       2.600744
            Eschenz        4806 0.981348       1.542493
-            Mauraz        5488 0.981719       0.313411
-             Vezia        5231 0.982037       0.502574
-         Coldrerio        5251 0.982058       0.036827
            Muralto        5120 0.983196       0.992052
-           Balerna        5242 0.983370       0.240185
           Massagno        5196 0.983881       0.492017
         Lutzenberg        3033 0.984009       0.358098
+   Ponte Capriasca        5212 0.984116       0.311476
+          Schenkon        1099 0.984428       0.443132
+           Hundwil        3002 0.984737       0.560248
+  Morbio Inferiore        5257 0.984846       0.296209
 
 Most Improved (if historical data available):
-  No significant improvements detected
+     name  bfs_nummer  prev_iou  curr_iou  improvement
+   Mauraz        5488  0.981719  0.999977     0.018258
+    Vezia        5231  0.982037  0.999992     0.017955
+Coldrerio        5251  0.982058  0.999992     0.017934
+    Porza        5214  0.991804  0.999991     0.008186
+  Balerna        5242  0.983370  0.987499     0.004129
+Novazzano        5260  0.984313  0.988346     0.004033
+    Manno        5194  0.992116  0.993608     0.001492
