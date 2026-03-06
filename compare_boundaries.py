@@ -9,6 +9,45 @@ from shapely.geometry import mapping, MultiLineString
 from shapely.ops import polygonize, unary_union
 import plotly.graph_objects as go
 
+OVERPASS_CACHE_PATH = Path('output/overpass_cache.json')
+OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
+
+
+def _load_overpass_cache(cache_path=OVERPASS_CACHE_PATH, ttl_seconds=OVERPASS_CACHE_TTL_SECONDS):
+    if not cache_path.exists():
+        return None
+
+    try:
+        with open(cache_path, 'r', encoding='utf-8') as f:
+            payload = json.load(f)
+
+        fetched_at = payload.get('fetched_at')
+        osm_data = payload.get('osm_data')
+        if not fetched_at or not isinstance(osm_data, dict):
+            return None
+
+        fetched_time = datetime.fromisoformat(fetched_at)
+        age_seconds = (datetime.utcnow() - fetched_time).total_seconds()
+        if age_seconds <= ttl_seconds:
+            return osm_data
+    except Exception:
+        return None
+
+    return None
+
+
+def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
+    try:
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            'fetched_at': datetime.utcnow().isoformat(),
+            'osm_data': osm_data,
+        }
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump(payload, f)
+    except Exception as e:
+        print(f"Warning: Could not save Overpass cache: {e}")
+
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
     Query Overpass API for Swiss boundaries with swisstopo:BFS_NUMMER.
@@ -20,7 +59,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         GeoDataFrame with OSM boundaries
     """
     
-    print("Querying Overpass API for OSM boundaries...")
+    print("Loading OSM boundaries...")
     
     # Overpass QL query
     overpass_query = """
@@ -33,14 +72,20 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     """
     
     try:
-        response = requests.post(
-            "http://overpass.osm.ch/api/interpreter",
-            data=overpass_query,
-            timeout=120
-        )
-        response.raise_for_status()
-        
-        osm_data = response.json()
+        osm_data = _load_overpass_cache()
+        if osm_data is not None:
+            print("  - Using cached Overpass response (<= 4 hours old)")
+        else:
+            print("  - Querying Overpass API...")
+            response = requests.post(
+                "http://overpass.osm.ch/api/interpreter",
+                data=overpass_query,
+                timeout=120
+            )
+            response.raise_for_status()
+            osm_data = response.json()
+            _save_overpass_cache(osm_data)
+            print("  - Cached Overpass response")
         
         if not osm_data.get('elements'):
             print("  - No boundaries found with swisstopo:BFS_NUMMER tag")
