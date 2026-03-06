@@ -602,6 +602,8 @@ def _add_plotly_changes_panel(
         color = f"rgba({int(red * 255)},{int(green * 255)},{int(blue * 255)},{alpha:.2f})"
 
         municipality_name = names.get(bfs, str(bfs))
+        scaled_delta = float(row_data['net_delta'] * delta_scale)
+        trace_label = f"{municipality_name} ({canton})"
         hover = (
             f"<b>{municipality_name}</b> ({canton})<br>"
             f"BFS: {bfs}<br>"
@@ -623,6 +625,14 @@ def _add_plotly_changes_panel(
             line=dict(color=color, width=1.2),
             hovertemplate=hover + '<extra></extra>',
             showlegend=show_legend,
+            meta={
+                'kind': 'line',
+                'row': row,
+                'metric': metric_label,
+                'label': trace_label,
+                'delta_scaled': scaled_delta,
+                'bar_color': hex_color,
+            },
         ), row=row, col=1)
 
     if show_reference_line:
@@ -648,6 +658,11 @@ def _add_plotly_changes_panel(
         marker_opacity=0.85,
         hovertemplate=f"%{{y}}: %{{x:.{bar_hover_precision}f}}<extra></extra>",
         showlegend=False,
+        meta={
+            'kind': 'bar',
+            'row': row,
+            'metric': metric_label,
+        },
     ), row=row, col=2)
 
 
@@ -811,7 +826,91 @@ def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
     fig.update_yaxes(title_text=default_label, row=1, col=1)
     fig.update_yaxes(title_text=default_label, row=2, col=1)
 
-    fig.write_html(output_file)
+    post_script = """
+const gd = document.getElementById('{plot_id}');
+if (gd) {
+    const axisName = (prefix, row) => row === 1 ? `${prefix}axis` : `${prefix}axis${row * 2 - 1}`;
+
+    const getRange = (axisObj) => {
+        if (!axisObj || !axisObj.range || axisObj.range.length !== 2) return null;
+        const a = new Date(axisObj.range[0]).getTime();
+        const b = new Date(axisObj.range[1]).getTime();
+        if (Number.isNaN(a) || Number.isNaN(b)) return null;
+        return [Math.min(a, b), Math.max(a, b)];
+    };
+
+    const collectVisibleItems = (row) => {
+        const xAxis = gd.layout[axisName('x', row)];
+        const yAxis = gd.layout[axisName('y', row)];
+        const xRange = getRange(xAxis);
+        const yRange = yAxis && yAxis.range && yAxis.range.length === 2
+            ? [Math.min(yAxis.range[0], yAxis.range[1]), Math.max(yAxis.range[0], yAxis.range[1])]
+            : null;
+
+        const items = [];
+        gd.data.forEach((trace) => {
+            if (trace.visible === false || !trace.meta || trace.meta.kind !== 'line' || trace.meta.row !== row) return;
+            if (!Array.isArray(trace.x) || !Array.isArray(trace.y) || trace.x.length === 0) return;
+
+            let inView = false;
+            for (let i = 0; i < trace.x.length; i += 1) {
+                const xVal = new Date(trace.x[i]).getTime();
+                const yVal = Number(trace.y[i]);
+                if (Number.isNaN(xVal) || Number.isNaN(yVal)) continue;
+
+                const xOk = !xRange || (xVal >= xRange[0] && xVal <= xRange[1]);
+                const yOk = !yRange || (yVal >= yRange[0] && yVal <= yRange[1]);
+                if (xOk && yOk) {
+                    inView = true;
+                    break;
+                }
+            }
+
+            if (inView) {
+                items.push({
+                    label: trace.meta.label,
+                    delta: Number(trace.meta.delta_scaled),
+                    color: trace.meta.bar_color || '#aaaaaa',
+                });
+            }
+        });
+
+        items.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+        items.splice(40);
+        items.sort((a, b) => a.delta - b.delta);
+        return items;
+    };
+
+    const updateBarRow = (row) => {
+        const barIndex = gd.data.findIndex(
+            (trace) => trace.visible !== false && trace.meta && trace.meta.kind === 'bar' && trace.meta.row === row
+        );
+        if (barIndex < 0) return;
+
+        const items = collectVisibleItems(row);
+        Plotly.restyle(
+            gd,
+            {
+                x: [items.map((item) => item.delta)],
+                y: [items.map((item) => item.label)],
+                'marker.color': [items.map((item) => item.color)],
+            },
+            [barIndex]
+        );
+    };
+
+    const refreshBars = () => {
+        updateBarRow(1);
+        updateBarRow(2);
+    };
+
+    gd.on('plotly_relayout', refreshBars);
+    gd.on('plotly_buttonclicked', () => setTimeout(refreshBars, 0));
+    setTimeout(refreshBars, 0);
+}
+"""
+
+    fig.write_html(output_file, post_script=post_script)
 
 
 def _get_metric_specs():
