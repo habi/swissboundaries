@@ -780,9 +780,9 @@ def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
                 buttons=buttons,
                 direction='down',
                 showactive=True,
-                x=0.01,
+                x=0.5,
                 y=1.15,
-                xanchor='left',
+                xanchor='center',
                 yanchor='top',
             )
         ],
