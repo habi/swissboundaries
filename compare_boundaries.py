@@ -505,16 +505,16 @@ _CANTON_HEX = [
 ]
 
 
-def _build_municipality_pivot(df):
-    """Return bfs_nummer x date pivot of IoU, keeping municipalities present in >=2 snapshots."""
+def _build_municipality_pivot(df, metric_column):
+    """Return bfs_nummer x date pivot for a metric, keeping municipalities present in >=2 snapshots."""
     working = df.copy()
-    working['iou'] = pd.to_numeric(working['iou'], errors='coerce')
+    working[metric_column] = pd.to_numeric(working[metric_column], errors='coerce')
     working = working.dropna(subset=['bfs_nummer', '_date'])
 
     pivot = working.pivot_table(
         index='bfs_nummer',
         columns='_date',
-        values='iou',
+        values=metric_column,
         aggfunc='first'
     )
     if pivot.empty:
@@ -546,15 +546,15 @@ def _attach_canton(pivot, df):
 
 
 def _compute_changes(pivot, min_delta):
-    """Compute first/last IoU deltas and keep municipalities above threshold."""
+    """Compute first/last metric deltas and keep municipalities above threshold."""
     first = pivot.ffill(axis=1).bfill(axis=1).iloc[:, 0]
     last = pivot.ffill(axis=1).bfill(axis=1).iloc[:, -1]
     delta = last - first
 
     changed = pivot[delta.abs() >= min_delta].copy()
     meta = pd.DataFrame({
-        'first_iou': first[changed.index],
-        'last_iou': last[changed.index],
+        'first_value': first[changed.index],
+        'last_value': last[changed.index],
         'net_delta': delta[changed.index],
         'abs_delta': delta[changed.index].abs(),
     })
@@ -571,14 +571,31 @@ def _hex_to_rgb01(hex_color):
     return tuple(int(hex_color[i:i + 2], 16) / 255 for i in (0, 2, 4))
 
 
-def _add_plotly_changes_panel(fig, subset_pivot, subset_meta, names, cantons,
-                              canton_palette, row, max_abs, legend_cantons_shown):
+def _add_plotly_changes_panel(
+    fig,
+    subset_pivot,
+    subset_meta,
+    names,
+    cantons,
+    canton_palette,
+    row,
+    max_abs,
+    legend_cantons_shown,
+    metric_label,
+    delta_scale=1.0,
+    bar_hover_precision=4,
+    show_reference_line=False,
+    reference_line_value=0.0,
+    reference_line_color='#2a5a2a',
+):
+    scale = max(max_abs, 1e-12)
+
     for bfs, row_data in subset_meta.iterrows():
         series = subset_pivot.loc[bfs].dropna()
         if len(series) < 2:
             continue
 
-        alpha = 0.20 + 0.75 * (row_data['abs_delta'] / max_abs) ** 0.5
+        alpha = 0.20 + 0.75 * (row_data['abs_delta'] / scale) ** 0.5
         canton = cantons.get(bfs, '?')
         hex_color = canton_palette.get(canton, '#aaaaaa')
         red, green, blue = _hex_to_rgb01(hex_color)
@@ -588,9 +605,9 @@ def _add_plotly_changes_panel(fig, subset_pivot, subset_meta, names, cantons,
         hover = (
             f"<b>{municipality_name}</b> ({canton})<br>"
             f"BFS: {bfs}<br>"
-            f"First: {row_data['first_iou']:.5f}<br>"
-            f"Last:  {row_data['last_iou']:.5f}<br>"
-            f"Δ IoU: {row_data['net_delta']:+.5f}"
+            f"First: {row_data['first_value']:.6f}<br>"
+            f"Last:  {row_data['last_value']:.6f}<br>"
+            f"Δ {metric_label}: {row_data['net_delta']:+.6f}"
         )
 
         show_legend = canton not in legend_cantons_shown
@@ -608,7 +625,15 @@ def _add_plotly_changes_panel(fig, subset_pivot, subset_meta, names, cantons,
             showlegend=show_legend,
         ), row=row, col=1)
 
-    fig.add_hline(y=1, line_dash='dot', line_color='#2a5a2a', opacity=0.5, row=row, col=1)
+    if show_reference_line:
+        fig.add_hline(
+            y=reference_line_value,
+            line_dash='dot',
+            line_color=reference_line_color,
+            opacity=0.5,
+            row=row,
+            col=1,
+        )
 
     n_bars = min(40, len(subset_meta))
     top = subset_meta.nlargest(n_bars, 'abs_delta').sort_values('net_delta')
@@ -616,22 +641,18 @@ def _add_plotly_changes_panel(fig, subset_pivot, subset_meta, names, cantons,
     bar_colors = [canton_palette.get(cantons.get(bfs, '?'), '#aaaaaa') for bfs in top.index]
 
     fig.add_trace(go.Bar(
-        x=top['net_delta'].values * 100,
+        x=top['net_delta'].values * delta_scale,
         y=bar_labels,
         orientation='h',
         marker_color=bar_colors,
         marker_opacity=0.85,
-        hovertemplate='%{y}: %{x:.4f}<extra></extra>',
+        hovertemplate=f"%{{y}}: %{{x:.{bar_hover_precision}f}}<extra></extra>",
         showlegend=False,
     ), row=row, col=2)
 
 
-def _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, output_file):
+def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
     from plotly.subplots import make_subplots
-
-    gains_meta = meta[meta['net_delta'] > 0]
-    losses_meta = meta[meta['net_delta'] < 0]
-    max_abs = meta['abs_delta'].max()
 
     names_dict = names.to_dict()
     cantons_dict = cantons.to_dict()
@@ -644,49 +665,127 @@ def _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, output_file):
         row_heights=[0.5, 0.5],
         vertical_spacing=0.12,
         subplot_titles=[
-            f"IoU gains — trajectories ({len(gains_meta):,} municipalities)",
-            'Top gainers (Δ IoU ×100)',
-            f"IoU losses — trajectories ({len(losses_meta):,} municipalities)",
-            'Top losers (Δ IoU ×100)',
+            'Increases — trajectories',
+            'Top increases',
+            'Decreases — trajectories',
+            'Top decreases',
         ],
     )
 
     legend_cantons_shown = set()
+    metric_trace_map = {}
 
-    if len(gains_meta):
-        _add_plotly_changes_panel(
-            fig,
-            pivot_changed.loc[gains_meta.index],
-            gains_meta,
-            names_dict,
-            cantons_dict,
-            canton_palette,
-            row=1,
-            max_abs=max_abs,
-            legend_cantons_shown=legend_cantons_shown,
-        )
+    for item in metric_results:
+        trace_start = len(fig.data)
+        pivot_changed = item['pivot_changed']
+        increases_meta = item['increases_meta']
+        decreases_meta = item['decreases_meta']
 
-    if len(losses_meta):
-        _add_plotly_changes_panel(
-            fig,
-            pivot_changed.loc[losses_meta.index],
-            losses_meta,
-            names_dict,
-            cantons_dict,
-            canton_palette,
-            row=2,
-            max_abs=max_abs,
-            legend_cantons_shown=legend_cantons_shown,
+        if len(increases_meta):
+            _add_plotly_changes_panel(
+                fig,
+                pivot_changed.loc[increases_meta.index],
+                increases_meta,
+                names_dict,
+                cantons_dict,
+                canton_palette,
+                row=1,
+                max_abs=item['max_abs'],
+                legend_cantons_shown=legend_cantons_shown,
+                metric_label=item['label'],
+                delta_scale=item['delta_scale'],
+                bar_hover_precision=item['bar_hover_precision'],
+                show_reference_line=item['show_reference_line'],
+                reference_line_value=item['reference_line_value'],
+                reference_line_color=item['reference_line_color'],
+            )
+
+        if len(decreases_meta):
+            _add_plotly_changes_panel(
+                fig,
+                pivot_changed.loc[decreases_meta.index],
+                decreases_meta,
+                names_dict,
+                cantons_dict,
+                canton_palette,
+                row=2,
+                max_abs=item['max_abs'],
+                legend_cantons_shown=legend_cantons_shown,
+                metric_label=item['label'],
+                delta_scale=item['delta_scale'],
+                bar_hover_precision=item['bar_hover_precision'],
+                show_reference_line=item['show_reference_line'],
+                reference_line_value=item['reference_line_value'],
+                reference_line_color=item['reference_line_color'],
+            )
+
+        trace_end = len(fig.data)
+        metric_trace_map[item['label']] = list(range(trace_start, trace_end))
+
+    if not metric_trace_map:
+        fig.write_html(output_file)
+        return
+
+    metric_labels = [item['label'] for item in metric_results if item['label'] in metric_trace_map]
+    default_label = 'IoU' if 'IoU' in metric_labels else metric_labels[0]
+
+    for idx, trace in enumerate(fig.data):
+        trace.visible = idx in metric_trace_map[default_label]
+
+    buttons = []
+    total_traces = len(fig.data)
+    for item in metric_results:
+        label = item['label']
+        if label not in metric_trace_map:
+            continue
+
+        visible = [False] * total_traces
+        for index in metric_trace_map[label]:
+            visible[index] = True
+
+        increases_count = len(item['increases_meta'])
+        decreases_count = len(item['decreases_meta'])
+
+        buttons.append(
+            dict(
+                label=label,
+                method='update',
+                args=[
+                    {'visible': visible},
+                    {
+                        'title': f"Per-municipality {label} changes over time (coloured by canton)",
+                        'xaxis2.title.text': item['delta_axis_label'],
+                        'xaxis4.title.text': item['delta_axis_label'],
+                        'yaxis.title.text': label,
+                        'yaxis3.title.text': label,
+                        'annotations[0].text': f"{label} increases — trajectories ({increases_count:,} municipalities)",
+                        'annotations[1].text': f"Top increases ({item['delta_axis_label']})",
+                        'annotations[2].text': f"{label} decreases — trajectories ({decreases_count:,} municipalities)",
+                        'annotations[3].text': f"Top decreases ({item['delta_axis_label']})",
+                    },
+                ],
+            )
         )
 
     fig.update_layout(
-        title='Per-municipality IoU change  (coloured by canton)',
+        title=f"Per-municipality {default_label} changes over time (coloured by canton)",
         hovermode='closest',
         height=900,
         legend=dict(
             title='Canton',
             tracegroupgap=2,
         ),
+        updatemenus=[
+            dict(
+                buttons=buttons,
+                direction='down',
+                showactive=True,
+                x=0.01,
+                y=1.15,
+                xanchor='left',
+                yanchor='top',
+            )
+        ],
     )
 
     for row in (1, 2):
@@ -695,50 +794,147 @@ def _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, output_file):
             fig.update_yaxes(showgrid=True, zeroline=False, row=row, col=col)
 
         fig.update_xaxes(title_text='Snapshot date', row=row, col=1)
-        fig.update_xaxes(
-            title_text='Net Δ IoU (×100)',
-            zerolinewidth=1,
-            row=row,
-            col=2,
-        )
-        fig.update_yaxes(title_text='IoU', row=row, col=1)
+
+    default_item = next(item for item in metric_results if item['label'] == default_label)
+    fig.update_xaxes(
+        title_text=default_item['delta_axis_label'],
+        zerolinewidth=1,
+        row=1,
+        col=2,
+    )
+    fig.update_xaxes(
+        title_text=default_item['delta_axis_label'],
+        zerolinewidth=1,
+        row=2,
+        col=2,
+    )
+    fig.update_yaxes(title_text=default_label, row=1, col=1)
+    fig.update_yaxes(title_text=default_label, row=2, col=1)
 
     fig.write_html(output_file)
 
 
+def _get_metric_specs():
+    return [
+        {
+            'column': 'iou',
+            'label': 'IoU',
+            'min_delta': 0.0001,
+            'delta_scale': 100.0,
+            'delta_axis_label': 'Net Δ IoU (×100)',
+            'bar_hover_precision': 4,
+            'show_reference_line': True,
+            'reference_line_value': 1.0,
+            'reference_line_color': '#2a5a2a',
+        },
+        {
+            'column': 'area_diff_pct',
+            'label': 'Area Diff [%]',
+            'min_delta': 0.01,
+            'delta_scale': 1.0,
+            'delta_axis_label': 'Net Δ Area Diff [%]',
+            'bar_hover_precision': 3,
+            'show_reference_line': False,
+            'reference_line_value': 0.0,
+            'reference_line_color': '#444444',
+        },
+        {
+            'column': 'symmetric_diff_pct',
+            'label': 'Symmetric Diff [%]',
+            'min_delta': 0.01,
+            'delta_scale': 1.0,
+            'delta_axis_label': 'Net Δ Symmetric Diff [%]',
+            'bar_hover_precision': 3,
+            'show_reference_line': False,
+            'reference_line_value': 0.0,
+            'reference_line_color': '#444444',
+        },
+        {
+            'column': 'hausdorff_distance',
+            'label': 'Hausdorff Distance [m]',
+            'min_delta': 0.1,
+            'delta_scale': 1.0,
+            'delta_axis_label': 'Net Δ Hausdorff Distance [m]',
+            'bar_hover_precision': 3,
+            'show_reference_line': False,
+            'reference_line_value': 0.0,
+            'reference_line_color': '#444444',
+        },
+        {
+            'column': 'swisstopo_area',
+            'label': 'Area swisstopo [m²]',
+            'min_delta': 1.0,
+            'delta_scale': 1.0,
+            'delta_axis_label': 'Net Δ Area swisstopo [m²]',
+            'bar_hover_precision': 1,
+            'show_reference_line': False,
+            'reference_line_value': 0.0,
+            'reference_line_color': '#444444',
+        },
+    ]
+
+
 def create_iou_changes_plot(min_delta=0.0001):
-    """Create detailed per-municipality IoU changes plot in output/iou_changes.html."""
-    print("Creating IoU changes plot...")
+    """Create detailed per-municipality metric changes plot in output/iou_changes.html."""
+    print("Creating metric changes plot...")
+
+    metric_specs = _get_metric_specs()
+    metric_specs[0]['min_delta'] = min_delta
 
     try:
         df = load_historical_data().copy()
         if df.empty:
-            print("No historical data found for IoU changes plot")
+            print("No historical data found for metric changes plot")
             return False
 
         df['_date'] = pd.to_datetime(df['date'])
-        pivot = _build_municipality_pivot(df)
+        metric_results = []
+        names = None
+        cantons = None
 
-        if pivot.empty:
-            print("Not enough historical snapshots for IoU changes plot")
+        for spec in metric_specs:
+            column = spec['column']
+            if column not in df.columns:
+                continue
+
+            pivot = _build_municipality_pivot(df, column)
+            if pivot.empty:
+                continue
+
+            if names is None:
+                names = _attach_names(pivot, df)
+                cantons = _attach_canton(pivot, df)
+
+            pivot_changed, meta = _compute_changes(pivot, spec['min_delta'])
+            if pivot_changed.empty:
+                continue
+
+            metric_results.append({
+                'label': spec['label'],
+                'delta_scale': spec['delta_scale'],
+                'delta_axis_label': spec['delta_axis_label'],
+                'bar_hover_precision': spec['bar_hover_precision'],
+                'show_reference_line': spec['show_reference_line'],
+                'reference_line_value': spec['reference_line_value'],
+                'reference_line_color': spec['reference_line_color'],
+                'pivot_changed': pivot_changed,
+                'increases_meta': meta[meta['net_delta'] > 0],
+                'decreases_meta': meta[meta['net_delta'] < 0],
+                'max_abs': max(meta['abs_delta'].max(), 1e-12),
+            })
+
+        if not metric_results:
+            print("Not enough historical metric changes to plot")
             return False
 
-        names = _attach_names(pivot, df)
-        cantons = _attach_canton(pivot, df)
-        pivot_changed, meta = _compute_changes(pivot, min_delta)
-
-        if pivot_changed.empty:
-            print(f"No municipalities changed by more than {min_delta}")
-            return False
-
-        _plot_iou_changes_plotly(pivot_changed, meta, names, cantons, 'output/iou_changes.html')
-        print("IoU changes plot saved")
+        _plot_metric_changes_plotly(metric_results, names, cantons, 'output/iou_changes.html')
+        print("Metric changes plot saved")
         return True
     except SystemExit as e:
-        print(f"Skipping IoU changes plot: {e}")
+        print(f"Skipping metric changes plot: {e}")
         return False
     except Exception as e:
-        print(f"Warning: Failed to generate IoU changes plot: {e}")
+        print(f"Warning: Failed to generate metric changes plot: {e}")
         return False
 
 
@@ -906,8 +1102,8 @@ def create_index_page():
     if changes_plot_path.exists():
         changes_plot_section = """
     <section class=\"framed-section\" id=\"changes-plot\">
-        <h3>IoU Changes Over Time</h3>
-        <iframe src=\"iou_changes.html\" title=\"IoU changes plot\"></iframe>
+        <h3>Metric Changes Over Time</h3>
+        <iframe src=\"iou_changes.html\" title=\"Metric changes plot\"></iframe>
     </section>"""
 
     html_content = """<!DOCTYPE html>
