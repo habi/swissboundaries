@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-06 18:11:01 UTC
+Generated: 2026-03-06 20:05:58 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -38,11 +38,4 @@ Ronco sopra Ascona        5125 0.970388       3.045911
   Morbio Inferiore        5257 0.984846       0.296209
 
 Most Improved (if historical data available):
-     name  bfs_nummer  prev_iou  curr_iou  improvement
-   Mauraz        5488  0.981719  0.999977     0.018258
-    Vezia        5231  0.982037  0.999992     0.017955
-Coldrerio        5251  0.982058  0.999992     0.017934
-    Porza        5214  0.991804  0.999991     0.008186
-  Balerna        5242  0.983370  0.987499     0.004129
-Novazzano        5260  0.984313  0.988346     0.004033
-    Manno        5194  0.992116  0.993608     0.001492
+  No significant improvements detected
