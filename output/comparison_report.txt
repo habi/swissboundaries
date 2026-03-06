@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-06 03:03:03 UTC
+Generated: 2026-03-06 09:47:07 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,10 +19,10 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-05):
-  Previous mean IoU: 0.9973
+Historical Comparison (vs 2026-03-06):
+  Previous mean IoU: 0.9974
   Current mean IoU: 0.9974
-  Change: +0.0001 (+0.01%)
+  Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
@@ -38,14 +38,4 @@ Ronco sopra Ascona        5125 0.970388       3.045911
         Lutzenberg        3033 0.984009       0.358098
 
 Most Improved (if historical data available):
-                  name  bfs_nummer  prev_iou  curr_iou  improvement
-           Courchapoix        6706  0.980604  0.999995     0.019392
-              Cureglia        5180  0.980601  0.999989     0.019387
-              Clarmont        5629  0.981381  0.999745     0.018364
-                Crésuz        2130  0.983857  0.999992     0.016136
-                Comano        5176  0.987034  0.997334     0.010300
-                 Porza        5214  0.984511  0.991804     0.007293
-Châtel-sur-Montsalvens        2128  0.990020  0.996666     0.006646
-             Val Terbi        6730  0.995270  0.997927     0.002656
-               Origlio        5208  0.982672  0.985051     0.002380
-                 Vezia        5231  0.980640  0.982037     0.001397
+  No significant improvements detected

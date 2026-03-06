@@ -3,10 +3,7 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 6119,
-        "segment_length_m": 0.568441316490102
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -4619,10 +4616,7 @@
     },
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 6119,
-        "segment_length_m": 0.568441316490102
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [

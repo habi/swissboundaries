@@ -3,10 +3,7 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 2275,
-        "segment_length_m": 0.7788466578600524
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -4379,10 +4376,7 @@
     },
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 2275,
-        "segment_length_m": 0.7788466578600524
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -5375,10 +5369,7 @@
     },
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 2275,
-        "segment_length_m": 0.7788466578600524
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [

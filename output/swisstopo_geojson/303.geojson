@@ -3,10 +3,7 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "bfs_nummer": 303,
-        "segment_length_m": 0.22643278373027134
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [
