@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-05 03:03:02 UTC
+Generated: 2026-03-06 03:03:03 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,11 +7,11 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9973
+  Mean IoU: 0.9974
   Median IoU: 0.9983
   Mean area difference: 0.06%
-  Mean symmetric difference: 0.27%
-  Mean Hausdorff distance: 27.263833m
+  Mean symmetric difference: 0.26%
+  Mean Hausdorff distance: 27.015182m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2108 (99.9%)
@@ -19,29 +19,33 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-04):
+Historical Comparison (vs 2026-03-05):
   Previous mean IoU: 0.9973
-  Current mean IoU: 0.9973
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9974
+  Change: +0.0001 (+0.01%)
 
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
 Ronco sopra Ascona        5125 0.970388       3.045911
-            Lugano        5192 0.971984       2.597943
-          Cureglia        5180 0.980601       0.385051
-       Courchapoix        6706 0.980604       0.421453
-             Vezia        5231 0.980640       0.503293
+            Lugano        5192 0.971994       2.598236
            Eschenz        4806 0.981348       1.542493
-          Clarmont        5629 0.981381       1.103150
             Mauraz        5488 0.981719       0.313411
+             Vezia        5231 0.982037       0.502574
          Coldrerio        5251 0.982058       0.036827
-           Origlio        5208 0.982672       0.160442
+           Muralto        5120 0.983196       0.992052
+           Balerna        5242 0.983370       0.240185
+          Massagno        5196 0.983881       0.492017
+        Lutzenberg        3033 0.984009       0.358098
 
 Most Improved (if historical data available):
-       name  bfs_nummer  prev_iou  curr_iou  improvement
-    Sorengo        5225  0.974957  0.999984     0.025027
-   Linescio        5315  0.978269  0.996728     0.018458
-  Cerentino        5309  0.988693  0.993915     0.005222
-    Muzzano        5205  0.984961  0.988968     0.004007
-      Cevio        5310  0.996118  0.999854     0.003736
-Bosco/Gurin        5304  0.993918  0.995240     0.001322
+                  name  bfs_nummer  prev_iou  curr_iou  improvement
+           Courchapoix        6706  0.980604  0.999995     0.019392
+              Cureglia        5180  0.980601  0.999989     0.019387
+              Clarmont        5629  0.981381  0.999745     0.018364
+                Crésuz        2130  0.983857  0.999992     0.016136
+                Comano        5176  0.987034  0.997334     0.010300
+                 Porza        5214  0.984511  0.991804     0.007293
+Châtel-sur-Montsalvens        2128  0.990020  0.996666     0.006646
+             Val Terbi        6730  0.995270  0.997927     0.002656
+               Origlio        5208  0.982672  0.985051     0.002380
+                 Vezia        5231  0.980640  0.982037     0.001397
