@@ -4,7 +4,7 @@ Comparison of Swiss municipality boundaries between official Swisstopo data ([sw
 
 This repository uses the ideas presented in https://github.com/stalker314314/osm-admin-boundary-conflation and support from Claude.ai, ChatGPT and Google Gemini to produce a report on the matching of the official swisstopo boundaries to the boundaries mapped in OpenStreetMap.
 
-The intital prompts to Claude.ai were:
+The initial prompts to Claude.ai were:
 
 > I have the boundaries of the swiss municipalities in https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2025-04/swissboundaries3d_2025-04_2056_5728.gpkg.zip.
 > Help me produce a report on how well these match geographically with the boundaries mapped in OpenStreetMap, preferrably via Overpass Turbo.
@@ -18,7 +18,7 @@ The intital prompts to Claude.ai were:
 ## Latest Results
 
 You can check the [latest comparison results](https://github.com/habi/swissboundaries/blob/main/output/detailed_results.csv), or view the most recent run summary in [the Actions tab].
-The latest results are shown as a table on https://habi.github.io/swissboundaries/
+The latest results are shown as a (searchable) table on http://boundaries.osm.ch/
 Historic data is saved as CSV files to the [history](./history/) directory.
 
 ## Automation
@@ -39,6 +39,7 @@ The comparison calculates:
 - **[Symmetric Difference](https://github.com/habi/swissboundaries/blob/1157cd462a9c157f0ee31245e4305265c1474e74/compare_boundaries.py#L262)**: Amount of non-overlapping area
 
 ## 🚀 Running Locally
+
 ```bash
 # Install dependencies
 pip install geopandas shapely pandas requests pyogrio
@@ -53,8 +54,9 @@ python compare_boundaries.py
 
 ## Output Files
 
-- `output/comparison_report.txt`: Human-readable summary report
-- `output/detailed_results.csv`: Per-municipality metrics in CSV format
+- [`output/comparison_report.txt`](http://boundaries.osm.ch/comparison_report.txt): Human-readable summary report
+- [`output/detailed_results.csv`](http://boundaries.osm.ch/detailed_results.csv): Per-municipality metrics in CSV format.
+  This file is shown at the top of the page at http://boundaries.osm.ch/
 
 ## Contributing
 
@@ -68,12 +70,14 @@ Contributions are welcome! If you find boundary discrepancies:
 ## Matching Criteria
 
 Boundaries are matched using:
+
 - **Swisstopo**: `bfs_nummer` field (official BFS municipality number)
 - **OpenStreetMap**: `swisstopo:BFS_NUMMER` tag
 
 ## License
 
 Data sources:
+
 - Swisstopo data: [Terms of Use](https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/ogd.html)
 - OpenStreetMap data: [ODbL](https://www.openstreetmap.org/copyright)
 
