@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-07 02:56:21 UTC
+Generated: 2026-03-07 23:20:16 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -10,8 +10,8 @@ Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.9975
   Median IoU: 0.9983
   Mean area difference: 0.05%
-  Mean symmetric difference: 0.26%
-  Mean Hausdorff distance: 26.710032m
+  Mean symmetric difference: 0.25%
+  Mean Hausdorff distance: 26.216846m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2108 (99.9%)
@@ -19,31 +19,32 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-06):
-  Previous mean IoU: 0.9974
+Historical Comparison (vs 2026-03-07):
+  Previous mean IoU: 0.9975
   Current mean IoU: 0.9975
   Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
 Ronco sopra Ascona        5125 0.970388       3.045911
-            Lugano        5192 0.972216       2.596527
+            Lugano        5192 0.972310       2.587231
            Eschenz        4806 0.981348       1.542493
-   Ponte Capriasca        5212 0.984116       0.311476
-           Hundwil        3002 0.984737       0.560248
-  Morbio Inferiore        5257 0.984846       0.296209
-           Origlio        5208 0.985051       0.123183
      Grandfontaine        6792 0.985175       0.083653
            Bioggio        5151 0.985360       0.123096
       Schönengrund        3003 0.985395       0.109749
+       Büttenhardt        2914 0.985574       0.379856
+        Gächlingen        2901 0.985765       0.238097
+            Sergey        5762 0.985867       1.005245
+           Chiasso        5250 0.985938       0.409476
 
 Most Improved (if historical data available):
-      name  bfs_nummer  prev_iou  curr_iou  improvement
-   Muralto        5120  0.983196  0.999988     0.016793
-  Massagno        5196  0.983881  0.999984     0.016104
-  Schenkon        1099  0.984428  0.999996     0.015567
-Lutzenberg        3033  0.984009  0.998001     0.013992
-    Sursee        1103  0.984953  0.998785     0.013832
-  Orselina        5121  0.986871  0.991197     0.004325
-Wolfhalden        3038  0.992996  0.994934     0.001939
-    Heiden        3032  0.988812  0.990465     0.001653
+            name  bfs_nummer  prev_iou  curr_iou  improvement
+ Ponte Capriasca        5212  0.984116  0.999992     0.015876
+         Hundwil        3002  0.984737  0.999996     0.015259
+Morbio Inferiore        5257  0.984846  0.999961     0.015115
+      Stein (AR)        3005  0.987650  0.995752     0.008101
+         Urnäsch        3006  0.992535  0.997989     0.005454
+         Origlio        5208  0.985051  0.990325     0.005274
+         Balerna        5242  0.987499  0.992571     0.005072
+       Waldstatt        3007  0.985972  0.987502     0.001530
+       Capriasca        5226  0.993879  0.995336     0.001457
