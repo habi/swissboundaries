@@ -41,14 +41,16 @@ jobs:
       run: |
         echo "Fetching latest swissBOUNDARIES3D release..."
         API="https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.swissboundaries3d/items"
-        URL=$(curl -s $API | jq -r '
-          .features[0].assets
-          | to_entries[]
-          | select(.value.href | test("2056.*gpkg.zip"))
-          | .value.href
-          | head -n1
-        ')
+        # Get the latest item ID
+        ITEM=$(curl -s "$API" \
+          | jq -r '.features | max_by(.properties.datetime) | .id')
+        echo "Latest item: $ITEM"
+        # Get the URL of the GPKG LV95 file
+        URL=$(curl -s "$API/$ITEM" \
+          | jq -r '.assets | to_entries[] | select(.value.href | test("2056.*gpkg.zip")) | .value.href' \
+          | head -n1)
         echo "Download URL: $URL"
+        # Download and unzip
         wget -q "$URL"
         unzip -q *.gpkg.zip
         echo "Download complete"
