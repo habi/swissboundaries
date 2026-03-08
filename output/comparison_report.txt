@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-08 03:04:52 UTC
+Generated: 2026-03-08 10:50:14 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-07):
+Historical Comparison (vs 2026-03-08):
   Previous mean IoU: 0.9975
   Current mean IoU: 0.9975
   Change: +0.0000 (+0.00%)
