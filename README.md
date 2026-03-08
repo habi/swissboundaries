@@ -45,6 +45,8 @@ The comparison calculates:
 pip install geopandas shapely pandas requests pyogrio
 
 # Download and extract Swisstopo data
+# If you do this manually, get the freshest version available on https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d
+# The workflow file in the GitHub repo downloads the newest one via the swisstopo API: https://github.com/habi/swissboundaries/blob/main/.github/workflows/compare-boundaries.yml
 wget https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
 unzip swissboundaries3d*.zip
 
