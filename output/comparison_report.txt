@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-07 23:20:16 UTC
+Generated: 2026-03-08 03:04:52 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -38,13 +38,4 @@ Ronco sopra Ascona        5125 0.970388       3.045911
            Chiasso        5250 0.985938       0.409476
 
 Most Improved (if historical data available):
-            name  bfs_nummer  prev_iou  curr_iou  improvement
- Ponte Capriasca        5212  0.984116  0.999992     0.015876
-         Hundwil        3002  0.984737  0.999996     0.015259
-Morbio Inferiore        5257  0.984846  0.999961     0.015115
-      Stein (AR)        3005  0.987650  0.995752     0.008101
-         Urnäsch        3006  0.992535  0.997989     0.005454
-         Origlio        5208  0.985051  0.990325     0.005274
-         Balerna        5242  0.987499  0.992571     0.005072
-       Waldstatt        3007  0.985972  0.987502     0.001530
-       Capriasca        5226  0.993879  0.995336     0.001457
+  No significant improvements detected
