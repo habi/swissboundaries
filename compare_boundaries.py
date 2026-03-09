@@ -5,7 +5,8 @@ import json
 import os
 from datetime import datetime, UTC
 from pathlib import Path
-from shapely.geometry import mapping, MultiLineString
+from shapely.geometry import mapping, MultiLineString, LineString, Polygon
+from shapely.geometry.polygon import orient
 from shapely.ops import polygonize, unary_union
 import plotly.graph_objects as go
 
@@ -146,19 +147,58 @@ def create_feature(element):
     bfs_num = tags.get("swisstopo:BFS_NUMMER")
 
     if e_type == "relation":
-        member_geoms = []
+        outer_lines = []
+        inner_lines = []
+        all_lines = []
+
         for member in element.get("members", []):
             if member.get("type") == "way" and "geometry" in member:
-                # out geom provides the geometry list directly
-                points = [[pt["lon"], pt["lat"]] for pt in member["geometry"]]
-                member_geoms.append(points)
+                coords = [(pt["lon"], pt["lat"]) for pt in member["geometry"]]
+                if len(coords) < 2:
+                    continue
 
-        if not member_geoms:
+                line = LineString(coords)
+                if line.is_empty:
+                    continue
+
+                all_lines.append(line)
+
+                role = (member.get("role") or "").lower()
+                if role == "inner":
+                    inner_lines.append(line)
+                else:
+                    # Role "outer" and blank/unexpected roles are treated as outers.
+                    outer_lines.append(line)
+
+        if not all_lines:
             return None
 
-        # To get Area Metrics, we must polygonize the lines
-        mls = MultiLineString(member_geoms)
-        polygons = list(polygonize(mls))
+        def _polygonize_lines(lines):
+            if not lines:
+                return []
+            return [poly for poly in polygonize(lines) if not poly.is_empty]
+
+        outer_polygons = _polygonize_lines(outer_lines)
+        inner_polygons = _polygonize_lines(inner_lines)
+
+        if outer_polygons:
+            assembled = []
+            for outer_poly in outer_polygons:
+                hole_rings = []
+                for inner_poly in inner_polygons:
+                    if outer_poly.covers(inner_poly.representative_point()):
+                        hole_rings.append(list(inner_poly.exterior.coords))
+
+                polygon_with_holes = Polygon(
+                    list(outer_poly.exterior.coords),
+                    hole_rings,
+                )
+                if not polygon_with_holes.is_empty:
+                    assembled.append(orient(polygon_with_holes, sign=1.0))
+
+            polygons = assembled
+        else:
+            polygons = [orient(poly, sign=1.0) for poly in _polygonize_lines(all_lines)]
 
         if polygons:
             final_geom = unary_union(polygons)
