@@ -1273,7 +1273,25 @@ def create_index_page():
                             }
                         },
                         {title: "IoU", field: "IoU", formatter: "money", formatterParams: {precision: 4}},   
-                        {title: "Area Diff [%]", field: "Area Diff [%]", formatter: "money", formatterParams: {precision: 2}},
+                        {
+                            title: "Area Diff [%]",
+                            field: "Area Diff [%]",
+                            sorter: function(a, b) {
+                                var aNum = parseFloat(a);
+                                var bNum = parseFloat(b);
+
+                                var aIsNum = !isNaN(aNum);
+                                var bIsNum = !isNaN(bNum);
+
+                                if (!aIsNum && !bIsNum) return 0;
+                                if (!aIsNum) return 1;
+                                if (!bIsNum) return -1;
+
+                                return aNum - bNum;
+                            },
+                            formatter: "money",
+                            formatterParams: {precision: 2}
+                        },
                         {title: "Hausdorff Distance [m]", field: "Hausdorff Distance [m]"},
                         {title: "Symmetric Diff [%]", field: "Symmetric Diff [%]", formatter: "money", formatterParams: {precision: 2}},
                         {title: "Area swisstopo [m²]", field: "Area swisstopo [m²]", formatter: "money", formatterParams: {precision: 0}},
