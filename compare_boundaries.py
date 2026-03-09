@@ -1203,8 +1203,18 @@ def create_index_page():
 </head>
 <body>
 
+
+
     <h2><a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> <-> <a href="https://overpass-turbo.eu/s/2jcH">OpenStreetMap</a></h2>
     
+    <p>
+        Comparison of Swiss municipality boundaries between official Swisstopo data (<a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a>) and <a href="https://www.openstreetmap.org/#map=9/46.823/7.880">OpenStreetMap</a>.<br>
+        The table below shows the latest comparison results for each municipality, including metrics like IoU, area difference, Hausdorff distance, and more.<br>
+        You can search, sort, and download the data in various formats.<br>
+        For detailed explanations of the metrics and methodology, please refer to the README section below.<br>
+        The bottom of the page shows a plot of the calculated metrics over time.
+    </p>
+
     <div class="controls">
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search all columns...">
