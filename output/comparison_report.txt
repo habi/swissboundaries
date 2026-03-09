@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-08 10:50:14 UTC
+Generated: 2026-03-09 03:06:54 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9983
   Mean area difference: 0.05%
   Mean symmetric difference: 0.25%
-  Mean Hausdorff distance: 26.216846m
+  Mean Hausdorff distance: 25.885804m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2108 (99.9%)
@@ -27,15 +27,25 @@ Historical Comparison (vs 2026-03-08):
 Worst 10 Matches (by IoU):
               name  bfs_nummer      iou  area_diff_pct
 Ronco sopra Ascona        5125 0.970388       3.045911
-            Lugano        5192 0.972310       2.587231
+            Lugano        5192 0.972438       2.578912
            Eschenz        4806 0.981348       1.542493
-     Grandfontaine        6792 0.985175       0.083653
-           Bioggio        5151 0.985360       0.123096
-      Schönengrund        3003 0.985395       0.109749
-       Büttenhardt        2914 0.985574       0.379856
         Gächlingen        2901 0.985765       0.238097
             Sergey        5762 0.985867       1.005245
            Chiasso        5250 0.985938       0.409476
+         Cadenazzo        5003 0.986104       0.233487
+              Pura        5216 0.986449       0.208040
+  Grolley-Ponthaux        2239 0.986514       0.009050
+         Grub (AR)        3031 0.986692       0.097415
 
 Most Improved (if historical data available):
-  No significant improvements detected
+         name  bfs_nummer  prev_iou  curr_iou  improvement
+Grandfontaine        6792  0.985175  0.999996     0.014821
+      Bioggio        5151  0.985360  0.999992     0.014632
+ Schönengrund        3003  0.985395  0.999995     0.014600
+  Büttenhardt        2914  0.985574  0.999993     0.014420
+    Cademario        5161  0.988094  0.998194     0.010100
+         Agno        5141  0.990969  0.997880     0.006912
+        Manno        5194  0.993608  0.999891     0.006282
+         Fahy        6789  0.993698  0.997719     0.004020
+    Lohn (SH)        2917  0.990066  0.994035     0.003969
+  Haute-Ajoie        6809  0.996038  0.998245     0.002207
