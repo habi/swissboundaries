@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-09 03:06:54 UTC
+Generated: 2026-03-09 13:54:01 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -19,7 +19,7 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-08):
+Historical Comparison (vs 2026-03-09):
   Previous mean IoU: 0.9975
   Current mean IoU: 0.9975
   Change: +0.0000 (+0.00%)
@@ -38,14 +38,4 @@ Ronco sopra Ascona        5125 0.970388       3.045911
          Grub (AR)        3031 0.986692       0.097415
 
 Most Improved (if historical data available):
-         name  bfs_nummer  prev_iou  curr_iou  improvement
-Grandfontaine        6792  0.985175  0.999996     0.014821
-      Bioggio        5151  0.985360  0.999992     0.014632
- Schönengrund        3003  0.985395  0.999995     0.014600
-  Büttenhardt        2914  0.985574  0.999993     0.014420
-    Cademario        5161  0.988094  0.998194     0.010100
-         Agno        5141  0.990969  0.997880     0.006912
-        Manno        5194  0.993608  0.999891     0.006282
-         Fahy        6789  0.993698  0.997719     0.004020
-    Lohn (SH)        2917  0.990066  0.994035     0.003969
-  Haute-Ajoie        6809  0.996038  0.998245     0.002207
+  No significant improvements detected
