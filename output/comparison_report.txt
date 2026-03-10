@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-09 13:57:52 UTC
+Generated: 2026-03-10 03:02:01 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -11,7 +11,7 @@ Accuracy Metrics (for matched municipalities):
   Median IoU: 0.9984
   Mean area difference: 0.05%
   Mean symmetric difference: 0.24%
-  Mean Hausdorff distance: 22.929954m
+  Mean Hausdorff distance: 22.774250m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2110 (100.0%)
@@ -20,7 +20,7 @@ Quality Distribution:
   Poor (IoU < 0.90): 0 (0.0%)
 
 Historical Comparison (vs 2026-03-09):
-  Previous mean IoU: 0.9975
+  Previous mean IoU: 0.9976
   Current mean IoU: 0.9976
   Change: +0.0000 (+0.00%)
 
@@ -28,7 +28,6 @@ Worst 10 Matches (by IoU):
             name  bfs_nummer      iou  area_diff_pct
          Eschenz        4806 0.981348       1.542493
       Gächlingen        2901 0.985765       0.238097
-          Sergey        5762 0.985867       1.005245
          Chiasso        5250 0.985938       0.409476
        Cadenazzo        5003 0.986104       0.233487
             Pura        5216 0.986449       0.208040
@@ -36,15 +35,16 @@ Grolley-Ponthaux        2239 0.986514       0.009050
        Grub (AR)        3031 0.986692       0.097415
         Salgesch        6113 0.986849       0.976581
         Zeneggen        6299 0.986910       0.093745
+      Oberhallau        2972 0.987011       0.186765
 
 Most Improved (if historical data available):
-                name  bfs_nummer  prev_iou  curr_iou  improvement
-  Ronco sopra Ascona        5125  0.970388  0.999960     0.029572
-              Lugano        5192  0.972438  0.997158     0.024720
-     Collombey-Muraz        6152  0.987368  0.998790     0.011423
-              Egnach        4411  0.993022  0.998664     0.005642
-    Unterengstringen         249  0.995459  0.999892     0.004433
-              Fläsch        3951  0.994923  0.998524     0.003601
-  Bourg-Saint-Pierre        6032  0.995222  0.998769     0.003547
-Brione sopra Minusio        5096  0.996933  0.999992     0.003059
-        Saignelégier        6757  0.990745  0.992772     0.002027
+         name  bfs_nummer  prev_iou  curr_iou  improvement
+       Sergey        5762  0.985867  0.999990     0.014123
+      Kallern        4233  0.987181  0.999991     0.012810
+     Habsburg        4099  0.987451  0.999989     0.012537
+Leimbach (AG)        4137  0.988860  0.999987     0.011127
+  Hausen (AG)        4100  0.992369  0.995674     0.003305
+       Boswil        4228  0.992637  0.995108     0.002470
+     Salmsach        4441  0.996103  0.997928     0.001825
+       Rances        5760  0.996919  0.998493     0.001575
+        Brugg        4095  0.995165  0.996170     0.001004
