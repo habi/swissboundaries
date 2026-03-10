@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-10 03:02:01 UTC
+Generated: 2026-03-10 20:27:45 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,11 +7,11 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9976
+  Mean IoU: 0.9977
   Median IoU: 0.9984
   Mean area difference: 0.05%
-  Mean symmetric difference: 0.24%
-  Mean Hausdorff distance: 22.774250m
+  Mean symmetric difference: 0.23%
+  Mean Hausdorff distance: 22.401215m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2110 (100.0%)
@@ -19,32 +19,33 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-09):
+Historical Comparison (vs 2026-03-10):
   Previous mean IoU: 0.9976
-  Current mean IoU: 0.9976
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9977
+  Change: +0.0001 (+0.01%)
 
 Worst 10 Matches (by IoU):
-            name  bfs_nummer      iou  area_diff_pct
-         Eschenz        4806 0.981348       1.542493
-      Gächlingen        2901 0.985765       0.238097
-         Chiasso        5250 0.985938       0.409476
-       Cadenazzo        5003 0.986104       0.233487
-            Pura        5216 0.986449       0.208040
-Grolley-Ponthaux        2239 0.986514       0.009050
-       Grub (AR)        3031 0.986692       0.097415
-        Salgesch        6113 0.986849       0.976581
-        Zeneggen        6299 0.986910       0.093745
-      Oberhallau        2972 0.987011       0.186765
+       name  bfs_nummer      iou  area_diff_pct
+    Eschenz        4806 0.981348       1.542493
+ Gächlingen        2901 0.985765       0.238097
+   Salgesch        6113 0.986849       0.976581
+   Zeneggen        6299 0.986910       0.093745
+ Oberhallau        2972 0.987011       0.186765
+  Waldstatt        3007 0.987502       0.033728
+Kriechenwil         666 0.987925       0.545128
+    Zullwil        2622 0.987984       0.466812
+ Cortaillod        6408 0.988288       0.849591
+  Courtepin        2254 0.988316       0.311142
 
 Most Improved (if historical data available):
-         name  bfs_nummer  prev_iou  curr_iou  improvement
-       Sergey        5762  0.985867  0.999990     0.014123
-      Kallern        4233  0.987181  0.999991     0.012810
-     Habsburg        4099  0.987451  0.999989     0.012537
-Leimbach (AG)        4137  0.988860  0.999987     0.011127
-  Hausen (AG)        4100  0.992369  0.995674     0.003305
-       Boswil        4228  0.992637  0.995108     0.002470
-     Salmsach        4441  0.996103  0.997928     0.001825
-       Rances        5760  0.996919  0.998493     0.001575
-        Brugg        4095  0.995165  0.996170     0.001004
+            name  bfs_nummer  prev_iou  curr_iou  improvement
+         Chiasso        5250  0.985938  0.999993     0.014055
+       Cadenazzo        5003  0.986104  0.999994     0.013890
+            Pura        5216  0.986449  0.999993     0.013544
+Grolley-Ponthaux        2239  0.986514  0.999996     0.013482
+       Grub (AR)        3031  0.986692  0.999991     0.013299
+   Sant'Antonino        5017  0.988254  0.995280     0.007026
+       Rehetobel        3034  0.989316  0.994155     0.004839
+          Neggio        5206  0.989612  0.994410     0.004798
+   Belmont-Broye        2053  0.990037  0.994286     0.004249
+         Balerna        5242  0.992571  0.996313     0.003742
