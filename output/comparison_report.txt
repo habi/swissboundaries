@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-12 03:04:32 UTC
+Generated: 2026-03-13 03:02:54 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -7,11 +7,11 @@ Dataset Overview:
   Missing in OSM: 0 (0.0%)
 
 Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9977
+  Mean IoU: 0.9978
   Median IoU: 0.9984
-  Mean area difference: 0.05%
+  Mean area difference: 0.04%
   Mean symmetric difference: 0.23%
-  Mean Hausdorff distance: 21.975571m
+  Mean Hausdorff distance: 21.201541m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2110 (100.0%)
@@ -19,30 +19,33 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-11):
+Historical Comparison (vs 2026-03-12):
   Previous mean IoU: 0.9977
-  Current mean IoU: 0.9977
-  Change: +0.0000 (+0.00%)
+  Current mean IoU: 0.9978
+  Change: +0.0001 (+0.01%)
 
 Worst 10 Matches (by IoU):
-        name  bfs_nummer      iou  area_diff_pct
-     Eschenz        4806 0.981348       1.542493
-  Gächlingen        2901 0.985765       0.238097
-  Oberhallau        2972 0.987011       0.186765
-     Zullwil        2622 0.987984       0.466812
-  Cortaillod        6408 0.988288       0.849591
-   Courtepin        2254 0.988316       0.311142
-  Mettembert        6716 0.988337       0.930264
-Stetten (SH)        2919 0.988355       0.452406
-    Brissago        5097 0.988454       0.820700
-   Novazzano        5260 0.988595       0.770314
+             name  bfs_nummer      iou  area_diff_pct
+          Eschenz        4806 0.981348       1.542493
+       Gächlingen        2901 0.985765       0.238097
+       Oberhallau        2972 0.987011       0.186765
+     Stetten (SH)        2919 0.988355       0.452406
+         Brissago        5097 0.988454       0.820700
+        Novazzano        5260 0.988595       0.770314
+             Avry        2174 0.988654       0.088251
+              Vex        6089 0.988795       0.200132
+              Lax        6061 0.988868       0.008767
+Castel San Pietro        5249 0.988873       0.040000
 
 Most Improved (if historical data available):
-        name  bfs_nummer  prev_iou  curr_iou  improvement
-    Zeneggen        6299  0.986910  0.999996     0.013086
-   Waldstatt        3007  0.987502  0.999995     0.012493
- Kriechenwil         666  0.987925  0.999993     0.012069
-     Bürchen        6193  0.989574  0.995916     0.006342
-   Ferenbalm         662  0.989749  0.995529     0.005780
-Schwellbrunn        3004  0.994388  0.997226     0.002838
-     Herisau        3001  0.996764  0.997795     0.001031
+           name  bfs_nummer  prev_iou  curr_iou  improvement
+        Zullwil        2622  0.987984  0.999994     0.012010
+     Cortaillod        6408  0.988288  0.999993     0.011705
+      Courtepin        2254  0.988316  0.999996     0.011679
+     Mettembert        6716  0.988337  0.999987     0.011650
+  Hombrechtikon         153  0.988942  0.999996     0.011053
+         Bünzen        4229  0.989679  0.999995     0.010315
+        Bubikon         112  0.992687  0.998511     0.005824
+     Besenbüren        4226  0.990838  0.996625     0.005787
+       Avenches        5451  0.995112  0.999058     0.003946
+Misery-Courtion        2272  0.994969  0.998629     0.003660
