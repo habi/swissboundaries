@@ -1,45 +1,82 @@
-Swiss municipality boundary comparison report
-Generated: 2026-03-13 13:21:55 UTC
+# Swiss municipality boundary comparison report
+Generated: 2026-03-13 13:46:51 UTC
 
-Dataset Overview:
-  Total Swisstopo municipalities: {total}
-  Matched in OSM: 2110 (100.0%)
-  Missing in OSM: 0 (0.0%)
+## Dataset Overview
 
-Accuracy Metrics (for matched municipalities):
-  Mean IoU: 0.9978
-  Median IoU: 0.9984
-  Mean area difference: 0.04%
-  Mean symmetric difference: 0.22%
-  Mean Hausdorff distance: 20.911m
+| Metric | Value |
+|--------|-------|
+| Total Swisstopo municipalities | 2110 |
+| Matched in OSM | 2110 (100.0%) |
+| Missing in OSM | 0 (0.0%) |
+|  Only in OSM (not in Swisstopo) | 157
 
-Quality Distribution:
-  Excellent (IoU ≥ 0.98): 2110 (100.0%)
-  Good (IoU ≥ 0.95): 0 (0.0%)
-  Fair (IoU ≥ 0.90): 0 (0.0%)
-  Poor (IoU < 0.90): 0 (0.0%)
+## Accuracy Metrics (for matched municipalities)
 
-Historical Comparison (vs 2026-03-13):
-  Previous mean IoU: 0.9978
-  Current mean IoU: 0.9978
-  Change: +0.0000 (+0.00%)
+| Metric | Value |
+|--------|-------|
+| Mean IoU | 0.9978 |
+| Median IoU | 0.9984 |
+| Mean area difference | 0.04% |
+| Mean symmetric difference | 0.22% |
+| Mean Hausdorff distance | 20.911 m |
 
-Worst 10 Matches (by IoU):
-             name  bfs_nummer      iou  area_diff_pct
-          Eschenz        4806 0.981348       1.542493
-       Gächlingen        2901 0.985765       0.238097
-       Oberhallau        2972 0.987011       0.186765
-     Stetten (SH)        2919 0.988355       0.452406
-         Brissago        5097 0.988454       0.820700
-        Novazzano        5260 0.988595       0.770314
-             Avry        2174 0.988654       0.088251
-              Vex        6089 0.988795       0.200132
-              Lax        6061 0.988868       0.008767
-Castel San Pietro        5249 0.988873       0.040000
+## Quality Distribution
 
-Most Improved (if historical data available):
-         name  bfs_nummer  prev_iou  curr_iou  improvement
-       Laténa        6513  0.990142  0.999721     0.009579
-    Iseltwald         582  0.993718  0.999918     0.006200
-Gündlischwand         578  0.990757  0.993402     0.002645
-      Bönigen         572  0.995201  0.997449     0.002248
+| Quality | Count | Percentage |
+|---------|-------|------------|
+| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
+| Good (IoU ≥ 0.95) | 0 | 0.0% |
+| Fair (IoU ≥ 0.90) | 0 | 0.0% |
+| Poor (IoU < 0.90) | 0 | 0.0% |
+
+## Historical Comparison (vs 2026-03-13)
+
+| Metric | Value |
+|--------|-------|
+| Previous mean IoU | 0.9978 |
+| Current mean IoU | 0.9978 |
+| Change | +0.0000 (+0.00%) |
+
+## Worst 10 Matches (by IoU)
+
+| name              |   bfs_nummer |      iou |   area_diff_pct |
+|:------------------|-------------:|---------:|----------------:|
+| Eschenz           |         4806 | 0.981348 |      1.54249    |
+| Gächlingen        |         2901 | 0.985765 |      0.238097   |
+| Oberhallau        |         2972 | 0.987011 |      0.186765   |
+| Stetten (SH)      |         2919 | 0.988355 |      0.452406   |
+| Brissago          |         5097 | 0.988454 |      0.8207     |
+| Novazzano         |         5260 | 0.988595 |      0.770314   |
+| Avry              |         2174 | 0.988654 |      0.0882511  |
+| Vex               |         6089 | 0.988795 |      0.200132   |
+| Lax               |         6061 | 0.988868 |      0.00876716 |
+| Castel San Pietro |         5249 | 0.988873 |      0.0399999  |
+
+## Most Improved (if historical data available)
+
+No significant improvements detected.
+
+BFS numbers only in OSM (not in Swisstopo) (showing first 20):
+
+| name          |   bfs_nummer |   relation |
+|:--------------|-------------:|-----------:|
+| La Heutte     |          436 |    1682520 |
+| Plagne        |          440 |    1682606 |
+| Vauffelin     |          447 |    1682705 |
+| Trimstein     |          631 |    1682690 |
+| Bévilard      |          682 |    1682402 |
+| Châtelat      |          684 |    1682409 |
+| Malleray      |          697 |    1682546 |
+| Monible       |          699 |    1682556 |
+| Pontenet      |          702 |    1682608 |
+| Sornetan      |          710 |    1682669 |
+| Souboz        |          712 |    1682671 |
+| Diesse        |          721 |    1682422 |
+| Lamboing      |          722 |    1682522 |
+| Prêles        |          725 |    1682610 |
+| Niederstocken |          764 |    1682579 |
+| Oberstocken   |          765 |    1682593 |
+| Gadmen        |          781 |    1682447 |
+| Höfen         |          930 |    1682488 |
+| Bussy (FR)    |         2004 |    1683281 |
+| Châbles FR    |         2005 |    1683289 |
