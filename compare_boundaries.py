@@ -361,7 +361,8 @@ def calculate_metrics(geom1, geom2):
 
         # Distance metrics, helpful for conflation
         try:
-            hausdorff = geom1.hausdorff_distance(geom2)
+            # Round hausdorff to 3 decimals, which is millimeter precision in EPSG:2056 and sufficient for this context
+            hausdorff = round(geom1.hausdorff_distance(geom2), 3)
         except:
             hausdorff = float("nan")
 
@@ -1185,7 +1186,7 @@ def generate_report(results_df, historical_df):
             f"  Mean symmetric difference: {matched_df['symmetric_diff_pct'].mean():.2f}%"
         )
         report_lines.append(
-            f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.6f}m"
+            f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.3f}m"
         )
 
         excellent = (matched_df["iou"] >= 0.98).sum()
