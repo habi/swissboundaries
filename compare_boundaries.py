@@ -1313,7 +1313,7 @@ def generate_report(results_df, historical_df):
     # BFS numbers only in Swisstopo (missing in OSM)
     if len(only_swisstopo_df) > 0:
         report_lines.append(
-            "\nBFS numbers only in Swisstopo (missing in OSM) (showing first 20):"
+            "\n## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):"
         )
         swisstopo_only_list = only_swisstopo_df.head(20)[["name", "bfs_nummer"]]
         report_lines.append(swisstopo_only_list.to_string(index=False))
@@ -1321,7 +1321,7 @@ def generate_report(results_df, historical_df):
     # BFS numbers only in OSM (not in Swisstopo)
     if len(only_osm_df) > 0:
         report_lines.append(
-            "\nBFS numbers only in OSM (not in Swisstopo) (showing first 20):"
+            "\n## BFS numbers only in OSM (not in Swisstopo) (showing first 20):"
         )
         osm_only_list = only_osm_df.head(20)[["name", "bfs_nummer", "relation"]]
         report_lines.append("\n" + osm_only_list.to_markdown(index=False))
