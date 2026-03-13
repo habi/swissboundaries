@@ -386,17 +386,23 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
 
     results = []
     osm_lookup = {}
+    osm_id_lookup = {}
+    osm_name_lookup = {}
 
     for idx, row in osm_gdf.iterrows():
         bfs_num = row.get("swisstopo:BFS_NUMMER")
         if bfs_num:
             osm_lookup[str(bfs_num)] = row.geometry
+            osm_id_lookup[str(bfs_num)] = str(row.get("osm_id", ""))
+            osm_name_lookup[str(bfs_num)] = row.get("name", "")
 
     print(f"OSM lookup contains {len(osm_lookup)} municipalities")
 
+    swisstopo_bfs_set = set()
     for idx, row in swisstopo_gdf.iterrows():
         name = row.get("name", row.get("NAME", "Unknown"))
         bfs_num = int(row["bfs_nummer"])
+        swisstopo_bfs_set.add(str(bfs_num))
         kantonsnummer = (
             int(row.get("kantonsnummer"))
             if pd.notna(row.get("kantonsnummer"))
@@ -411,18 +417,13 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
         if str(bfs_num) in osm_lookup:
             metrics = calculate_metrics(row.geometry, osm_lookup[str(bfs_num)])
             if metrics:
-                osm_id = str(
-                    osm_gdf[osm_gdf["swisstopo:BFS_NUMMER"] == str(bfs_num)][
-                        "osm_id"
-                    ].values[0]
-                )
                 results.append(
                     {
                         "name": name,
                         "bfs_nummer": bfs_num,
                         "kantonsnummer": kantonsnummer,
                         "bezirksnummer": bezirksnummer,
-                        "relation": osm_id,
+                        "relation": osm_id_lookup[str(bfs_num)],
                         **metrics,
                     }
                 )
@@ -436,6 +437,29 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                     "relation": "",
                 }
             )
+
+    # Find BFS numbers only in OSM (not present in swisstopo)
+    # Entries with non-empty relation and NaN iou are OSM-only; entries with
+    # empty relation and NaN iou are swisstopo-only (missing in OSM).
+    osm_only_bfs = sorted(
+        set(osm_lookup.keys()) - swisstopo_bfs_set,
+        key=lambda x: int(x) if x.lstrip("-").isdigit() else float("inf"),
+    )
+    for bfs_num_str in osm_only_bfs:
+        results.append(
+            {
+                "name": osm_name_lookup.get(bfs_num_str, ""),
+                "bfs_nummer": (
+                    int(bfs_num_str)
+                    if bfs_num_str.lstrip("-").isdigit()
+                    else bfs_num_str
+                ),
+                "kantonsnummer": None,
+                "bezirksnummer": None,
+                "relation": osm_id_lookup.get(bfs_num_str, ""),
+            }
+        )
+    print(f"Found {len(osm_only_bfs)} BFS numbers only in OSM")
 
     return pd.DataFrame(results)
 
@@ -459,10 +483,10 @@ def compare_dataframes(gdf_swisstopo, gdf_osm):
 
     # Check for BFS_NUMMER overlap
     if (
-        "BFS_NUMMER" in gdf_swisstopo.columns
+        "bfs_nummer" in gdf_swisstopo.columns
         and "swisstopo:BFS_NUMMER" in gdf_osm.columns
     ):
-        swisstopo_bfs = set(gdf_swisstopo["BFS_NUMMER"].astype(str))
+        swisstopo_bfs = set(gdf_swisstopo["bfs_nummer"].astype(str))
         osm_bfs = set(gdf_osm["swisstopo:BFS_NUMMER"].astype(str))
 
         common = swisstopo_bfs & osm_bfs
@@ -1164,18 +1188,30 @@ def generate_report(results_df, historical_df):
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}"
     )
 
-    total = len(results_df)
-    matched = results_df["iou"].notna().sum()
-    missing = total - matched
+    # Classify result rows by how they were populated in compare_boundaries:
+    #   - matched:          iou is not NaN (comparison succeeded)
+    #   - swisstopo-only:   relation == "" and iou is NaN (no OSM counterpart)
+    #   - OSM-only:         relation != "" and iou is NaN (no swisstopo counterpart)
+    matched_df = results_df[results_df["iou"].notna()]
+    only_swisstopo_df = results_df[
+        (results_df["relation"] == "") & results_df["iou"].isna()
+    ]
+    only_osm_df = results_df[
+        (results_df["relation"] != "") & results_df["iou"].isna()
+    ]
+    matched = len(matched_df)
+    missing = len(only_swisstopo_df)
+    total = matched + missing
 
     report_lines.append("\nDataset Overview:")
-    report_lines.append("  Total Swisstopo municipalities: {total}")
+    report_lines.append(f"  Total Swisstopo municipalities: {total}")
     report_lines.append(f"  Matched in OSM: {matched} ({matched/total*100:.1f}%)")
-    report_lines.append(f"  Missing in OSM: {missing} ({missing/total*100:.1f}%)")
+    report_lines.append(
+        f"  Only in Swisstopo (missing in OSM): {missing} ({missing/total*100:.1f}%)"
+    )
+    report_lines.append(f"  Only in OSM (not in Swisstopo): {len(only_osm_df)}")
 
     if matched > 0:
-        matched_df = results_df[results_df["iou"].notna()]
-
         report_lines.append("\nAccuracy Metrics (for matched municipalities):")
         report_lines.append(f"  Mean IoU: {matched_df['iou'].mean():.4f}")
         report_lines.append(f"  Median IoU: {matched_df['iou'].median():.4f}")
@@ -1262,12 +1298,21 @@ def generate_report(results_df, historical_df):
         else:
             report_lines.append("  (Insufficient historical data)")
 
-    # Missing municipalities
-    missing_df = results_df[results_df["relation"] == "Not found in OSM"]
-    if len(missing_df) > 0:
-        report_lines.append("\nMissing Municipalities (showing first 20):")
-        missing_list = missing_df.head(20)[["name", "bfs_nummer"]]
-        report_lines.append(missing_list.to_string(index=False))
+    # BFS numbers only in Swisstopo (missing in OSM)
+    if len(only_swisstopo_df) > 0:
+        report_lines.append(
+            "\nBFS numbers only in Swisstopo (missing in OSM) (showing first 20):"
+        )
+        swisstopo_only_list = only_swisstopo_df.head(20)[["name", "bfs_nummer"]]
+        report_lines.append(swisstopo_only_list.to_string(index=False))
+
+    # BFS numbers only in OSM (not in Swisstopo)
+    if len(only_osm_df) > 0:
+        report_lines.append(
+            "\nBFS numbers only in OSM (not in Swisstopo) (showing first 20):"
+        )
+        osm_only_list = only_osm_df.head(20)[["name", "bfs_nummer", "relation"]]
+        report_lines.append(osm_only_list.to_string(index=False))
 
     report_text = "\n".join(report_lines)
     print(report_text)
