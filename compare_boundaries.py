@@ -1183,7 +1183,7 @@ def create_iou_changes_plot(min_delta=0.0001):
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
-    report_lines.append("Swiss municipality boundary comparison report")
+    report_lines.append("# Swiss municipality boundary comparison report")
     report_lines.append(
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}"
     )
@@ -1203,26 +1203,28 @@ def generate_report(results_df, historical_df):
     missing = len(only_swisstopo_df)
     total = matched + missing
 
-    report_lines.append("\nDataset Overview:")
-    report_lines.append(f"  Total Swisstopo municipalities: {total}")
-    report_lines.append(f"  Matched in OSM: {matched} ({matched/total*100:.1f}%)")
-    report_lines.append(
-        f"  Only in Swisstopo (missing in OSM): {missing} ({missing/total*100:.1f}%)"
-    )
-    report_lines.append(f"  Only in OSM (not in Swisstopo): {len(only_osm_df)}")
+    report_lines.append("\n## Dataset Overview")
+    report_lines.append("\n| Metric | Value |")
+    report_lines.append("|--------|-------|")
+    report_lines.append(f"| Total Swisstopo municipalities | {total} |")
+    report_lines.append(f"| Matched in OSM | {matched} ({matched/total*100:.1f}%) |")
+    report_lines.append(f"| Missing in OSM | {missing} ({missing/total*100:.1f}%) |")
+    report_lines.append(f"|  Only in OSM (not in Swisstopo) | {len(only_osm_df)}")
 
     if matched > 0:
-        report_lines.append("\nAccuracy Metrics (for matched municipalities):")
-        report_lines.append(f"  Mean IoU: {matched_df['iou'].mean():.4f}")
-        report_lines.append(f"  Median IoU: {matched_df['iou'].median():.4f}")
+        report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
+        report_lines.append("\n| Metric | Value |")
+        report_lines.append("|--------|-------|")
+        report_lines.append(f"| Mean IoU | {matched_df['iou'].mean():.4f} |")
+        report_lines.append(f"| Median IoU | {matched_df['iou'].median():.4f} |")
         report_lines.append(
-            f"  Mean area difference: {matched_df['area_diff_pct'].mean():.2f}%"
+            f"| Mean area difference | {matched_df['area_diff_pct'].mean():.2f}% |"
         )
         report_lines.append(
-            f"  Mean symmetric difference: {matched_df['symmetric_diff_pct'].mean():.2f}%"
+            f"| Mean symmetric difference | {matched_df['symmetric_diff_pct'].mean():.2f}% |"
         )
         report_lines.append(
-            f"  Mean Hausdorff distance: {matched_df['hausdorff_distance'].mean():.3f}m"
+            f"| Mean Hausdorff distance | {matched_df['hausdorff_distance'].mean():.3f} m |"
         )
 
         excellent = (matched_df["iou"] >= 0.98).sum()
@@ -1230,13 +1232,21 @@ def generate_report(results_df, historical_df):
         fair = ((matched_df["iou"] >= 0.90) & (matched_df["iou"] < 0.95)).sum()
         poor = (matched_df["iou"] < 0.90).sum()
 
-        report_lines.append("\nQuality Distribution:")
+        report_lines.append("\n## Quality Distribution")
+        report_lines.append("\n| Quality | Count | Percentage |")
+        report_lines.append("|---------|-------|------------|")
         report_lines.append(
-            f"  Excellent (IoU ≥ 0.98): {excellent} ({excellent/matched*100:.1f}%)"
+            f"| Excellent (IoU ≥ 0.98) | {excellent} | {excellent/matched*100:.1f}% |"
         )
-        report_lines.append(f"  Good (IoU ≥ 0.95): {good} ({good/matched*100:.1f}%)")
-        report_lines.append(f"  Fair (IoU ≥ 0.90): {fair} ({fair/matched*100:.1f}%)")
-        report_lines.append(f"  Poor (IoU < 0.90): {poor} ({poor/matched*100:.1f}%)")
+        report_lines.append(
+            f"| Good (IoU ≥ 0.95) | {good} | {good/matched*100:.1f}% |"
+        )
+        report_lines.append(
+            f"| Fair (IoU ≥ 0.90) | {fair} | {fair/matched*100:.1f}% |"
+        )
+        report_lines.append(
+            f"| Poor (IoU < 0.90) | {poor} | {poor/matched*100:.1f}% |"
+        )
 
         # Historical comparison
         if len(historical_df) > 0:
@@ -1250,21 +1260,23 @@ def generate_report(results_df, historical_df):
                 iou_change = current_mean_iou - prev_mean_iou
 
                 report_lines.append(
-                    f"\nHistorical Comparison (vs {prev_date.strftime('%Y-%m-%d')}):"
+                    f"\n## Historical Comparison (vs {prev_date.strftime('%Y-%m-%d')})"
                 )
-                report_lines.append(f"  Previous mean IoU: {prev_mean_iou:.4f}")
-                report_lines.append(f"  Current mean IoU: {current_mean_iou:.4f}")
+                report_lines.append("\n| Metric | Value |")
+                report_lines.append("|--------|-------|")
+                report_lines.append(f"| Previous mean IoU | {prev_mean_iou:.4f} |")
+                report_lines.append(f"| Current mean IoU | {current_mean_iou:.4f} |")
                 report_lines.append(
-                    f"  Change: {iou_change:+.4f} ({iou_change/prev_mean_iou*100:+.2f}%)"
+                    f"| Change | {iou_change:+.4f} ({iou_change/prev_mean_iou*100:+.2f}%) |"
                 )
 
-        report_lines.append("\nWorst 10 Matches (by IoU):")
+        report_lines.append("\n## Worst 10 Matches (by IoU)")
         worst = matched_df.nsmallest(10, "iou")[
             ["name", "bfs_nummer", "iou", "area_diff_pct"]
         ]
-        report_lines.append(worst.to_string(index=False))
+        report_lines.append("\n" + worst.to_markdown(index=False))
 
-        report_lines.append("\nMost Improved (if historical data available):")
+        report_lines.append("\n## Most Improved (if historical data available)")
         if len(historical_df) > 0:
             # Find municipalities that improved
             prev_date = historical_df["date"].max()
@@ -1292,11 +1304,11 @@ def generate_report(results_df, historical_df):
 
             if improvements:
                 imp_df = pd.DataFrame(improvements).nlargest(10, "improvement")
-                report_lines.append(imp_df.to_string(index=False))
+                report_lines.append("\n" + imp_df.to_markdown(index=False))
             else:
-                report_lines.append("  No significant improvements detected")
+                report_lines.append("\nNo significant improvements detected.")
         else:
-            report_lines.append("  (Insufficient historical data)")
+            report_lines.append("\n_(Insufficient historical data)_")
 
     # BFS numbers only in Swisstopo (missing in OSM)
     if len(only_swisstopo_df) > 0:
@@ -1312,7 +1324,7 @@ def generate_report(results_df, historical_df):
             "\nBFS numbers only in OSM (not in Swisstopo) (showing first 20):"
         )
         osm_only_list = only_osm_df.head(20)[["name", "bfs_nummer", "relation"]]
-        report_lines.append(osm_only_list.to_string(index=False))
+        report_lines.append("\n" + osm_only_list.to_markdown(index=False))
 
     report_text = "\n".join(report_lines)
     print(report_text)

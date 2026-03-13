@@ -1,5 +1,5 @@
 Swiss municipality boundary comparison report
-Generated: 2026-03-13 03:02:54 UTC
+Generated: 2026-03-13 13:21:55 UTC
 
 Dataset Overview:
   Total Swisstopo municipalities: {total}
@@ -10,8 +10,8 @@ Accuracy Metrics (for matched municipalities):
   Mean IoU: 0.9978
   Median IoU: 0.9984
   Mean area difference: 0.04%
-  Mean symmetric difference: 0.23%
-  Mean Hausdorff distance: 21.201541m
+  Mean symmetric difference: 0.22%
+  Mean Hausdorff distance: 20.911m
 
 Quality Distribution:
   Excellent (IoU ≥ 0.98): 2110 (100.0%)
@@ -19,10 +19,10 @@ Quality Distribution:
   Fair (IoU ≥ 0.90): 0 (0.0%)
   Poor (IoU < 0.90): 0 (0.0%)
 
-Historical Comparison (vs 2026-03-12):
-  Previous mean IoU: 0.9977
+Historical Comparison (vs 2026-03-13):
+  Previous mean IoU: 0.9978
   Current mean IoU: 0.9978
-  Change: +0.0001 (+0.01%)
+  Change: +0.0000 (+0.00%)
 
 Worst 10 Matches (by IoU):
              name  bfs_nummer      iou  area_diff_pct
@@ -38,14 +38,8 @@ Worst 10 Matches (by IoU):
 Castel San Pietro        5249 0.988873       0.040000
 
 Most Improved (if historical data available):
-           name  bfs_nummer  prev_iou  curr_iou  improvement
-        Zullwil        2622  0.987984  0.999994     0.012010
-     Cortaillod        6408  0.988288  0.999993     0.011705
-      Courtepin        2254  0.988316  0.999996     0.011679
-     Mettembert        6716  0.988337  0.999987     0.011650
-  Hombrechtikon         153  0.988942  0.999996     0.011053
-         Bünzen        4229  0.989679  0.999995     0.010315
-        Bubikon         112  0.992687  0.998511     0.005824
-     Besenbüren        4226  0.990838  0.996625     0.005787
-       Avenches        5451  0.995112  0.999058     0.003946
-Misery-Courtion        2272  0.994969  0.998629     0.003660
+         name  bfs_nummer  prev_iou  curr_iou  improvement
+       Laténa        6513  0.990142  0.999721     0.009579
+    Iseltwald         582  0.993718  0.999918     0.006200
+Gündlischwand         578  0.990757  0.993402     0.002645
+      Bönigen         572  0.995201  0.997449     0.002248
