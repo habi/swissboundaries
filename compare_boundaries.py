@@ -1183,7 +1183,6 @@ def create_iou_changes_plot(min_delta=0.0001):
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
-    report_lines.append("# Swiss municipality boundary comparison report")
     report_lines.append(
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}"
     )
