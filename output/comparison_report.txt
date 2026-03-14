@@ -1,5 +1,4 @@
-# Swiss municipality boundary comparison report
-Generated: 2026-03-14 03:01:24 UTC
+Generated: 2026-03-14 08:55:06 UTC
 
 ## Dataset Overview
 
@@ -18,7 +17,7 @@ Generated: 2026-03-14 03:01:24 UTC
 | Median IoU | 0.9984 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.22% |
-| Mean Hausdorff distance | 20.237 m |
+| Mean Hausdorff distance | 19.963 m |
 
 ## Quality Distribution
 
@@ -29,7 +28,7 @@ Generated: 2026-03-14 03:01:24 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-13)
+## Historical Comparison (vs 2026-03-14)
 
 | Metric | Value |
 |--------|-------|
@@ -54,12 +53,13 @@ Generated: 2026-03-14 03:01:24 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Ormont-Dessous  |         5410 |   0.993475 |   0.999199 |    0.00572426 |
-| Villeneuve (VD) |         5414 |   0.995486 |   0.999626 |    0.00413972 |
-| Château-d'Oex   |         5841 |   0.996726 |   0.999999 |    0.00327262 |
-| Grandvillard    |         2134 |   0.993802 |   0.996993 |    0.00319142 |
+| name                      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------------------|-------------:|-----------:|-----------:|--------------:|
+| Beatenberg                |          571 |   0.9912   |   0.999997 |    0.00879733 |
+| Habkern                   |          579 |   0.994505 |   0.999998 |    0.00549338 |
+| Niederried bei Interlaken |          588 |   0.992412 |   0.99699  |    0.00457812 |
+| Ringgenberg (BE)          |          590 |   0.997333 |   0.999014 |    0.00168058 |
+| Oberried am Brienzersee   |          589 |   0.995249 |   0.996315 |    0.00106644 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
