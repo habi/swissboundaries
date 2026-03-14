@@ -1,5 +1,5 @@
 # Swiss municipality boundary comparison report
-Generated: 2026-03-13 21:56:06 UTC
+Generated: 2026-03-14 03:01:24 UTC
 
 ## Dataset Overview
 
@@ -18,7 +18,7 @@ Generated: 2026-03-13 21:56:06 UTC
 | Median IoU | 0.9984 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.22% |
-| Mean Hausdorff distance | 20.546 m |
+| Mean Hausdorff distance | 20.237 m |
 
 ## Quality Distribution
 
@@ -54,7 +54,12 @@ Generated: 2026-03-13 21:56:06 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Ormont-Dessous  |         5410 |   0.993475 |   0.999199 |    0.00572426 |
+| Villeneuve (VD) |         5414 |   0.995486 |   0.999626 |    0.00413972 |
+| Château-d'Oex   |         5841 |   0.996726 |   0.999999 |    0.00327262 |
+| Grandvillard    |         2134 |   0.993802 |   0.996993 |    0.00319142 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
