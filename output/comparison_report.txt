@@ -1,4 +1,4 @@
-Generated: 2026-03-18 03:08:09 UTC
+Generated: 2026-03-18 11:24:16 UTC
 
 ## Dataset Overview
 
@@ -28,11 +28,11 @@ Generated: 2026-03-18 03:08:09 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-17)
+## Historical Comparison (vs 2026-03-18)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9978 |
+| Previous mean IoU | 0.9979 |
 | Current mean IoU | 0.9979 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,17 +53,7 @@ Generated: 2026-03-18 03:08:09 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Oberhallau      |         2972 |   0.987011 |   0.999813 |    0.0128019  |
-| Vex             |         6089 |   0.988795 |   0.999997 |    0.0112021  |
-| Gächlingen      |         2901 |   0.985765 |   0.990134 |    0.00436902 |
-| Châtillon (FR)  |         2008 |   0.99607  |   0.999414 |    0.00334438 |
-| Sévaz           |         2043 |   0.996942 |   0.999754 |    0.00281208 |
-| Cheyres-Châbles |         2055 |   0.996182 |   0.998517 |    0.00233454 |
-| Hallau          |         2971 |   0.994851 |   0.996816 |    0.00196561 |
-| Stalden (VS)    |         6293 |   0.99016  |   0.992089 |    0.00192914 |
-| Estavayer       |         2054 |   0.998317 |   0.999898 |    0.0015812  |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
