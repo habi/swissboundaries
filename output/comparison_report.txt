@@ -1,4 +1,4 @@
-Generated: 2026-03-17 03:04:55 UTC
+Generated: 2026-03-18 03:08:09 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-03-17 03:04:55 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9978 |
+| Mean IoU | 0.9979 |
 | Median IoU | 0.9984 |
 | Mean area difference | 0.04% |
-| Mean symmetric difference | 0.22% |
-| Mean Hausdorff distance | 18.888 m |
+| Mean symmetric difference | 0.21% |
+| Mean Hausdorff distance | 18.714 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-03-17 03:04:55 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-16)
+## Historical Comparison (vs 2026-03-17)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9978 |
-| Current mean IoU | 0.9978 |
+| Current mean IoU | 0.9979 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -41,24 +41,29 @@ Generated: 2026-03-17 03:04:55 UTC
 | name              |   bfs_nummer |      iou |   area_diff_pct |
 |:------------------|-------------:|---------:|----------------:|
 | Eschenz           |         4806 | 0.981348 |      1.54249    |
-| Gächlingen        |         2901 | 0.985765 |      0.238097   |
-| Oberhallau        |         2972 | 0.987011 |      0.186765   |
 | Stetten (SH)      |         2919 | 0.988355 |      0.452406   |
 | Brissago          |         5097 | 0.988454 |      0.8207     |
 | Novazzano         |         5260 | 0.988595 |      0.770314   |
 | Avry              |         2174 | 0.988654 |      0.0882511  |
-| Vex               |         6089 | 0.988795 |      0.200132   |
 | Lax               |         6061 | 0.988868 |      0.00876716 |
 | Castel San Pietro |         5249 | 0.988873 |      0.0399999  |
+| Loveresse         |          696 | 0.98912  |      0.0272615  |
+| Mergoscia         |         5117 | 0.989268 |      0.168957   |
+| Rovray            |         5928 | 0.989745 |      0.163708   |
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Laupen        |          667 |   0.99162  |   0.999994 |    0.0083731  |
-| Montagny (FR) |         2029 |   0.989263 |   0.996673 |    0.00740989 |
-| Belmont-Broye |         2053 |   0.994286 |   0.999997 |    0.00571172 |
-| Ferenbalm     |          662 |   0.995529 |   0.998977 |    0.00344823 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Oberhallau      |         2972 |   0.987011 |   0.999813 |    0.0128019  |
+| Vex             |         6089 |   0.988795 |   0.999997 |    0.0112021  |
+| Gächlingen      |         2901 |   0.985765 |   0.990134 |    0.00436902 |
+| Châtillon (FR)  |         2008 |   0.99607  |   0.999414 |    0.00334438 |
+| Sévaz           |         2043 |   0.996942 |   0.999754 |    0.00281208 |
+| Cheyres-Châbles |         2055 |   0.996182 |   0.998517 |    0.00233454 |
+| Hallau          |         2971 |   0.994851 |   0.996816 |    0.00196561 |
+| Stalden (VS)    |         6293 |   0.99016  |   0.992089 |    0.00192914 |
+| Estavayer       |         2054 |   0.998317 |   0.999898 |    0.0015812  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
