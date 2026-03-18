@@ -1,4 +1,4 @@
-Generated: 2026-03-18 11:24:16 UTC
+Generated: 2026-03-18 18:07:42 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-03-18 11:24:16 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9979 |
-| Median IoU | 0.9984 |
+| Median IoU | 0.9985 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.21% |
-| Mean Hausdorff distance | 18.714 m |
+| Mean Hausdorff distance | 18.305 m |
 
 ## Quality Distribution
 
@@ -38,22 +38,33 @@ Generated: 2026-03-18 11:24:16 UTC
 
 ## Worst 10 Matches (by IoU)
 
-| name              |   bfs_nummer |      iou |   area_diff_pct |
-|:------------------|-------------:|---------:|----------------:|
-| Eschenz           |         4806 | 0.981348 |      1.54249    |
-| Stetten (SH)      |         2919 | 0.988355 |      0.452406   |
-| Brissago          |         5097 | 0.988454 |      0.8207     |
-| Novazzano         |         5260 | 0.988595 |      0.770314   |
-| Avry              |         2174 | 0.988654 |      0.0882511  |
-| Lax               |         6061 | 0.988868 |      0.00876716 |
-| Castel San Pietro |         5249 | 0.988873 |      0.0399999  |
-| Loveresse         |          696 | 0.98912  |      0.0272615  |
-| Mergoscia         |         5117 | 0.989268 |      0.168957   |
-| Rovray            |         5928 | 0.989745 |      0.163708   |
+| name           |   bfs_nummer |      iou |   area_diff_pct |
+|:---------------|-------------:|---------:|----------------:|
+| Eschenz        |         4806 | 0.981348 |       1.54249   |
+| Stetten (SH)   |         2919 | 0.988355 |       0.452406  |
+| Brissago       |         5097 | 0.988454 |       0.8207    |
+| Novazzano      |         5260 | 0.988595 |       0.770314  |
+| Mergoscia      |         5117 | 0.989268 |       0.168957  |
+| Rovray         |         5928 | 0.989745 |       0.163708  |
+| Mezzovico-Vira |         5199 | 0.989806 |       0.0391297 |
+| Buch (SH)      |         2961 | 0.989827 |       0.341028  |
+| Löhningen      |         2903 | 0.989935 |       0.484247  |
+| Lütschental    |          586 | 0.989967 |       0.575262  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------------|-------------:|-----------:|-----------:|--------------:|
+| Avry                  |         2174 |   0.988654 |   0.999995 |    0.0113403  |
+| Lax                   |         6061 |   0.988868 |   0.999994 |    0.0111254  |
+| Castel San Pietro     |         5249 |   0.988873 |   0.999994 |    0.0111201  |
+| Loveresse             |          696 |   0.98912  |   0.999995 |    0.0108742  |
+| La Brillaz            |         2234 |   0.991366 |   0.996028 |    0.00466216 |
+| Fiesch                |         6057 |   0.994812 |   0.999311 |    0.00449871 |
+| Balerna               |         5242 |   0.996313 |   0.999608 |    0.00329518 |
+| Breggia               |         5269 |   0.995024 |   0.997446 |    0.00242215 |
+| Valbirse              |          717 |   0.997112 |   0.999446 |    0.00233403 |
+| Matten bei Interlaken |          587 |   0.994284 |   0.996377 |    0.00209317 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
