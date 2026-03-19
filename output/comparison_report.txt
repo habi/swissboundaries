@@ -1,4 +1,4 @@
-Generated: 2026-03-18 18:07:42 UTC
+Generated: 2026-03-19 03:08:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-18 18:07:42 UTC
 | Median IoU | 0.9985 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.21% |
-| Mean Hausdorff distance | 18.305 m |
+| Mean Hausdorff distance | 18.195 m |
 
 ## Quality Distribution
 
@@ -53,18 +53,11 @@ Generated: 2026-03-18 18:07:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------------|-------------:|-----------:|-----------:|--------------:|
-| Avry                  |         2174 |   0.988654 |   0.999995 |    0.0113403  |
-| Lax                   |         6061 |   0.988868 |   0.999994 |    0.0111254  |
-| Castel San Pietro     |         5249 |   0.988873 |   0.999994 |    0.0111201  |
-| Loveresse             |          696 |   0.98912  |   0.999995 |    0.0108742  |
-| La Brillaz            |         2234 |   0.991366 |   0.996028 |    0.00466216 |
-| Fiesch                |         6057 |   0.994812 |   0.999311 |    0.00449871 |
-| Balerna               |         5242 |   0.996313 |   0.999608 |    0.00329518 |
-| Breggia               |         5269 |   0.995024 |   0.997446 |    0.00242215 |
-| Valbirse              |          717 |   0.997112 |   0.999446 |    0.00233403 |
-| Matten bei Interlaken |          587 |   0.994284 |   0.996377 |    0.00209317 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Landquart |         3955 |   0.997693 |   0.999997 |    0.00230336 |
+| Zizers    |         3947 |   0.997226 |   0.999444 |    0.00221744 |
+| Bedretto  |         5063 |   0.995871 |   0.997887 |    0.00201587 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
