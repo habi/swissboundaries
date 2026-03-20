@@ -1,4 +1,4 @@
-Generated: 2026-03-19 03:08:34 UTC
+Generated: 2026-03-20 03:03:51 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-19 03:08:34 UTC
 | Median IoU | 0.9985 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.21% |
-| Mean Hausdorff distance | 18.195 m |
+| Mean Hausdorff distance | 17.949 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-03-19 03:08:34 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-18)
+## Historical Comparison (vs 2026-03-19)
 
 | Metric | Value |
 |--------|-------|
@@ -38,26 +38,31 @@ Generated: 2026-03-19 03:08:34 UTC
 
 ## Worst 10 Matches (by IoU)
 
-| name           |   bfs_nummer |      iou |   area_diff_pct |
-|:---------------|-------------:|---------:|----------------:|
-| Eschenz        |         4806 | 0.981348 |       1.54249   |
-| Stetten (SH)   |         2919 | 0.988355 |       0.452406  |
-| Brissago       |         5097 | 0.988454 |       0.8207    |
-| Novazzano      |         5260 | 0.988595 |       0.770314  |
-| Mergoscia      |         5117 | 0.989268 |       0.168957  |
-| Rovray         |         5928 | 0.989745 |       0.163708  |
-| Mezzovico-Vira |         5199 | 0.989806 |       0.0391297 |
-| Buch (SH)      |         2961 | 0.989827 |       0.341028  |
-| Löhningen      |         2903 | 0.989935 |       0.484247  |
-| Lütschental    |          586 | 0.989967 |       0.575262  |
+| name         |   bfs_nummer |      iou |   area_diff_pct |
+|:-------------|-------------:|---------:|----------------:|
+| Eschenz      |         4806 | 0.981348 |        1.54249  |
+| Stetten (SH) |         2919 | 0.988355 |        0.452406 |
+| Brissago     |         5097 | 0.988454 |        0.8207   |
+| Novazzano    |         5260 | 0.988595 |        0.770314 |
+| Mergoscia    |         5117 | 0.989268 |        0.168957 |
+| Rovray       |         5928 | 0.989745 |        0.163708 |
+| Buch (SH)    |         2961 | 0.989827 |        0.341028 |
+| Löhningen    |         2903 | 0.989935 |        0.484247 |
+| Lütschental  |          586 | 0.989967 |        0.575262 |
+| Gächlingen   |         2901 | 0.990134 |        0.251831 |
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Landquart |         3955 |   0.997693 |   0.999997 |    0.00230336 |
-| Zizers    |         3947 |   0.997226 |   0.999444 |    0.00221744 |
-| Bedretto  |         5063 |   0.995871 |   0.997887 |    0.00201587 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Mezzovico-Vira |         5199 |   0.989806 |   0.999666 |    0.00985965 |
+| Surpierre      |         2044 |   0.990491 |   0.999799 |    0.00930827 |
+| Monteceneri    |         5238 |   0.992555 |   0.999996 |    0.0074411  |
+| Valbroye       |         5831 |   0.995126 |   0.999996 |    0.00487012 |
+| Henniez        |         5819 |   0.99756  |   0.999554 |    0.00199478 |
+| Capriasca      |         5226 |   0.995336 |   0.997218 |    0.00188158 |
+| Isone          |         5009 |   0.994423 |   0.995737 |    0.00131408 |
+| Gambarogno     |         5398 |   0.997583 |   0.998716 |    0.0011335  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
