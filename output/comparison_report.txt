@@ -1,4 +1,4 @@
-Generated: 2026-03-21 17:11:53 UTC
+Generated: 2026-03-22 03:08:36 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-21 17:11:53 UTC
 | Median IoU | 0.9985 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.20% |
-| Mean Hausdorff distance | 17.200 m |
+| Mean Hausdorff distance | 16.986 m |
 
 ## Quality Distribution
 
@@ -32,7 +32,7 @@ Generated: 2026-03-21 17:11:53 UTC
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9979 |
+| Previous mean IoU | 0.9980 |
 | Current mean IoU | 0.9980 |
 | Change | +0.0000 (+0.00%) |
 
@@ -42,7 +42,6 @@ Generated: 2026-03-21 17:11:53 UTC
 |:-------------|-------------:|---------:|----------------:|
 | Eschenz      |         4806 | 0.981348 |       1.54249   |
 | Stetten (SH) |         2919 | 0.988355 |       0.452406  |
-| Novazzano    |         5260 | 0.988595 |       0.770314  |
 | Buch (SH)    |         2961 | 0.989827 |       0.341028  |
 | Löhningen    |         2903 | 0.989935 |       0.484247  |
 | Gächlingen   |         2901 | 0.990134 |       0.251831  |
@@ -50,21 +49,20 @@ Generated: 2026-03-21 17:11:53 UTC
 | Biberstein   |         4002 | 0.990255 |       0.0775607 |
 | Origlio      |         5208 | 0.990325 |       0.5074    |
 | Rossemaison  |         6721 | 0.990366 |       0.194456  |
+| Augst        |         2822 | 0.99039  |       0.367111  |
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Brissago       |         5097 |   0.988454 |   0.997967 |    0.00951297 |
-| Stalden (VS)   |         6293 |   0.992089 |   0.999604 |    0.00751505 |
-| Uerkheim       |         4286 |   0.992917 |   0.999995 |    0.00707831 |
-| Bellwald       |         6052 |   0.994417 |   0.999516 |    0.00509837 |
-| Frick          |         4163 |   0.995433 |   0.999954 |    0.00452055 |
-| Centovalli     |         5397 |   0.992195 |   0.996409 |    0.00421442 |
-| Bottenwil      |         4273 |   0.991086 |   0.994387 |    0.00330099 |
-| Eisten         |         6282 |   0.994254 |   0.996336 |    0.00208252 |
-| Oeschgen       |         4175 |   0.996078 |   0.997887 |    0.00180883 |
-| Gipf-Oberfrick |         4165 |   0.995588 |   0.997004 |    0.00141594 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Novazzano     |         5260 |   0.988595 |   0.999994 |    0.0113983  |
+| Romont (FR)   |         2096 |   0.994743 |   0.999995 |    0.00525159 |
+| Villaz        |         2117 |   0.994821 |   0.999996 |    0.00517582 |
+| Mézières (FR) |         2087 |   0.995733 |   0.998123 |    0.00239018 |
+| Le Lieu       |         5873 |   0.997792 |   0.999998 |    0.00220594 |
+| Villorsonnens |         2114 |   0.992842 |   0.994929 |    0.00208759 |
+| Torny         |         2115 |   0.99533  |   0.996397 |    0.00106734 |
+| Mendrisio     |         5254 |   0.995002 |   0.996051 |    0.00104888 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
