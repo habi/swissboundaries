@@ -1,4 +1,4 @@
-Generated: 2026-03-24 03:05:37 UTC
+Generated: 2026-03-25 03:07:37 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-03-24 03:05:37 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9980 |
+| Mean IoU | 0.9981 |
 | Median IoU | 0.9985 |
 | Mean area difference | 0.04% |
-| Mean symmetric difference | 0.20% |
-| Mean Hausdorff distance | 16.235 m |
+| Mean symmetric difference | 0.19% |
+| Mean Hausdorff distance | 15.954 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-03-24 03:05:37 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-23)
+## Historical Comparison (vs 2026-03-24)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9980 |
-| Current mean IoU | 0.9980 |
+| Current mean IoU | 0.9981 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,18 +53,17 @@ Generated: 2026-03-24 03:05:37 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Biberstein    |         4002 |   0.990255 |   0.999995 |    0.00973978 |
-| Lamone        |         5189 |   0.992552 |   0.999868 |    0.00731611 |
-| Muzzano       |         5205 |   0.990255 |   0.996943 |    0.00668785 |
-| Onnens (VD)   |         5565 |   0.993883 |   0.999996 |    0.00611218 |
-| Collina d'Oro |         5236 |   0.993474 |   0.999297 |    0.00582285 |
-| Origlio       |         5208 |   0.990325 |   0.996074 |    0.0057492  |
-| Staffelbach   |         4284 |   0.994985 |   0.999996 |    0.00501012 |
-| Muriaux       |         6753 |   0.995842 |   0.999995 |    0.00415376 |
-| Bonvillars    |         5551 |   0.994958 |   0.99893  |    0.00397197 |
-| Chessel       |         5403 |   0.996123 |   0.999995 |    0.00387139 |
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|
+| Obermumpf        |         4256 |   0.995407 |   0.999995 |    0.00458799 |
+| Paradiso         |         5210 |   0.997477 |   0.999993 |    0.00251605 |
+| Mumpf            |         4255 |   0.991867 |   0.993828 |    0.00196162 |
+| Thunstetten      |          342 |   0.997222 |   0.999147 |    0.0019248  |
+| Birmensdorf (ZH) |          242 |   0.998076 |   0.999995 |    0.0019189  |
+| Münchwilen (AG)  |         4172 |   0.993375 |   0.995148 |    0.00177297 |
+| Stein (AG)       |         4260 |   0.995801 |   0.997506 |    0.00170504 |
+| Langenthal       |          329 |   0.998299 |   0.999997 |    0.00169765 |
+| Uzwil            |         3408 |   0.998432 |   0.999996 |    0.00156452 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
