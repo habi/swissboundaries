@@ -50,7 +50,7 @@ pip install -r requirements.txt
 wget https://data.geo.admin.ch/ch.swisstopo.swissboundaries3d/swissboundaries3d_2026-01/swissboundaries3d_2026-01_2056_5728.gpkg.zip
 unzip swissboundaries3d*.zip
 
-# Run comparison (use the script from the GitHub Action)
+# Run comparison
 python compare_boundaries.py
 ```
 
@@ -59,6 +59,7 @@ python compare_boundaries.py
 - [`output/comparison_report.txt`](http://boundaries.osm.ch/comparison_report.txt): Human-readable summary report
 - [`output/detailed_results.csv`](http://boundaries.osm.ch/detailed_results.csv): Per-municipality metrics in CSV format.
   This file is shown at the top of the page at http://boundaries.osm.ch/
+- [`output/swisstopo_geojson`](http://boundaries.osm.ch/comparison_report.txt): One GeoJSON file for each municipality (converted from swissBOUNDARIES3D data)
 
 ## Contributing
 
