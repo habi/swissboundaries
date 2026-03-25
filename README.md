@@ -42,7 +42,7 @@ The comparison calculates:
 
 ```bash
 # Install dependencies
-pip install geopandas shapely pandas requests pyogrio
+pip install -r requirements.txt
 
 # Download and extract Swisstopo data
 # If you do this manually, get the freshest version available on https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d
