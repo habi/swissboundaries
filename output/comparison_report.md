@@ -1,4 +1,4 @@
-Generated: 2026-03-25 18:20:46 UTC
+Generated: 2026-03-25 19:40:35 UTC
 
 ## Dataset Overview
 
@@ -53,18 +53,7 @@ Generated: 2026-03-25 18:20:46 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Stetten (SH)  |         2919 |   0.988355 |   0.999995 |    0.0116403  |
-| Rossemaison   |         6721 |   0.990366 |   0.999994 |    0.00962791 |
-| Strengelbach  |         4285 |   0.992992 |   0.999996 |    0.00700406 |
-| Bois-d'Amont  |         2238 |   0.992916 |   0.999015 |    0.0060982  |
-| Gibloux       |         2236 |   0.995573 |   0.999998 |    0.00442451 |
-| Echarlens     |         2131 |   0.995568 |   0.998975 |    0.00340694 |
-| Riaz          |         2148 |   0.996602 |   0.999995 |    0.00339266 |
-| Lohn (SH)     |         2917 |   0.994035 |   0.997356 |    0.00332116 |
-| Autigny       |         2173 |   0.994799 |   0.99761  |    0.00281069 |
-| Villorsonnens |         2114 |   0.994929 |   0.997535 |    0.00260595 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
