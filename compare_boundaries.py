@@ -1329,7 +1329,7 @@ def generate_report(results_df, historical_df):
     print(report_text)
 
     # Save reports
-    with open("output/comparison_report.txt", "w") as f:
+    with open("output/comparison_report.md", "w") as f:
         f.write(report_text)
 
     # Save CSV (without geometry columns for CSV)

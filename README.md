@@ -56,7 +56,7 @@ python compare_boundaries.py
 
 ## Output Files
 
-- [`output/comparison_report.txt`](http://boundaries.osm.ch/comparison_report.txt): Human-readable summary report
+- [`output/comparison_report.md`](http://boundaries.osm.ch/comparison_report.md): Human-readable summary report (also shown as summary of each Github Action run)
 - [`output/detailed_results.csv`](http://boundaries.osm.ch/detailed_results.csv): Per-municipality metrics in CSV format.
   This file is shown at the top of the page at http://boundaries.osm.ch/
 - [`output/swisstopo_geojson`](http://boundaries.osm.ch/comparison_report.txt): One GeoJSON file for each municipality (converted from swissBOUNDARIES3D data)

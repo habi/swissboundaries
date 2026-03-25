@@ -65,7 +65,7 @@ jobs:
         # Swiss Municipality Boundary Comparison Report
                 
         EOF
-        cat output/comparison_report.txt >> $GITHUB_STEP_SUMMARY
+        cat output/comparison_report.md >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         
     - name: Commit results
