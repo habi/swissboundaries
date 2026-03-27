@@ -1,4 +1,4 @@
-Generated: 2026-03-26 03:09:39 UTC
+Generated: 2026-03-27 03:09:42 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-26 03:09:39 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.04% |
 | Mean symmetric difference | 0.19% |
-| Mean Hausdorff distance | 15.636 m |
+| Mean Hausdorff distance | 15.352 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-03-26 03:09:39 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-25)
+## Historical Comparison (vs 2026-03-26)
 
 | Metric | Value |
 |--------|-------|
@@ -53,7 +53,18 @@ Generated: 2026-03-26 03:09:39 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Untereggen     |         3219 |   0.993013 |   0.999995 |    0.00698187 |
+| Saignelégier   |         6757 |   0.99353  |   0.999997 |    0.00646693 |
+| Mörschwil      |         3214 |   0.994675 |   0.998505 |    0.00382994 |
+| Les Enfers     |         6745 |   0.991196 |   0.994555 |    0.00335849 |
+| Le Bémont (JU) |         6741 |   0.995147 |   0.998047 |    0.00290071 |
+| Rubigen        |          623 |   0.996798 |   0.999308 |    0.00250951 |
+| Münsingen      |          616 |   0.998294 |   0.999996 |    0.00170206 |
+| Delémont       |         6711 |   0.998203 |   0.999853 |    0.00164915 |
+| Krauchthal     |          414 |   0.998631 |   0.999997 |    0.00136629 |
+| Soyhières      |         6724 |   0.995678 |   0.996801 |    0.00112243 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
