@@ -1,4 +1,4 @@
-Generated: 2026-03-28 03:06:42 UTC
+Generated: 2026-03-29 03:09:53 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-03-28 03:06:42 UTC
 |--------|-------|
 | Mean IoU | 0.9981 |
 | Median IoU | 0.9986 |
-| Mean area difference | 0.04% |
+| Mean area difference | 0.03% |
 | Mean symmetric difference | 0.19% |
-| Mean Hausdorff distance | 15.245 m |
+| Mean Hausdorff distance | 15.069 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-03-28 03:06:42 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-27)
+## Historical Comparison (vs 2026-03-28)
 
 | Metric | Value |
 |--------|-------|
@@ -53,17 +53,16 @@ Generated: 2026-03-28 03:06:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Abtwil         |         4221 |   0.990629 |   0.999994 |    0.00936469 |
-| Ligerz         |          740 |   0.990701 |   0.999989 |    0.00928864 |
-| Twann-Tüscherz |          756 |   0.996481 |   0.999995 |    0.00351399 |
-| La Neuveville  |          723 |   0.996966 |   0.999994 |    0.00302862 |
-| Courrendlin    |         6708 |   0.997757 |   0.999997 |    0.0022404  |
-| Châtillon (JU) |         6704 |   0.995821 |   0.997899 |    0.00207771 |
-| Le Landeron    |         6455 |   0.997764 |   0.999194 |    0.00142991 |
-| Sins           |         4239 |   0.995367 |   0.996639 |    0.00127125 |
-| Courroux       |         6709 |   0.996766 |   0.997852 |    0.0010867  |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Erlach    |          492 |   0.992475 |   0.999666 |    0.00719098 |
+| Gals      |          494 |   0.996253 |   0.999996 |    0.00374295 |
+| Mervelier |         6715 |   0.996134 |   0.999669 |    0.00353415 |
+| Bure      |         6778 |   0.996728 |   0.999997 |    0.00326901 |
+| Tschugg   |          501 |   0.995803 |   0.998837 |    0.00303377 |
+| Val Terbi |         6730 |   0.998151 |   0.999997 |    0.00184606 |
+| Courroux  |         6709 |   0.997852 |   0.99908  |    0.00122798 |
+| Bärschwil |         2611 |   0.996734 |   0.997839 |    0.0011046  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
