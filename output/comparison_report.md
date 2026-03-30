@@ -1,4 +1,4 @@
-Generated: 2026-03-29 03:09:53 UTC
+Generated: 2026-03-30 03:10:19 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-03-29 03:09:53 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9981 |
+| Mean IoU | 0.9982 |
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.19% |
-| Mean Hausdorff distance | 15.069 m |
+| Mean symmetric difference | 0.18% |
+| Mean Hausdorff distance | 14.848 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-03-29 03:09:53 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-28)
+## Historical Comparison (vs 2026-03-29)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9981 |
-| Current mean IoU | 0.9981 |
+| Current mean IoU | 0.9982 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,16 +53,18 @@ Generated: 2026-03-29 03:09:53 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Erlach    |          492 |   0.992475 |   0.999666 |    0.00719098 |
-| Gals      |          494 |   0.996253 |   0.999996 |    0.00374295 |
-| Mervelier |         6715 |   0.996134 |   0.999669 |    0.00353415 |
-| Bure      |         6778 |   0.996728 |   0.999997 |    0.00326901 |
-| Tschugg   |          501 |   0.995803 |   0.998837 |    0.00303377 |
-| Val Terbi |         6730 |   0.998151 |   0.999997 |    0.00184606 |
-| Courroux  |         6709 |   0.997852 |   0.99908  |    0.00122798 |
-| Bärschwil |         2611 |   0.996734 |   0.997839 |    0.0011046  |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Möhlin      |         4254 |   0.994438 |   0.999997 |    0.00555931 |
+| Bözberg     |         4124 |   0.995267 |   0.999996 |    0.00472893 |
+| Wallbach    |         4261 |   0.993423 |   0.996425 |    0.00300212 |
+| Mönthal     |         4106 |   0.99177  |   0.994737 |    0.00296733 |
+| Riniken     |         4111 |   0.994357 |   0.996878 |    0.00252098 |
+| Zeihen      |         4183 |   0.995714 |   0.998216 |    0.00250225 |
+| Böztal      |         4185 |   0.997636 |   0.999997 |    0.00236095 |
+| Lajoux (JU) |         6750 |   0.997781 |   0.999996 |    0.00221546 |
+| Rheinfelden |         4258 |   0.997616 |   0.999234 |    0.0016184  |
+| Vich        |         5732 |   0.994446 |   0.996063 |    0.00161727 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
