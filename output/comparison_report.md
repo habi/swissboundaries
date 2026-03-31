@@ -1,4 +1,4 @@
-Generated: 2026-03-30 03:10:19 UTC
+Generated: 2026-03-31 03:10:02 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-30 03:10:19 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 14.848 m |
+| Mean Hausdorff distance | 14.719 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-03-30 03:10:19 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-29)
+## Historical Comparison (vs 2026-03-30)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9981 |
+| Previous mean IoU | 0.9982 |
 | Current mean IoU | 0.9982 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,18 +53,13 @@ Generated: 2026-03-30 03:10:19 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Möhlin      |         4254 |   0.994438 |   0.999997 |    0.00555931 |
-| Bözberg     |         4124 |   0.995267 |   0.999996 |    0.00472893 |
-| Wallbach    |         4261 |   0.993423 |   0.996425 |    0.00300212 |
-| Mönthal     |         4106 |   0.99177  |   0.994737 |    0.00296733 |
-| Riniken     |         4111 |   0.994357 |   0.996878 |    0.00252098 |
-| Zeihen      |         4183 |   0.995714 |   0.998216 |    0.00250225 |
-| Böztal      |         4185 |   0.997636 |   0.999997 |    0.00236095 |
-| Lajoux (JU) |         6750 |   0.997781 |   0.999996 |    0.00221546 |
-| Rheinfelden |         4258 |   0.997616 |   0.999234 |    0.0016184  |
-| Vich        |         5732 |   0.994446 |   0.996063 |    0.00161727 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Châtillon (JU)         |         6704 |   0.997899 |   0.999995 |    0.00209644 |
+| Turbenthal             |          228 |   0.998108 |   0.999996 |    0.00188804 |
+| Wila                   |          181 |   0.994777 |   0.996629 |    0.00185188 |
+| Payerne                |         5822 |   0.998179 |   0.999997 |    0.00181854 |
+| Corcelles-près-Payerne |         5816 |   0.998045 |   0.999502 |    0.0014574  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
