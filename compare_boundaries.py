@@ -72,7 +72,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     [out:json][timeout:120];
     area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
     (
-      relation["boundary"="administrative"]["swisstopo:BFS_NUMMER"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"]["swisstopo:BFS_NUMMER"](area.switzerland);
     );
     out geom;
     """
