@@ -1,4 +1,4 @@
-Generated: 2026-03-31 03:10:02 UTC
+Generated: 2026-04-01 03:09:55 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-03-31 03:10:02 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 14.719 m |
+| Mean Hausdorff distance | 14.457 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-03-31 03:10:02 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-03-30)
+## Historical Comparison (vs 2026-03-31)
 
 | Metric | Value |
 |--------|-------|
@@ -53,13 +53,18 @@ Generated: 2026-03-31 03:10:02 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Châtillon (JU)         |         6704 |   0.997899 |   0.999995 |    0.00209644 |
-| Turbenthal             |          228 |   0.998108 |   0.999996 |    0.00188804 |
-| Wila                   |          181 |   0.994777 |   0.996629 |    0.00185188 |
-| Payerne                |         5822 |   0.998179 |   0.999997 |    0.00181854 |
-| Corcelles-près-Payerne |         5816 |   0.998045 |   0.999502 |    0.0014574  |
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|
+| Denges           |         5632 |   0.992713 |   0.999989 |    0.00727595 |
+| Rickenbach (SO)  |         2582 |   0.995717 |   0.999993 |    0.0042759  |
+| Les Bois         |         6742 |   0.995852 |   0.999998 |    0.00414565 |
+| Beggingen        |         2951 |   0.996006 |   0.999997 |    0.00399112 |
+| Gollion          |         5484 |   0.99785  |   0.999994 |    0.00214419 |
+| Wyssachen        |          960 |   0.997951 |   0.999997 |    0.00204626 |
+| Ecublens (VD)    |         5635 |   0.995931 |   0.997544 |    0.00161378 |
+| Schleitheim      |         2952 |   0.996904 |   0.998321 |    0.00141639 |
+| Fétigny-Ménières |         2056 |   0.998575 |   0.999731 |    0.00115629 |
+| Dürrenroth       |          952 |   0.998072 |   0.999118 |    0.00104588 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
