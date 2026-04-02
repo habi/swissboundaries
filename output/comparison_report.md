@@ -1,4 +1,4 @@
-Generated: 2026-04-01 11:45:03 UTC
+Generated: 2026-04-02 03:09:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-01 11:45:03 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 14.384 m |
+| Mean Hausdorff distance | 14.310 m |
 
 ## Quality Distribution
 
@@ -53,12 +53,11 @@ Generated: 2026-04-01 11:45:03 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Epalinges |         5584 |   0.996444 |   0.998805 |    0.00236078 |
-| Oensingen |         2407 |   0.998483 |   0.999996 |    0.00151245 |
-| Pully     |         5590 |   0.997997 |   0.999354 |    0.00135691 |
-| Prilly    |         5589 |   0.997315 |   0.998354 |    0.00103948 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Wetzikon (ZH)          |          121 |   0.998223 |   0.999996 |    0.00177306 |
+| Corcelles-près-Concise |         5555 |   0.998428 |   0.999996 |    0.00156805 |
+| Seegräben              |          119 |   0.997862 |   0.999141 |    0.00127875 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
