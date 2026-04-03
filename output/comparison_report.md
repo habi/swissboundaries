@@ -1,4 +1,4 @@
-Generated: 2026-04-02 03:09:34 UTC
+Generated: 2026-04-03 03:09:24 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-02 03:09:34 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 14.310 m |
+| Mean Hausdorff distance | 14.074 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-02 03:09:34 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-01)
+## Historical Comparison (vs 2026-04-02)
 
 | Metric | Value |
 |--------|-------|
@@ -49,15 +49,22 @@ Generated: 2026-04-02 03:09:34 UTC
 | Brünisried     |         2292 | 0.990819 |        0.297493 |
 | Villars-Epeney |         5935 | 0.990921 |        0.128837 |
 | Stabio         |         5266 | 0.990997 |        0.041167 |
-| Unterentfelden |         4013 | 0.99102  |        0.234974 |
+| Orselina       |         5121 | 0.991197 |        0.582304 |
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Wetzikon (ZH)          |          121 |   0.998223 |   0.999996 |    0.00177306 |
-| Corcelles-près-Concise |         5555 |   0.998428 |   0.999996 |    0.00156805 |
-| Seegräben              |          119 |   0.997862 |   0.999141 |    0.00127875 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Unterentfelden |         4013 |   0.99102  |   0.996969 |    0.00594956 |
+| Aarau          |         4001 |   0.995986 |   0.999996 |    0.00400921 |
+| Buchs (AG)     |         4003 |   0.991808 |   0.9957   |    0.00389176 |
+| Seon           |         4209 |   0.996262 |   0.999997 |    0.00373479 |
+| L'Abergement   |         5741 |   0.993171 |   0.996533 |    0.00336147 |
+| Onex           |         6631 |   0.99676  |   0.999992 |    0.00323228 |
+| Baulmes        |         5745 |   0.996979 |   0.999997 |    0.00301754 |
+| Hallwil        |         4197 |   0.992156 |   0.994845 |    0.00268964 |
+| Tamins         |         3733 |   0.9972   |   0.999707 |    0.00250705 |
+| Trin           |         3734 |   0.997497 |   0.999662 |    0.00216493 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
