@@ -1,4 +1,4 @@
-Generated: 2026-04-04 03:06:19 UTC
+Generated: 2026-04-04 09:53:07 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-04-04 03:06:19 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9982 |
+| Mean IoU | 0.9983 |
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 13.907 m |
+| Mean symmetric difference | 0.17% |
+| Mean Hausdorff distance | 13.793 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-04-04 03:06:19 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-03)
+## Historical Comparison (vs 2026-04-04)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9982 |
-| Current mean IoU | 0.9982 |
+| Current mean IoU | 0.9983 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,18 +53,18 @@ Generated: 2026-04-04 03:06:19 UTC
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Montcherand         |         5756 |   0.996022 |   0.999994 |    0.00397215 |
-| Melide              |         5198 |   0.99665  |   0.999995 |    0.00334501 |
-| Grancia             |         5186 |   0.99712  |   0.99998  |    0.00286007 |
-| Villars-le-Terroir  |         5537 |   0.997763 |   0.999993 |    0.00223015 |
-| Lugano              |         5192 |   0.997782 |   0.999993 |    0.00221027 |
-| Gaiserwald          |         3442 |   0.998125 |   0.999996 |    0.0018707  |
-| Capriasca           |         5226 |   0.997218 |   0.99905  |    0.0018325  |
-| Agiez               |         5742 |   0.997264 |   0.998896 |    0.00163266 |
-| Kilchberg (ZH)      |          135 |   0.998466 |   0.999862 |    0.00139584 |
-| Chavannes-le-Veyron |         5475 |   0.996429 |   0.997821 |    0.00139203 |
+| name              |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------------|-------------:|-----------:|-----------:|--------------:|
+| Auw               |         4223 |   0.993069 |   0.999995 |    0.00692593 |
+| Rüfenach          |         4112 |   0.993973 |   0.999993 |    0.00601981 |
+| Beinwil (Freiamt) |         4224 |   0.994989 |   0.999996 |    0.00500671 |
+| Merenschwand      |         4234 |   0.996544 |   0.999996 |    0.00345277 |
+| Mühlau            |         4235 |   0.995967 |   0.99915  |    0.003183   |
+| Le Châtelard      |         2067 |   0.996579 |   0.999327 |    0.00274832 |
+| Villorsonnens     |         2114 |   0.997535 |   0.999996 |    0.00246119 |
+| Ottenbach         |           11 |   0.996868 |   0.998657 |    0.00178846 |
+| Chénens           |         2177 |   0.997017 |   0.998706 |    0.00168826 |
+| Autigny           |         2173 |   0.99761  |   0.999168 |    0.00155862 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
