@@ -1,4 +1,4 @@
-Generated: 2026-04-03 03:09:24 UTC
+Generated: 2026-04-04 03:06:19 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-03 03:09:24 UTC
 | Median IoU | 0.9986 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.18% |
-| Mean Hausdorff distance | 14.074 m |
+| Mean Hausdorff distance | 13.907 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-03 03:09:24 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-02)
+## Historical Comparison (vs 2026-04-03)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,18 @@ Generated: 2026-04-03 03:09:24 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Unterentfelden |         4013 |   0.99102  |   0.996969 |    0.00594956 |
-| Aarau          |         4001 |   0.995986 |   0.999996 |    0.00400921 |
-| Buchs (AG)     |         4003 |   0.991808 |   0.9957   |    0.00389176 |
-| Seon           |         4209 |   0.996262 |   0.999997 |    0.00373479 |
-| L'Abergement   |         5741 |   0.993171 |   0.996533 |    0.00336147 |
-| Onex           |         6631 |   0.99676  |   0.999992 |    0.00323228 |
-| Baulmes        |         5745 |   0.996979 |   0.999997 |    0.00301754 |
-| Hallwil        |         4197 |   0.992156 |   0.994845 |    0.00268964 |
-| Tamins         |         3733 |   0.9972   |   0.999707 |    0.00250705 |
-| Trin           |         3734 |   0.997497 |   0.999662 |    0.00216493 |
+| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------------|-------------:|-----------:|-----------:|--------------:|
+| Montcherand         |         5756 |   0.996022 |   0.999994 |    0.00397215 |
+| Melide              |         5198 |   0.99665  |   0.999995 |    0.00334501 |
+| Grancia             |         5186 |   0.99712  |   0.99998  |    0.00286007 |
+| Villars-le-Terroir  |         5537 |   0.997763 |   0.999993 |    0.00223015 |
+| Lugano              |         5192 |   0.997782 |   0.999993 |    0.00221027 |
+| Gaiserwald          |         3442 |   0.998125 |   0.999996 |    0.0018707  |
+| Capriasca           |         5226 |   0.997218 |   0.99905  |    0.0018325  |
+| Agiez               |         5742 |   0.997264 |   0.998896 |    0.00163266 |
+| Kilchberg (ZH)      |          135 |   0.998466 |   0.999862 |    0.00139584 |
+| Chavannes-le-Veyron |         5475 |   0.996429 |   0.997821 |    0.00139203 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
