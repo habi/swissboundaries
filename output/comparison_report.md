@@ -1,4 +1,4 @@
-Generated: 2026-04-05 03:09:36 UTC
+Generated: 2026-04-06 03:10:45 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-05 03:09:36 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 13.392 m |
+| Mean Hausdorff distance | 13.247 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-05 03:09:36 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-04)
+## Historical Comparison (vs 2026-04-05)
 
 | Metric | Value |
 |--------|-------|
@@ -41,7 +41,6 @@ Generated: 2026-04-05 03:09:36 UTC
 | name           |   bfs_nummer |      iou |   area_diff_pct |
 |:---------------|-------------:|---------:|----------------:|
 | Eschenz        |         4806 | 0.981348 |       1.54249   |
-| Buch (SH)      |         2961 | 0.989827 |       0.341028  |
 | Löhningen      |         2903 | 0.989935 |       0.484247  |
 | Gächlingen     |         2901 | 0.990134 |       0.251831  |
 | Augst          |         2822 | 0.99039  |       0.367111  |
@@ -50,21 +49,19 @@ Generated: 2026-04-05 03:09:36 UTC
 | Stabio         |         5266 | 0.990997 |       0.041167  |
 | Orselina       |         5121 | 0.991197 |       0.582304  |
 | Trasadingen    |         2973 | 0.991371 |       0.0895609 |
+| Giornico       |         5073 | 0.991396 |       0.176113  |
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Terre di Pedemonte |         5396 |   0.992318 |   0.999997 |    0.00767888 |
-| Brünisried         |         2292 |   0.990819 |   0.997044 |    0.00622449 |
-| Grens              |         5722 |   0.994594 |   0.999992 |    0.00539822 |
-| Coinsins           |         5710 |   0.995046 |   0.999992 |    0.00494634 |
-| Linescio           |         5315 |   0.996728 |   0.999995 |    0.00326717 |
-| Rechthalten        |         2301 |   0.99679  |   0.999996 |    0.0032057  |
-| Belfaux            |         2175 |   0.997767 |   0.999992 |    0.00222499 |
-| Genolier           |         5718 |   0.995806 |   0.997906 |    0.00210046 |
-| Vaux-sur-Morges    |         5650 |   0.993918 |   0.995413 |    0.00149497 |
-| Trélex             |         5730 |   0.996358 |   0.997696 |    0.00133847 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Buch (SH)  |         2961 |   0.989827 |   0.998267 |    0.00844061 |
+| Ramsen     |         2963 |   0.993685 |   0.999996 |    0.0063108  |
+| Le Vaud    |         5731 |   0.995284 |   0.999989 |    0.00470511 |
+| Hemishofen |         2962 |   0.992839 |   0.997412 |    0.00457333 |
+| Marchissy  |         5430 |   0.997789 |   0.999996 |    0.00220686 |
+| Longirod   |         5429 |   0.997492 |   0.998995 |    0.00150289 |
+| Wynigen    |          424 |   0.998775 |   0.999997 |    0.00122185 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
