@@ -1,4 +1,4 @@
-Generated: 2026-04-06 03:10:45 UTC
+Generated: 2026-04-06 12:28:25 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-06 03:10:45 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 13.247 m |
+| Mean Hausdorff distance | 13.067 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-06 03:10:45 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-05)
+## Historical Comparison (vs 2026-04-06)
 
 | Metric | Value |
 |--------|-------|
@@ -53,15 +53,17 @@ Generated: 2026-04-06 03:10:45 UTC
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Buch (SH)  |         2961 |   0.989827 |   0.998267 |    0.00844061 |
-| Ramsen     |         2963 |   0.993685 |   0.999996 |    0.0063108  |
-| Le Vaud    |         5731 |   0.995284 |   0.999989 |    0.00470511 |
-| Hemishofen |         2962 |   0.992839 |   0.997412 |    0.00457333 |
-| Marchissy  |         5430 |   0.997789 |   0.999996 |    0.00220686 |
-| Longirod   |         5429 |   0.997492 |   0.998995 |    0.00150289 |
-| Wynigen    |          424 |   0.998775 |   0.999997 |    0.00122185 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Tresa           |         5239 |   0.991935 |   0.999995 |    0.0080604  |
+| Möriken-Wildegg |         4203 |   0.9957   |   0.999987 |    0.00428762 |
+| Lema            |         5395 |   0.993674 |   0.996666 |    0.00299235 |
+| Holderbank (AG) |         4199 |   0.992152 |   0.994925 |    0.00277314 |
+| Niederlenz      |         4204 |   0.993572 |   0.995237 |    0.00166512 |
+| Stocken-Höfen   |          770 |   0.998451 |   0.999997 |    0.00154539 |
+| Othmarsingen    |         4205 |   0.995055 |   0.996559 |    0.00150456 |
+| Bubikon         |          112 |   0.998511 |   0.999996 |    0.00148529 |
+| Gletterens      |         2022 |   0.998681 |   0.999995 |    0.00131382 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
