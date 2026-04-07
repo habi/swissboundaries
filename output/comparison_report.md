@@ -1,4 +1,4 @@
-Generated: 2026-04-06 12:28:25 UTC
+Generated: 2026-04-07 03:09:47 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-06 12:28:25 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 13.067 m |
+| Mean Hausdorff distance | 12.984 m |
 
 ## Quality Distribution
 
@@ -53,17 +53,11 @@ Generated: 2026-04-06 12:28:25 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Tresa           |         5239 |   0.991935 |   0.999995 |    0.0080604  |
-| Möriken-Wildegg |         4203 |   0.9957   |   0.999987 |    0.00428762 |
-| Lema            |         5395 |   0.993674 |   0.996666 |    0.00299235 |
-| Holderbank (AG) |         4199 |   0.992152 |   0.994925 |    0.00277314 |
-| Niederlenz      |         4204 |   0.993572 |   0.995237 |    0.00166512 |
-| Stocken-Höfen   |          770 |   0.998451 |   0.999997 |    0.00154539 |
-| Othmarsingen    |         4205 |   0.995055 |   0.996559 |    0.00150456 |
-| Bubikon         |          112 |   0.998511 |   0.999996 |    0.00148529 |
-| Gletterens      |         2022 |   0.998681 |   0.999995 |    0.00131382 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Aclens             |         5621 |   0.998223 |   0.999992 |    0.00176912 |
+| Romanel-sur-Morges |         5645 |   0.996996 |   0.998662 |    0.00166655 |
+| Buchs (SG)         |         3271 |   0.998634 |   0.999995 |    0.00136095 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
