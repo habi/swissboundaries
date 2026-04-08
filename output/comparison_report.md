@@ -1,4 +1,4 @@
-Generated: 2026-04-07 03:09:47 UTC
+Generated: 2026-04-08 03:09:56 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-07 03:09:47 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 12.984 m |
+| Mean Hausdorff distance | 12.685 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-07 03:09:47 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-06)
+## Historical Comparison (vs 2026-04-07)
 
 | Metric | Value |
 |--------|-------|
@@ -53,11 +53,18 @@ Generated: 2026-04-07 03:09:47 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Aclens             |         5621 |   0.998223 |   0.999992 |    0.00176912 |
-| Romanel-sur-Morges |         5645 |   0.996996 |   0.998662 |    0.00166655 |
-| Buchs (SG)         |         3271 |   0.998634 |   0.999995 |    0.00136095 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Spiez        |          768 |   0.995588 |   0.999996 |    0.00440743 |
+| Reutigen     |          767 |   0.996438 |   0.999487 |    0.00304895 |
+| Eschert      |          692 |   0.997176 |   0.999996 |    0.00282028 |
+| Le Noirmont  |         6754 |   0.99722  |   0.999997 |    0.00277702 |
+| Vallorbe     |         5764 |   0.998004 |   0.999997 |    0.00199303 |
+| Herisau      |         3001 |   0.998067 |   0.999997 |    0.00192989 |
+| Schwellbrunn |         3004 |   0.997226 |   0.998947 |    0.0017212  |
+| Le Chenit    |         5872 |   0.998592 |   0.999999 |    0.00140737 |
+| Stein (AR)   |         3005 |   0.995752 |   0.997126 |    0.0013749  |
+| Wimmis       |          769 |   0.997943 |   0.99926  |    0.00131638 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
