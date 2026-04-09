@@ -1,4 +1,4 @@
-Generated: 2026-04-08 03:09:56 UTC
+Generated: 2026-04-09 03:09:54 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-08 03:09:56 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 12.685 m |
+| Mean Hausdorff distance | 12.549 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-08 03:09:56 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-07)
+## Historical Comparison (vs 2026-04-08)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,17 @@ Generated: 2026-04-08 03:09:56 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Spiez        |          768 |   0.995588 |   0.999996 |    0.00440743 |
-| Reutigen     |          767 |   0.996438 |   0.999487 |    0.00304895 |
-| Eschert      |          692 |   0.997176 |   0.999996 |    0.00282028 |
-| Le Noirmont  |         6754 |   0.99722  |   0.999997 |    0.00277702 |
-| Vallorbe     |         5764 |   0.998004 |   0.999997 |    0.00199303 |
-| Herisau      |         3001 |   0.998067 |   0.999997 |    0.00192989 |
-| Schwellbrunn |         3004 |   0.997226 |   0.998947 |    0.0017212  |
-| Le Chenit    |         5872 |   0.998592 |   0.999999 |    0.00140737 |
-| Stein (AR)   |         3005 |   0.995752 |   0.997126 |    0.0013749  |
-| Wimmis       |          769 |   0.997943 |   0.99926  |    0.00131638 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Gais      |         3022 |   0.997503 |   0.999998 |    0.00249433 |
+| Vitznau   |         1068 |   0.997914 |   0.999996 |    0.00208223 |
+| Bühler    |         3021 |   0.993323 |   0.995221 |    0.00189761 |
+| Sulgen    |         4506 |   0.998339 |   0.999996 |    0.00165679 |
+| Trogen    |         3025 |   0.995474 |   0.997001 |    0.0015267  |
+| Chalais   |         6232 |   0.998617 |   0.999998 |    0.00138076 |
+| Weggis    |         1069 |   0.998807 |   0.999998 |    0.00119085 |
+| Chippis   |         6235 |   0.99718  |   0.998341 |    0.00116075 |
+| Herbligen |          610 |   0.997873 |   0.998906 |    0.00103318 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
