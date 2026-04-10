@@ -1,4 +1,4 @@
-Generated: 2026-04-09 03:09:54 UTC
+Generated: 2026-04-10 03:10:55 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-04-09 03:09:54 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9983 |
+| Mean IoU | 0.9984 |
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.17% |
-| Mean Hausdorff distance | 12.549 m |
+| Mean symmetric difference | 0.16% |
+| Mean Hausdorff distance | 12.312 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-04-09 03:09:54 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-08)
+## Historical Comparison (vs 2026-04-09)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9983 |
-| Current mean IoU | 0.9983 |
+| Current mean IoU | 0.9984 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,17 +53,18 @@ Generated: 2026-04-09 03:09:54 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Gais      |         3022 |   0.997503 |   0.999998 |    0.00249433 |
-| Vitznau   |         1068 |   0.997914 |   0.999996 |    0.00208223 |
-| Bühler    |         3021 |   0.993323 |   0.995221 |    0.00189761 |
-| Sulgen    |         4506 |   0.998339 |   0.999996 |    0.00165679 |
-| Trogen    |         3025 |   0.995474 |   0.997001 |    0.0015267  |
-| Chalais   |         6232 |   0.998617 |   0.999998 |    0.00138076 |
-| Weggis    |         1069 |   0.998807 |   0.999998 |    0.00119085 |
-| Chippis   |         6235 |   0.99718  |   0.998341 |    0.00116075 |
-| Herbligen |          610 |   0.997873 |   0.998906 |    0.00103318 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Gsteigwiler   |          577 |   0.994482 |   0.999996 |    0.00551422 |
+| Les Enfers    |         6745 |   0.994555 |   0.999994 |    0.00543964 |
+| Trachselwald  |          958 |   0.996338 |   0.999997 |    0.00365891 |
+| Niedergesteln |         6198 |   0.996652 |   0.999997 |    0.00334494 |
+| Lema          |         5395 |   0.996666 |   0.999997 |    0.00333095 |
+| Neggio        |         5206 |   0.99441  |   0.997113 |    0.00270211 |
+| Massongex     |         6215 |   0.99798  |   0.999993 |    0.00201328 |
+| Soubey        |         6759 |   0.997152 |   0.998613 |    0.00146083 |
+| Raron         |         6199 |   0.995762 |   0.9972   |    0.00143778 |
+| Plaffeien     |         2299 |   0.995857 |   0.997269 |    0.00141164 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
