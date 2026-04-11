@@ -1,12 +1,12 @@
-Generated: 2026-04-10 03:10:55 UTC
+Generated: 2026-04-11 03:08:31 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2110 (100.0%) |
-| Missing in OSM | 0 (0.0%) |
+| Matched in OSM | 2109 (100.0%) |
+| Missing in OSM | 1 (0.0%) |
 |  Only in OSM (not in Swisstopo) | 9
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,22 +17,22 @@ Generated: 2026-04-10 03:10:55 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 12.312 m |
+| Mean Hausdorff distance | 12.249 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 2109 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-09)
+## Historical Comparison (vs 2026-04-10)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9983 |
+| Previous mean IoU | 0.9984 |
 | Current mean IoU | 0.9984 |
 | Change | +0.0000 (+0.00%) |
 
@@ -55,16 +55,20 @@ Generated: 2026-04-10 03:10:55 UTC
 
 | name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:--------------|-------------:|-----------:|-----------:|--------------:|
-| Gsteigwiler   |          577 |   0.994482 |   0.999996 |    0.00551422 |
-| Les Enfers    |         6745 |   0.994555 |   0.999994 |    0.00543964 |
-| Trachselwald  |          958 |   0.996338 |   0.999997 |    0.00365891 |
-| Niedergesteln |         6198 |   0.996652 |   0.999997 |    0.00334494 |
-| Lema          |         5395 |   0.996666 |   0.999997 |    0.00333095 |
-| Neggio        |         5206 |   0.99441  |   0.997113 |    0.00270211 |
-| Massongex     |         6215 |   0.99798  |   0.999993 |    0.00201328 |
-| Soubey        |         6759 |   0.997152 |   0.998613 |    0.00146083 |
-| Raron         |         6199 |   0.995762 |   0.9972   |    0.00143778 |
-| Plaffeien     |         2299 |   0.995857 |   0.997269 |    0.00141164 |
+| Speicher      |         3023 |   0.995386 |   0.999995 |    0.00460947 |
+| Lachen        |         1344 |   0.996063 |   0.999109 |    0.00304604 |
+| Schinznach    |         4125 |   0.997297 |   0.999996 |    0.00269905 |
+| Altendorf     |         1341 |   0.997315 |   0.999997 |    0.00268257 |
+| Safenwil      |         4283 |   0.997738 |   0.999995 |    0.00225672 |
+| Thalheim (AG) |         4117 |   0.997583 |   0.999228 |    0.0016456  |
+| Veltheim (AG) |         4120 |   0.997775 |   0.999273 |    0.0014973  |
+| Oberbuchsiten |         2406 |   0.998782 |   0.999996 |    0.0012144  |
+| Rehetobel     |         3034 |   0.994155 |   0.995322 |    0.001167   |
+| Freienbach    |         1322 |   0.998286 |   0.999406 |    0.00111929 |
+
+## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
+  name  bfs_nummer
+Avully        6603
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
