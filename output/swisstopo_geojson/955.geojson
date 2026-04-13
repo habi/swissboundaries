@@ -3,7 +3,10 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source:date": "2026-01-01"
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -5984,7 +5987,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source:date": "2026-01-01"
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -8233,7 +8239,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source:date": "2026-01-01"
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [

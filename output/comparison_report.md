@@ -1,4 +1,4 @@
-Generated: 2026-04-13 03:11:33 UTC
+Generated: 2026-04-13 18:24:33 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-13 03:11:33 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 12.124 m |
+| Mean Hausdorff distance | 11.980 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-13 03:11:33 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-12)
+## Historical Comparison (vs 2026-04-13)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,16 @@ Generated: 2026-04-13 03:11:33 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Mellikon       |         4314 |   0.99202  |   0.999994 |    0.00797362 |
-| Birrwil        |         4132 |   0.995269 |   0.999996 |    0.00472674 |
-| Zurzach        |         4324 |   0.995434 |   0.999995 |    0.00456099 |
-| Jonen          |         4071 |   0.995513 |   0.999995 |    0.00448121 |
-| Beinwil am See |         4131 |   0.996115 |   0.999996 |    0.00388061 |
-| Oberrüti       |         4237 |   0.994245 |   0.997482 |    0.00323658 |
-| Boniswil       |         4192 |   0.992767 |   0.995794 |    0.00302662 |
-| Oberlunkhofen  |         4073 |   0.993926 |   0.996304 |    0.00237851 |
-| Tegerfelden    |         4320 |   0.993679 |   0.995983 |    0.00230387 |
-| Sins           |         4239 |   0.9977   |   0.999996 |    0.00229665 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Buchs (AG)    |         4003 |   0.9957   |   0.999993 |    0.00429373 |
+| Eischoll      |         6194 |   0.995888 |   0.999718 |    0.00383013 |
+| Bottenwil     |         4273 |   0.9962   |   0.99951  |    0.00330971 |
+| Niedergesteln |         6198 |   0.997223 |   0.999997 |    0.0027741  |
+| Unterbäch     |         6201 |   0.994869 |   0.997311 |    0.00244263 |
+| Zofingen      |         4289 |   0.997727 |   0.999996 |    0.00226884 |
+| Suhr          |         4012 |   0.996117 |   0.998069 |    0.00195165 |
+| Raron         |         6199 |   0.995764 |   0.9972   |    0.00143664 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
