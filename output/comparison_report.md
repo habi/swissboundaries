@@ -1,4 +1,4 @@
-Generated: 2026-04-12 03:10:42 UTC
+Generated: 2026-04-13 03:11:33 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-12 03:10:42 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 12.229 m |
+| Mean Hausdorff distance | 12.124 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-12 03:10:42 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-11)
+## Historical Comparison (vs 2026-04-12)
 
 | Metric | Value |
 |--------|-------|
@@ -53,9 +53,18 @@ Generated: 2026-04-12 03:10:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------|-------------:|-----------:|-----------:|--------------:|
-| Sagogn |         3581 |   0.997994 |   0.999996 |    0.00200199 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Mellikon       |         4314 |   0.99202  |   0.999994 |    0.00797362 |
+| Birrwil        |         4132 |   0.995269 |   0.999996 |    0.00472674 |
+| Zurzach        |         4324 |   0.995434 |   0.999995 |    0.00456099 |
+| Jonen          |         4071 |   0.995513 |   0.999995 |    0.00448121 |
+| Beinwil am See |         4131 |   0.996115 |   0.999996 |    0.00388061 |
+| Oberrüti       |         4237 |   0.994245 |   0.997482 |    0.00323658 |
+| Boniswil       |         4192 |   0.992767 |   0.995794 |    0.00302662 |
+| Oberlunkhofen  |         4073 |   0.993926 |   0.996304 |    0.00237851 |
+| Tegerfelden    |         4320 |   0.993679 |   0.995983 |    0.00230387 |
+| Sins           |         4239 |   0.9977   |   0.999996 |    0.00229665 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
