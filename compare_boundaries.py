@@ -273,7 +273,7 @@ def group_connected_ways(ways):
     return groups
 
 
-def save_boundaries_as_geojson(gdf, output_folder):
+def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
     """Saves Polygons as a FeatureCollection of individual LineString segments."""
     os.makedirs(output_folder, exist_ok=True)
 
@@ -297,13 +297,13 @@ def save_boundaries_as_geojson(gdf, output_folder):
             for part in parts:
                 # 3. Create a unique feature for every single segment
                 # This ensures the GeoJSON is a collection of lines, not one big one
+                props = {"source": "swisstopo SWISSBOUNDARIES3D"}
+                if source_date:
+                    props["source:date"] = source_date
                 features.append(
                     {
                         "type": "Feature",
-                        "properties": {
-                            # "bfs_nummer": int(bfs_num),
-                            # "segment_length_m": row.geometry.length if hasattr(row.geometry, 'length') else 0
-                        },
+                        "properties": props,
                         "geometry": mapping(part),
                     }
                 )
@@ -1637,7 +1637,8 @@ if __name__ == "__main__":
 
     # Save out swisstopo boundaries as individual geoJSON files
     if swisstopo is not None:
-        save_boundaries_as_geojson(swisstopo, "output/swisstopo_geojson")
+        swisstopo_date = os.environ.get("SWISSTOPO_DATE", None)
+        save_boundaries_as_geojson(swisstopo, "output/swisstopo_geojson", source_date=swisstopo_date)
 
     if swisstopo is not None and osm is not None and len(osm) > 0:
         # Compare boundaries
