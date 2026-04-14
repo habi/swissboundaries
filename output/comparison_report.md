@@ -1,4 +1,4 @@
-Generated: 2026-04-14 03:10:23 UTC
+Generated: 2026-04-14 19:09:11 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-04-14 03:10:23 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9984 |
-| Median IoU | 0.9987 |
+| Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 11.969 m |
+| Mean Hausdorff distance | 11.861 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-14 03:10:23 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-13)
+## Historical Comparison (vs 2026-04-14)
 
 | Metric | Value |
 |--------|-------|
@@ -47,17 +47,24 @@ Generated: 2026-04-14 03:10:23 UTC
 | Merzligen      |          741 | 0.990738 |       0.377508  |
 | Villars-Epeney |         5935 | 0.990921 |       0.128837  |
 | Stabio         |         5266 | 0.990997 |       0.041167  |
-| Orselina       |         5121 | 0.991197 |       0.582304  |
 | Trasadingen    |         2973 | 0.991371 |       0.0895609 |
 | Giornico       |         5073 | 0.991396 |       0.176113  |
+| Meinisberg     |          390 | 0.991663 |       0.445172  |
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Rothrist   |         4282 |   0.997449 |   0.999997 |    0.00254766 |
-| Boningen   |         2571 |   0.996974 |   0.99822  |    0.00124553 |
-| Vordemwald |         4287 |   0.994851 |   0.996002 |    0.00115059 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Orselina        |         5121 |   0.991197 |   0.999994 |    0.00879705 |
+| Schwaderloch    |         4176 |   0.993022 |   0.999993 |    0.00697133 |
+| Mönthal         |         4106 |   0.994737 |   0.999993 |    0.0052558  |
+| Remigen         |         4110 |   0.995221 |   0.999994 |    0.00477342 |
+| Arni (AG)       |         4061 |   0.996154 |   0.999992 |    0.00383743 |
+| Eiken           |         4161 |   0.99616  |   0.999996 |    0.00383557 |
+| Sisseln         |         4177 |   0.995823 |   0.998677 |    0.00285384 |
+| Münchwilen (AG) |         4172 |   0.995148 |   0.997797 |    0.00264904 |
+| Islisberg       |         4084 |   0.995184 |   0.997696 |    0.00251239 |
+| Muttenz         |         2770 |   0.997496 |   0.999998 |    0.00250205 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
