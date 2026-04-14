@@ -37,7 +37,7 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Download latest Swisstopo swissBOUNDARIES3D
+    - name: Resolve latest Swisstopo swissBOUNDARIES3D release
       run: |
         echo "Fetching latest swissBOUNDARIES3D release..."
         API="https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.swissboundaries3d/items"
@@ -45,18 +45,45 @@ jobs:
         LATEST=$(curl -s "$API" | jq -r '.features | max_by(.properties.datetime)')
         ITEM=$(echo "$LATEST" | jq -r '.id')
         ITEM_DATETIME=$(echo "$LATEST" | jq -r '.properties.datetime | split("T")[0]')
-        echo "Latest item: $ITEM"
-        echo "Item datetime: $ITEM_DATETIME"
-        echo "SWISSTOPO_DATE=$ITEM_DATETIME" >> $GITHUB_ENV
-        # Get the URL of the GPKG LV95 file
         URL=$(curl -s "$API/$ITEM" \
           | jq -r '.assets | to_entries[] | select(.value.href | test("2056.*gpkg.zip")) | .value.href' \
           | head -n1)
+        echo "Latest item: $ITEM"
+        echo "Item datetime: $ITEM_DATETIME"
         echo "Download URL: $URL"
-        # Download and unzip
-        wget -q "$URL"
-        unzip -q *.gpkg.zip
-        echo "Download complete"
+        echo "SWISSTOPO_ITEM=$ITEM" >> $GITHUB_ENV
+        echo "SWISSTOPO_DATE=$ITEM_DATETIME" >> $GITHUB_ENV
+        echo "SWISSTOPO_URL=$URL" >> $GITHUB_ENV
+
+    - name: Restore swissBOUNDARIES3D cache
+      id: swisstopo-cache
+      uses: actions/cache@v4
+      with:
+        path: .cache/swissboundaries3d
+        key: swissboundaries3d-${{ runner.os }}-${{ env.SWISSTOPO_ITEM }}
+
+    - name: Download or reuse cached swissBOUNDARIES3D file
+      run: |
+        mkdir -p .cache/swissboundaries3d
+
+        if [ "${{ steps.swisstopo-cache.outputs.cache-hit }}" != "true" ]; then
+          echo "Cache miss, downloading latest swissBOUNDARIES3D..."
+          wget -q -O .cache/swissboundaries3d/swissboundaries3d_2056.gpkg.zip "$SWISSTOPO_URL"
+          unzip -o -q .cache/swissboundaries3d/swissboundaries3d_2056.gpkg.zip -d .cache/swissboundaries3d
+        else
+          echo "Cache hit, reusing swissBOUNDARIES3D from cache"
+        fi
+
+        GPKG_PATH=$(find .cache/swissboundaries3d -maxdepth 1 -name '*.gpkg' | head -n1)
+        if [ -z "$GPKG_PATH" ]; then
+          echo "No .gpkg found in cache, forcing fresh download..."
+          wget -q -O .cache/swissboundaries3d/swissboundaries3d_2056.gpkg.zip "$SWISSTOPO_URL"
+          unzip -o -q .cache/swissboundaries3d/swissboundaries3d_2056.gpkg.zip -d .cache/swissboundaries3d
+          GPKG_PATH=$(find .cache/swissboundaries3d -maxdepth 1 -name '*.gpkg' | head -n1)
+        fi
+
+        cp "$GPKG_PATH" swissBOUNDARIES3D_1_5_LV95_LN02.gpkg
+        echo "Prepared GPKG: $GPKG_PATH"
         
     - name: Run boundary comparison
       run: |
