@@ -1,4 +1,4 @@
-Generated: 2026-04-14 19:09:11 UTC
+Generated: 2026-04-14 19:20:50 UTC
 
 ## Dataset Overview
 
@@ -53,18 +53,7 @@ Generated: 2026-04-14 19:09:11 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Orselina        |         5121 |   0.991197 |   0.999994 |    0.00879705 |
-| Schwaderloch    |         4176 |   0.993022 |   0.999993 |    0.00697133 |
-| Mönthal         |         4106 |   0.994737 |   0.999993 |    0.0052558  |
-| Remigen         |         4110 |   0.995221 |   0.999994 |    0.00477342 |
-| Arni (AG)       |         4061 |   0.996154 |   0.999992 |    0.00383743 |
-| Eiken           |         4161 |   0.99616  |   0.999996 |    0.00383557 |
-| Sisseln         |         4177 |   0.995823 |   0.998677 |    0.00285384 |
-| Münchwilen (AG) |         4172 |   0.995148 |   0.997797 |    0.00264904 |
-| Islisberg       |         4084 |   0.995184 |   0.997696 |    0.00251239 |
-| Muttenz         |         2770 |   0.997496 |   0.999998 |    0.00250205 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
