@@ -1,4 +1,4 @@
-Generated: 2026-04-13 18:24:33 UTC
+Generated: 2026-04-14 03:10:23 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-13 18:24:33 UTC
 | Median IoU | 0.9987 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 11.980 m |
+| Mean Hausdorff distance | 11.969 m |
 
 ## Quality Distribution
 
@@ -53,16 +53,11 @@ Generated: 2026-04-13 18:24:33 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Buchs (AG)    |         4003 |   0.9957   |   0.999993 |    0.00429373 |
-| Eischoll      |         6194 |   0.995888 |   0.999718 |    0.00383013 |
-| Bottenwil     |         4273 |   0.9962   |   0.99951  |    0.00330971 |
-| Niedergesteln |         6198 |   0.997223 |   0.999997 |    0.0027741  |
-| Unterbäch     |         6201 |   0.994869 |   0.997311 |    0.00244263 |
-| Zofingen      |         4289 |   0.997727 |   0.999996 |    0.00226884 |
-| Suhr          |         4012 |   0.996117 |   0.998069 |    0.00195165 |
-| Raron         |         6199 |   0.995764 |   0.9972   |    0.00143664 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Rothrist   |         4282 |   0.997449 |   0.999997 |    0.00254766 |
+| Boningen   |         2571 |   0.996974 |   0.99822  |    0.00124553 |
+| Vordemwald |         4287 |   0.994851 |   0.996002 |    0.00115059 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
