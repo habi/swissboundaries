@@ -1,4 +1,4 @@
-Generated: 2026-04-14 19:20:50 UTC
+Generated: 2026-04-15 03:10:21 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-14 19:20:50 UTC
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 11.861 m |
+| Mean Hausdorff distance | 11.849 m |
 
 ## Quality Distribution
 
@@ -53,7 +53,11 @@ Generated: 2026-04-14 19:20:50 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------|-------------:|-----------:|-----------:|--------------:|
+| Zuzgen   |         4264 |   0.997209 |   0.999996 |    0.00278765 |
+| Mumpf    |         4255 |   0.993828 |   0.996032 |    0.0022037  |
+| Hellikon |         4251 |   0.997465 |   0.998506 |    0.00104116 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
