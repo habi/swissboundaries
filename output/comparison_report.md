@@ -1,4 +1,4 @@
-Generated: 2026-04-15 03:10:21 UTC
+Generated: 2026-04-16 03:10:51 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-04-15 03:10:21 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9984 |
+| Mean IoU | 0.9985 |
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.16% |
-| Mean Hausdorff distance | 11.849 m |
+| Mean symmetric difference | 0.15% |
+| Mean Hausdorff distance | 11.817 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-04-15 03:10:21 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-14)
+## Historical Comparison (vs 2026-04-15)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9984 |
-| Current mean IoU | 0.9984 |
+| Current mean IoU | 0.9985 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,11 +53,12 @@ Generated: 2026-04-15 03:10:21 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------|-------------:|-----------:|-----------:|--------------:|
-| Zuzgen   |         4264 |   0.997209 |   0.999996 |    0.00278765 |
-| Mumpf    |         4255 |   0.993828 |   0.996032 |    0.0022037  |
-| Hellikon |         4251 |   0.997465 |   0.998506 |    0.00104116 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Oberentfelden  |         4010 |   0.996297 |   0.999995 |    0.00369779 |
+| Muhen          |         4009 |   0.996372 |   0.997827 |    0.00145424 |
+| Unterentfelden |         4013 |   0.996969 |   0.998403 |    0.00143403 |
+| Boltigen       |          791 |   0.998744 |   0.999998 |    0.00125398 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
