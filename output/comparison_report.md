@@ -1,4 +1,4 @@
-Generated: 2026-04-16 03:10:51 UTC
+Generated: 2026-04-17 03:10:24 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-16 03:10:51 UTC
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.15% |
-| Mean Hausdorff distance | 11.817 m |
+| Mean Hausdorff distance | 11.747 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-04-16 03:10:51 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-15)
+## Historical Comparison (vs 2026-04-16)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9984 |
+| Previous mean IoU | 0.9985 |
 | Current mean IoU | 0.9985 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,12 +53,16 @@ Generated: 2026-04-16 03:10:51 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Oberentfelden  |         4010 |   0.996297 |   0.999995 |    0.00369779 |
-| Muhen          |         4009 |   0.996372 |   0.997827 |    0.00145424 |
-| Unterentfelden |         4013 |   0.996969 |   0.998403 |    0.00143403 |
-| Boltigen       |          791 |   0.998744 |   0.999998 |    0.00125398 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Heiden     |         3032 |   0.993141 |   0.999994 |    0.0068522  |
+| Wolfhalden |         3038 |   0.994934 |   0.999829 |    0.0048947  |
+| Vordemwald |         4287 |   0.996002 |   0.999996 |    0.00399386 |
+| Aarburg    |         4271 |   0.997596 |   0.999994 |    0.00239865 |
+| Rheineck   |         3235 |   0.996729 |   0.998769 |    0.00203997 |
+| Murgenthal |         4279 |   0.997747 |   0.999228 |    0.00148042 |
+| Thal       |         3237 |   0.998581 |   0.999996 |    0.00141471 |
+| Reute (AR) |         3035 |   0.996211 |   0.997308 |    0.00109699 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
