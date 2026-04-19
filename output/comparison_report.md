@@ -1,12 +1,12 @@
-Generated: 2026-04-18 03:09:15 UTC
+Generated: 2026-04-19 03:10:28 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2110 (100.0%) |
-| Missing in OSM | 0 (0.0%) |
+| Matched in OSM | 2109 (100.0%) |
+| Missing in OSM | 1 (0.0%) |
 |  Only in OSM (not in Swisstopo) | 9
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,18 +17,18 @@ Generated: 2026-04-18 03:09:15 UTC
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.15% |
-| Mean Hausdorff distance | 11.734 m |
+| Mean Hausdorff distance | 11.598 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 2109 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-17)
+## Historical Comparison (vs 2026-04-18)
 
 | Metric | Value |
 |--------|-------|
@@ -49,16 +49,26 @@ Generated: 2026-04-18 03:09:15 UTC
 | Trasadingen    |         2973 | 0.991371 |       0.0895609 |
 | Giornico       |         5073 | 0.991396 |       0.176113  |
 | Meinisberg     |          390 | 0.991663 |       0.445172  |
-| Hendschiken    |         4198 | 0.99167  |       0.248097  |
+| Lumino         |         5010 | 0.99208  |       0.429817  |
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Augst          |         2822 |   0.99039  |   0.995059 |    0.00466966 |
-| Suhr           |         4012 |   0.99841  |   0.999994 |    0.001584   |
-| Unterentfelden |         4013 |   0.998403 |   0.999687 |    0.00128371 |
-| Hunzenschwil   |         4200 |   0.995994 |   0.997146 |    0.00115177 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Hendschiken |         4198 |   0.99167  |   0.999993 |    0.00832328 |
+| Ammerswil   |         4191 |   0.992906 |   0.999994 |    0.00708802 |
+| Dottikon    |         4065 |   0.992913 |   0.999993 |    0.00707947 |
+| Schlossrued |         4142 |   0.993892 |   0.999994 |    0.00610259 |
+| Kirchleerau |         4275 |   0.993755 |   0.998188 |    0.00443318 |
+| Niederlenz  |         4204 |   0.995237 |   0.999495 |    0.00425708 |
+| Schmiedrued |         4143 |   0.995872 |   0.999996 |    0.00412387 |
+| Staufen     |         4210 |   0.992707 |   0.99651  |    0.00380234 |
+| Lenzburg    |         4201 |   0.996418 |   0.999995 |    0.00357734 |
+| Matzingen   |         4591 |   0.996978 |   0.999994 |    0.00301646 |
+
+## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
+       name  bfs_nummer
+Biel/Bienne         371
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
