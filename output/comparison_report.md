@@ -1,4 +1,4 @@
-Generated: 2026-04-20 03:11:09 UTC
+Generated: 2026-04-21 03:10:32 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-04-20 03:11:09 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9985 |
+| Mean IoU | 0.9986 |
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.15% |
-| Mean Hausdorff distance | 11.448 m |
+| Mean symmetric difference | 0.14% |
+| Mean Hausdorff distance | 11.343 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-04-20 03:11:09 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-19)
+## Historical Comparison (vs 2026-04-20)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9985 |
-| Current mean IoU | 0.9985 |
+| Current mean IoU | 0.9986 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,18 +53,18 @@ Generated: 2026-04-20 03:11:09 UTC
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|
-| Löhningen        |         2903 |   0.989935 |   0.999996 |    0.0100605  |
-| Gächlingen       |         2901 |   0.990134 |   0.999994 |    0.00985989 |
-| Siblingen        |         2953 |   0.992372 |   0.999997 |    0.00762456 |
-| Teufenthal (AG)  |         4145 |   0.994015 |   0.999994 |    0.005979   |
-| Gebenstorf       |         4029 |   0.995046 |   0.999994 |    0.00494817 |
-| Birmenstorf (AG) |         4024 |   0.995421 |   0.999995 |    0.00457425 |
-| Dürrenäsch       |         4134 |   0.996423 |   0.999995 |    0.00357157 |
-| Neunkirch        |         2904 |   0.992655 |   0.99568  |    0.0030249  |
-| Olsberg          |         4257 |   0.994321 |   0.997161 |    0.00283983 |
-| La Baroche       |         6810 |   0.997899 |   0.999998 |    0.00209854 |
+| name                       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------------------|-------------:|-----------:|-----------:|--------------:|
+| Berikon                    |         4062 |   0.996363 |   0.999995 |    0.00363157 |
+| Zufikon                    |         4083 |   0.996647 |   0.999994 |    0.00334714 |
+| Rudolfstetten-Friedlisberg |         4075 |   0.997836 |   0.999995 |    0.00215833 |
+| Vuisternens-devant-Romont  |         2113 |   0.997906 |   0.999997 |    0.00209062 |
+| Mézières (FR)              |         2087 |   0.998123 |   0.999866 |    0.00174307 |
+| Andwil (SG)                |         3441 |   0.998565 |   0.999995 |    0.00143022 |
+| Le Flon                    |         2337 |   0.996772 |   0.998146 |    0.001374   |
+| Luzern                     |         1061 |   0.9987   |   0.999997 |    0.00129638 |
+| Oberwil-Lieli              |         4074 |   0.99757  |   0.998773 |    0.00120287 |
+| Grangettes                 |         2079 |   0.997914 |   0.999095 |    0.00118154 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
