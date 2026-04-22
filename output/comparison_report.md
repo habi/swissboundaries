@@ -1,4 +1,4 @@
-Generated: 2026-04-21 03:10:32 UTC
+Generated: 2026-04-22 03:10:32 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-21 03:10:32 UTC
 | Median IoU | 0.9988 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.14% |
-| Mean Hausdorff distance | 11.343 m |
+| Mean Hausdorff distance | 11.251 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-04-21 03:10:32 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-20)
+## Historical Comparison (vs 2026-04-21)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9985 |
+| Previous mean IoU | 0.9986 |
 | Current mean IoU | 0.9986 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,18 +53,18 @@ Generated: 2026-04-21 03:10:32 UTC
 
 ## Most Improved (if historical data available)
 
-| name                       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------------------|-------------:|-----------:|-----------:|--------------:|
-| Berikon                    |         4062 |   0.996363 |   0.999995 |    0.00363157 |
-| Zufikon                    |         4083 |   0.996647 |   0.999994 |    0.00334714 |
-| Rudolfstetten-Friedlisberg |         4075 |   0.997836 |   0.999995 |    0.00215833 |
-| Vuisternens-devant-Romont  |         2113 |   0.997906 |   0.999997 |    0.00209062 |
-| Mézières (FR)              |         2087 |   0.998123 |   0.999866 |    0.00174307 |
-| Andwil (SG)                |         3441 |   0.998565 |   0.999995 |    0.00143022 |
-| Le Flon                    |         2337 |   0.996772 |   0.998146 |    0.001374   |
-| Luzern                     |         1061 |   0.9987   |   0.999997 |    0.00129638 |
-| Oberwil-Lieli              |         4074 |   0.99757  |   0.998773 |    0.00120287 |
-| Grangettes                 |         2079 |   0.997914 |   0.999095 |    0.00118154 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Valeyres-sous-Montagny |         5933 |   0.994458 |   0.999989 |    0.00553078 |
+| Waltenschwil           |         4240 |   0.994324 |   0.998987 |    0.00466302 |
+| Chancy                 |         6611 |   0.9959   |   0.999993 |    0.00409387 |
+| Reitnau                |         4281 |   0.996498 |   0.999996 |    0.00349824 |
+| Wiliberg               |         4288 |   0.9942   |   0.99765  |    0.00344983 |
+| Wald (AR)              |         3036 |   0.994008 |   0.996263 |    0.00225544 |
+| Trogen                 |         3025 |   0.9979   |   0.999996 |    0.0020958  |
+| Champvent              |         5905 |   0.998211 |   0.999995 |    0.00178398 |
+| Büttikon               |         4064 |   0.995317 |   0.996647 |    0.00132957 |
+| Wohlen (AG)            |         4082 |   0.997634 |   0.998905 |    0.00127097 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
