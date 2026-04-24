@@ -1,4 +1,4 @@
-Generated: 2026-04-23 03:10:34 UTC
+Generated: 2026-04-24 03:11:35 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-23 03:10:34 UTC
 | Median IoU | 0.9989 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.14% |
-| Mean Hausdorff distance | 11.113 m |
+| Mean Hausdorff distance | 10.981 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-23 03:10:34 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-22)
+## Historical Comparison (vs 2026-04-23)
 
 | Metric | Value |
 |--------|-------|
@@ -38,33 +38,33 @@ Generated: 2026-04-23 03:10:34 UTC
 
 ## Worst 10 Matches (by IoU)
 
-| name           |   bfs_nummer |      iou |   area_diff_pct |
-|:---------------|-------------:|---------:|----------------:|
-| Eschenz        |         4806 | 0.981348 |        1.54249  |
-| Merzligen      |          741 | 0.990738 |        0.377508 |
-| Villars-Epeney |         5935 | 0.990921 |        0.128837 |
-| Stabio         |         5266 | 0.990997 |        0.041167 |
-| Giornico       |         5073 | 0.991396 |        0.176113 |
-| Meinisberg     |          390 | 0.991663 |        0.445172 |
-| Lumino         |         5010 | 0.99208  |        0.429817 |
-| Hermrigen      |          737 | 0.992581 |        0.269984 |
-| Ederswiler     |         6713 | 0.992721 |        0.107417 |
-| Roggenburg     |         2790 | 0.992822 |        0.231432 |
+| name               |   bfs_nummer |      iou |   area_diff_pct |
+|:-------------------|-------------:|---------:|----------------:|
+| Eschenz            |         4806 | 0.981348 |      1.54249    |
+| Villars-Epeney     |         5935 | 0.990921 |      0.128837   |
+| Stabio             |         5266 | 0.990997 |      0.041167   |
+| Giornico           |         5073 | 0.991396 |      0.176113   |
+| Meinisberg         |          390 | 0.991663 |      0.445172   |
+| Lumino             |         5010 | 0.99208  |      0.429817   |
+| Ederswiler         |         6713 | 0.992721 |      0.107417   |
+| Roggenburg         |         2790 | 0.992822 |      0.231432   |
+| La Côte-aux-Fées   |         6504 | 0.992865 |      0.00384762 |
+| Fischbach-Göslikon |         4067 | 0.993006 |      0.05381    |
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Trasadingen     |         2973 |   0.991371 |   0.999993 |    0.00862254 |
-| Holderbank (AG) |         4199 |   0.995066 |   0.999993 |    0.0049265  |
-| Wölflinswil     |         4182 |   0.995257 |   0.999996 |    0.00473829 |
-| Killwangen      |         4030 |   0.995302 |   0.999993 |    0.0046907  |
-| Wilchingen      |         2974 |   0.99535  |   0.999996 |    0.0046463  |
-| Neunkirch       |         2904 |   0.99568  |   0.999997 |    0.00431648 |
-| Mumpf           |         4255 |   0.996032 |   0.999992 |    0.00396005 |
-| Lupfig          |         4104 |   0.996152 |   0.999995 |    0.00384221 |
-| Wallbach        |         4261 |   0.996425 |   0.999996 |    0.00357072 |
-| Gipf-Oberfrick  |         4165 |   0.997004 |   0.999995 |    0.00299144 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Merzligen  |          741 |   0.990738 |   0.999992 |    0.00925458 |
+| Buochs     |         1502 |   0.993546 |   0.999998 |    0.00645201 |
+| Hermrigen  |          737 |   0.992581 |   0.997823 |    0.00524147 |
+| Mandach    |         4105 |   0.995119 |   0.999995 |    0.00487611 |
+| Böttstein  |         4303 |   0.995846 |   0.999995 |    0.00414911 |
+| Leuggern   |         4313 |   0.996326 |   0.999996 |    0.00366991 |
+| Laufenburg |         4170 |   0.99645  |   0.999996 |    0.00354614 |
+| Koblenz    |         4310 |   0.996706 |   0.999992 |    0.00328605 |
+| Klingnau   |         4309 |   0.996732 |   0.999995 |    0.00326275 |
+| Gansingen  |         4164 |   0.996896 |   0.999996 |    0.00309936 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
