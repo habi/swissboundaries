@@ -1,4 +1,4 @@
-Generated: 2026-04-24 03:11:35 UTC
+Generated: 2026-04-25 03:08:55 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-04-24 03:11:35 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9986 |
+| Mean IoU | 0.9987 |
 | Median IoU | 0.9989 |
 | Mean area difference | 0.03% |
-| Mean symmetric difference | 0.14% |
-| Mean Hausdorff distance | 10.981 m |
+| Mean symmetric difference | 0.13% |
+| Mean Hausdorff distance | 10.882 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-04-24 03:11:35 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-23)
+## Historical Comparison (vs 2026-04-24)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9986 |
-| Current mean IoU | 0.9986 |
+| Current mean IoU | 0.9987 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -44,27 +44,27 @@ Generated: 2026-04-24 03:11:35 UTC
 | Villars-Epeney     |         5935 | 0.990921 |      0.128837   |
 | Stabio             |         5266 | 0.990997 |      0.041167   |
 | Giornico           |         5073 | 0.991396 |      0.176113   |
-| Meinisberg         |          390 | 0.991663 |      0.445172   |
 | Lumino             |         5010 | 0.99208  |      0.429817   |
 | Ederswiler         |         6713 | 0.992721 |      0.107417   |
 | Roggenburg         |         2790 | 0.992822 |      0.231432   |
 | La Côte-aux-Fées   |         6504 | 0.992865 |      0.00384762 |
 | Fischbach-Göslikon |         4067 | 0.993006 |      0.05381    |
+| Dalpe              |         5071 | 0.993297 |      0.18988    |
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Merzligen  |          741 |   0.990738 |   0.999992 |    0.00925458 |
-| Buochs     |         1502 |   0.993546 |   0.999998 |    0.00645201 |
-| Hermrigen  |          737 |   0.992581 |   0.997823 |    0.00524147 |
-| Mandach    |         4105 |   0.995119 |   0.999995 |    0.00487611 |
-| Böttstein  |         4303 |   0.995846 |   0.999995 |    0.00414911 |
-| Leuggern   |         4313 |   0.996326 |   0.999996 |    0.00366991 |
-| Laufenburg |         4170 |   0.99645  |   0.999996 |    0.00354614 |
-| Koblenz    |         4310 |   0.996706 |   0.999992 |    0.00328605 |
-| Klingnau   |         4309 |   0.996732 |   0.999995 |    0.00326275 |
-| Gansingen  |         4164 |   0.996896 |   0.999996 |    0.00309936 |
+| name              |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------------|-------------:|-----------:|-----------:|--------------:|
+| Meinisberg        |          390 |   0.991663 |   0.998983 |    0.00732046 |
+| Grossdietwil      |         1131 |   0.99424  |   0.999994 |    0.00575411 |
+| Birrhard          |         4093 |   0.995052 |   0.999992 |    0.00493982 |
+| Wohlenschwil      |         4046 |   0.995184 |   0.999995 |    0.00481044 |
+| Hallwil           |         4197 |   0.995207 |   0.999994 |    0.00478627 |
+| Altishofen        |         1123 |   0.995978 |   0.999837 |    0.00385878 |
+| Dintikon          |         4194 |   0.995714 |   0.999124 |    0.00340908 |
+| Büren an der Aare |          383 |   0.996616 |   0.999996 |    0.0033795  |
+| Seengen           |         4208 |   0.997186 |   0.999997 |    0.00281059 |
+| Mägenwil          |         4032 |   0.996258 |   0.998626 |    0.00236788 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
