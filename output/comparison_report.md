@@ -1,4 +1,4 @@
-Generated: 2026-04-25 03:08:55 UTC
+Generated: 2026-04-26 03:11:17 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-25 03:08:55 UTC
 | Median IoU | 0.9989 |
 | Mean area difference | 0.03% |
 | Mean symmetric difference | 0.13% |
-| Mean Hausdorff distance | 10.882 m |
+| Mean Hausdorff distance | 10.798 m |
 
 ## Quality Distribution
 
@@ -28,43 +28,43 @@ Generated: 2026-04-25 03:08:55 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-24)
+## Historical Comparison (vs 2026-04-25)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9986 |
+| Previous mean IoU | 0.9987 |
 | Current mean IoU | 0.9987 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
 
-| name               |   bfs_nummer |      iou |   area_diff_pct |
-|:-------------------|-------------:|---------:|----------------:|
-| Eschenz            |         4806 | 0.981348 |      1.54249    |
-| Villars-Epeney     |         5935 | 0.990921 |      0.128837   |
-| Stabio             |         5266 | 0.990997 |      0.041167   |
-| Giornico           |         5073 | 0.991396 |      0.176113   |
-| Lumino             |         5010 | 0.99208  |      0.429817   |
-| Ederswiler         |         6713 | 0.992721 |      0.107417   |
-| Roggenburg         |         2790 | 0.992822 |      0.231432   |
-| La Côte-aux-Fées   |         6504 | 0.992865 |      0.00384762 |
-| Fischbach-Göslikon |         4067 | 0.993006 |      0.05381    |
-| Dalpe              |         5071 | 0.993297 |      0.18988    |
+| name             |   bfs_nummer |      iou |   area_diff_pct |
+|:-----------------|-------------:|---------:|----------------:|
+| Eschenz          |         4806 | 0.981348 |      1.54249    |
+| Villars-Epeney   |         5935 | 0.990921 |      0.128837   |
+| Stabio           |         5266 | 0.990997 |      0.041167   |
+| Giornico         |         5073 | 0.991396 |      0.176113   |
+| Lumino           |         5010 | 0.99208  |      0.429817   |
+| Ederswiler       |         6713 | 0.992721 |      0.107417   |
+| Roggenburg       |         2790 | 0.992822 |      0.231432   |
+| La Côte-aux-Fées |         6504 | 0.992865 |      0.00384762 |
+| Dalpe            |         5071 | 0.993297 |      0.18988    |
+| Cugnasco-Gerra   |         5138 | 0.993401 |      0.0371526  |
 
 ## Most Improved (if historical data available)
 
-| name              |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------------|-------------:|-----------:|-----------:|--------------:|
-| Meinisberg        |          390 |   0.991663 |   0.998983 |    0.00732046 |
-| Grossdietwil      |         1131 |   0.99424  |   0.999994 |    0.00575411 |
-| Birrhard          |         4093 |   0.995052 |   0.999992 |    0.00493982 |
-| Wohlenschwil      |         4046 |   0.995184 |   0.999995 |    0.00481044 |
-| Hallwil           |         4197 |   0.995207 |   0.999994 |    0.00478627 |
-| Altishofen        |         1123 |   0.995978 |   0.999837 |    0.00385878 |
-| Dintikon          |         4194 |   0.995714 |   0.999124 |    0.00340908 |
-| Büren an der Aare |          383 |   0.996616 |   0.999996 |    0.0033795  |
-| Seengen           |         4208 |   0.997186 |   0.999997 |    0.00281059 |
-| Mägenwil          |         4032 |   0.996258 |   0.998626 |    0.00236788 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Eggenwil           |         4066 |   0.995062 |   0.99999  |    0.00492745 |
+| Fischbach-Göslikon |         4067 |   0.993006 |   0.99671  |    0.00370424 |
+| Moosleerau         |         4277 |   0.996779 |   0.999994 |    0.00321485 |
+| Mellingen          |         4033 |   0.996991 |   0.999993 |    0.00300267 |
+| Wegenstetten       |         4262 |   0.997183 |   0.999997 |    0.00281339 |
+| Densbüren          |         4004 |   0.99769  |   0.999996 |    0.00230603 |
+| Bremgarten (AG)    |         4063 |   0.997756 |   0.999995 |    0.00223953 |
+| Schupfart          |         4259 |   0.997786 |   0.999867 |    0.00208134 |
+| Kirchleerau        |         4275 |   0.998188 |   0.999993 |    0.00180457 |
+| Tägerig            |         4077 |   0.995603 |   0.996762 |    0.00115803 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
