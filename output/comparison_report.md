@@ -1,4 +1,4 @@
-Generated: 2026-04-26 03:11:17 UTC
+Generated: 2026-04-27 03:12:50 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-04-26 03:11:17 UTC
 |--------|-------|
 | Mean IoU | 0.9987 |
 | Median IoU | 0.9989 |
-| Mean area difference | 0.03% |
+| Mean area difference | 0.02% |
 | Mean symmetric difference | 0.13% |
-| Mean Hausdorff distance | 10.798 m |
+| Mean Hausdorff distance | 10.694 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-26 03:11:17 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-25)
+## Historical Comparison (vs 2026-04-26)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,18 @@ Generated: 2026-04-26 03:11:17 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Eggenwil           |         4066 |   0.995062 |   0.99999  |    0.00492745 |
-| Fischbach-Göslikon |         4067 |   0.993006 |   0.99671  |    0.00370424 |
-| Moosleerau         |         4277 |   0.996779 |   0.999994 |    0.00321485 |
-| Mellingen          |         4033 |   0.996991 |   0.999993 |    0.00300267 |
-| Wegenstetten       |         4262 |   0.997183 |   0.999997 |    0.00281339 |
-| Densbüren          |         4004 |   0.99769  |   0.999996 |    0.00230603 |
-| Bremgarten (AG)    |         4063 |   0.997756 |   0.999995 |    0.00223953 |
-| Schupfart          |         4259 |   0.997786 |   0.999867 |    0.00208134 |
-| Kirchleerau        |         4275 |   0.998188 |   0.999993 |    0.00180457 |
-| Tägerig            |         4077 |   0.995603 |   0.996762 |    0.00115803 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Freienwil      |         4028 |   0.993968 |   0.999991 |    0.00602366 |
+| Ennetbaden     |         4026 |   0.993654 |   0.998935 |    0.00528136 |
+| Obersiggenthal |         4038 |   0.995999 |   0.999995 |    0.00399589 |
+| Ehrendingen    |         4049 |   0.996183 |   0.999995 |    0.00381192 |
+| Wald (AR)      |         3036 |   0.996263 |   0.999994 |    0.00373124 |
+| Lotzwil        |          331 |   0.996448 |   0.999994 |    0.00354607 |
+| Rehetobel      |         3034 |   0.996475 |   0.999783 |    0.00330866 |
+| Wettingen      |         4045 |   0.996843 |   0.999996 |    0.0031529  |
+| Brünisried     |         2292 |   0.997044 |   0.999476 |    0.0024318  |
+| Lengnau (AG)   |         4312 |   0.998049 |   0.999996 |    0.00194731 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
