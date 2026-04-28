@@ -1,12 +1,12 @@
-Generated: 2026-04-27 03:12:50 UTC
+Generated: 2026-04-28 03:12:36 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2110 (100.0%) |
-| Missing in OSM | 0 (0.0%) |
+| Matched in OSM | 2109 (100.0%) |
+| Missing in OSM | 1 (0.0%) |
 |  Only in OSM (not in Swisstopo) | 9
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,18 +17,18 @@ Generated: 2026-04-27 03:12:50 UTC
 | Median IoU | 0.9989 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.13% |
-| Mean Hausdorff distance | 10.694 m |
+| Mean Hausdorff distance | 10.553 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 2109 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-26)
+## Historical Comparison (vs 2026-04-27)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,22 @@ Generated: 2026-04-27 03:12:50 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Freienwil      |         4028 |   0.993968 |   0.999991 |    0.00602366 |
-| Ennetbaden     |         4026 |   0.993654 |   0.998935 |    0.00528136 |
-| Obersiggenthal |         4038 |   0.995999 |   0.999995 |    0.00399589 |
-| Ehrendingen    |         4049 |   0.996183 |   0.999995 |    0.00381192 |
-| Wald (AR)      |         3036 |   0.996263 |   0.999994 |    0.00373124 |
-| Lotzwil        |          331 |   0.996448 |   0.999994 |    0.00354607 |
-| Rehetobel      |         3034 |   0.996475 |   0.999783 |    0.00330866 |
-| Wettingen      |         4045 |   0.996843 |   0.999996 |    0.0031529  |
-| Brünisried     |         2292 |   0.997044 |   0.999476 |    0.0024318  |
-| Lengnau (AG)   |         4312 |   0.998049 |   0.999996 |    0.00194731 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Holziken           |         4136 |   0.994567 |   0.999993 |    0.00542615 |
+| Prez               |         2237 |   0.995188 |   0.999996 |    0.00480766 |
+| Niederwil (AG)     |         4072 |   0.996125 |   0.999995 |    0.00387001 |
+| Fisibach           |         4306 |   0.996173 |   0.999994 |    0.00382115 |
+| La Brillaz         |         2234 |   0.996232 |   0.999316 |    0.00308413 |
+| Niederdorf         |         2891 |   0.997306 |   0.999992 |    0.00268545 |
+| Tägerig            |         4077 |   0.996762 |   0.999336 |    0.00257488 |
+| La Sarraz          |         5498 |   0.997462 |   0.999994 |    0.00253221 |
+| Fischbach-Göslikon |         4067 |   0.99671  |   0.999051 |    0.00234011 |
+| Hirschthal         |         4007 |   0.995982 |   0.997845 |    0.00186286 |
+
+## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
+      name  bfs_nummer
+St. Moritz        3787
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
