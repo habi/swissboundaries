@@ -1,39 +1,39 @@
-Generated: 2026-04-28 03:12:36 UTC
+Generated: 2026-04-29 03:12:36 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2109 (100.0%) |
-| Missing in OSM | 1 (0.0%) |
+| Matched in OSM | 2110 (100.0%) |
+| Missing in OSM | 0 (0.0%) |
 |  Only in OSM (not in Swisstopo) | 9
 
 ## Accuracy Metrics (for matched municipalities)
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9987 |
-| Median IoU | 0.9989 |
+| Mean IoU | 0.9988 |
+| Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
-| Mean symmetric difference | 0.13% |
-| Mean Hausdorff distance | 10.553 m |
+| Mean symmetric difference | 0.12% |
+| Mean Hausdorff distance | 10.493 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2109 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-27)
+## Historical Comparison (vs 2026-04-28)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9987 |
-| Current mean IoU | 0.9987 |
+| Current mean IoU | 0.9988 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,22 +53,18 @@ Generated: 2026-04-28 03:12:36 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Holziken           |         4136 |   0.994567 |   0.999993 |    0.00542615 |
-| Prez               |         2237 |   0.995188 |   0.999996 |    0.00480766 |
-| Niederwil (AG)     |         4072 |   0.996125 |   0.999995 |    0.00387001 |
-| Fisibach           |         4306 |   0.996173 |   0.999994 |    0.00382115 |
-| La Brillaz         |         2234 |   0.996232 |   0.999316 |    0.00308413 |
-| Niederdorf         |         2891 |   0.997306 |   0.999992 |    0.00268545 |
-| Tägerig            |         4077 |   0.996762 |   0.999336 |    0.00257488 |
-| La Sarraz          |         5498 |   0.997462 |   0.999994 |    0.00253221 |
-| Fischbach-Göslikon |         4067 |   0.99671  |   0.999051 |    0.00234011 |
-| Hirschthal         |         4007 |   0.995982 |   0.997845 |    0.00186286 |
-
-## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
-      name  bfs_nummer
-St. Moritz        3787
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Schafisheim  |         4207 |   0.99638  |   0.999995 |    0.00361543 |
+| Staufen      |         4210 |   0.99651  |   0.999993 |    0.00348327 |
+| L'Abergement |         5741 |   0.996533 |   0.999994 |    0.00346102 |
+| Neuenhof     |         4034 |   0.997615 |   0.999994 |    0.00237953 |
+| Menziken     |         4139 |   0.997698 |   0.999995 |    0.00229694 |
+| Reinach (AG) |         4141 |   0.997834 |   0.999995 |    0.00216061 |
+| Hunzenschwil |         4200 |   0.997146 |   0.998852 |    0.00170634 |
+| Fislisbach   |         4027 |   0.997157 |   0.99883  |    0.00167353 |
+| Oberrohrdorf |         4037 |   0.995559 |   0.997084 |    0.00152477 |
+| Oberbalm     |          357 |   0.998741 |   0.999997 |    0.00125576 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
