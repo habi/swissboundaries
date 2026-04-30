@@ -1431,6 +1431,9 @@ def create_map_visualization(results_df, swisstopo_gdf):
             else:
                 props["iou"] = None
                 props["relation"] = ""
+                props["area_diff_pct"] = None
+                props["hausdorff_distance"] = None
+                props["symmetric_diff_pct"] = None
 
             features.append(
                 {
@@ -1877,7 +1880,7 @@ if __name__ == "__main__":
         create_iou_changes_plot()
         create_map_visualization(results, swisstopo)
 
-        # Create inde page for display
+        # Create index page for display
         create_index_page()
 
         print("\nComparison complete!")
