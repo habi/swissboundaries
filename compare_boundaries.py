@@ -1480,6 +1480,17 @@ def create_map_visualization(results_df, swisstopo_gdf):
         # Round to 4 decimal places for display in the legend
         legend_min = round(iou_min, 4)
         legend_max = round(iou_max, 4)
+        # Compute 10th/90th percentile thresholds for opacity highlighting
+        if iou_values:
+            sorted_vals = sorted(iou_values)
+            n = len(sorted_vals)
+            p10_idx = max(0, int(n * 0.10) - 1)
+            p90_idx = min(n - 1, int(n * 0.90))
+            iou_p10 = sorted_vals[p10_idx]
+            iou_p90 = sorted_vals[p90_idx]
+        else:
+            iou_p10 = 0.0
+            iou_p90 = 1.0
 
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1538,6 +1549,8 @@ def create_map_visualization(results_df, swisstopo_gdf):
     var data = {geojson_data};
     var ioUMin = {iou_min};
     var ioUMax = {iou_max};
+    var ioUP10 = {iou_p10};
+    var ioUP90 = {iou_p90};
 
     var map = L.map('map').setView([46.82, 8.22], 8);
 
@@ -1560,13 +1573,16 @@ def create_map_visualization(results_df, swisstopo_gdf):
     L.geoJSON(data, {{
         pointToLayer: function(feature, latlng) {{
             var iou = feature.properties.iou;
+            var highlighted = (iou !== null && iou !== undefined && !isNaN(iou))
+                ? (iou <= ioUP10 || iou >= ioUP90)
+                : false;
             return L.circleMarker(latlng, {{
                 radius: 5,
                 fillColor: iouToColor(iou),
                 color: '#222',
                 weight: 0.6,
                 opacity: 0.9,
-                fillOpacity: 0.85
+                fillOpacity: highlighted ? 1.0 : 0.618
             }});
         }},
         onEachFeature: function(feature, layer) {{
@@ -1584,8 +1600,6 @@ def create_map_visualization(results_df, swisstopo_gdf):
                 'Hausdorff: ' + hausdorffText + '<br>' +
                 'Symmetric diff: ' + symDiffText
             );
-            layer.on('mouseover', function() {{ this.openPopup(); }});
-            layer.on('mouseout', function() {{ this.closePopup(); }});
             layer.on('click', function() {{ this.openPopup(); }});
         }}
     }}).addTo(map);
