@@ -1488,6 +1488,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
     <title>Swiss Municipality Boundary Quality Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-providers@2.0.0/leaflet-providers.js"></script>
     <style>
         html, body {{ height: 100%; margin: 0; padding: 0; }}
         #map {{ height: 100%; width: 100%; }}
@@ -1541,10 +1542,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
     var map = L.map('map').setView([46.82, 8.22], 8);
 
-    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }}).addTo(map);
+    L.tileLayer.provider('Stadia.StamenTonerLite').addTo(map);
 
     function iouToColor(iou) {{
         if (iou === null || iou === undefined || isNaN(iou)) {{
