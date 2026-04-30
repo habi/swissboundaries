@@ -1,4 +1,4 @@
-Generated: 2026-04-30 03:12:53 UTC
+Generated: 2026-04-30 12:22:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-30 03:12:53 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.389 m |
+| Mean Hausdorff distance | 10.358 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-04-30 03:12:53 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-29)
+## Historical Comparison (vs 2026-04-30)
 
 | Metric | Value |
 |--------|-------|
@@ -55,16 +55,12 @@ Generated: 2026-04-30 03:12:53 UTC
 
 | name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:---------------|-------------:|-----------:|-----------:|--------------:|
-| Roggenburg     |         2790 |   0.992822 |   0.999996 |    0.00717417 |
-| Unterlunkhofen |         4079 |   0.995606 |   0.999992 |    0.00438648 |
-| Ascona         |         5091 |   0.99575  |   0.999996 |    0.004246   |
-| Tegerfelden    |         4320 |   0.995983 |   0.999995 |    0.00401168 |
-| Fahrwangen     |         4196 |   0.996259 |   0.999992 |    0.00373302 |
-| Rottenschwil   |         4238 |   0.996279 |   0.999994 |    0.00371539 |
-| Ederswiler     |         6713 |   0.992721 |   0.996179 |    0.0034582  |
-| Losone         |         5115 |   0.995835 |   0.998974 |    0.00313899 |
-| Besenbüren     |         4226 |   0.997241 |   0.999994 |    0.00275243 |
-| Bettwil        |         4227 |   0.99724  |   0.999992 |    0.00275165 |
+| Full-Reuenthal |         4307 |   0.996784 |   0.999995 |    0.00321057 |
+| Muhen          |         4009 |   0.998103 |   0.999996 |    0.00189299 |
+| Zetzwil        |         4147 |   0.998178 |   0.999995 |    0.00181649 |
+| Leibstadt      |         4311 |   0.998199 |   0.999995 |    0.00179618 |
+| Hirschthal     |         4007 |   0.997845 |   0.999227 |    0.00138164 |
+| Hunzenschwil   |         4200 |   0.998852 |   0.999994 |    0.00114112 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
