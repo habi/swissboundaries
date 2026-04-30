@@ -1482,12 +1482,9 @@ def create_map_visualization(results_df, swisstopo_gdf):
         legend_max = round(iou_max, 4)
         # Compute 10th/90th percentile thresholds for opacity highlighting
         if iou_values:
-            sorted_vals = sorted(iou_values)
-            n = len(sorted_vals)
-            p10_idx = max(0, int(n * 0.10) - 1)
-            p90_idx = min(n - 1, int(n * 0.90))
-            iou_p10 = sorted_vals[p10_idx]
-            iou_p90 = sorted_vals[p90_idx]
+            import numpy as np
+            iou_p10 = float(np.percentile(iou_values, 10))
+            iou_p90 = float(np.percentile(iou_values, 90))
         else:
             iou_p10 = 0.0
             iou_p90 = 1.0
