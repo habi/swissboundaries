@@ -1,4 +1,4 @@
-Generated: 2026-04-30 12:22:34 UTC
+Generated: 2026-04-30 12:46:43 UTC
 
 ## Dataset Overview
 
@@ -53,14 +53,7 @@ Generated: 2026-04-30 12:22:34 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Full-Reuenthal |         4307 |   0.996784 |   0.999995 |    0.00321057 |
-| Muhen          |         4009 |   0.998103 |   0.999996 |    0.00189299 |
-| Zetzwil        |         4147 |   0.998178 |   0.999995 |    0.00181649 |
-| Leibstadt      |         4311 |   0.998199 |   0.999995 |    0.00179618 |
-| Hirschthal     |         4007 |   0.997845 |   0.999227 |    0.00138164 |
-| Hunzenschwil   |         4200 |   0.998852 |   0.999994 |    0.00114112 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
