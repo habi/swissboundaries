@@ -1024,12 +1024,31 @@ def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
         ],
     )
 
+    rangeselector_buttons = [
+        dict(count=7, label="1W", step="day", stepmode="backward"),
+        dict(count=1, label="1M", step="month", stepmode="backward"),
+        dict(count=3, label="3M", step="month", stepmode="backward"),
+        dict(count=6, label="6M", step="month", stepmode="backward"),
+        dict(step="all", label="All"),
+    ]
+
     for row in (1, 2):
         for col in (1, 2):
             fig.update_xaxes(showgrid=True, zeroline=False, row=row, col=col)
             fig.update_yaxes(showgrid=True, zeroline=False, row=row, col=col)
 
-        fig.update_xaxes(title_text="Snapshot date", row=row, col=1)
+    fig.update_xaxes(
+        rangeselector=dict(buttons=rangeselector_buttons),
+        title_text="Snapshot date",
+        row=1,
+        col=1,
+    )
+    fig.update_xaxes(
+        matches="x",
+        title_text="Snapshot date",
+        row=2,
+        col=1,
+    )
 
     default_item = next(
         item for item in metric_results if item["label"] == default_label
