@@ -1577,7 +1577,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
                 color: '#222',
                 weight: 0.6,
                 opacity: 0.9,
-                fillOpacity: highlighted ? 1.0 : 0.618
+                fillOpacity: highlighted ? 1.0 : 0.309
             }});
         }},
         onEachFeature: function(feature, layer) {{
