@@ -1553,7 +1553,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
     var map = L.map('map').setView([46.82, 8.22], 8);
 
     L.tileLayer.provider('Stadia.StamenTonerLite').addTo(map);
-
+    <!-- Stadia API key is managed via "domain authentication" in the (free) account of @habi with 200000 credits/month -->
     function iouToColor(iou) {{
         if (iou === null || iou === undefined || isNaN(iou)) {{
             return '#888888';
