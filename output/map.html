@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiss Municipality Boundary Quality Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 100%; width: 100%; }
+        .legend {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            line-height: 1.6;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+        }
+        .legend h4 { margin: 0 0 6px 0; font-size: 14px; }
+        .legend-gradient {
+            width: 160px;
+            height: 14px;
+            background: linear-gradient(to right, hsl(0,80%,45%), hsl(60,80%,45%), hsl(120,80%,45%));
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            margin-bottom: 2px;
+        }
+        .legend-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 160px;
+            font-size: 11px;
+            color: #555;
+        }
+        .legend-missing {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 12px;
+        }
+        .legend-missing-dot {
+            width: 12px; height: 12px;
+            background: #888888;
+            border-radius: 50%;
+            border: 1px solid #555;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var data = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [7.5043673250772365, 46.99602106403199]}, "properties": {"name": "Test A", "bfs_nummer": 1, "iou": 0.9999, "relation": "123456", "area_diff_pct": 0.001, "hausdorff_distance": 5.0, "symmetric_diff_pct": 0.01}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [7.76730830436304, 46.99557061878499]}, "properties": {"name": "Test B", "bfs_nummer": 2, "iou": null, "relation": "", "area_diff_pct": null, "hausdorff_distance": null, "symmetric_diff_pct": null}}]};
+    var ioUMin = 0.9999;
+    var ioUMax = 0.9999;
+
+    var map = L.map('map').setView([46.82, 8.22], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    function iouToColor(iou) {
+        if (iou === null || iou === undefined || isNaN(iou)) {
+            return '#888888';
+        }
+        // Map the actual data bandwidth (ioUMin..ioUMax) to hue 0° (red) .. 120° (green)
+        var range = ioUMax - ioUMin;
+        var t = range > 0 ? Math.min(1, Math.max(0, (iou - ioUMin) / range)) : 1;
+        var hue = Math.round(t * 120);
+        return 'hsl(' + hue + ',80%,40%)';
+    }
+
+    L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+            var iou = feature.properties.iou;
+            return L.circleMarker(latlng, {
+                radius: 5,
+                fillColor: iouToColor(iou),
+                color: '#222',
+                weight: 0.6,
+                opacity: 0.9,
+                fillOpacity: 0.85
+            });
+        },
+        onEachFeature: function(feature, layer) {
+            var p = feature.properties;
+            var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';
+            var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
+            var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
+            var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
+            var osmLink = p.relation ? '<a href="https://osm.org/relation/' + p.relation + '" target="_blank">relation/' + p.relation + '</a>' : '—';
+            layer.bindPopup(
+                '<b>' + p.name + '</b> (BFS ' + p.bfs_nummer + ')<br>' +
+                'OSM: ' + osmLink + '<br>' +
+                'IoU: <b>' + iouText + '</b><br>' +
+                'Area diff: ' + areaDiffText + '<br>' +
+                'Hausdorff: ' + hausdorffText + '<br>' +
+                'Symmetric diff: ' + symDiffText
+            );
+            layer.on('mouseover', function() { this.openPopup(); });
+            layer.on('mouseout', function() { this.closePopup(); });
+            layer.on('click', function() { this.openPopup(); });
+        }
+    }).addTo(map);
+
+    // Legend
+    var legend = L.control({position: 'bottomright'});
+    legend.onAdd = function() {
+        var div = L.DomUtil.create('div', 'legend');
+        div.innerHTML =
+            '<h4>IoU Quality</h4>' +
+            '<div class="legend-gradient"></div>' +
+            '<div class="legend-labels">' +
+            '  <span>Worse<br>(0.9999)</span>' +
+            '  <span style="text-align:right">Better<br>(0.9999)</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot"></div>' +
+            '  <span>Not matched in OSM</span>' +
+            '</div>';
+        return div;
+    };
+    legend.addTo(map);
+</script>
+</body>
+</html>

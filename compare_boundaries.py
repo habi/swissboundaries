@@ -1385,6 +1385,222 @@ def generate_report(results_df, historical_df):
     return results_df
 
 
+def create_map_visualization(results_df, swisstopo_gdf):
+    """Create an interactive Leaflet map of municipality IoU quality on an OSM background."""
+    print("Creating map visualization...")
+
+    try:
+        # Reproject to WGS84 and compute a representative point that lies within each polygon
+        gdf_wgs84 = swisstopo_gdf.to_crs("EPSG:4326").copy()
+        gdf_wgs84["_point"] = gdf_wgs84.geometry.representative_point()
+
+        # Build a lookup from bfs_nummer → result row (drop duplicates defensively)
+        results_indexed = (
+            results_df.drop_duplicates("bfs_nummer").set_index("bfs_nummer")
+        )
+
+        features = []
+        for _, row in gdf_wgs84.iterrows():
+            bfs = int(row["bfs_nummer"])
+            point = row["_point"]
+            name = row.get("name", row.get("NAME", str(bfs)))
+
+            props = {"name": name, "bfs_nummer": bfs}
+
+            if bfs in results_indexed.index:
+                r = results_indexed.loc[bfs]
+                props["iou"] = (
+                    float(r["iou"]) if pd.notna(r.get("iou")) else None
+                )
+                props["relation"] = str(r.get("relation", ""))
+                props["area_diff_pct"] = (
+                    float(r["area_diff_pct"])
+                    if pd.notna(r.get("area_diff_pct"))
+                    else None
+                )
+                props["hausdorff_distance"] = (
+                    float(r["hausdorff_distance"])
+                    if pd.notna(r.get("hausdorff_distance"))
+                    else None
+                )
+                props["symmetric_diff_pct"] = (
+                    float(r["symmetric_diff_pct"])
+                    if pd.notna(r.get("symmetric_diff_pct"))
+                    else None
+                )
+            else:
+                props["iou"] = None
+                props["relation"] = ""
+                props["area_diff_pct"] = None
+                props["hausdorff_distance"] = None
+                props["symmetric_diff_pct"] = None
+
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [point.x, point.y],
+                    },
+                    "properties": props,
+                }
+            )
+
+        geojson_data = json.dumps(
+            {"type": "FeatureCollection", "features": features}
+        )
+
+        # Determine the actual IoU range for a bandwidth-scaled color ramp
+        iou_values = [
+            f["properties"]["iou"]
+            for f in features
+            if f["properties"]["iou"] is not None
+        ]
+        iou_min = min(iou_values) if iou_values else 0.0
+        iou_max = max(iou_values) if iou_values else 1.0
+        # Round to 4 decimal places for display in the legend
+        legend_min = round(iou_min, 4)
+        legend_max = round(iou_max, 4)
+
+        html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiss Municipality Boundary Quality Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        html, body {{ height: 100%; margin: 0; padding: 0; }}
+        #map {{ height: 100%; width: 100%; }}
+        .legend {{
+            background: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            line-height: 1.6;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+        }}
+        .legend h4 {{ margin: 0 0 6px 0; font-size: 14px; }}
+        .legend-gradient {{
+            width: 160px;
+            height: 14px;
+            background: linear-gradient(to right, hsl(0,80%,45%), hsl(60,80%,45%), hsl(120,80%,45%));
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            margin-bottom: 2px;
+        }}
+        .legend-labels {{
+            display: flex;
+            justify-content: space-between;
+            width: 160px;
+            font-size: 11px;
+            color: #555;
+        }}
+        .legend-missing {{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 12px;
+        }}
+        .legend-missing-dot {{
+            width: 12px; height: 12px;
+            background: #888888;
+            border-radius: 50%;
+            border: 1px solid #555;
+            flex-shrink: 0;
+        }}
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var data = {geojson_data};
+    var ioUMin = {iou_min};
+    var ioUMax = {iou_max};
+
+    var map = L.map('map').setView([46.82, 8.22], 8);
+
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }}).addTo(map);
+
+    function iouToColor(iou) {{
+        if (iou === null || iou === undefined || isNaN(iou)) {{
+            return '#888888';
+        }}
+        // Map the actual data bandwidth (ioUMin..ioUMax) to hue 0° (red) .. 120° (green)
+        var range = ioUMax - ioUMin;
+        var t = range > 0 ? Math.min(1, Math.max(0, (iou - ioUMin) / range)) : 1;
+        var hue = Math.round(t * 120);
+        return 'hsl(' + hue + ',80%,40%)';
+    }}
+
+    L.geoJSON(data, {{
+        pointToLayer: function(feature, latlng) {{
+            var iou = feature.properties.iou;
+            return L.circleMarker(latlng, {{
+                radius: 5,
+                fillColor: iouToColor(iou),
+                color: '#222',
+                weight: 0.6,
+                opacity: 0.9,
+                fillOpacity: 0.85
+            }});
+        }},
+        onEachFeature: function(feature, layer) {{
+            var p = feature.properties;
+            var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';
+            var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
+            var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
+            var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
+            var osmLink = p.relation ? '<a href="https://osm.org/relation/' + p.relation + '" target="_blank">relation/' + p.relation + '</a>' : '—';
+            layer.bindPopup(
+                '<b>' + p.name + '</b> (BFS ' + p.bfs_nummer + ')<br>' +
+                'OSM: ' + osmLink + '<br>' +
+                'IoU: <b>' + iouText + '</b><br>' +
+                'Area diff: ' + areaDiffText + '<br>' +
+                'Hausdorff: ' + hausdorffText + '<br>' +
+                'Symmetric diff: ' + symDiffText
+            );
+            layer.on('mouseover', function() {{ this.openPopup(); }});
+            layer.on('mouseout', function() {{ this.closePopup(); }});
+            layer.on('click', function() {{ this.openPopup(); }});
+        }}
+    }}).addTo(map);
+
+    // Legend
+    var legend = L.control({{position: 'bottomright'}});
+    legend.onAdd = function() {{
+        var div = L.DomUtil.create('div', 'legend');
+        div.innerHTML =
+            '<h4>IoU Quality</h4>' +
+            '<div class="legend-gradient"></div>' +
+            '<div class="legend-labels">' +
+            '  <span>Worse<br>({legend_min})</span>' +
+            '  <span style="text-align:right">Better<br>({legend_max})</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot"></div>' +
+            '  <span>Not matched in OSM</span>' +
+            '</div>';
+        return div;
+    }};
+    legend.addTo(map);
+</script>
+</body>
+</html>"""
+
+        with open("output/map.html", "w", encoding="utf-8") as f:
+            f.write(html_content)
+
+        print("Map visualization saved to output/map.html")
+    except Exception as e:
+        print(f"Warning: Failed to create map visualization: {e}")
+
+
 def create_index_page():
     """Create HTML to display CSV table"""
     readme_text = ""
@@ -1420,6 +1636,15 @@ def create_index_page():
     <section class=\"framed-section\" id=\"changes-plot\">
         <h3>Metric Changes Over Time</h3>
         <iframe src=\"iou_changes.html\" title=\"Metric changes plot\"></iframe>
+    </section>"""
+
+    map_section = ""
+    map_path = Path("output/map.html")
+    if map_path.exists():
+        map_section = """
+    <section class=\"framed-section\" id=\"quality-map\">
+        <h3>Municipality Quality Map</h3>
+        <iframe src=\"map.html\" title=\"Municipality quality map\" style=\"width:100%;height:600px;border:0;\"></iframe>
     </section>"""
 
     html_content = """<!DOCTYPE html>
@@ -1496,6 +1721,7 @@ def create_index_page():
     <div id="csv-table"></div>
 
     __README_SECTION__
+    __MAP_SECTION__
     __CHANGES_PLOT_SECTION__
 
     <script>
@@ -1609,6 +1835,7 @@ def create_index_page():
 </html>"""
 
     html_content = html_content.replace("__README_SECTION__", readme_section)
+    html_content = html_content.replace("__MAP_SECTION__", map_section)
     html_content = html_content.replace(
         "__CHANGES_PLOT_SECTION__", changes_plot_section
     )
@@ -1651,8 +1878,9 @@ if __name__ == "__main__":
         report = generate_report(results, historical)
         create_trend_visualizations(results, historical)
         create_iou_changes_plot()
+        create_map_visualization(results, swisstopo)
 
-        # Create inde page for display
+        # Create index page for display
         create_index_page()
 
         print("\nComparison complete!")
