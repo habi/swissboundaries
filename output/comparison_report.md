@@ -1,4 +1,4 @@
-Generated: 2026-05-01 09:16:15 UTC
+Generated: 2026-05-01 13:38:39 UTC
 
 ## Dataset Overview
 
@@ -7,7 +7,7 @@ Generated: 2026-05-01 09:16:15 UTC
 | Total Swisstopo municipalities | 2110 |
 | Matched in OSM | 2110 (100.0%) |
 | Missing in OSM | 0 (0.0%) |
-|  Only in OSM (not in Swisstopo) | 9
+|  Only in OSM (not in Swisstopo) | 9 |
 
 ## Accuracy Metrics (for matched municipalities)
 
@@ -17,7 +17,7 @@ Generated: 2026-05-01 09:16:15 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.253 m |
+| Mean Hausdorff distance | 10.252 m |
 
 ## Quality Distribution
 
@@ -53,18 +53,7 @@ Generated: 2026-05-01 09:16:15 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Villars-Epeney |         5935 |   0.990921 |   0.999987 |    0.00906601 |
-| Niederrohrdorf |         4035 |   0.994719 |   0.999991 |    0.00527263 |
-| Cuarny         |         5911 |   0.995564 |   0.999995 |    0.00443104 |
-| Stetten (AG)   |         4041 |   0.996068 |   0.999993 |    0.00392534 |
-| Remetschwil    |         4039 |   0.996266 |   0.999993 |    0.00372655 |
-| Cronay         |         5910 |   0.996407 |   0.999996 |    0.0035888  |
-| Oberrohrdorf   |         4037 |   0.997084 |   0.999994 |    0.00291057 |
-| Pomy           |         5926 |   0.995211 |   0.99797  |    0.00275865 |
-| Dietwil        |         4231 |   0.997479 |   0.999995 |    0.00251577 |
-| Oberrüti       |         4237 |   0.997482 |   0.999995 |    0.00251324 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
