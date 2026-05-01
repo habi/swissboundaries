@@ -1,4 +1,4 @@
-Generated: 2026-05-01 03:12:40 UTC
+Generated: 2026-05-01 09:16:15 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-01 03:12:40 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.323 m |
+| Mean Hausdorff distance | 10.253 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-01 03:12:40 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-04-30)
+## Historical Comparison (vs 2026-05-01)
 
 | Metric | Value |
 |--------|-------|
@@ -38,25 +38,33 @@ Generated: 2026-05-01 03:12:40 UTC
 
 ## Worst 10 Matches (by IoU)
 
-| name             |   bfs_nummer |      iou |   area_diff_pct |
-|:-----------------|-------------:|---------:|----------------:|
-| Eschenz          |         4806 | 0.981348 |      1.54249    |
-| Villars-Epeney   |         5935 | 0.990921 |      0.128837   |
-| Stabio           |         5266 | 0.990997 |      0.041167   |
-| Giornico         |         5073 | 0.991396 |      0.176113   |
-| Lumino           |         5010 | 0.99208  |      0.429817   |
-| La Côte-aux-Fées |         6504 | 0.992865 |      0.00384762 |
-| Dalpe            |         5071 | 0.993297 |      0.18988    |
-| Cugnasco-Gerra   |         5138 | 0.993401 |      0.0371526  |
-| Interlaken       |          581 | 0.993408 |      0.0209591  |
-| Mauborget        |         5562 | 0.993494 |      0.253832   |
+| name                |   bfs_nummer |      iou |   area_diff_pct |
+|:--------------------|-------------:|---------:|----------------:|
+| Eschenz             |         4806 | 0.981348 |     1.54249     |
+| Stabio              |         5266 | 0.990997 |     0.041167    |
+| Giornico            |         5073 | 0.991396 |     0.176113    |
+| Lumino              |         5010 | 0.99208  |     0.429817    |
+| La Côte-aux-Fées    |         6504 | 0.992865 |     0.00384762  |
+| Dalpe               |         5071 | 0.993297 |     0.18988     |
+| Cugnasco-Gerra      |         5138 | 0.993401 |     0.0371526   |
+| Interlaken          |          581 | 0.993408 |     0.0209591   |
+| Mauborget           |         5562 | 0.993494 |     0.253832    |
+| Vufflens-le-Château |         5653 | 0.993715 |     0.000739165 |
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Sant'Antonino |         5017 |   0.99528  |   0.999995 |    0.00471501 |
-| Zollikofen    |          361 |   0.998546 |   0.999995 |    0.00144893 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Villars-Epeney |         5935 |   0.990921 |   0.999987 |    0.00906601 |
+| Niederrohrdorf |         4035 |   0.994719 |   0.999991 |    0.00527263 |
+| Cuarny         |         5911 |   0.995564 |   0.999995 |    0.00443104 |
+| Stetten (AG)   |         4041 |   0.996068 |   0.999993 |    0.00392534 |
+| Remetschwil    |         4039 |   0.996266 |   0.999993 |    0.00372655 |
+| Cronay         |         5910 |   0.996407 |   0.999996 |    0.0035888  |
+| Oberrohrdorf   |         4037 |   0.997084 |   0.999994 |    0.00291057 |
+| Pomy           |         5926 |   0.995211 |   0.99797  |    0.00275865 |
+| Dietwil        |         4231 |   0.997479 |   0.999995 |    0.00251577 |
+| Oberrüti       |         4237 |   0.997482 |   0.999995 |    0.00251324 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
