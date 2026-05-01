@@ -1469,26 +1469,6 @@ def create_map_visualization(results_df, swisstopo_gdf):
             {"type": "FeatureCollection", "features": features}
         )
 
-        # Determine the actual IoU range for a bandwidth-scaled color ramp
-        iou_values = [
-            f["properties"]["iou"]
-            for f in features
-            if f["properties"]["iou"] is not None
-        ]
-        iou_min = min(iou_values) if iou_values else 0.0
-        iou_max = max(iou_values) if iou_values else 1.0
-        # Round to 4 decimal places for display in the legend
-        legend_min = round(iou_min, 4)
-        legend_max = round(iou_max, 4)
-        # Compute 10th/90th percentile thresholds for opacity highlighting
-        if iou_values:
-            import numpy as np
-            iou_p10 = float(np.percentile(iou_values, 10))
-            iou_p90 = float(np.percentile(iou_values, 90))
-        else:
-            iou_p10 = 0.0
-            iou_p90 = 1.0
-
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1545,39 +1525,137 @@ def create_map_visualization(results_df, swisstopo_gdf):
 <div id="map"></div>
 <script>
     var data = {geojson_data};
-    var ioUMin = {iou_min};
-    var ioUMax = {iou_max};
-    var ioUP10 = {iou_p10};
-    var ioUP90 = {iou_p90};
-
     var map = L.map('map').setView([46.82, 8.22], 8);
 
     L.tileLayer.provider('Stadia.StamenTonerLite').addTo(map);
-    <!-- Stadia API key is managed via "domain authentication" in the (free) account of @habi with 200000 credits/month -->
-    function iouToColor(iou) {{
-        if (iou === null || iou === undefined || isNaN(iou)) {{
+    // Stadia API key is managed via "domain authentication" in the (free) account of @habi with 200000 credits/month
+    
+    var metricConfig = {{
+        iou: {{
+            label: 'IoU Quality',
+            property: 'iou',
+            decimals: 6,
+            unit: '',
+            betterHigh: true
+        }},
+        area_diff_pct: {{
+            label: 'Area Diff [%]',
+            property: 'area_diff_pct',
+            decimals: 4,
+            unit: '%',
+            betterHigh: false
+        }},
+        hausdorff_distance: {{
+            label: 'Hausdorff Distance [m]',
+            property: 'hausdorff_distance',
+            decimals: 3,
+            unit: ' m',
+            betterHigh: false
+        }},
+        symmetric_diff_pct: {{
+            label: 'Symmetric Diff [%]',
+            property: 'symmetric_diff_pct',
+            decimals: 4,
+            unit: '%',
+            betterHigh: false
+        }}        
+    }};
+
+    function isNumber(value) {{
+        return value !== null && value !== undefined && !isNaN(value);
+    }}
+
+    function quantile(sortedValues, q) {{
+        if (!sortedValues.length) return 0;
+        var pos = (sortedValues.length - 1) * q;
+        var base = Math.floor(pos);
+        var rest = pos - base;
+        var next = sortedValues[base + 1];
+        if (next !== undefined) {{
+            return sortedValues[base] + rest * (next - sortedValues[base]);
+        }}
+        return sortedValues[base];
+    }}
+
+    function collectValues(metricKey) {{
+        var prop = metricConfig[metricKey].property;
+        var values = [];
+        for (var i = 0; i < data.features.length; i++) {{
+            var v = data.features[i].properties[prop];
+            if (isNumber(v)) values.push(v);
+        }}
+        values.sort(function(a, b) {{ return a - b; }});
+        return values;
+    }}
+
+    function buildStats(metricKey) {{
+        var values = collectValues(metricKey);
+        if (!values.length) {{
+            return {{ min: 0, max: 1, p10: 0, p90: 1 }};
+        }}
+        return {{
+            min: values[0],
+            max: values[values.length - 1],
+            p10: quantile(values, 0.10),
+            p90: quantile(values, 0.90)
+        }};
+    }}
+
+    var metricStats = {{
+        iou: buildStats('iou'),
+        area_diff_pct: buildStats('area_diff_pct'),
+        hausdorff_distance: buildStats('hausdorff_distance'),
+        symmetric_diff_pct: buildStats('symmetric_diff_pct')
+    }};
+
+    var currentMetric = 'iou';
+
+    function metricValue(props, metricKey) {{
+        return props[metricConfig[metricKey].property];
+    }}
+
+    function metricToColor(value, metricKey) {{
+        if (!isNumber(value)) {{
             return '#888888';
         }}
-        // Map the actual data bandwidth (ioUMin..ioUMax) to hue 0° (red) .. 120° (green)
-        var range = ioUMax - ioUMin;
-        var t = range > 0 ? Math.min(1, Math.max(0, (iou - ioUMin) / range)) : 1;
+        var cfg = metricConfig[metricKey];
+        var stats = metricStats[metricKey];
+        var range = stats.max - stats.min;
+        var t = range > 0 ? Math.min(1, Math.max(0, (value - stats.min) / range)) : 1;
+        if (!cfg.betterHigh) {{
+            t = 1 - t;
+        }}
         var hue = Math.round(t * 120);
         return 'hsl(' + hue + ',80%,40%)';
     }}
 
-    L.geoJSON(data, {{
+    function metricFillOpacity(value, metricKey) {{
+        if (!isNumber(value)) {{
+            return 0.60;
+        }}
+        var stats = metricStats[metricKey];
+        var highlighted = value <= stats.p10 || value >= stats.p90;
+        return highlighted ? 1.0 : 0.309;
+    }}
+
+    function formatMetricValue(value, metricKey) {{
+        if (!isNumber(value)) {{
+            return 'N/A';
+        }}
+        var cfg = metricConfig[metricKey];
+        return value.toFixed(cfg.decimals) + cfg.unit;
+    }}
+
+    var geoLayer = L.geoJSON(data, {{
         pointToLayer: function(feature, latlng) {{
-            var iou = feature.properties.iou;
-            var highlighted = (iou !== null && iou !== undefined && !isNaN(iou))
-                ? (iou <= ioUP10 || iou >= ioUP90)
-                : false;
+            var value = metricValue(feature.properties, currentMetric);
             return L.circleMarker(latlng, {{
                 radius: 5,
-                fillColor: iouToColor(iou),
+                fillColor: metricToColor(value, currentMetric),
                 color: '#222',
                 weight: 0.6,
                 opacity: 0.9,
-                fillOpacity: highlighted ? 1.0 : 0.309
+                fillOpacity: metricFillOpacity(value, currentMetric)
             }});
         }},
         onEachFeature: function(feature, layer) {{
@@ -1602,24 +1680,79 @@ def create_map_visualization(results_df, swisstopo_gdf):
         }}
     }}).addTo(map);
 
-    // Legend
-    var legend = L.control({{position: 'bottomright'}});
-    legend.onAdd = function() {{
-        var div = L.DomUtil.create('div', 'legend');
-        div.innerHTML =
-            '<h4>IoU Quality</h4>' +
+    var legendDiv = null;
+
+    function updateLegend() {{
+        if (!legendDiv) return;
+        var cfg = metricConfig[currentMetric];
+        var stats = metricStats[currentMetric];
+        var leftLabel = cfg.betterHigh
+            ? 'Worse<br>(' + formatMetricValue(stats.min, currentMetric) + ')'
+            : 'Worse<br>(' + formatMetricValue(stats.max, currentMetric) + ')';
+        var rightLabel = cfg.betterHigh
+            ? 'Better<br>(' + formatMetricValue(stats.max, currentMetric) + ')'
+            : 'Better<br>(' + formatMetricValue(stats.min, currentMetric) + ')';
+
+        legendDiv.innerHTML =
+            '<h4>' + cfg.label + '</h4>' +
             '<div class="legend-gradient"></div>' +
             '<div class="legend-labels">' +
-            '  <span>Worse<br>({legend_min})</span>' +
-            '  <span style="text-align:right">Better<br>({legend_max})</span>' +
+            '  <span>' + leftLabel + '</span>' +
+            '  <span style="text-align:right">' + rightLabel + '</span>' +
             '</div>' +
             '<div class="legend-missing">' +
             '  <div class="legend-missing-dot"></div>' +
             '  <span>Not matched in OSM</span>' +
             '</div>';
+    }}
+
+    function updateLayerStyles() {{
+        geoLayer.eachLayer(function(layer) {{
+            if (!layer.feature || !layer.setStyle) return;
+            var value = metricValue(layer.feature.properties, currentMetric);
+            layer.setStyle({{
+                fillColor: metricToColor(value, currentMetric),
+                fillOpacity: metricFillOpacity(value, currentMetric)
+            }});
+        }});
+        updateLegend();
+    }}
+
+    // Metric switcher
+    var metricSwitcher = L.control({{position: 'topright'}});
+    metricSwitcher.onAdd = function() {{
+        var div = L.DomUtil.create('div', 'legend');
+        div.style.padding = '8px 10px';
+        div.innerHTML =
+            '<label for="metric-select" style="display:block;font-weight:600;margin-bottom:4px;">Map metric</label>' +
+            '<select id="metric-select" style="width:170px;">' +
+            '  <option value="iou">IoU</option>' +
+            '  <option value="area_diff_pct">Area Diff [%]</option>' +
+            '  <option value="hausdorff_distance">Hausdorff [m]</option>' +
+            '</select>';
+        L.DomEvent.disableClickPropagation(div);
         return div;
     }};
+    metricSwitcher.addTo(map);
+
+    // Legend
+    var legend = L.control({{position: 'bottomright'}});
+    legend.onAdd = function() {{
+        legendDiv = L.DomUtil.create('div', 'legend');
+        updateLegend();
+        return legendDiv;
+    }};
     legend.addTo(map);
+
+    var select = document.getElementById('metric-select');
+    if (select) {{
+        select.addEventListener('change', function(evt) {{
+            currentMetric = evt.target.value;
+            updateLayerStyles();
+        }});
+    }}
+
+    updateLayerStyles();
 </script>
 </body>
 </html>"""
