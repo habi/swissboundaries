@@ -1591,14 +1591,65 @@ def create_map_visualization(results_df, swisstopo_gdf):
     function buildStats(metricKey) {{
         var values = collectValues(metricKey);
         if (!values.length) {{
-            return {{ min: 0, max: 1, p10: 0, p90: 1 }};
+            return {{ min: 0, max: 1 }};
         }}
         return {{
             min: values[0],
-            max: values[values.length - 1],
-            p10: quantile(values, 0.10),
-            p90: quantile(values, 0.90)
+            max: values[values.length - 1]
         }};
+    }}
+
+    function buildMetricRanks(metricKey) {{
+        var cfg = metricConfig[metricKey];
+        var prop = cfg.property;
+        var rows = [];
+
+        for (var i = 0; i < data.features.length; i++) {{
+            var props = data.features[i].properties || {{}};
+            var value = props[prop];
+            var bfs = props.bfs_nummer;
+            if (!isNumber(value) || bfs === null || bfs === undefined) continue;
+            rows.push({{ bfs: String(bfs), value: value }});
+        }}
+
+        var worstSorted = rows.slice().sort(function(a, b) {{
+            // IoU: lower is worse. Distance/diff: higher is worse.
+            return cfg.betterHigh ? a.value - b.value : b.value - a.value;
+        }});
+        var bestSorted = rows.slice().sort(function(a, b) {{
+            // IoU: higher is better. Distance/diff: lower is better.
+            return cfg.betterHigh ? b.value - a.value : a.value - b.value;
+        }});
+
+        var ranks = {{
+            worst10: {{}},
+            nextWorst10: {{}},
+            best10: {{}}
+        }};
+
+        var worstCount = Math.min(10, worstSorted.length);
+        for (var j = 0; j < worstCount; j++) {{
+            ranks.worst10[worstSorted[j].bfs] = true;
+        }}
+
+        var nextStart = worstCount;
+        var nextEnd = Math.min(nextStart + 10, worstSorted.length);
+        for (var k = nextStart; k < nextEnd; k++) {{
+            var bfs = worstSorted[k].bfs;
+            if (!ranks.worst10[bfs]) {{
+                ranks.nextWorst10[bfs] = true;
+            }}
+        }}
+
+        var bestCount = Math.min(10, bestSorted.length);
+        for (var m = 0; m < bestCount; m++) {{
+            var bestBfs = bestSorted[m].bfs;
+            if (!ranks.worst10[bestBfs] && !ranks.nextWorst10[bestBfs]) {{
+                ranks.best10[bestBfs] = true;
+            }}
+        }}
+
+        return ranks;
     }}
 
     var metricStats = {{
@@ -1608,16 +1659,32 @@ def create_map_visualization(results_df, swisstopo_gdf):
         symmetric_diff_pct: buildStats('symmetric_diff_pct')
     }};
 
+    var metricRanks = {{
+        iou: buildMetricRanks('iou'),
+        area_diff_pct: buildMetricRanks('area_diff_pct'),
+        hausdorff_distance: buildMetricRanks('hausdorff_distance'),
+        symmetric_diff_pct: buildMetricRanks('symmetric_diff_pct')
+    }};
+
     var currentMetric = 'iou';
 
     function metricValue(props, metricKey) {{
         return props[metricConfig[metricKey].property];
     }}
 
-    function metricToColor(value, metricKey) {{
+    function metricToColor(value, metricKey, props) {{
         if (!isNumber(value)) {{
             return '#888888';
         }}
+
+        var bfs = (props && props.bfs_nummer !== null && props.bfs_nummer !== undefined)
+            ? String(props.bfs_nummer)
+            : null;
+        var ranks = metricRanks[metricKey] || {{}};
+        if (bfs && ranks.worst10 && ranks.worst10[bfs]) return '#d7191c';
+        if (bfs && ranks.nextWorst10 && ranks.nextWorst10[bfs]) return '#f18f01';
+        if (bfs && ranks.best10 && ranks.best10[bfs]) return '#1a9641';
+
         var cfg = metricConfig[metricKey];
         var stats = metricStats[metricKey];
         var range = stats.max - stats.min;
@@ -1629,13 +1696,20 @@ def create_map_visualization(results_df, swisstopo_gdf):
         return 'hsl(' + hue + ',80%,40%)';
     }}
 
-    function metricFillOpacity(value, metricKey) {{
+    function metricFillOpacity(value, metricKey, props) {{
         if (!isNumber(value)) {{
             return 0.60;
         }}
-        var stats = metricStats[metricKey];
-        var highlighted = value <= stats.p10 || value >= stats.p90;
-        return highlighted ? 1.0 : 0.309;
+
+        var bfs = (props && props.bfs_nummer !== null && props.bfs_nummer !== undefined)
+            ? String(props.bfs_nummer)
+            : null;
+        var ranks = metricRanks[metricKey] || {{}};
+        if (bfs && ranks.worst10 && ranks.worst10[bfs]) return 1.0;
+        if (bfs && ranks.nextWorst10 && ranks.nextWorst10[bfs]) return 1.0;
+        if (bfs && ranks.best10 && ranks.best10[bfs]) return 1.0;
+
+        return 0.30;
     }}
 
     function formatMetricValue(value, metricKey) {{
@@ -1648,14 +1722,15 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
     var geoLayer = L.geoJSON(data, {{
         pointToLayer: function(feature, latlng) {{
-            var value = metricValue(feature.properties, currentMetric);
+            var props = feature.properties || {{}};
+            var value = metricValue(props, currentMetric);
             return L.circleMarker(latlng, {{
                 radius: 5,
-                fillColor: metricToColor(value, currentMetric),
+                fillColor: metricToColor(value, currentMetric, props),
                 color: '#222',
                 weight: 0.6,
                 opacity: 0.9,
-                fillOpacity: metricFillOpacity(value, currentMetric)
+                fillOpacity: metricFillOpacity(value, currentMetric, props)
             }});
         }},
         onEachFeature: function(feature, layer) {{
@@ -1696,10 +1771,26 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
         legendDiv.innerHTML =
             '<h4>' + cfg.label + '</h4>' +
-            '<div class="legend-gradient"></div>' +
+            '<div class="legend-gradient" style="opacity:0.30"></div>' +
             '<div class="legend-labels">' +
             '  <span>' + leftLabel + '</span>' +
             '  <span style="text-align:right">' + rightLabel + '</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot" style="background:#d7191c"></div>' +
+            '  <span>Worst 10</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot" style="background:#f18f01"></div>' +
+            '  <span>Next 10 worst</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot" style="background:#1a9641"></div>' +
+            '  <span>Best 10</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot" style="background:#4c78a8; opacity:0.30"></div>' +
+            '  <span>All others (semitransparent)</span>' +
             '</div>' +
             '<div class="legend-missing">' +
             '  <div class="legend-missing-dot"></div>' +
@@ -1710,10 +1801,11 @@ def create_map_visualization(results_df, swisstopo_gdf):
     function updateLayerStyles() {{
         geoLayer.eachLayer(function(layer) {{
             if (!layer.feature || !layer.setStyle) return;
-            var value = metricValue(layer.feature.properties, currentMetric);
+            var props = layer.feature.properties || {{}};
+            var value = metricValue(props, currentMetric);
             layer.setStyle({{
-                fillColor: metricToColor(value, currentMetric),
-                fillOpacity: metricFillOpacity(value, currentMetric)
+                fillColor: metricToColor(value, currentMetric, props),
+                fillOpacity: metricFillOpacity(value, currentMetric, props)
             }});
         }});
         updateLegend();
