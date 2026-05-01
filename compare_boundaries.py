@@ -1660,14 +1660,14 @@ def create_map_visualization(results_df, swisstopo_gdf):
         }},
         onEachFeature: function(feature, layer) {{
             var p = feature.properties;
-            var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';
             var bsfLink = p.bfs_nummer
                 ? '<a href="swisstopo_geojson/' + p.bfs_nummer + '.geojson" target="_blank">' + p.bfs_nummer + '</a>'
                 : '—';
+            var osmLink = p.relation ? '<a href="https://osm.org/relation/' + p.relation + '" target="_blank">relation/' + p.relation + '</a>' : '—';                
+            var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';            
             var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
             var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
             var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
-            var osmLink = p.relation ? '<a href="https://osm.org/relation/' + p.relation + '" target="_blank">relation/' + p.relation + '</a>' : '—';
             layer.bindPopup(
                 '<b>' + p.name + '</b><br>' +
                 'BFS: ' + bsfLink + '<br>' +
