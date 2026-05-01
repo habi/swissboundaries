@@ -1661,17 +1661,18 @@ def create_map_visualization(results_df, swisstopo_gdf):
         onEachFeature: function(feature, layer) {{
             var p = feature.properties;
             var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';
-            var iouDisplay = p.bfs_nummer
-                ? '<a href="swisstopo_geojson/' + p.bfs_nummer + '.geojson" target="_blank">' + iouText + '</a>'
-                : iouText;
+            var bsfLink = p.bfs_nummer
+                ? '<a href="swisstopo_geojson/' + p.bfs_nummer + '.geojson" target="_blank">' + p.bfs_nummer + '</a>'
+                : '—';
             var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
             var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
             var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
             var osmLink = p.relation ? '<a href="https://osm.org/relation/' + p.relation + '" target="_blank">relation/' + p.relation + '</a>' : '—';
             layer.bindPopup(
-                '<b>' + p.name + '</b> (BFS ' + p.bfs_nummer + ')<br>' +
+                '<b>' + p.name + '</b><br>' +
+                'BFS: ' + bsfLink + '<br>' +
                 'OSM: ' + osmLink + '<br>' +
-                'IoU: <b>' + iouDisplay + '</b><br>' +
+                'IoU: <b>' + iouText + '</b><br>' +
                 'Area diff: ' + areaDiffText + '<br>' +
                 'Hausdorff: ' + hausdorffText + '<br>' +
                 'Symmetric diff: ' + symDiffText
@@ -1729,6 +1730,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
             '  <option value="iou">IoU</option>' +
             '  <option value="area_diff_pct">Area Diff [%]</option>' +
             '  <option value="hausdorff_distance">Hausdorff [m]</option>' +
+            '  <option value="symmetric_diff_pct">Symmetric Diff [%]</option>' +
             '</select>';
         L.DomEvent.disableClickPropagation(div);
         return div;
