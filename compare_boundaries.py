@@ -1227,7 +1227,7 @@ def generate_report(results_df, historical_df):
     report_lines.append(f"| Total Swisstopo municipalities | {total} |")
     report_lines.append(f"| Matched in OSM | {matched} ({matched/total*100:.1f}%) |")
     report_lines.append(f"| Missing in OSM | {missing} ({missing/total*100:.1f}%) |")
-    report_lines.append(f"|  Only in OSM (not in Swisstopo) | {len(only_osm_df)}")
+    report_lines.append(f"|  Only in OSM (not in Swisstopo) | {len(only_osm_df)} |")
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
