@@ -1583,6 +1583,9 @@ def create_map_visualization(results_df, swisstopo_gdf):
         onEachFeature: function(feature, layer) {{
             var p = feature.properties;
             var iouText = (p.iou !== null && p.iou !== undefined) ? p.iou.toFixed(6) : 'N/A (not in OSM)';
+            var iouDisplay = p.bfs_nummer
+                ? '<a href="swisstopo_geojson/' + p.bfs_nummer + '.geojson" target="_blank">' + iouText + '</a>'
+                : iouText;
             var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
             var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
             var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
@@ -1590,7 +1593,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
             layer.bindPopup(
                 '<b>' + p.name + '</b> (BFS ' + p.bfs_nummer + ')<br>' +
                 'OSM: ' + osmLink + '<br>' +
-                'IoU: <b>' + iouText + '</b><br>' +
+                'IoU: <b>' + iouDisplay + '</b><br>' +
                 'Area diff: ' + areaDiffText + '<br>' +
                 'Hausdorff: ' + hausdorffText + '<br>' +
                 'Symmetric diff: ' + symDiffText
