@@ -1,4 +1,4 @@
-Generated: 2026-04-30 14:12:23 UTC
+Generated: 2026-05-01 03:12:40 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-04-30 14:12:23 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.358 m |
+| Mean Hausdorff distance | 10.323 m |
 
 ## Quality Distribution
 
@@ -53,7 +53,10 @@ Generated: 2026-04-30 14:12:23 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Sant'Antonino |         5017 |   0.99528  |   0.999995 |    0.00471501 |
+| Zollikofen    |          361 |   0.998546 |   0.999995 |    0.00144893 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
