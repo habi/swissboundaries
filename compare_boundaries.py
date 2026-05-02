@@ -1591,11 +1591,16 @@ def create_map_visualization(results_df, swisstopo_gdf):
     function buildStats(metricKey) {{
         var values = collectValues(metricKey);
         if (!values.length) {{
-            return {{ min: 0, max: 1 }};
+            return {{ min: 0, max: 1, median: 0.5 }};
         }}
+        var mid = Math.floor(values.length / 2);
+        var median = values.length % 2 !== 0
+            ? values[mid]
+            : (values[mid - 1] + values[mid]) / 2;
         return {{
             min: values[0],
-            max: values[values.length - 1]
+            max: values[values.length - 1],
+            median: median
         }};
     }}
 
@@ -1692,7 +1697,18 @@ def create_map_visualization(results_df, swisstopo_gdf):
         if (!cfg.betterHigh) {{
             t = 1 - t;
         }}
-        var hue = Math.round(t * 120);
+        var t_median = range > 0 ? Math.min(1, Math.max(0, (stats.median - stats.min) / range)) : 0.5;
+        if (!cfg.betterHigh) {{
+            t_median = 1 - t_median;
+        }}
+        var hue;
+        if (t <= t_median) {{
+            var sub_t = t_median > 0 ? t / t_median : 1;
+            hue = Math.round(sub_t * 30);
+        }} else {{
+            var sub_t = (1 - t_median) > 0 ? (t - t_median) / (1 - t_median) : 1;
+            hue = Math.round(30 + sub_t * 90);
+        }}
         return 'hsl(' + hue + ',80%,40%)';
     }}
 
