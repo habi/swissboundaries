@@ -1,4 +1,4 @@
-Generated: 2026-05-01 14:53:50 UTC
+Generated: 2026-05-02 03:11:03 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-01 14:53:50 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.252 m |
+| Mean Hausdorff distance | 10.174 m |
 
 ## Quality Distribution
 
@@ -53,7 +53,15 @@ Generated: 2026-05-01 14:53:50 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Neuhausen am Rheinfall |         2937 |   0.994918 |   0.999595 |    0.00467744 |
+| Beringen               |         2932 |   0.996636 |   0.999997 |    0.00336015 |
+| Schaffhausen           |         2939 |   0.997953 |   0.999998 |    0.00204474 |
+| Roggliswil             |         1142 |   0.997971 |   0.999995 |    0.00202447 |
+| Merishausen            |         2936 |   0.9973   |   0.99923  |    0.00192964 |
+| Würenlingen            |         4047 |   0.998363 |   0.999996 |    0.00163338 |
+| Pfaffnau               |         1139 |   0.998955 |   0.999996 |    0.00104108 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
