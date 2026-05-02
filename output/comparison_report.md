@@ -1,4 +1,4 @@
-Generated: 2026-05-02 03:11:03 UTC
+Generated: 2026-05-02 17:52:09 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-05-02 03:11:03 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-01)
+## Historical Comparison (vs 2026-05-02)
 
 | Metric | Value |
 |--------|-------|
@@ -53,15 +53,7 @@ Generated: 2026-05-02 03:11:03 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Neuhausen am Rheinfall |         2937 |   0.994918 |   0.999595 |    0.00467744 |
-| Beringen               |         2932 |   0.996636 |   0.999997 |    0.00336015 |
-| Schaffhausen           |         2939 |   0.997953 |   0.999998 |    0.00204474 |
-| Roggliswil             |         1142 |   0.997971 |   0.999995 |    0.00202447 |
-| Merishausen            |         2936 |   0.9973   |   0.99923  |    0.00192964 |
-| Würenlingen            |         4047 |   0.998363 |   0.999996 |    0.00163338 |
-| Pfaffnau               |         1139 |   0.998955 |   0.999996 |    0.00104108 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
