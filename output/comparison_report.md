@@ -1,4 +1,4 @@
-Generated: 2026-05-02 17:52:09 UTC
+Generated: 2026-05-03 03:12:12 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-02 17:52:09 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.174 m |
+| Mean Hausdorff distance | 10.096 m |
 
 ## Quality Distribution
 
@@ -53,7 +53,16 @@ Generated: 2026-05-02 17:52:09 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|
+| Le Cerneux-Péquignot |         6434 |   0.995705 |   0.999996 |    0.00429109 |
+| Hausen (AG)          |         4100 |   0.997356 |   0.999991 |    0.00263515 |
+| Windisch             |         4123 |   0.997652 |   0.999984 |    0.00233191 |
+| Liesberg             |         2788 |   0.997762 |   0.999996 |    0.00223352 |
+| Bärschwil            |         2611 |   0.997839 |   0.999997 |    0.00215826 |
+| Riniken              |         4111 |   0.99824  |   0.999994 |    0.00175403 |
+| Laufen               |         2787 |   0.998124 |   0.999217 |    0.00109272 |
+| Brugg                |         4095 |   0.998972 |   0.999995 |    0.00102273 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
