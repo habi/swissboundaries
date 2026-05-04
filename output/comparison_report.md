@@ -1,4 +1,4 @@
-Generated: 2026-05-03 03:12:12 UTC
+Generated: 2026-05-04 03:13:16 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-05-03 03:12:12 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9988 |
+| Mean IoU | 0.9989 |
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
-| Mean symmetric difference | 0.12% |
-| Mean Hausdorff distance | 10.096 m |
+| Mean symmetric difference | 0.11% |
+| Mean Hausdorff distance | 10.010 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-05-03 03:12:12 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-02)
+## Historical Comparison (vs 2026-05-03)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9988 |
-| Current mean IoU | 0.9988 |
+| Current mean IoU | 0.9989 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,16 +53,17 @@ Generated: 2026-05-03 03:12:12 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|
-| Le Cerneux-Péquignot |         6434 |   0.995705 |   0.999996 |    0.00429109 |
-| Hausen (AG)          |         4100 |   0.997356 |   0.999991 |    0.00263515 |
-| Windisch             |         4123 |   0.997652 |   0.999984 |    0.00233191 |
-| Liesberg             |         2788 |   0.997762 |   0.999996 |    0.00223352 |
-| Bärschwil            |         2611 |   0.997839 |   0.999997 |    0.00215826 |
-| Riniken              |         4111 |   0.99824  |   0.999994 |    0.00175403 |
-| Laufen               |         2787 |   0.998124 |   0.999217 |    0.00109272 |
-| Brugg                |         4095 |   0.998972 |   0.999995 |    0.00102273 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Bühler          |         3021 |   0.996486 |   0.999994 |    0.00350813 |
+| Stein (AR)      |         3005 |   0.997126 |   0.999996 |    0.00286954 |
+| Münchwilen (AG) |         4172 |   0.997797 |   0.999993 |    0.00219537 |
+| Stein (AG)      |         4260 |   0.997932 |   0.999994 |    0.00206143 |
+| Teufen (AR)     |         3024 |   0.997976 |   0.999995 |    0.00201908 |
+| Boniswil        |         4192 |   0.998153 |   0.999992 |    0.00183931 |
+| Schlatt-Haslen  |         3104 |   0.998204 |   0.999996 |    0.00179221 |
+| Leutwil         |         4138 |   0.998624 |   0.999994 |    0.00137056 |
+| Sisseln         |         4177 |   0.998677 |   0.999992 |    0.00131536 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
