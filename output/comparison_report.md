@@ -1,4 +1,4 @@
-Generated: 2026-05-04 03:13:16 UTC
+Generated: 2026-05-04 06:21:07 UTC
 
 ## Dataset Overview
 
@@ -28,11 +28,11 @@ Generated: 2026-05-04 03:13:16 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-03)
+## Historical Comparison (vs 2026-05-04)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9988 |
+| Previous mean IoU | 0.9989 |
 | Current mean IoU | 0.9989 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,17 +53,7 @@ Generated: 2026-05-04 03:13:16 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Bühler          |         3021 |   0.996486 |   0.999994 |    0.00350813 |
-| Stein (AR)      |         3005 |   0.997126 |   0.999996 |    0.00286954 |
-| Münchwilen (AG) |         4172 |   0.997797 |   0.999993 |    0.00219537 |
-| Stein (AG)      |         4260 |   0.997932 |   0.999994 |    0.00206143 |
-| Teufen (AR)     |         3024 |   0.997976 |   0.999995 |    0.00201908 |
-| Boniswil        |         4192 |   0.998153 |   0.999992 |    0.00183931 |
-| Schlatt-Haslen  |         3104 |   0.998204 |   0.999996 |    0.00179221 |
-| Leutwil         |         4138 |   0.998624 |   0.999994 |    0.00137056 |
-| Sisseln         |         4177 |   0.998677 |   0.999992 |    0.00131536 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
