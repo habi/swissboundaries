@@ -1,4 +1,4 @@
-Generated: 2026-05-04 06:21:07 UTC
+Generated: 2026-05-04 12:15:16 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-04 06:21:07 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 10.010 m |
+| Mean Hausdorff distance | 9.987 m |
 
 ## Quality Distribution
 
@@ -46,14 +46,18 @@ Generated: 2026-05-04 06:21:07 UTC
 | Lumino              |         5010 | 0.99208  |     0.429817    |
 | La Côte-aux-Fées    |         6504 | 0.992865 |     0.00384762  |
 | Dalpe               |         5071 | 0.993297 |     0.18988     |
-| Cugnasco-Gerra      |         5138 | 0.993401 |     0.0371526   |
-| Interlaken          |          581 | 0.993408 |     0.0209591   |
+| Interlaken          |          581 | 0.993408 |     0.0209552   |
 | Mauborget           |         5562 | 0.993494 |     0.253832    |
 | Vufflens-le-Château |         5653 | 0.993715 |     0.000739165 |
+| Cugnasco-Gerra      |         5138 | 0.993877 |     0.00353207  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------|-------------:|-----------:|-----------:|--------------:|
+| Wiliberg |         4288 |   0.99765  |   0.999986 |    0.00233639 |
+| Locarno  |         5113 |   0.997891 |   0.999996 |    0.00210489 |
+| Hüttikon |           87 |   0.995961 |   0.997406 |    0.00144534 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
