@@ -1474,16 +1474,16 @@ def create_map_visualization(results_df, swisstopo_gdf):
 <head>
     <meta charset="UTF-8">
     <title>Swiss Municipality Boundary Quality Map</title>
-    This interactive map shows the quality of OSM municipality boundaries compared to Swisstopo, measured by IoU (Intersection over Union).
+    This interactive map shows the quality of OSM municipality boundaries compared to Swisstopo.
      Each dot represents a municipality, colored from red (low metric) to green (high metric).
      The median value is orange.
-     Hover over a dot to see details. Missing municipalities in OSM are shown in gray.
+     Click on a dot to see details  .
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-providers@2.0.0/leaflet-providers.js"></script>
     <style>
         html, body {{ height: 100%; margin: 0; padding: 0; }}
-        #map {{ height: 100%; width: 100%; }}
+        #map {{ height: 95%; width: 100%; }}
         .legend {{
             background: white;
             padding: 10px 14px;
