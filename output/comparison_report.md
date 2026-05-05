@@ -1,4 +1,4 @@
-Generated: 2026-05-04 12:15:16 UTC
+Generated: 2026-05-05 03:11:54 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-04 12:15:16 UTC
 | Median IoU | 0.9990 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.987 m |
+| Mean Hausdorff distance | 9.974 m |
 
 ## Quality Distribution
 
@@ -53,11 +53,11 @@ Generated: 2026-05-04 12:15:16 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------|-------------:|-----------:|-----------:|--------------:|
-| Wiliberg |         4288 |   0.99765  |   0.999986 |    0.00233639 |
-| Locarno  |         5113 |   0.997891 |   0.999996 |    0.00210489 |
-| Hüttikon |           87 |   0.995961 |   0.997406 |    0.00144534 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Olsberg     |         4257 |   0.997161 |   0.999991 |    0.00283014 |
+| Kaiseraugst |         4252 |   0.998727 |   0.999994 |    0.0012667  |
+| Giebenach   |         2826 |   0.996916 |   0.998    |    0.00108401 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
