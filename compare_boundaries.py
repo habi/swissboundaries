@@ -274,11 +274,21 @@ def group_connected_ways(ways):
 
 
 def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
-    """Saves Polygons as a FeatureCollection of individual LineString segments."""
+    """Saves Polygons as a FeatureCollection of individual LineString segments.
+
+    Returns:
+        Set of BFS numbers (int) for municipalities that touch the national border.
+    """
     os.makedirs(output_folder, exist_ok=True)
 
     # Ensure we are in WGS84 for GeoJSON standard
     gdf_wgs84 = gdf.to_crs("EPSG:4326")
+
+    # Compute the Swiss national boundary as the outer edge of all municipalities
+    # combined. Any segment that lies on this boundary is a national border segment.
+    national_boundary = unary_union(gdf_wgs84.geometry).boundary
+
+    national_border_bfs = set()
 
     for bfs_num, group in gdf_wgs84.groupby("bfs_nummer"):
         features = []
@@ -300,6 +310,23 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
                 props = {"source": "swisstopo SWISSBOUNDARIES3D"}
                 if source_date:
                     props["source:date"] = source_date
+
+                # Check whether this segment lies on the national border:
+                # the intersection with the outer Swiss boundary must cover a
+                # meaningful share of the segment's length.
+                if not part.is_empty:
+                    intersection = part.intersection(national_boundary)
+                    if (
+                        not intersection.is_empty
+                        and intersection.length > part.length * 0.01
+                    ):
+                        props["note"] = (
+                            "⚠️ National border: This line is part of "
+                            "Switzerland's national boundary. "
+                            "Changes must be reviewed very carefully."
+                        )
+                        national_border_bfs.add(int(bfs_num))
+
                 features.append(
                     {
                         "type": "Feature",
@@ -318,6 +345,10 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
     print(
         f"  - Successfully saved {len(gdf_wgs84['bfs_nummer'].unique())} exploded GeoJSON files."
     )
+    print(
+        f"  - Identified {len(national_border_bfs)} municipalities touching the national border."
+    )
+    return national_border_bfs
 
 
 def force_2d(geom):
@@ -1404,9 +1435,11 @@ def generate_report(results_df, historical_df):
     return results_df
 
 
-def create_map_visualization(results_df, swisstopo_gdf):
+def create_map_visualization(results_df, swisstopo_gdf, national_border_bfs=None):
     """Create an interactive Leaflet map of municipality IoU quality on an OSM background."""
     print("Creating map visualization...")
+    if national_border_bfs is None:
+        national_border_bfs = set()
 
     try:
         # Reproject to WGS84 and compute a representative point that lies within each polygon
@@ -1453,6 +1486,8 @@ def create_map_visualization(results_df, swisstopo_gdf):
                 props["area_diff_pct"] = None
                 props["hausdorff_distance"] = None
                 props["symmetric_diff_pct"] = None
+
+            props["national_border"] = bfs in national_border_bfs
 
             features.append(
                 {
@@ -1744,11 +1779,12 @@ def create_map_visualization(results_df, swisstopo_gdf):
         pointToLayer: function(feature, latlng) {{
             var props = feature.properties || {{}};
             var value = metricValue(props, currentMetric);
+            var isNationalBorder = props.national_border === true;
             return L.circleMarker(latlng, {{
-                radius: 5,
+                radius: isNationalBorder ? 7 : 5,
                 fillColor: metricToColor(value, currentMetric, props),
-                color: '#222',
-                weight: 0.6,
+                color: isNationalBorder ? '#ff6600' : '#222',
+                weight: isNationalBorder ? 2.5 : 0.6,
                 opacity: 0.9,
                 fillOpacity: metricFillOpacity(value, currentMetric, props)
             }});
@@ -1763,7 +1799,11 @@ def create_map_visualization(results_df, swisstopo_gdf):
             var areaDiffText = (p.area_diff_pct !== null && p.area_diff_pct !== undefined) ? p.area_diff_pct.toFixed(4) + '%' : '—';
             var hausdorffText = (p.hausdorff_distance !== null && p.hausdorff_distance !== undefined) ? p.hausdorff_distance.toFixed(3) + ' m' : '—';
             var symDiffText = (p.symmetric_diff_pct !== null && p.symmetric_diff_pct !== undefined) ? p.symmetric_diff_pct.toFixed(4) + '%' : '—';
+            var nationalBorderWarning = p.national_border
+                ? '<div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:4px 8px;margin-bottom:6px;">&#9888; <b>National border municipality</b><br><small>This municipality touches Switzerland\'s national boundary.<br>Any boundary changes must be reviewed very carefully.</small></div>'
+                : '';
             layer.bindPopup(
+                nationalBorderWarning +
                 '<b>' + p.name + '</b><br>' +
                 'BFS: ' + bsfLink + '<br>' +
                 'OSM: ' + osmLink + '<br>' +
@@ -1811,6 +1851,10 @@ def create_map_visualization(results_df, swisstopo_gdf):
             '<div class="legend-missing">' +
             '  <div class="legend-missing-dot"></div>' +
             '  <span>Not matched in OSM</span>' +
+            '</div>' +
+            '<div class="legend-missing">' +
+            '  <div class="legend-missing-dot" style="background:#888;border:2.5px solid #ff6600;width:10px;height:10px;"></div>' +
+            '  <span>National border municipality &#9888;</span>' +
             '</div>';
     }}
 
@@ -1819,8 +1863,12 @@ def create_map_visualization(results_df, swisstopo_gdf):
             if (!layer.feature || !layer.setStyle) return;
             var props = layer.feature.properties || {{}};
             var value = metricValue(props, currentMetric);
+            var isNationalBorder = props.national_border === true;
             layer.setStyle({{
+                radius: isNationalBorder ? 7 : 5,
                 fillColor: metricToColor(value, currentMetric, props),
+                color: isNationalBorder ? '#ff6600' : '#222',
+                weight: isNationalBorder ? 2.5 : 0.6,
                 fillOpacity: metricFillOpacity(value, currentMetric, props)
             }});
         }});
@@ -2139,7 +2187,9 @@ if __name__ == "__main__":
     # Save out swisstopo boundaries as individual geoJSON files
     if swisstopo is not None:
         swisstopo_date = os.environ.get("SWISSTOPO_DATE", None)
-        save_boundaries_as_geojson(swisstopo, "output/swisstopo_geojson", source_date=swisstopo_date)
+        national_border_bfs = save_boundaries_as_geojson(swisstopo, "output/swisstopo_geojson", source_date=swisstopo_date)
+    else:
+        national_border_bfs = set()
 
     if swisstopo is not None and osm is not None and len(osm) > 0:
         # Compare boundaries
@@ -2152,7 +2202,7 @@ if __name__ == "__main__":
         report = generate_report(results, historical)
         create_trend_visualizations(results, historical)
         create_iou_changes_plot()
-        create_map_visualization(results, swisstopo)
+        create_map_visualization(results, swisstopo, national_border_bfs)
 
         # Create index page for display
         create_index_page()
