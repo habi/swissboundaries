@@ -1,4 +1,4 @@
-Generated: 2026-05-05 03:11:54 UTC
+Generated: 2026-05-06 03:12:55 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-05-05 03:11:54 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9989 |
-| Median IoU | 0.9990 |
+| Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.974 m |
+| Mean Hausdorff distance | 9.890 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-05 03:11:54 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-04)
+## Historical Comparison (vs 2026-05-05)
 
 | Metric | Value |
 |--------|-------|
@@ -46,18 +46,24 @@ Generated: 2026-05-05 03:11:54 UTC
 | Lumino              |         5010 | 0.99208  |     0.429817    |
 | La Côte-aux-Fées    |         6504 | 0.992865 |     0.00384762  |
 | Dalpe               |         5071 | 0.993297 |     0.18988     |
-| Interlaken          |          581 | 0.993408 |     0.0209552   |
-| Mauborget           |         5562 | 0.993494 |     0.253832    |
 | Vufflens-le-Château |         5653 | 0.993715 |     0.000739165 |
 | Cugnasco-Gerra      |         5138 | 0.993877 |     0.00353207  |
+| Cerentino           |         5309 | 0.993915 |     0.0224268   |
+| Tartegnin           |         5862 | 0.994194 |     0.172832    |
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Olsberg     |         4257 |   0.997161 |   0.999991 |    0.00283014 |
-| Kaiseraugst |         4252 |   0.998727 |   0.999994 |    0.0012667  |
-| Giebenach   |         2826 |   0.996916 |   0.998    |    0.00108401 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Interlaken             |          581 |   0.993408 |   0.999991 |    0.00658285 |
+| Mauborget              |         5562 |   0.993494 |   0.999994 |    0.00650055 |
+| Romainmôtier-Envy      |         5761 |   0.996319 |   0.999991 |    0.0036725  |
+| Croy                   |         5752 |   0.99655  |   0.999993 |    0.00344349 |
+| Fontaines-sur-Grandson |         5557 |   0.99494  |   0.997267 |    0.00232715 |
+| Islisberg              |         4084 |   0.997696 |   0.999989 |    0.00229285 |
+| Böckten                |         2842 |   0.997629 |   0.999184 |    0.00155584 |
+| Matten bei Interlaken  |          587 |   0.997272 |   0.998468 |    0.00119582 |
+| Unterseen              |          593 |   0.998772 |   0.9999   |    0.00112824 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
