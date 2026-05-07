@@ -1,4 +1,4 @@
-Generated: 2026-05-07 09:51:44 UTC
+Generated: 2026-05-07 13:06:11 UTC
 
 ## Dataset Overview
 
@@ -53,11 +53,7 @@ Generated: 2026-05-07 09:51:44 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Saint-Brais   |         6758 |   0.996864 |   0.999996 |    0.00313167 |
-| Montfaucon    |         6751 |   0.996653 |   0.998304 |    0.00165048 |
-| Clos du Doubs |         6808 |   0.998573 |   0.999998 |    0.00142493 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
