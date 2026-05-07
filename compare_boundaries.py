@@ -1877,11 +1877,13 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
 def create_index_page():
     """Create HTML to display CSV table"""
-    readme_text = ""
-    readme_path = Path("README.md")
-    if readme_path.exists():
-        with open(readme_path, "r", encoding="utf-8") as f:
-            readme_text = f.read()
+    def read_markdown_file(path: Path) -> str:
+        if not path.exists():
+            return ""
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    readme_text = read_markdown_file(Path("README.md"))
 
     readme_section = ""
     if readme_text:
@@ -1903,11 +1905,7 @@ def create_index_page():
         </script>
     </section>"""
 
-    report_text = ""
-    report_path = Path("output/comparison_report.md")
-    if report_path.exists():
-        with open(report_path, "r", encoding="utf-8") as f:
-            report_text = f.read()
+    report_text = read_markdown_file(Path("output/comparison_report.md"))
 
     report_section = ""
     if report_text:
