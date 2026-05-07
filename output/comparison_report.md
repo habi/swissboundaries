@@ -1,4 +1,4 @@
-Generated: 2026-05-07 03:13:46 UTC
+Generated: 2026-05-07 09:51:44 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-07 03:13:46 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.821 m |
+| Mean Hausdorff distance | 9.798 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-07 03:13:46 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-06)
+## Historical Comparison (vs 2026-05-07)
 
 | Metric | Value |
 |--------|-------|
@@ -53,14 +53,11 @@ Generated: 2026-05-07 03:13:46 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Stabio    |         5266 |   0.990997 |   0.999995 |    0.00899849 |
-| Tübach    |         3218 |   0.99575  |   0.999991 |    0.00424095 |
-| Rorschach |         3215 |   0.996399 |   0.999984 |    0.00358419 |
-| Goldach   |         3213 |   0.997959 |   0.999994 |    0.00203549 |
-| Horn      |         4421 |   0.998097 |   0.999989 |    0.00189195 |
-| Champagne |         5553 |   0.998233 |   0.999994 |    0.00176133 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Saint-Brais   |         6758 |   0.996864 |   0.999996 |    0.00313167 |
+| Montfaucon    |         6751 |   0.996653 |   0.998304 |    0.00165048 |
+| Clos du Doubs |         6808 |   0.998573 |   0.999998 |    0.00142493 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
