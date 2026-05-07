@@ -1887,19 +1887,45 @@ def create_index_page():
     if readme_text:
         readme_json = json.dumps(readme_text)
         readme_section = f"""
-    <section class=\"framed-section\">
+    <section class=\"framed-section\" id=\"readme-section\">
+        <h3>README</h3>
         <div id=\"readme-content\"></div>
         <script>
-            (function() {{
-                const readmeMarkdown = {readme_json};
-                const target = document.getElementById('readme-content');
-                if (!target) return;
+            const readmeMarkdown = {readme_json};
+            const readmeTarget = document.getElementById('readme-content');
+            if (readmeTarget) {{
                 if (window.marked) {{
-                    target.innerHTML = marked.parse(readmeMarkdown);
+                    readmeTarget.innerHTML = marked.parse(readmeMarkdown);
                 }} else {{
-                    target.textContent = readmeMarkdown;
+                    readmeTarget.textContent = readmeMarkdown;
                 }}
-            }})();
+            }}
+        </script>
+    </section>"""
+
+    report_text = ""
+    report_path = Path("output/comparison_report.md")
+    if report_path.exists():
+        with open(report_path, "r", encoding="utf-8") as f:
+            report_text = f.read()
+
+    report_section = ""
+    if report_text:
+        report_json = json.dumps(report_text)
+        report_section = f"""
+    <section class=\"framed-section\" id=\"comparison-report-section\">
+        <h3>Comparison Report</h3>
+        <div id=\"comparison-report-content\"></div>
+        <script>
+            const reportMarkdown = {report_json};
+            const reportTarget = document.getElementById('comparison-report-content');
+            if (reportTarget) {{
+                if (window.marked) {{
+                    reportTarget.innerHTML = marked.parse(reportMarkdown);
+                }} else {{
+                    reportTarget.textContent = reportMarkdown;
+                }}
+            }}
         </script>
     </section>"""
 
@@ -1981,20 +2007,32 @@ def create_index_page():
         The bottom of the page shows a plot of the calculated metrics over time.
     </p>
 
-    <div class="controls">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search all columns...">
-        </div>
-        <div class="button-group">
-            <button id="download-csv">CSV</button>
-            <button id="download-json">JSON</button>
-            <button id="download-pdf">PDF</button>
-        </div>
+    <div class="framed-section">
+        <strong>Jump to:</strong>
+        <a href="#table-section">Table</a> |
+        <a href="#readme-section">README</a> |
+        <a href="#comparison-report-section">Comparison Report</a> |
+        <a href="#quality-map">Map</a> |
+        <a href="#changes-plot">Plots</a>
     </div>
 
-    <div id="csv-table"></div>
+    <section id="table-section">
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search all columns...">
+            </div>
+            <div class="button-group">
+                <button id="download-csv">CSV</button>
+                <button id="download-json">JSON</button>
+                <button id="download-pdf">PDF</button>
+            </div>
+        </div>
+
+        <div id="csv-table"></div>
+    </section>
 
     __README_SECTION__
+    __REPORT_SECTION__
     __MAP_SECTION__
     __CHANGES_PLOT_SECTION__
 
@@ -2109,6 +2147,7 @@ def create_index_page():
 </html>"""
 
     html_content = html_content.replace("__README_SECTION__", readme_section)
+    html_content = html_content.replace("__REPORT_SECTION__", report_section)
     html_content = html_content.replace("__MAP_SECTION__", map_section)
     html_content = html_content.replace(
         "__CHANGES_PLOT_SECTION__", changes_plot_section
