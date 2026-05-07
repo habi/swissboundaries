@@ -1959,7 +1959,7 @@ def create_index_page():
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', sans-serif; padding: 70px 20px 20px 20px; background: #f4f4f9; }
+        body { font-family: 'Segoe UI', sans-serif; padding: 110px 20px 20px 20px; background: #f4f4f9; }
         .site-header {
             position: fixed;
             top: 0;
@@ -1971,6 +1971,10 @@ def create_index_page():
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
         .site-header h1 { margin: 0; font-size: 1.4em; }
+        .site-header .jump-links {
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
         .controls { 
             display: flex; 
             justify-content: space-between; 
@@ -2008,6 +2012,14 @@ def create_index_page():
 
     <header class="site-header">
         <h1><a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> <-> <a href="https://overpass-turbo.eu/s/2jcH">OpenStreetMap</a></h1>
+        <div class="jump-links">
+            <strong>Jump to:</strong>
+            <a href="#table-section">Table</a> |
+            <a href="#readme-section">README</a> |
+            <a href="#comparison-report-section">Comparison Report</a> |
+            <a href="#quality-map">Map</a> |
+            <a href="#changes-plot">Plots</a>
+        </div>
     </header>
     
     <p>
@@ -2017,15 +2029,6 @@ def create_index_page():
         For detailed explanations of the metrics and methodology, please refer to the README section below, which is directly pulled from <a href="https://github.com/habi/swissboundaries">the code repository</a>.<br>
         The bottom of the page shows a plot of the calculated metrics over time.
     </p>
-
-    <div class="framed-section">
-        <strong>Jump to:</strong>
-        <a href="#table-section">Table</a> |
-        <a href="#readme-section">README</a> |
-        <a href="#comparison-report-section">Comparison Report</a> |
-        <a href="#quality-map">Map</a> |
-        <a href="#changes-plot">Plots</a>
-    </div>
 
     <section id="table-section">
         <div class="controls">
