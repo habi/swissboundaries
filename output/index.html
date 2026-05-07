@@ -12,7 +12,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f4f4f9; }
+        body { font-family: 'Segoe UI', sans-serif; padding: 70px 20px 20px 20px; background: #f4f4f9; }
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #f4f4f9;
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+        .site-header h1 { margin: 0; font-size: 1.4em; }
         .controls { 
             display: flex; 
             justify-content: space-between; 
@@ -48,7 +59,9 @@
 </head>
 <body>
 
-    <h2><a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> <-> <a href="https://overpass-turbo.eu/s/2jcH">OpenStreetMap</a></h2>
+    <header class="site-header">
+        <h1><a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a> <-> <a href="https://overpass-turbo.eu/s/2jcH">OpenStreetMap</a></h1>
+    </header>
     
     <p>
         Comparison of Swiss municipality boundaries between official Swisstopo data (<a href="https://www.swisstopo.admin.ch/en/landscape-model-swissboundaries3d">swissBOUNDARIES3D</a>) and <a href="https://www.openstreetmap.org/#map=9/46.823/7.880">OpenStreetMap</a>.<br>
