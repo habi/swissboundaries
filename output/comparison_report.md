@@ -1,4 +1,4 @@
-Generated: 2026-05-07 17:28:36 UTC
+Generated: 2026-05-08 03:11:22 UTC
 
 ## Dataset Overview
 
@@ -53,13 +53,7 @@ Generated: 2026-05-07 17:28:36 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Wynau     |          345 |   0.99753  |   0.999995 |    0.00246492 |
-| Wolfwil   |         2408 |   0.99799  |   0.999993 |    0.00200323 |
-| Ermensee  |         1025 |   0.998288 |   0.999995 |    0.00170683 |
-| Hitzkirch |         1030 |   0.998534 |   0.999997 |    0.00146355 |
-| Hohenrain |         1032 |   0.998553 |   0.999688 |    0.00113574 |
+No significant improvements detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
