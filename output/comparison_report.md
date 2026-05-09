@@ -1,4 +1,4 @@
-Generated: 2026-05-08 03:11:22 UTC
+Generated: 2026-05-09 03:12:33 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-08 03:11:22 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.735 m |
+| Mean Hausdorff distance | 9.685 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-08 03:11:22 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-07)
+## Historical Comparison (vs 2026-05-08)
 
 | Metric | Value |
 |--------|-------|
@@ -53,7 +53,11 @@ Generated: 2026-05-08 03:11:22 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Lignerolle |         5755 |   0.996726 |   0.999997 |    0.00327103 |
+| Genolier   |         5718 |   0.997906 |   0.999994 |    0.00208763 |
+| Büetigen   |          382 |   0.997466 |   0.998555 |    0.00108904 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
