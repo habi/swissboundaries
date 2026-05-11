@@ -1,4 +1,4 @@
-Generated: 2026-05-10 03:12:43 UTC
+Generated: 2026-05-11 03:15:06 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-10 03:12:43 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.600 m |
+| Mean Hausdorff distance | 9.550 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-10 03:12:43 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-09)
+## Historical Comparison (vs 2026-05-10)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,13 @@ Generated: 2026-05-10 03:12:43 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Dachsen         |           25 |   0.994877 |   0.999992 |    0.00511495 |
-| Bachenbülach    |           51 |   0.996961 |   0.999993 |    0.00303201 |
-| Laufen-Uhwiesen |           34 |   0.997839 |   0.999993 |    0.00215398 |
-| Hittnau         |          173 |   0.99824  |   0.999996 |    0.00175639 |
-| Bäretswil       |          111 |   0.998298 |   0.999997 |    0.00169857 |
-| Bauma           |          297 |   0.998437 |   0.999997 |    0.0015605  |
-| Fischenthal     |          114 |   0.998472 |   0.999997 |    0.00152534 |
-| Benken (ZH)     |           22 |   0.997604 |   0.999101 |    0.00149669 |
-| Wila            |          181 |   0.996629 |   0.998076 |    0.00144695 |
-| Bülach          |           53 |   0.998611 |   0.999997 |    0.00138523 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Wil (ZH)    |           71 |   0.997517 |   0.999995 |    0.00247886 |
+| Eglisau     |           55 |   0.998002 |   0.999993 |    0.00199111 |
+| Glattfelden |           58 |   0.998273 |   0.999995 |    0.00172256 |
+| Marthalen   |           35 |   0.998524 |   0.999996 |    0.00147184 |
+| Hüntwangen  |           61 |   0.998429 |   0.999432 |    0.00100345 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
