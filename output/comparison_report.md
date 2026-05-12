@@ -1,4 +1,4 @@
-Generated: 2026-05-11 03:15:06 UTC
+Generated: 2026-05-12 03:13:41 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-11 03:15:06 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.550 m |
+| Mean Hausdorff distance | 9.504 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-11 03:15:06 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-10)
+## Historical Comparison (vs 2026-05-11)
 
 | Metric | Value |
 |--------|-------|
@@ -53,13 +53,13 @@ Generated: 2026-05-11 03:15:06 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Wil (ZH)    |           71 |   0.997517 |   0.999995 |    0.00247886 |
-| Eglisau     |           55 |   0.998002 |   0.999993 |    0.00199111 |
-| Glattfelden |           58 |   0.998273 |   0.999995 |    0.00172256 |
-| Marthalen   |           35 |   0.998524 |   0.999996 |    0.00147184 |
-| Hüntwangen  |           61 |   0.998429 |   0.999432 |    0.00100345 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Wildberg   |          182 |   0.997251 |   0.999995 |    0.00274382 |
+| Wittenbach |         3204 |   0.997864 |   0.999994 |    0.00212983 |
+| Wila       |          181 |   0.998076 |   0.999979 |    0.00190357 |
+| Zell (ZH)  |          231 |   0.998492 |   0.999996 |    0.00150337 |
+| Berg (SG)  |         3211 |   0.996838 |   0.997981 |    0.00114244 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
