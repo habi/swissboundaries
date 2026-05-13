@@ -1,4 +1,4 @@
-Generated: 2026-05-12 03:13:41 UTC
+Generated: 2026-05-13 03:14:20 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-05-12 03:13:41 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9989 |
+| Mean IoU | 0.9990 |
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
-| Mean symmetric difference | 0.11% |
-| Mean Hausdorff distance | 9.504 m |
+| Mean symmetric difference | 0.10% |
+| Mean Hausdorff distance | 9.436 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-05-12 03:13:41 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-11)
+## Historical Comparison (vs 2026-05-12)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9989 |
-| Current mean IoU | 0.9989 |
+| Current mean IoU | 0.9990 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,13 +53,16 @@ Generated: 2026-05-12 03:13:41 UTC
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Wildberg   |          182 |   0.997251 |   0.999995 |    0.00274382 |
-| Wittenbach |         3204 |   0.997864 |   0.999994 |    0.00212983 |
-| Wila       |          181 |   0.998076 |   0.999979 |    0.00190357 |
-| Zell (ZH)  |          231 |   0.998492 |   0.999996 |    0.00150337 |
-| Berg (SG)  |         3211 |   0.996838 |   0.997981 |    0.00114244 |
+| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------------------|-------------:|-----------:|-----------:|--------------:|
+| Pompaples               |         5497 |   0.99566  |   0.999992 |    0.00433173 |
+| Chexbres                |         5601 |   0.996687 |   0.999413 |    0.00272602 |
+| Arnex-sur-Orbe          |         5743 |   0.997353 |   0.999995 |    0.00264163 |
+| Céligny                 |         6610 |   0.998005 |   0.999994 |    0.00198899 |
+| Crans (VD)              |         5713 |   0.998029 |   0.999996 |    0.00196723 |
+| Arnex-sur-Nyon          |         5701 |   0.995221 |   0.996976 |    0.0017554  |
+| Bogis-Bossey            |         5705 |   0.995595 |   0.997295 |    0.00170073 |
+| Saint-Saphorin (Lavaux) |         5610 |   0.998334 |   0.999995 |    0.00166053 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
