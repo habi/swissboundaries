@@ -1,4 +1,4 @@
-Generated: 2026-05-13 03:14:20 UTC
+Generated: 2026-05-14 03:12:47 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-13 03:14:20 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.436 m |
+| Mean Hausdorff distance | 9.364 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-05-13 03:14:20 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-12)
+## Historical Comparison (vs 2026-05-13)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9989 |
+| Previous mean IoU | 0.9990 |
 | Current mean IoU | 0.9990 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,16 +53,18 @@ Generated: 2026-05-13 03:14:20 UTC
 
 ## Most Improved (if historical data available)
 
-| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------------------|-------------:|-----------:|-----------:|--------------:|
-| Pompaples               |         5497 |   0.99566  |   0.999992 |    0.00433173 |
-| Chexbres                |         5601 |   0.996687 |   0.999413 |    0.00272602 |
-| Arnex-sur-Orbe          |         5743 |   0.997353 |   0.999995 |    0.00264163 |
-| Céligny                 |         6610 |   0.998005 |   0.999994 |    0.00198899 |
-| Crans (VD)              |         5713 |   0.998029 |   0.999996 |    0.00196723 |
-| Arnex-sur-Nyon          |         5701 |   0.995221 |   0.996976 |    0.0017554  |
-| Bogis-Bossey            |         5705 |   0.995595 |   0.997295 |    0.00170073 |
-| Saint-Saphorin (Lavaux) |         5610 |   0.998334 |   0.999995 |    0.00166053 |
+| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------------|-------------:|-----------:|-----------:|--------------:|
+| Villarsel-sur-Marly   |         2230 |   0.995454 |   0.999989 |    0.00453446 |
+| Bissone               |         5154 |   0.995772 |   0.999994 |    0.00422256 |
+| Arogno                |         5144 |   0.996593 |   0.999995 |    0.00340249 |
+| Crissier              |         5583 |   0.997271 |   0.999992 |    0.00272124 |
+| Chavannes-près-Renens |         5627 |   0.996452 |   0.999043 |    0.00259108 |
+| Hemishofen            |         2962 |   0.997412 |   0.999994 |    0.00258129 |
+| Ecublens (VD)         |         5635 |   0.997648 |   0.999993 |    0.00234569 |
+| Val Mara              |         5240 |   0.996516 |   0.998214 |    0.00169805 |
+| Stein am Rhein        |         2964 |   0.997679 |   0.999072 |    0.00139309 |
+| Cheseaux-sur-Lausanne |         5582 |   0.997989 |   0.999119 |    0.00112918 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
