@@ -52,6 +52,14 @@ unzip swissboundaries3d*.zip
 
 # Run comparison
 python compare_boundaries.py
+
+# Generate OSM file from swissBOUNDARIES3D (requires ogr2osm, already in requirements.txt)
+ogr2osm \
+    --sql "SELECT * FROM tlm_hoheitsgebiet WHERE objektart='Gemeindegebiet' AND icc='CH'" \
+    -t swisstopo_translation.py \
+    -f \
+    -o output/swissBOUNDARIES3D.osm \
+    swissBOUNDARIES3D_1_5_LV95_LN02.gpkg
 ```
 
 ## Output Files
@@ -60,6 +68,8 @@ python compare_boundaries.py
 - [`output/detailed_results.csv`](http://boundaries.osm.ch/detailed_results.csv): Per-municipality metrics in CSV format.
   This file is shown at the top of the page at http://boundaries.osm.ch/
 - [`output/swisstopo_geojson`](output/swisstopo_geojson): One GeoJSON file for each municipality (converted from swissBOUNDARIES3D data, and linked from the `BFS Number` column on http://boundaries.osm.ch)
+- [`output/swissBOUNDARIES3D.osm`](http://boundaries.osm.ch/swissBOUNDARIES3D.osm): OSM-format file of all Swiss municipalities generated from the official swissBOUNDARIES3D data via [ogr2osm](https://github.com/roelderickx/ogr2osm), with `boundary=administrative`, `admin_level=8`, `name` and `swisstopo:BFS_NUMMER` tags.
+  This file can be opened directly in [JOSM](https://josm.openstreetmap.de/) for comparison or import work.
 
 ## Contributing
 
