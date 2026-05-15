@@ -1,4 +1,4 @@
-Generated: 2026-05-14 03:12:47 UTC
+Generated: 2026-05-15 03:14:57 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-14 03:12:47 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.364 m |
+| Mean Hausdorff distance | 9.344 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-14 03:12:47 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-13)
+## Historical Comparison (vs 2026-05-14)
 
 | Metric | Value |
 |--------|-------|
@@ -53,18 +53,10 @@ Generated: 2026-05-14 03:12:47 UTC
 
 ## Most Improved (if historical data available)
 
-| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------------|-------------:|-----------:|-----------:|--------------:|
-| Villarsel-sur-Marly   |         2230 |   0.995454 |   0.999989 |    0.00453446 |
-| Bissone               |         5154 |   0.995772 |   0.999994 |    0.00422256 |
-| Arogno                |         5144 |   0.996593 |   0.999995 |    0.00340249 |
-| Crissier              |         5583 |   0.997271 |   0.999992 |    0.00272124 |
-| Chavannes-près-Renens |         5627 |   0.996452 |   0.999043 |    0.00259108 |
-| Hemishofen            |         2962 |   0.997412 |   0.999994 |    0.00258129 |
-| Ecublens (VD)         |         5635 |   0.997648 |   0.999993 |    0.00234569 |
-| Val Mara              |         5240 |   0.996516 |   0.998214 |    0.00169805 |
-| Stein am Rhein        |         2964 |   0.997679 |   0.999072 |    0.00139309 |
-| Cheseaux-sur-Lausanne |         5582 |   0.997989 |   0.999119 |    0.00112918 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Rüdlingen |         2938 |   0.99716  |   0.999953 |    0.00279275 |
+| Torny     |         2115 |   0.998312 |   0.999996 |    0.00168462 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
