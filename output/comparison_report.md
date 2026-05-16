@@ -1,4 +1,4 @@
-Generated: 2026-05-15 03:14:57 UTC
+Generated: 2026-05-16 03:12:42 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-15 03:14:57 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.344 m |
+| Mean Hausdorff distance | 9.321 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-15 03:14:57 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-14)
+## Historical Comparison (vs 2026-05-15)
 
 | Metric | Value |
 |--------|-------|
@@ -53,10 +53,10 @@ Generated: 2026-05-15 03:14:57 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Rüdlingen |         2938 |   0.99716  |   0.999953 |    0.00279275 |
-| Torny     |         2115 |   0.998312 |   0.999996 |    0.00168462 |
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------|-------------:|-----------:|-----------:|--------------:|
+| Novalles |         5564 |   0.997074 |   0.999992 |    0.00291819 |
+| Giez     |         5559 |   0.997831 |   0.999994 |    0.00216385 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
