@@ -1,4 +1,4 @@
-Generated: 2026-05-16 03:12:42 UTC
+Generated: 2026-05-17 03:13:26 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-16 03:12:42 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.321 m |
+| Mean Hausdorff distance | 9.243 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-16 03:12:42 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-15)
+## Historical Comparison (vs 2026-05-16)
 
 | Metric | Value |
 |--------|-------|
@@ -53,10 +53,16 @@ Generated: 2026-05-16 03:12:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------|-------------:|-----------:|-----------:|--------------:|
-| Novalles |         5564 |   0.997074 |   0.999992 |    0.00291819 |
-| Giez     |         5559 |   0.997831 |   0.999994 |    0.00216385 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Origlio                |         5208 |   0.996074 |   0.999991 |    0.00391669 |
+| Pleigne                |         6719 |   0.996903 |   0.999997 |    0.00309442 |
+| Comano                 |         5176 |   0.997334 |   0.99995  |    0.00261585 |
+| Essertines-sur-Yverdon |         5520 |   0.997781 |   0.999996 |    0.00221431 |
+| Ederswiler             |         6713 |   0.996179 |   0.997933 |    0.0017538  |
+| Isone                  |         5009 |   0.996251 |   0.997886 |    0.00163574 |
+| Bourrignon             |         6703 |   0.997384 |   0.998717 |    0.00133313 |
+| Lauperswil             |          903 |   0.998952 |   0.999997 |    0.00104484 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
