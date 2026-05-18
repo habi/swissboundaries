@@ -1,4 +1,4 @@
-Generated: 2026-05-17 03:13:26 UTC
+Generated: 2026-05-18 03:15:18 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-17 03:13:26 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.243 m |
+| Mean Hausdorff distance | 9.183 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-17 03:13:26 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-16)
+## Historical Comparison (vs 2026-05-17)
 
 | Metric | Value |
 |--------|-------|
@@ -53,16 +53,14 @@ Generated: 2026-05-17 03:13:26 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Origlio                |         5208 |   0.996074 |   0.999991 |    0.00391669 |
-| Pleigne                |         6719 |   0.996903 |   0.999997 |    0.00309442 |
-| Comano                 |         5176 |   0.997334 |   0.99995  |    0.00261585 |
-| Essertines-sur-Yverdon |         5520 |   0.997781 |   0.999996 |    0.00221431 |
-| Ederswiler             |         6713 |   0.996179 |   0.997933 |    0.0017538  |
-| Isone                  |         5009 |   0.996251 |   0.997886 |    0.00163574 |
-| Bourrignon             |         6703 |   0.997384 |   0.998717 |    0.00133313 |
-| Lauperswil             |          903 |   0.998952 |   0.999997 |    0.00104484 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Lohn (SH) |         2917 |   0.997356 |   0.999994 |    0.00263796 |
+| Jongny    |         5885 |   0.996614 |   0.998492 |    0.00187856 |
+| Corseaux  |         5883 |   0.998573 |   0.999997 |    0.00142423 |
+| Marsens   |         2140 |   0.998884 |   0.999994 |    0.00111    |
+| Thayngen  |         2920 |   0.998779 |   0.999873 |    0.00109405 |
+| Echarlens |         2131 |   0.998975 |   0.999994 |    0.00101935 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
