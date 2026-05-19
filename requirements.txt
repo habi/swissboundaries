@@ -5,3 +5,4 @@ requests
 plotly
 tabulate
 ogr2osm
+GDAL==3.8.4
