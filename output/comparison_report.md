@@ -1,4 +1,4 @@
-Generated: 2026-05-18 03:15:18 UTC
+Generated: 2026-05-19 03:14:15 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-18 03:15:18 UTC
 | Median IoU | 0.9991 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.183 m |
+| Mean Hausdorff distance | 9.355 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-18 03:15:18 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-17)
+## Historical Comparison (vs 2026-05-18)
 
 | Metric | Value |
 |--------|-------|
@@ -53,14 +53,12 @@ Generated: 2026-05-18 03:15:18 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Lohn (SH) |         2917 |   0.997356 |   0.999994 |    0.00263796 |
-| Jongny    |         5885 |   0.996614 |   0.998492 |    0.00187856 |
-| Corseaux  |         5883 |   0.998573 |   0.999997 |    0.00142423 |
-| Marsens   |         2140 |   0.998884 |   0.999994 |    0.00111    |
-| Thayngen  |         2920 |   0.998779 |   0.999873 |    0.00109405 |
-| Echarlens |         2131 |   0.998975 |   0.999994 |    0.00101935 |
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------|-------------:|-----------:|-----------:|--------------:|
+| Chevilly |         5476 |   0.997669 |   0.999994 |    0.0023243  |
+| Dizy     |         5481 |   0.997723 |   0.999992 |    0.00226912 |
+| Lalden   |         6286 |   0.99736  |   0.998603 |    0.00124286 |
+| Visp     |         6297 |   0.998858 |   0.999996 |    0.00113716 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
