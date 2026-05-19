@@ -1,4 +1,4 @@
-Generated: 2026-05-19 03:14:15 UTC
+Generated: 2026-05-19 20:21:06 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-05-19 03:14:15 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9990 |
-| Median IoU | 0.9991 |
+| Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.355 m |
+| Mean Hausdorff distance | 9.118 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-19 03:14:15 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-18)
+## Historical Comparison (vs 2026-05-19)
 
 | Metric | Value |
 |--------|-------|
@@ -53,12 +53,10 @@ Generated: 2026-05-19 03:14:15 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------|-------------:|-----------:|-----------:|--------------:|
-| Chevilly |         5476 |   0.997669 |   0.999994 |    0.0023243  |
-| Dizy     |         5481 |   0.997723 |   0.999992 |    0.00226912 |
-| Lalden   |         6286 |   0.99736  |   0.998603 |    0.00124286 |
-| Visp     |         6297 |   0.998858 |   0.999996 |    0.00113716 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Hermance  |         6625 |   0.996196 |   0.999473 |    0.0032775  |
+| Soyhières |         6724 |   0.997786 |   0.999995 |    0.00220921 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
