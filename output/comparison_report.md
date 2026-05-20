@@ -1,4 +1,4 @@
-Generated: 2026-05-19 20:21:06 UTC
+Generated: 2026-05-20 03:14:49 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-19 20:21:06 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.118 m |
+| Mean Hausdorff distance | 9.100 m |
 
 ## Quality Distribution
 
@@ -53,10 +53,9 @@ Generated: 2026-05-19 20:21:06 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Hermance  |         6625 |   0.996196 |   0.999473 |    0.0032775  |
-| Soyhières |         6724 |   0.997786 |   0.999995 |    0.00220921 |
+| name    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------|-------------:|-----------:|-----------:|--------------:|
+| Chénens |         2177 |   0.998706 |   0.999995 |    0.00128911 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
