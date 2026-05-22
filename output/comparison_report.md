@@ -1,4 +1,4 @@
-Generated: 2026-05-21 03:15:42 UTC
+Generated: 2026-05-22 03:15:13 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-21 03:15:42 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 9.027 m |
+| Mean Hausdorff distance | 8.936 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-21 03:15:42 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-20)
+## Historical Comparison (vs 2026-05-21)
 
 | Metric | Value |
 |--------|-------|
@@ -38,31 +38,28 @@ Generated: 2026-05-21 03:15:42 UTC
 
 ## Worst 10 Matches (by IoU)
 
-| name                |   bfs_nummer |      iou |   area_diff_pct |
-|:--------------------|-------------:|---------:|----------------:|
-| Eschenz             |         4806 | 0.981348 |     1.54249     |
-| Giornico            |         5073 | 0.991396 |     0.176113    |
-| Lumino              |         5010 | 0.99208  |     0.429817    |
-| La Côte-aux-Fées    |         6504 | 0.992865 |     0.00384762  |
-| Dalpe               |         5071 | 0.993297 |     0.18988     |
-| Vufflens-le-Château |         5653 | 0.993715 |     0.000739165 |
-| Cugnasco-Gerra      |         5138 | 0.993877 |     0.00353207  |
-| Cerentino           |         5309 | 0.993915 |     0.0224268   |
-| Termen              |         6010 | 0.994726 |     0.188323    |
-| Campo (Vallemaggia) |         5307 | 0.994776 |     0.0818749   |
+| name                 |   bfs_nummer |      iou |   area_diff_pct |
+|:---------------------|-------------:|---------:|----------------:|
+| Eschenz              |         4806 | 0.981348 |     1.54249     |
+| Giornico             |         5073 | 0.991396 |     0.176113    |
+| Lumino               |         5010 | 0.99208  |     0.429817    |
+| Dalpe                |         5071 | 0.993297 |     0.18988     |
+| Vufflens-le-Château  |         5653 | 0.993715 |     0.000739165 |
+| Cugnasco-Gerra       |         5138 | 0.993877 |     0.00353207  |
+| Cerentino            |         5309 | 0.993915 |     0.0224268   |
+| Termen               |         6010 | 0.994726 |     0.188323    |
+| Campo (Vallemaggia)  |         5307 | 0.994776 |     0.0818749   |
+| Belmont-sur-Lausanne |         5581 | 0.994838 |     0.272505    |
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Tartegnin           |         5862 |   0.994194 |   0.999988 |    0.0057941  |
-| Lutzenberg          |         3033 |   0.998001 |   0.999986 |    0.00198457 |
-| Walzenhausen        |         3037 |   0.998383 |   0.999995 |    0.00161147 |
-| Gilly               |         5857 |   0.998416 |   0.999996 |    0.00157957 |
-| Büetigen            |          382 |   0.998555 |   0.999994 |    0.00143898 |
-| Rüegsau             |          956 |   0.998567 |   0.999996 |    0.00142896 |
-| Diessbach bei Büren |          385 |   0.998578 |   0.999996 |    0.00141776 |
-| Bursins             |         5853 |   0.997612 |   0.99865  |    0.00103794 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|
+| Valeyres-sous-Ursins |         5934 |   0.995596 |   0.999993 |    0.00439651 |
+| La Côte-aux-Fées     |         6504 |   0.992865 |   0.995686 |    0.0028212  |
+| Pomy                 |         5926 |   0.99797  |   0.999342 |    0.00137282 |
+| Yverdon-les-Bains    |         5938 |   0.998736 |   0.999996 |    0.00126054 |
+| Belmont-sur-Yverdon  |         5902 |   0.998288 |   0.999444 |    0.00115597 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
