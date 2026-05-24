@@ -1,4 +1,4 @@
-Generated: 2026-05-23 03:12:35 UTC
+Generated: 2026-05-24 03:14:32 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-23 03:12:35 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 8.910 m |
+| Mean Hausdorff distance | 8.893 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-23 03:12:35 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-22)
+## Historical Comparison (vs 2026-05-23)
 
 | Metric | Value |
 |--------|-------|
@@ -55,9 +55,9 @@ Generated: 2026-05-23 03:12:35 UTC
 
 | name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:---------------------|-------------:|-----------:|-----------:|--------------:|
-| Belmont-sur-Lausanne |         5581 |   0.994838 |   0.999992 |    0.00515426 |
-| Oberburg             |          418 |   0.99825  |   0.999995 |    0.0017448  |
-| Vechigen             |          359 |   0.998911 |   0.999997 |    0.00108559 |
+| Saint-Oyens          |         5436 |   0.996255 |   0.999992 |    0.00373705 |
+| Essertines-sur-Rolle |         5856 |   0.99793  |   0.999994 |    0.00206389 |
+| Mont-sur-Rolle       |         5859 |   0.997659 |   0.998667 |    0.00100738 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
