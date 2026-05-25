@@ -1,4 +1,4 @@
-Generated: 2026-05-24 03:14:32 UTC
+Generated: 2026-05-25 03:16:41 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-24 03:14:32 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.10% |
-| Mean Hausdorff distance | 8.893 m |
+| Mean Hausdorff distance | 8.849 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-24 03:14:32 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-23)
+## Historical Comparison (vs 2026-05-24)
 
 | Metric | Value |
 |--------|-------|
@@ -53,11 +53,11 @@ Generated: 2026-05-24 03:14:32 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|
-| Saint-Oyens          |         5436 |   0.996255 |   0.999992 |    0.00373705 |
-| Essertines-sur-Rolle |         5856 |   0.99793  |   0.999994 |    0.00206389 |
-| Mont-sur-Rolle       |         5859 |   0.997659 |   0.998667 |    0.00100738 |
+| name              |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------------|-------------:|-----------:|-----------:|--------------:|
+| Villars-sur-Glâne |         2228 |   0.99762  |   0.999995 |    0.00237488 |
+| Cademario         |         5161 |   0.998194 |   0.999968 |    0.00177405 |
+| Seewen            |         2480 |   0.998972 |   0.999998 |    0.00102582 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
