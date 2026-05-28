@@ -1,12 +1,12 @@
-Generated: 2026-05-27 03:15:39 UTC
+Generated: 2026-05-28 03:16:52 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2109 (100.0%) |
-| Missing in OSM | 1 (0.0%) |
+| Matched in OSM | 2110 (100.0%) |
+| Missing in OSM | 0 (0.0%) |
 |  Only in OSM (not in Swisstopo) | 9 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,22 +17,22 @@ Generated: 2026-05-27 03:15:39 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.772 m |
+| Mean Hausdorff distance | 8.743 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2109 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-26)
+## Historical Comparison (vs 2026-05-27)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9990 |
+| Previous mean IoU | 0.9991 |
 | Current mean IoU | 0.9991 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,18 +53,17 @@ Generated: 2026-05-27 03:15:39 UTC
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Vufflens-le-Château |         5653 |   0.993715 |   0.99999  |    0.00627491 |
-| Vaux-sur-Morges     |         5650 |   0.995413 |   0.999991 |    0.00457779 |
-| Nenzlingen          |         2789 |   0.998346 |   0.999995 |    0.00164939 |
-| Sargans             |         3296 |   0.998379 |   0.999996 |    0.00161696 |
-| Blauen              |         2781 |   0.998811 |   0.999996 |    0.00118517 |
-| Echichens           |         5634 |   0.998937 |   0.999996 |    0.00105957 |
-
-## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
- name  bfs_nummer
-Emmen        1024
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|
+| Rossenges        |         5684 |   0.997589 |   0.999989 |    0.00240034 |
+| Boulens          |         5661 |   0.997244 |   0.999209 |    0.00196486 |
+| Hermenches       |         5673 |   0.998451 |   0.999995 |    0.00154426 |
+| Syens            |         5688 |   0.997345 |   0.998827 |    0.00148137 |
+| Bussy-sur-Moudon |         5663 |   0.998027 |   0.999465 |    0.0014378  |
+| Moudon           |         5678 |   0.998748 |   0.999996 |    0.00124852 |
+| Montanaire       |         5693 |   0.998856 |   0.999996 |    0.00114029 |
+| Prévondavaux     |         2038 |   0.997886 |   0.998918 |    0.00103259 |
+| Losone           |         5115 |   0.998974 |   0.999997 |    0.0010231  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
