@@ -1,4 +1,4 @@
-Generated: 2026-05-28 03:16:52 UTC
+Generated: 2026-05-29 03:15:43 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-28 03:16:52 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.743 m |
+| Mean Hausdorff distance | 8.696 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-28 03:16:52 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-27)
+## Historical Comparison (vs 2026-05-28)
 
 | Metric | Value |
 |--------|-------|
@@ -49,21 +49,17 @@ Generated: 2026-05-28 03:16:52 UTC
 | Termen              |         6010 | 0.994726 |      0.188323   |
 | Campo (Vallemaggia) |         5307 | 0.994776 |      0.0818749  |
 | Arbedo-Castione     |         5001 | 0.994891 |      0.0581622  |
-| Soral               |         6639 | 0.995012 |      0.32933    |
+| Emmetten            |         1504 | 0.995036 |      0.447351   |
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|
-| Rossenges        |         5684 |   0.997589 |   0.999989 |    0.00240034 |
-| Boulens          |         5661 |   0.997244 |   0.999209 |    0.00196486 |
-| Hermenches       |         5673 |   0.998451 |   0.999995 |    0.00154426 |
-| Syens            |         5688 |   0.997345 |   0.998827 |    0.00148137 |
-| Bussy-sur-Moudon |         5663 |   0.998027 |   0.999465 |    0.0014378  |
-| Moudon           |         5678 |   0.998748 |   0.999996 |    0.00124852 |
-| Montanaire       |         5693 |   0.998856 |   0.999996 |    0.00114029 |
-| Prévondavaux     |         2038 |   0.997886 |   0.998918 |    0.00103259 |
-| Losone           |         5115 |   0.998974 |   0.999997 |    0.0010231  |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Soral         |         6639 |   0.995012 |   0.999992 |    0.00497948 |
+| Eriswil       |          953 |   0.998346 |   0.999997 |    0.0016505  |
+| Tenero-Contra |         5131 |   0.998455 |   0.999992 |    0.00153702 |
+| Brügg         |          733 |   0.998627 |   0.999994 |    0.00136735 |
+| Nidau         |          743 |   0.99775  |   0.998878 |    0.00112848 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
