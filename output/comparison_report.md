@@ -1,4 +1,4 @@
-Generated: 2026-05-29 03:15:43 UTC
+Generated: 2026-05-30 03:13:17 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-29 03:15:43 UTC
 | Median IoU | 0.9992 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.696 m |
+| Mean Hausdorff distance | 8.548 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-29 03:15:43 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-28)
+## Historical Comparison (vs 2026-05-29)
 
 | Metric | Value |
 |--------|-------|
@@ -49,17 +49,22 @@ Generated: 2026-05-29 03:15:43 UTC
 | Termen              |         6010 | 0.994726 |      0.188323   |
 | Campo (Vallemaggia) |         5307 | 0.994776 |      0.0818749  |
 | Arbedo-Castione     |         5001 | 0.994891 |      0.0581622  |
-| Emmetten            |         1504 | 0.995036 |      0.447351   |
+| Augst               |         2822 | 0.995084 |      0.238032   |
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Soral         |         6639 |   0.995012 |   0.999992 |    0.00497948 |
-| Eriswil       |          953 |   0.998346 |   0.999997 |    0.0016505  |
-| Tenero-Contra |         5131 |   0.998455 |   0.999992 |    0.00153702 |
-| Brügg         |          733 |   0.998627 |   0.999994 |    0.00136735 |
-| Nidau         |          743 |   0.99775  |   0.998878 |    0.00112848 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Emmetten     |         1504 |   0.995036 |   0.999998 |    0.00496234 |
+| Beckenried   |         1501 |   0.996    |   0.999807 |    0.00380772 |
+| Bedano       |         5148 |   0.996803 |   0.999976 |    0.00317263 |
+| Muzzano      |         5205 |   0.996943 |   0.99999  |    0.00304658 |
+| Schönenbuch  |         2774 |   0.997036 |   0.999991 |    0.00295483 |
+| Ballaigues   |         5744 |   0.99727  |   0.999996 |    0.00272627 |
+| Commugny     |         5711 |   0.997454 |   0.999995 |    0.00254119 |
+| Reinach (BL) |         2773 |   0.998285 |   0.999995 |    0.00170961 |
+| Binningen    |         2765 |   0.998486 |   0.999996 |    0.00150996 |
+| Arlesheim    |         2763 |   0.998754 |   0.999996 |    0.00124235 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
