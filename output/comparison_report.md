@@ -1,4 +1,4 @@
-Generated: 2026-05-30 03:13:17 UTC
+Generated: 2026-05-31 03:15:37 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-05-30 03:13:17 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9991 |
-| Median IoU | 0.9992 |
+| Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.548 m |
+| Mean Hausdorff distance | 8.507 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-30 03:13:17 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-29)
+## Historical Comparison (vs 2026-05-30)
 
 | Metric | Value |
 |--------|-------|
@@ -55,16 +55,11 @@ Generated: 2026-05-30 03:13:17 UTC
 
 | name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:-------------|-------------:|-----------:|-----------:|--------------:|
-| Emmetten     |         1504 |   0.995036 |   0.999998 |    0.00496234 |
-| Beckenried   |         1501 |   0.996    |   0.999807 |    0.00380772 |
-| Bedano       |         5148 |   0.996803 |   0.999976 |    0.00317263 |
-| Muzzano      |         5205 |   0.996943 |   0.99999  |    0.00304658 |
-| Schönenbuch  |         2774 |   0.997036 |   0.999991 |    0.00295483 |
-| Ballaigues   |         5744 |   0.99727  |   0.999996 |    0.00272627 |
-| Commugny     |         5711 |   0.997454 |   0.999995 |    0.00254119 |
-| Reinach (BL) |         2773 |   0.998285 |   0.999995 |    0.00170961 |
-| Binningen    |         2765 |   0.998486 |   0.999996 |    0.00150996 |
-| Arlesheim    |         2763 |   0.998754 |   0.999996 |    0.00124235 |
+| Morrens (VD) |         5527 |   0.997176 |   0.999993 |    0.00281682 |
+| Gingins      |         5719 |   0.997349 |   0.999995 |    0.00264548 |
+| Chéserex     |         5709 |   0.997555 |   0.999996 |    0.00244091 |
+| Bettingen    |         2702 |   0.997098 |   0.998261 |    0.00116367 |
+| Riehen       |         2703 |   0.99885  |   0.999996 |    0.00114604 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
