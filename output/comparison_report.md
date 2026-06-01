@@ -1,4 +1,4 @@
-Generated: 2026-05-31 03:15:37 UTC
+Generated: 2026-06-01 03:17:27 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-05-31 03:15:37 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.507 m |
+| Mean Hausdorff distance | 8.468 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-05-31 03:15:37 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-30)
+## Historical Comparison (vs 2026-05-31)
 
 | Metric | Value |
 |--------|-------|
@@ -53,13 +53,13 @@ Generated: 2026-05-31 03:15:37 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Morrens (VD) |         5527 |   0.997176 |   0.999993 |    0.00281682 |
-| Gingins      |         5719 |   0.997349 |   0.999995 |    0.00264548 |
-| Chéserex     |         5709 |   0.997555 |   0.999996 |    0.00244091 |
-| Bettingen    |         2702 |   0.997098 |   0.998261 |    0.00116367 |
-| Riehen       |         2703 |   0.99885  |   0.999996 |    0.00114604 |
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|
+| Bargen (SH)      |         2931 |   0.997154 |   0.999996 |    0.00284157 |
+| La Côte-aux-Fées |         6504 |   0.995686 |   0.997208 |    0.00152199 |
+| Schlierbach      |         1100 |   0.998627 |   0.999995 |    0.00136778 |
+| Geuensee         |         1085 |   0.998819 |   0.999995 |    0.00117608 |
+| Vuiteboeuf       |         5766 |   0.998936 |   0.999994 |    0.00105733 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
