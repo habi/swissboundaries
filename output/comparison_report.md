@@ -1,4 +1,4 @@
-Generated: 2026-06-01 03:17:27 UTC
+Generated: 2026-06-02 03:17:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-01 03:17:27 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.468 m |
+| Mean Hausdorff distance | 8.437 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-01 03:17:27 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-05-31)
+## Historical Comparison (vs 2026-06-01)
 
 | Metric | Value |
 |--------|-------|
@@ -53,13 +53,12 @@ Generated: 2026-06-01 03:17:27 UTC
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|
-| Bargen (SH)      |         2931 |   0.997154 |   0.999996 |    0.00284157 |
-| La Côte-aux-Fées |         6504 |   0.995686 |   0.997208 |    0.00152199 |
-| Schlierbach      |         1100 |   0.998627 |   0.999995 |    0.00136778 |
-| Geuensee         |         1085 |   0.998819 |   0.999995 |    0.00117608 |
-| Vuiteboeuf       |         5766 |   0.998936 |   0.999994 |    0.00105733 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Gottlieben |         4651 |   0.996344 |   0.999312 |    0.00296854 |
+| Ursenbach  |          344 |   0.998208 |   0.999995 |    0.00178785 |
+| Wäldi      |         4701 |   0.998659 |   0.999996 |    0.00133714 |
+| Tägerwilen |         4696 |   0.998918 |   0.999997 |    0.00107849 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
