@@ -1,4 +1,4 @@
-Generated: 2026-06-02 03:17:34 UTC
+Generated: 2026-06-03 03:16:46 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-02 03:17:34 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.437 m |
+| Mean Hausdorff distance | 8.388 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-02 03:17:34 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-01)
+## Historical Comparison (vs 2026-06-02)
 
 | Metric | Value |
 |--------|-------|
@@ -46,19 +46,18 @@ Generated: 2026-06-02 03:17:34 UTC
 | Dalpe               |         5071 | 0.993297 |      0.18988    |
 | Cugnasco-Gerra      |         5138 | 0.993877 |      0.00353207 |
 | Cerentino           |         5309 | 0.993915 |      0.0224268  |
-| Termen              |         6010 | 0.994726 |      0.188323   |
 | Campo (Vallemaggia) |         5307 | 0.994776 |      0.0818749  |
+| Termen              |         6010 | 0.994876 |      0.182273   |
 | Arbedo-Castione     |         5001 | 0.994891 |      0.0581622  |
 | Augst               |         2822 | 0.995084 |      0.238032   |
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Gottlieben |         4651 |   0.996344 |   0.999312 |    0.00296854 |
-| Ursenbach  |          344 |   0.998208 |   0.999995 |    0.00178785 |
-| Wäldi      |         4701 |   0.998659 |   0.999996 |    0.00133714 |
-| Tägerwilen |         4696 |   0.998918 |   0.999997 |    0.00107849 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Chavannes-de-Bogis |         5707 |   0.997042 |   0.999992 |    0.00294908 |
+| Vétroz             |         6025 |   0.997863 |   0.999994 |    0.00213147 |
+| Dully              |         5855 |   0.998231 |   0.999926 |    0.0016951  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
