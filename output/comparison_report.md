@@ -1,4 +1,4 @@
-Generated: 2026-06-03 03:16:46 UTC
+Generated: 2026-06-04 03:16:13 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-03 03:16:46 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.388 m |
+| Mean Hausdorff distance | 8.354 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-03 03:16:46 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-02)
+## Historical Comparison (vs 2026-06-03)
 
 | Metric | Value |
 |--------|-------|
@@ -53,11 +53,13 @@ Generated: 2026-06-03 03:16:46 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Chavannes-de-Bogis |         5707 |   0.997042 |   0.999992 |    0.00294908 |
-| Vétroz             |         6025 |   0.997863 |   0.999994 |    0.00213147 |
-| Dully              |         5855 |   0.998231 |   0.999926 |    0.0016951  |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Sutz-Lattrigen |          750 |   0.997441 |   0.999993 |    0.00255118 |
+| Basse-Vendline |         6812 |   0.997711 |   0.999997 |    0.00228565 |
+| Hermrigen      |          737 |   0.997823 |   0.999993 |    0.00216965 |
+| Vendlincourt   |         6806 |   0.996029 |   0.997809 |    0.00177914 |
+| Bühl           |          734 |   0.998304 |   0.999993 |    0.00168891 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
