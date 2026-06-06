@@ -1,12 +1,12 @@
-Generated: 2026-06-05 20:17:02 UTC
+Generated: 2026-06-06 03:12:12 UTC
 
 ## Dataset Overview
 
 | Metric | Value |
 |--------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 5 (0.2%) |
-| Missing in OSM | 2105 (99.8%) |
+| Matched in OSM | 6 (0.3%) |
+| Missing in OSM | 2104 (99.7%) |
 |  Only in OSM (not in Swisstopo) | 0 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,24 +17,24 @@ Generated: 2026-06-05 20:17:02 UTC
 | Median IoU | 1.0000 |
 | Mean area difference | 0.00% |
 | Mean symmetric difference | 0.01% |
-| Mean Hausdorff distance | 2.453 m |
+| Mean Hausdorff distance | 2.046 m |
 
 ## Quality Distribution
 
 | Quality | Count | Percentage |
 |---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 5 | 100.0% |
+| Excellent (IoU ≥ 0.98) | 6 | 100.0% |
 | Good (IoU ≥ 0.95) | 0 | 0.0% |
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-04)
+## Historical Comparison (vs 2026-06-05)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9991 |
+| Previous mean IoU | 0.9999 |
 | Current mean IoU | 0.9999 |
-| Change | +0.0008 (+0.08%) |
+| Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
 
@@ -43,16 +43,13 @@ Generated: 2026-06-05 20:17:02 UTC
 | Bois-d'Amont |         2238 | 0.999517 |     0.00257453  |
 | Boussens     |         5473 | 0.999994 |     0.000231578 |
 | Himmelried   |         2618 | 0.999995 |     7.855e-05   |
+| Etagnières   |         5521 | 0.999995 |     0.000129932 |
 | Treyvaux     |         2226 | 0.999996 |     6.30137e-05 |
 | Brislach     |         2782 | 0.999996 |     5.51007e-05 |
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------|-------------:|-----------:|-----------:|--------------:|
-| Himmelried |         2618 |   0.998252 |   0.999995 |    0.00174366 |
-| Boussens   |         5473 |   0.998282 |   0.999994 |    0.00171225 |
-| Brislach   |         2782 |   0.998805 |   0.999996 |    0.00119108 |
+No significant improvements detected.
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
                   name  bfs_nummer
