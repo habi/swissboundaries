@@ -1,4 +1,4 @@
-Name,OSM Relation,BFS Number,Bezirksnummer,Kantonsnummer,IoU,Area Diff [%],Hausdorff Distance [m],Symmetric Diff [%],Area swisstopo [m²],Area OSM [m²],Geometry Type
+name,relation,bfs_nummer,bezirksnummer,kantonsnummer,iou,area_diff_pct,hausdorff_distance,symmetric_diff_pct,swisstopo_area,osm_area,geom_type
 Adliswil,,131,106,1,,,,,,,
 Rheinwald,,3714,1851,18,,,,,,,
 Grens,,5722,2228,22,,,,,,,
