@@ -1,4 +1,4 @@
-Generated: 2026-06-07 14:02:17 UTC
+Generated: 2026-06-07 16:39:27 UTC
 
 ## Dataset Overview
 
@@ -32,9 +32,9 @@ Generated: 2026-06-07 14:02:17 UTC
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9999 |
+| Previous mean IoU | 0.9991 |
 | Current mean IoU | 0.9991 |
-| Change | -0.0007 (-0.07%) |
+| Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
 
