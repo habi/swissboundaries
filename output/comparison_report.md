@@ -1,4 +1,4 @@
-Generated: 2026-06-07 16:39:27 UTC
+Generated: 2026-06-08 03:17:18 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-06-07 16:39:27 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9991 |
+| Mean IoU | 0.9992 |
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
-| Mean symmetric difference | 0.09% |
-| Mean Hausdorff distance | 8.217 m |
+| Mean symmetric difference | 0.08% |
+| Mean Hausdorff distance | 8.180 m |
 
 ## Quality Distribution
 
@@ -33,7 +33,7 @@ Generated: 2026-06-07 16:39:27 UTC
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9991 |
-| Current mean IoU | 0.9991 |
+| Current mean IoU | 0.9992 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,7 +53,13 @@ Generated: 2026-06-07 16:39:27 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Boncourt      |         6774 |   0.997735 |   0.999996 |    0.00226146 |
+| Cortébert     |          433 |   0.998197 |   0.999997 |    0.00180041 |
+| Courchavon    |         6783 |   0.996723 |   0.998376 |    0.00165232 |
+| Basse-Allaine |         6807 |   0.998536 |   0.999998 |    0.00146198 |
+| Corgémont     |          431 |   0.998565 |   0.999998 |    0.00143211 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
