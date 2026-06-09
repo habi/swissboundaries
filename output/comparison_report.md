@@ -1,4 +1,4 @@
-Generated: 2026-06-08 03:17:18 UTC
+Generated: 2026-06-09 03:15:15 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-08 03:17:18 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 8.180 m |
+| Mean Hausdorff distance | 8.137 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-06-08 03:17:18 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-07)
+## Historical Comparison (vs 2026-06-08)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9991 |
+| Previous mean IoU | 0.9992 |
 | Current mean IoU | 0.9992 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,13 +53,13 @@ Generated: 2026-06-08 03:17:18 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Boncourt      |         6774 |   0.997735 |   0.999996 |    0.00226146 |
-| Cortébert     |          433 |   0.998197 |   0.999997 |    0.00180041 |
-| Courchavon    |         6783 |   0.996723 |   0.998376 |    0.00165232 |
-| Basse-Allaine |         6807 |   0.998536 |   0.999998 |    0.00146198 |
-| Corgémont     |          431 |   0.998565 |   0.999998 |    0.00143211 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Bretonnières |         5748 |   0.997679 |   0.999994 |    0.00231474 |
+| Ferpicloz    |         2194 |   0.998504 |   0.99999  |    0.001486   |
+| Penthéréaz   |         5531 |   0.998572 |   0.999995 |    0.00142258 |
+| Les Clées    |         5750 |   0.998661 |   0.999994 |    0.00133312 |
+| Bavois       |         5746 |   0.998982 |   0.999996 |    0.0010136  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
