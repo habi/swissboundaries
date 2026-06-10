@@ -1,4 +1,4 @@
-Generated: 2026-06-09 03:15:15 UTC
+Generated: 2026-06-10 03:14:24 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-09 03:15:15 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 8.137 m |
+| Mean Hausdorff distance | 8.090 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-09 03:15:15 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-08)
+## Historical Comparison (vs 2026-06-09)
 
 | Metric | Value |
 |--------|-------|
@@ -55,11 +55,9 @@ Generated: 2026-06-09 03:15:15 UTC
 
 | name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:-------------|-------------:|-----------:|-----------:|--------------:|
-| Bretonnières |         5748 |   0.997679 |   0.999994 |    0.00231474 |
-| Ferpicloz    |         2194 |   0.998504 |   0.99999  |    0.001486   |
-| Penthéréaz   |         5531 |   0.998572 |   0.999995 |    0.00142258 |
-| Les Clées    |         5750 |   0.998661 |   0.999994 |    0.00133312 |
-| Bavois       |         5746 |   0.998982 |   0.999996 |    0.0010136  |
+| Meierskappel |         1064 |   0.997909 |   0.999993 |    0.00208466 |
+| Häutligen    |          609 |   0.998533 |   0.999993 |    0.00146009 |
+| Duggingen    |         2785 |   0.998732 |   0.999996 |    0.00126393 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
