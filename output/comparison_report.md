@@ -1,4 +1,4 @@
-Generated: 2026-06-10 03:14:24 UTC
+Generated: 2026-06-11 03:13:56 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-10 03:14:24 UTC
 | Median IoU | 0.9993 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 8.090 m |
+| Mean Hausdorff distance | 8.049 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-10 03:14:24 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-09)
+## Historical Comparison (vs 2026-06-10)
 
 | Metric | Value |
 |--------|-------|
@@ -53,11 +53,14 @@ Generated: 2026-06-10 03:14:24 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Meierskappel |         1064 |   0.997909 |   0.999993 |    0.00208466 |
-| Häutligen    |          609 |   0.998533 |   0.999993 |    0.00146009 |
-| Duggingen    |         2785 |   0.998732 |   0.999996 |    0.00126393 |
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|
+| Eysins           |         5716 |   0.996898 |   0.999989 |    0.00309051 |
+| Dardagny         |         6620 |   0.998039 |   0.999995 |    0.00195599 |
+| Signy-Avenex     |         5728 |   0.998216 |   0.999986 |    0.00176926 |
+| Ursins           |         5932 |   0.998436 |   0.999994 |    0.00155809 |
+| Coeuve           |         6781 |   0.998483 |   0.999997 |    0.00151481 |
+| Damphreux-Lugnez |         6811 |   0.998917 |   0.999997 |    0.00107973 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
