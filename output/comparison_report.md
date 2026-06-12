@@ -1,4 +1,4 @@
-Generated: 2026-06-11 03:13:56 UTC
+Generated: 2026-06-12 03:16:13 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-06-11 03:13:56 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9992 |
-| Median IoU | 0.9993 |
+| Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 8.049 m |
+| Mean Hausdorff distance | 8.019 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-11 03:13:56 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-10)
+## Historical Comparison (vs 2026-06-11)
 
 | Metric | Value |
 |--------|-------|
@@ -53,14 +53,10 @@ Generated: 2026-06-11 03:13:56 UTC
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|
-| Eysins           |         5716 |   0.996898 |   0.999989 |    0.00309051 |
-| Dardagny         |         6620 |   0.998039 |   0.999995 |    0.00195599 |
-| Signy-Avenex     |         5728 |   0.998216 |   0.999986 |    0.00176926 |
-| Ursins           |         5932 |   0.998436 |   0.999994 |    0.00155809 |
-| Coeuve           |         6781 |   0.998483 |   0.999997 |    0.00151481 |
-| Damphreux-Lugnez |         6811 |   0.998917 |   0.999997 |    0.00107973 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Botterens              |         2123 |   0.996462 |   0.999994 |    0.00353144 |
+| Châtel-sur-Montsalvens |         2128 |   0.996666 |   0.999993 |    0.00332641 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
