@@ -1,4 +1,4 @@
-Generated: 2026-06-12 14:59:23 UTC
+Generated: 2026-06-12 15:59:28 UTC
 
 ## Dataset Overview
 
@@ -34,7 +34,7 @@ Generated: 2026-06-12 14:59:23 UTC
 |--------|-------|
 | Previous mean IoU | 0.9992 |
 | Current mean IoU | 0.9992 |
-| Change | +0.0000 (+0.00%) |
+| Change | -0.0000 (-0.00%) |
 
 ## Worst 10 Matches (by IoU)
 
@@ -53,10 +53,11 @@ Generated: 2026-06-12 14:59:23 UTC
 
 ## Most Improved (if historical data available)
 
-| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------|-------------:|-----------:|-----------:|--------------:|
-| Alle   |         6771 |   0.998179 |   0.999997 |    0.00181844 |
-| Coppet |         5712 |   0.998789 |   0.999993 |    0.00120397 |
+No significant improvements detected.
+
+## Most Deteriorated (if historical data available)
+
+No significant deteriorations detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 

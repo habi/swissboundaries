@@ -5,7 +5,9 @@
       "type": "Feature",
       "properties": {
         "source": "swisstopo SWISSBOUNDARIES3D",
-        "source:date": "2026-01-01"
+        "source:date": "2026-01-01",
+        "swissboundaries:outer_boundary_of_switzerland": "yes",
+        "note": "Includes segments on Switzerland's outer national boundary."
       },
       "geometry": {
         "type": "LineString",
@@ -3341,5 +3343,9 @@
         ]
       }
     }
-  ]
+  ],
+  "properties": {
+    "swissboundaries:outer_boundary_of_switzerland": "yes",
+    "note": "Includes segments on Switzerland's outer national boundary."
+  }
 }
