@@ -289,7 +289,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
         if overlap.is_empty:
             return False
 
-        return (overlap.length / segment.length) >= 0.999999
+        return overlap.length > 0
 
     for bfs_num, group in gdf_wgs84.groupby("bfs_nummer"):
         features = []
@@ -316,7 +316,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
                     has_outer_boundary_segments = True
                     props["swissboundaries:outer_boundary_of_switzerland"] = "yes"
                     props["note"] = (
-                        "This segment is part of Switzerland's outer national boundary."
+                        "This geometry includes Switzerland's outer national boundary."
                     )
                 features.append(
                     {
