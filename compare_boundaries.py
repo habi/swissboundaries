@@ -316,7 +316,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
                     has_outer_boundary_segments = True
                     props["swissboundaries:outer_boundary_of_switzerland"] = "yes"
                     props["note"] = (
-                        "This geometry includes Switzerland's outer national boundary."
+                        "Includes segments on Switzerland's outer national boundary."
                     )
                 features.append(
                     {
@@ -331,7 +331,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
         if has_outer_boundary_segments:
             geojson_output["properties"] = {
                 "swissboundaries:outer_boundary_of_switzerland": "yes",
-                "note": "Contains segments on Switzerland's outer national boundary.",
+                "note": "Includes segments on Switzerland's outer national boundary.",
             }
 
         file_path = os.path.join(output_folder, f"{int(bfs_num)}.geojson")
