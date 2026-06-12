@@ -1346,6 +1346,40 @@ def generate_report(results_df, historical_df):
         else:
             report_lines.append("\n_(Insufficient historical data)_")
 
+        report_lines.append("\n## Most Deteriorated (if historical data available)")
+        if len(historical_df) > 0:
+            # Find municipalities that deteriorated
+            prev_date = historical_df["date"].max()
+            prev_data = historical_df[historical_df["date"] == prev_date].set_index(
+                "bfs_nummer"
+            )
+
+            deteriorations = []
+            for idx, row in matched_df.iterrows():
+                bfs = row["bfs_nummer"]
+                if bfs in prev_data.index and pd.notna(prev_data.loc[bfs, "iou"]):
+                    prev_iou = prev_data.loc[bfs, "iou"]
+                    curr_iou = row["iou"]
+                    deterioration = prev_iou - curr_iou
+                    if deterioration > 0.001:  # Significant deterioration
+                        deteriorations.append(
+                            {
+                                "name": row["name"],
+                                "bfs_nummer": bfs,
+                                "prev_iou": prev_iou,
+                                "curr_iou": curr_iou,
+                                "deterioration": deterioration,
+                            }
+                        )
+
+            if deteriorations:
+                det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
+                report_lines.append("\n" + det_df.to_markdown(index=False))
+            else:
+                report_lines.append("\nNo significant deteriorations detected.")
+        else:
+            report_lines.append("\n_(Insufficient historical data)_")
+
     # BFS numbers only in Swisstopo (missing in OSM)
     if len(only_swisstopo_df) > 0:
         report_lines.append(
