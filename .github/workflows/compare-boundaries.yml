@@ -88,15 +88,6 @@ jobs:
     - name: Run boundary comparison
       run: |
         python compare_boundaries.py
-
-    - name: Generate OSM file from swissBOUNDARIES3D using ogr2osm
-      run: |
-        ogr2osm \
-          --sql "SELECT * FROM tlm_hoheitsgebiet WHERE objektart='Gemeindegebiet' AND icc='CH'" \
-          -t swisstopo_translation.py \
-          -f \
-          -o output/swissBOUNDARIES3D.osm \
-          swissBOUNDARIES3D_1_5_LV95_LN02.gpkg
         
     - name: Generate summary for GitHub
       run: |

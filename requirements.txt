@@ -4,4 +4,3 @@ pandas
 requests
 plotly
 tabulate
-ogr2osm
