@@ -286,10 +286,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
             return False
 
         overlap = segment.intersection(switzerland_outline)
-        if overlap.is_empty:
-            return False
-
-        return overlap.length > 0
+        return not overlap.is_empty
 
     for bfs_num, group in gdf_wgs84.groupby("bfs_nummer"):
         features = []
