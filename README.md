@@ -60,6 +60,7 @@ python compare_boundaries.py
 - [`output/detailed_results.csv`](http://boundaries.osm.ch/detailed_results.csv): Per-municipality metrics in CSV format.
   This file is shown at the top of the page at http://boundaries.osm.ch/
 - [`output/swisstopo_geojson`](output/swisstopo_geojson): One GeoJSON file for each municipality (converted from swissBOUNDARIES3D data, and linked from the `BFS Number` column on http://boundaries.osm.ch)
+  - Municipalities that include Switzerland's outer national boundary are marked with `swissboundaries:outer_boundary_of_switzerland=yes` and a `note` tag.
 
 ## Contributing
 
