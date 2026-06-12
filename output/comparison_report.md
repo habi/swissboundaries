@@ -1,4 +1,4 @@
-Generated: 2026-06-12 03:16:13 UTC
+Generated: 2026-06-12 14:59:23 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-12 03:16:13 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 8.019 m |
+| Mean Hausdorff distance | 7.998 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-12 03:16:13 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-11)
+## Historical Comparison (vs 2026-06-12)
 
 | Metric | Value |
 |--------|-------|
@@ -53,10 +53,10 @@ Generated: 2026-06-12 03:16:13 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Botterens              |         2123 |   0.996462 |   0.999994 |    0.00353144 |
-| Châtel-sur-Montsalvens |         2128 |   0.996666 |   0.999993 |    0.00332641 |
+| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------|-------------:|-----------:|-----------:|--------------:|
+| Alle   |         6771 |   0.998179 |   0.999997 |    0.00181844 |
+| Coppet |         5712 |   0.998789 |   0.999993 |    0.00120397 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
