@@ -1,4 +1,4 @@
-Generated: 2026-06-13 12:35:58 UTC
+Generated: 2026-06-13 12:39:54 UTC
 
 ## Dataset Overview
 
@@ -53,10 +53,7 @@ Generated: 2026-06-13 12:35:58 UTC
 
 ## Most Improved (if historical data available)
 
-| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------------------|-------------:|-----------:|-----------:|--------------:|
-| Zihlschlacht-Sitterdorf |         4511 |   0.998205 |   0.999994 |    0.00178923 |
-| Hauptwil-Gottshaus      |         4486 |   0.998583 |   0.999996 |    0.00141296 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
