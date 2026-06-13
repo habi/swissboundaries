@@ -391,7 +391,6 @@ def calculate_metrics(geom1, geom2):
             "symmetric_diff_pct": sym_diff_pct,
             "swisstopo_area": geom1.area,
             "osm_area": geom2.area,
-            "geom_type": geom1.geom_type,
         }
     except Exception as e:
         print(f"Error calculating metrics: {e}")
@@ -1426,7 +1425,6 @@ def generate_report(results_df, historical_df):
         "symmetric_diff_pct",
         "swisstopo_area",
         "osm_area",
-        "geom_type",
     ]
     csv_df = csv_df[[col for col in column_order if col in csv_df.columns]]
 
@@ -1444,7 +1442,6 @@ def generate_report(results_df, historical_df):
             "Symmetric Diff [%]",
             "Area swisstopo [m²]",
             "Area OSM [m²]",
-            "Geometry Type",
         ],
         index=False,
     )
