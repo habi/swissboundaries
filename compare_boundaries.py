@@ -1235,12 +1235,18 @@ def send_deterioration_email(subject, body):
         return
 
     smtp_host = os.environ.get("SMTP_HOST", "")
-    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+    smtp_port_str = os.environ.get("SMTP_PORT", "587")
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
 
     if not smtp_host or not smtp_user or not smtp_password:
         print("SMTP configuration incomplete, skipping email notification.")
+        return
+
+    try:
+        smtp_port = int(smtp_port_str)
+    except ValueError:
+        print(f"Warning: SMTP_PORT must be a valid integer, got '{smtp_port_str}'. Skipping email notification.")
         return
 
     msg = MIMEMultipart("alternative")
@@ -1251,7 +1257,6 @@ def send_deterioration_email(subject, body):
 
     try:
         with smtplib.SMTP(smtp_host, smtp_port) as server:
-            server.ehlo()
             server.starttls()
             server.login(smtp_user, smtp_password)
             server.sendmail(smtp_user, [to_addr], msg.as_string())
@@ -1508,7 +1513,7 @@ def generate_report(results_df, historical_df):
     iou_deteriorated = iou_change is not None and iou_change < 0
     hausdorff_deteriorated = hausdorff_change is not None and hausdorff_change > 0
     if iou_deteriorated or hausdorff_deteriorated:
-        run_date = datetime.now().strftime("%Y-%m-%d")
+        run_date = datetime.now(UTC).strftime("%Y-%m-%d")
         alert_parts = []
         if iou_deteriorated:
             alert_parts.append(f"IoU decreased by {abs(iou_change):.4f}")
