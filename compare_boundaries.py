@@ -3,6 +3,9 @@ import pandas as pd
 import requests
 import json
 import os
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from datetime import datetime, UTC
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString, LineString, Polygon
@@ -1216,6 +1219,47 @@ def create_iou_changes_plot(min_delta=0.0001):
         return False
 
 
+def send_deterioration_email(subject, body):
+    """Send an email notification about metric deterioration.
+
+    Reads connection settings from environment variables:
+      NOTIFICATION_EMAIL – recipient address (required)
+      SMTP_HOST          – SMTP server hostname (required)
+      SMTP_PORT          – SMTP server port (default: 587)
+      SMTP_USER          – SMTP login username (required)
+      SMTP_PASSWORD      – SMTP login password (required)
+    """
+    to_addr = os.environ.get("NOTIFICATION_EMAIL")
+    if not to_addr:
+        print("NOTIFICATION_EMAIL not set, skipping email notification.")
+        return
+
+    smtp_host = os.environ.get("SMTP_HOST", "")
+    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+    smtp_user = os.environ.get("SMTP_USER", "")
+    smtp_password = os.environ.get("SMTP_PASSWORD", "")
+
+    if not smtp_host or not smtp_user or not smtp_password:
+        print("SMTP configuration incomplete, skipping email notification.")
+        return
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = smtp_user
+    msg["To"] = to_addr
+    msg.attach(MIMEText(body, "plain"))
+
+    try:
+        with smtplib.SMTP(smtp_host, smtp_port) as server:
+            server.ehlo()
+            server.starttls()
+            server.login(smtp_user, smtp_password)
+            server.sendmail(smtp_user, [to_addr], msg.as_string())
+        print(f"Deterioration notification sent to {to_addr}")
+    except Exception as e:
+        print(f"Warning: Could not send deterioration email: {e}")
+
+
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
@@ -1245,6 +1289,11 @@ def generate_report(results_df, historical_df):
     report_lines.append(f"| Matched in OSM | {matched} ({matched/total*100:.1f}%) |")
     report_lines.append(f"| Missing in OSM | {missing} ({missing/total*100:.1f}%) |")
     report_lines.append(f"|  Only in OSM (not in Swisstopo) | {len(only_osm_df)} |")
+
+    iou_change = None
+    hausdorff_change = None
+    deteriorations = []
+    hausdorff_deteriorations = []
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
@@ -1305,6 +1354,32 @@ def generate_report(results_df, historical_df):
                     f"| Change | {iou_change:+.4f} ({iou_change/prev_mean_iou*100:+.2f}%) |"
                 )
 
+                # Hausdorff distance historical comparison (higher = worse)
+                if "hausdorff_distance" in prev_data.columns:
+                    prev_hausdorff_valid = prev_data[
+                        prev_matched & prev_data["hausdorff_distance"].notna()
+                    ]
+                    curr_hausdorff_valid = matched_df[
+                        matched_df["hausdorff_distance"].notna()
+                    ]
+                    if len(prev_hausdorff_valid) > 0 and len(curr_hausdorff_valid) > 0:
+                        prev_mean_hausdorff = prev_hausdorff_valid[
+                            "hausdorff_distance"
+                        ].mean()
+                        current_mean_hausdorff = curr_hausdorff_valid[
+                            "hausdorff_distance"
+                        ].mean()
+                        hausdorff_change = current_mean_hausdorff - prev_mean_hausdorff
+                        report_lines.append(
+                            f"| Previous mean Hausdorff distance | {prev_mean_hausdorff:.3f} m |"
+                        )
+                        report_lines.append(
+                            f"| Current mean Hausdorff distance | {current_mean_hausdorff:.3f} m |"
+                        )
+                        report_lines.append(
+                            f"| Hausdorff change | {hausdorff_change:+.3f} m |"
+                        )
+
         report_lines.append("\n## Worst 10 Matches (by IoU)")
         worst = matched_df.nsmallest(10, "iou")[
             ["name", "bfs_nummer", "iou", "area_diff_pct"]
@@ -1347,35 +1422,62 @@ def generate_report(results_df, historical_df):
 
         report_lines.append("\n## Most Deteriorated (if historical data available)")
         if len(historical_df) > 0:
-            # Find municipalities that deteriorated
+            # Find municipalities that deteriorated in IoU or Hausdorff distance
             prev_date = historical_df["date"].max()
             prev_data = historical_df[historical_df["date"] == prev_date].set_index(
                 "bfs_nummer"
             )
 
-            deteriorations = []
             for idx, row in matched_df.iterrows():
                 bfs = row["bfs_nummer"]
-                if bfs in prev_data.index and pd.notna(prev_data.loc[bfs, "iou"]):
-                    prev_iou = prev_data.loc[bfs, "iou"]
-                    curr_iou = row["iou"]
-                    deterioration = prev_iou - curr_iou
-                    if deterioration > 0.001:  # Significant deterioration
-                        deteriorations.append(
-                            {
-                                "name": row["name"],
-                                "bfs_nummer": bfs,
-                                "prev_iou": prev_iou,
-                                "curr_iou": curr_iou,
-                                "deterioration": deterioration,
-                            }
-                        )
+                if bfs in prev_data.index:
+                    if pd.notna(prev_data.loc[bfs, "iou"]):
+                        prev_iou = prev_data.loc[bfs, "iou"]
+                        curr_iou = row["iou"]
+                        deterioration = prev_iou - curr_iou
+                        if deterioration > 0.001:  # Significant deterioration
+                            deteriorations.append(
+                                {
+                                    "name": row["name"],
+                                    "bfs_nummer": bfs,
+                                    "prev_iou": prev_iou,
+                                    "curr_iou": curr_iou,
+                                    "deterioration": deterioration,
+                                }
+                            )
+                    if (
+                        "hausdorff_distance" in prev_data.columns
+                        and pd.notna(prev_data.loc[bfs, "hausdorff_distance"])
+                        and pd.notna(row["hausdorff_distance"])
+                    ):
+                        prev_hd = prev_data.loc[bfs, "hausdorff_distance"]
+                        curr_hd = row["hausdorff_distance"]
+                        hd_increase = curr_hd - prev_hd
+                        if hd_increase > 1.0:  # Significant increase (> 1 m)
+                            hausdorff_deteriorations.append(
+                                {
+                                    "name": row["name"],
+                                    "bfs_nummer": bfs,
+                                    "prev_hausdorff_m": prev_hd,
+                                    "curr_hausdorff_m": curr_hd,
+                                    "increase_m": hd_increase,
+                                }
+                            )
 
             if deteriorations:
                 det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
                 report_lines.append("\n" + det_df.to_markdown(index=False))
             else:
                 report_lines.append("\nNo significant deteriorations detected.")
+
+            if hausdorff_deteriorations:
+                report_lines.append(
+                    "\n## Most Deteriorated in Hausdorff Distance (if historical data available)"
+                )
+                hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
+                    10, "increase_m"
+                )
+                report_lines.append("\n" + hd_det_df.to_markdown(index=False))
         else:
             report_lines.append("\n_(Insufficient historical data)_")
 
@@ -1401,6 +1503,52 @@ def generate_report(results_df, historical_df):
     # Save reports
     with open("output/comparison_report.md", "w") as f:
         f.write(report_text)
+
+    # Send email notification if IoU decreased or Hausdorff distance increased
+    iou_deteriorated = iou_change is not None and iou_change < 0
+    hausdorff_deteriorated = hausdorff_change is not None and hausdorff_change > 0
+    if iou_deteriorated or hausdorff_deteriorated:
+        run_date = datetime.now().strftime("%Y-%m-%d")
+        alert_parts = []
+        if iou_deteriorated:
+            alert_parts.append(f"IoU decreased by {abs(iou_change):.4f}")
+        if hausdorff_deteriorated:
+            alert_parts.append(f"Hausdorff distance increased by {hausdorff_change:.3f} m")
+        subject = f"[swissboundaries] Metric deterioration detected on {run_date}"
+
+        email_lines = [
+            f"swissboundaries boundary comparison – {run_date}",
+            "",
+            "The following metrics have deteriorated compared to the previous run:",
+        ]
+        for part in alert_parts:
+            email_lines.append(f"  • {part}")
+
+        if deteriorations:
+            email_lines.append("")
+            email_lines.append("Top IoU deteriorations (per municipality):")
+            det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
+            email_lines.append(
+                det_df[["name", "bfs_nummer", "prev_iou", "curr_iou", "deterioration"]]
+                .to_string(index=False)
+            )
+
+        if hausdorff_deteriorations:
+            email_lines.append("")
+            email_lines.append("Top Hausdorff distance increases (per municipality):")
+            hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(10, "increase_m")
+            email_lines.append(
+                hd_det_df[
+                    ["name", "bfs_nummer", "prev_hausdorff_m", "curr_hausdorff_m", "increase_m"]
+                ].to_string(index=False)
+            )
+
+        email_lines.append("")
+        email_lines.append(
+            "Full report: https://habi.github.io/swissboundaries/"
+        )
+
+        send_deterioration_email(subject, "\n".join(email_lines))
 
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=["geometry", "osm_geometry"], errors="ignore")

@@ -88,6 +88,12 @@ jobs:
     - name: Run boundary comparison
       run: |
         python compare_boundaries.py
+      env:
+        NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+        SMTP_HOST: ${{ secrets.SMTP_HOST }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        SMTP_USER: ${{ secrets.SMTP_USER }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         
     - name: Generate summary for GitHub
       run: |
