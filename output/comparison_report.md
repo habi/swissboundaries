@@ -1,4 +1,4 @@
-Generated: 2026-06-12 15:59:28 UTC
+Generated: 2026-06-13 03:14:33 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-12 15:59:28 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.998 m |
+| Mean Hausdorff distance | 7.957 m |
 
 ## Quality Distribution
 
@@ -34,7 +34,7 @@ Generated: 2026-06-12 15:59:28 UTC
 |--------|-------|
 | Previous mean IoU | 0.9992 |
 | Current mean IoU | 0.9992 |
-| Change | -0.0000 (-0.00%) |
+| Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
 
@@ -53,7 +53,15 @@ Generated: 2026-06-12 15:59:28 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Neggio             |         5206 |   0.997113 |   0.999981 |    0.00286805 |
+| Ropraz             |         5798 |   0.997823 |   0.999994 |    0.00217061 |
+| Servion            |         5799 |   0.998115 |   0.999994 |    0.00187939 |
+| Magliaso           |         5193 |   0.998314 |   0.999991 |    0.00167683 |
+| Montpreveyres      |         5792 |   0.99768  |   0.999228 |    0.00154734 |
+| Corcelles-le-Jorat |         5785 |   0.998585 |   0.999996 |    0.00141054 |
+| Jorat-Mézières     |         5806 |   0.998644 |   0.999996 |    0.00135233 |
 
 ## Most Deteriorated (if historical data available)
 
