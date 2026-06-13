@@ -1,4 +1,4 @@
-Generated: 2026-06-13 03:14:33 UTC
+Generated: 2026-06-13 12:35:58 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-13 03:14:33 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.957 m |
+| Mean Hausdorff distance | 7.933 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-13 03:14:33 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-12)
+## Historical Comparison (vs 2026-06-13)
 
 | Metric | Value |
 |--------|-------|
@@ -53,15 +53,10 @@ Generated: 2026-06-13 03:14:33 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Neggio             |         5206 |   0.997113 |   0.999981 |    0.00286805 |
-| Ropraz             |         5798 |   0.997823 |   0.999994 |    0.00217061 |
-| Servion            |         5799 |   0.998115 |   0.999994 |    0.00187939 |
-| Magliaso           |         5193 |   0.998314 |   0.999991 |    0.00167683 |
-| Montpreveyres      |         5792 |   0.99768  |   0.999228 |    0.00154734 |
-| Corcelles-le-Jorat |         5785 |   0.998585 |   0.999996 |    0.00141054 |
-| Jorat-Mézières     |         5806 |   0.998644 |   0.999996 |    0.00135233 |
+| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------------------|-------------:|-----------:|-----------:|--------------:|
+| Zihlschlacht-Sitterdorf |         4511 |   0.998205 |   0.999994 |    0.00178923 |
+| Hauptwil-Gottshaus      |         4486 |   0.998583 |   0.999996 |    0.00141296 |
 
 ## Most Deteriorated (if historical data available)
 
