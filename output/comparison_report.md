@@ -1,4 +1,4 @@
-Generated: 2026-06-13 12:39:54 UTC
+Generated: 2026-06-14 03:16:22 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-13 12:39:54 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.933 m |
+| Mean Hausdorff distance | 7.915 m |
 
 ## Quality Distribution
 
@@ -53,7 +53,11 @@ Generated: 2026-06-13 12:39:54 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Uetikon am See |          159 |   0.998537 |   0.999956 |    0.00141925 |
+| Oetwil am See  |          157 |   0.998621 |   0.999994 |    0.0013734  |
+| Jussy          |         6626 |   0.998759 |   0.999997 |    0.0012378  |
 
 ## Most Deteriorated (if historical data available)
 
