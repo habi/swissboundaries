@@ -1,4 +1,4 @@
-Generated: 2026-06-14 03:16:22 UTC
+Generated: 2026-06-15 03:17:12 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-14 03:16:22 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.915 m |
+| Mean Hausdorff distance | 7.735 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-14 03:16:22 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-13)
+## Historical Comparison (vs 2026-06-14)
 
 | Metric | Value |
 |--------|-------|
@@ -47,17 +47,20 @@ Generated: 2026-06-14 03:16:22 UTC
 | Cugnasco-Gerra      |         5138 | 0.993877 |      0.00353207 |
 | Cerentino           |         5309 | 0.993915 |      0.0224268  |
 | Campo (Vallemaggia) |         5307 | 0.994776 |      0.0818749  |
-| Termen              |         6010 | 0.994876 |      0.182273   |
 | Arbedo-Castione     |         5001 | 0.994891 |      0.0581622  |
 | Bosco/Gurin         |         5304 | 0.99524  |      0.106953   |
+| Dozwil              |         4406 | 0.99527  |      0.01251    |
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Uetikon am See |          159 |   0.998537 |   0.999956 |    0.00141925 |
-| Oetwil am See  |          157 |   0.998621 |   0.999994 |    0.0013734  |
-| Jussy          |         6626 |   0.998759 |   0.999997 |    0.0012378  |
+| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------------|-------------:|-----------:|-----------:|--------------:|
+| Binn                |         6054 |   0.996284 |   0.999998 |    0.00371414 |
+| Täsch               |         6295 |   0.995815 |   0.999121 |    0.00330596 |
+| Dietlikon           |           54 |   0.997472 |   0.999993 |    0.002521   |
+| Grengiols           |         6177 |   0.998254 |   0.999998 |    0.00174452 |
+| Bassersdorf         |           52 |   0.998463 |   0.999995 |    0.00153222 |
+| Wangen-Brüttisellen |          200 |   0.998536 |   0.999996 |    0.00146045 |
 
 ## Most Deteriorated (if historical data available)
 
