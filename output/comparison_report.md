@@ -1,4 +1,4 @@
-Generated: 2026-06-15 03:17:12 UTC
+Generated: 2026-06-16 03:15:32 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-15 03:17:12 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.02% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.735 m |
+| Mean Hausdorff distance | 7.589 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-15 03:17:12 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-14)
+## Historical Comparison (vs 2026-06-15)
 
 | Metric | Value |
 |--------|-------|
@@ -53,14 +53,12 @@ Generated: 2026-06-15 03:17:12 UTC
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Binn                |         6054 |   0.996284 |   0.999998 |    0.00371414 |
-| Täsch               |         6295 |   0.995815 |   0.999121 |    0.00330596 |
-| Dietlikon           |           54 |   0.997472 |   0.999993 |    0.002521   |
-| Grengiols           |         6177 |   0.998254 |   0.999998 |    0.00174452 |
-| Bassersdorf         |           52 |   0.998463 |   0.999995 |    0.00153222 |
-| Wangen-Brüttisellen |          200 |   0.998536 |   0.999996 |    0.00146045 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Givrins     |         5720 |   0.99748  |   0.999991 |    0.0025111  |
+| Liedertswil |         2890 |   0.998024 |   0.99999  |    0.00196605 |
+| Trélex      |         5730 |   0.99808  |   0.999995 |    0.00191537 |
+| Sauge       |          449 |   0.99885  |   0.999997 |    0.0011463  |
 
 ## Most Deteriorated (if historical data available)
 
