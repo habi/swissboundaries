@@ -1,4 +1,4 @@
-Generated: 2026-06-16 03:15:32 UTC
+Generated: 2026-06-17 03:15:38 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-06-16 03:15:32 UTC
 |--------|-------|
 | Mean IoU | 0.9992 |
 | Median IoU | 0.9994 |
-| Mean area difference | 0.02% |
+| Mean area difference | 0.01% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.589 m |
+| Mean Hausdorff distance | 7.378 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-16 03:15:32 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-15)
+## Historical Comparison (vs 2026-06-16)
 
 | Metric | Value |
 |--------|-------|
@@ -55,10 +55,14 @@ Generated: 2026-06-16 03:15:32 UTC
 
 | name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:------------|-------------:|-----------:|-----------:|--------------:|
-| Givrins     |         5720 |   0.99748  |   0.999991 |    0.0025111  |
-| Liedertswil |         2890 |   0.998024 |   0.99999  |    0.00196605 |
-| Trélex      |         5730 |   0.99808  |   0.999995 |    0.00191537 |
-| Sauge       |          449 |   0.99885  |   0.999997 |    0.0011463  |
+| Goms        |         6077 |   0.997463 |   0.999999 |    0.00253589 |
+| Obergoms    |         6076 |   0.997638 |   0.999999 |    0.0023605  |
+| Gunzgen     |         2578 |   0.997739 |   0.999995 |    0.00225605 |
+| Ernen       |         6056 |   0.997754 |   0.999835 |    0.00208059 |
+| Kappel (SO) |         2580 |   0.998325 |   0.999995 |    0.00166999 |
+| Boningen    |         2571 |   0.998205 |   0.99965  |    0.00144462 |
+| Fieschertal |         6058 |   0.998496 |   0.99986  |    0.00136405 |
+| Grächen     |         6285 |   0.998805 |   0.999985 |    0.00117954 |
 
 ## Most Deteriorated (if historical data available)
 
