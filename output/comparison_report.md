@@ -1,4 +1,4 @@
-Generated: 2026-06-17 03:15:38 UTC
+Generated: 2026-06-18 03:14:58 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-17 03:15:38 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.378 m |
+| Mean Hausdorff distance | 7.241 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-17 03:15:38 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-16)
+## Historical Comparison (vs 2026-06-17)
 
 | Metric | Value |
 |--------|-------|
@@ -53,16 +53,14 @@ Generated: 2026-06-17 03:15:38 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Goms        |         6077 |   0.997463 |   0.999999 |    0.00253589 |
-| Obergoms    |         6076 |   0.997638 |   0.999999 |    0.0023605  |
-| Gunzgen     |         2578 |   0.997739 |   0.999995 |    0.00225605 |
-| Ernen       |         6056 |   0.997754 |   0.999835 |    0.00208059 |
-| Kappel (SO) |         2580 |   0.998325 |   0.999995 |    0.00166999 |
-| Boningen    |         2571 |   0.998205 |   0.99965  |    0.00144462 |
-| Fieschertal |         6058 |   0.998496 |   0.99986  |    0.00136405 |
-| Grächen     |         6285 |   0.998805 |   0.999985 |    0.00117954 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Aire-la-Ville |         6601 |   0.998252 |   0.999993 |    0.00174164 |
+| Develier      |         6712 |   0.998425 |   0.999997 |    0.00157189 |
+| Zwischbergen  |         6011 |   0.99858  |   0.999998 |    0.0014181  |
+| Confignon     |         6618 |   0.996916 |   0.998251 |    0.00133523 |
+| Bourrignon    |         6703 |   0.998717 |   0.999997 |    0.00128022 |
+| Bernex        |         6607 |   0.998745 |   0.999996 |    0.00125131 |
 
 ## Most Deteriorated (if historical data available)
 
