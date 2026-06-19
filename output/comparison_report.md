@@ -1,4 +1,4 @@
-Generated: 2026-06-18 03:14:58 UTC
+Generated: 2026-06-19 03:15:50 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-18 03:14:58 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.241 m |
+| Mean Hausdorff distance | 7.109 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-18 03:14:58 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-17)
+## Historical Comparison (vs 2026-06-18)
 
 | Metric | Value |
 |--------|-------|
@@ -53,14 +53,11 @@ Generated: 2026-06-18 03:14:58 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Aire-la-Ville |         6601 |   0.998252 |   0.999993 |    0.00174164 |
-| Develier      |         6712 |   0.998425 |   0.999997 |    0.00157189 |
-| Zwischbergen  |         6011 |   0.99858  |   0.999998 |    0.0014181  |
-| Confignon     |         6618 |   0.996916 |   0.998251 |    0.00133523 |
-| Bourrignon    |         6703 |   0.998717 |   0.999997 |    0.00128022 |
-| Bernex        |         6607 |   0.998745 |   0.999996 |    0.00125131 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Bogis-Bossey |         5705 |   0.99778  |   0.999989 |    0.00220884 |
+| Thundorf     |         4611 |   0.99891  |   0.999996 |    0.00108668 |
+| Therwil      |         2775 |   0.998992 |   0.999996 |    0.00100378 |
 
 ## Most Deteriorated (if historical data available)
 
