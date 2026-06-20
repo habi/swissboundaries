@@ -1,4 +1,4 @@
-Generated: 2026-06-19 03:15:50 UTC
+Generated: 2026-06-20 03:14:31 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-19 03:15:50 UTC
 | Median IoU | 0.9994 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 7.109 m |
+| Mean Hausdorff distance | 6.942 m |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-06-19 03:15:50 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-18)
+## Historical Comparison (vs 2026-06-19)
 
 | Metric | Value |
 |--------|-------|
@@ -53,11 +53,16 @@ Generated: 2026-06-19 03:15:50 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Bogis-Bossey |         5705 |   0.99778  |   0.999989 |    0.00220884 |
-| Thundorf     |         4611 |   0.99891  |   0.999996 |    0.00108668 |
-| Therwil      |         2775 |   0.998992 |   0.999996 |    0.00100378 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|
+| Geroldswil           |          244 |   0.996437 |   0.99999  |    0.00355328 |
+| Zermatt              |         6300 |   0.996978 |   0.999999 |    0.00302155 |
+| Oetwil an der Limmat |          246 |   0.997496 |   0.999991 |    0.00249456 |
+| Saas-Almagell        |         6288 |   0.998144 |   0.999999 |    0.00185458 |
+| Saas-Grund           |         6291 |   0.997246 |   0.99841  |    0.0011638  |
+| Saas-Fee             |         6290 |   0.997872 |   0.998969 |    0.00109656 |
+| Hüttikon             |           87 |   0.997406 |   0.99844  |    0.00103405 |
+| Dorénaz              |         6212 |   0.998988 |   0.999997 |    0.0010096  |
 
 ## Most Deteriorated (if historical data available)
 
