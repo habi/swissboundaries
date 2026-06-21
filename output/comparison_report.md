@@ -1,4 +1,4 @@
-Generated: 2026-06-20 03:14:31 UTC
+Generated: 2026-06-21 03:16:34 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-06-20 03:14:31 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9992 |
-| Median IoU | 0.9994 |
+| Mean IoU | 0.9993 |
+| Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
-| Mean symmetric difference | 0.08% |
-| Mean Hausdorff distance | 6.942 m |
+| Mean symmetric difference | 0.07% |
+| Mean Hausdorff distance | 6.764 m |
 
 ## Quality Distribution
 
@@ -28,12 +28,12 @@ Generated: 2026-06-20 03:14:31 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-19)
+## Historical Comparison (vs 2026-06-20)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9992 |
-| Current mean IoU | 0.9992 |
+| Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
 
 ## Worst 10 Matches (by IoU)
@@ -53,16 +53,15 @@ Generated: 2026-06-20 03:14:31 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|
-| Geroldswil           |          244 |   0.996437 |   0.99999  |    0.00355328 |
-| Zermatt              |         6300 |   0.996978 |   0.999999 |    0.00302155 |
-| Oetwil an der Limmat |          246 |   0.997496 |   0.999991 |    0.00249456 |
-| Saas-Almagell        |         6288 |   0.998144 |   0.999999 |    0.00185458 |
-| Saas-Grund           |         6291 |   0.997246 |   0.99841  |    0.0011638  |
-| Saas-Fee             |         6290 |   0.997872 |   0.998969 |    0.00109656 |
-| Hüttikon             |           87 |   0.997406 |   0.99844  |    0.00103405 |
-| Dorénaz              |         6212 |   0.998988 |   0.999997 |    0.0010096  |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Savièse       |         6265 |   0.99593  |   0.999998 |    0.00406762 |
+| Gsteig        |          841 |   0.996256 |   0.998665 |    0.00240845 |
+| Evolène       |         6083 |   0.997865 |   0.999999 |    0.00213445 |
+| Opfikon       |           66 |   0.99861  |   0.999995 |    0.00138473 |
+| Ormont-Dessus |         5411 |   0.99716  |   0.998495 |    0.00133506 |
+| Hérémence     |         6084 |   0.998094 |   0.999291 |    0.0011962  |
+| Rümlang       |           97 |   0.99893  |   0.999997 |    0.00106667 |
 
 ## Most Deteriorated (if historical data available)
 
