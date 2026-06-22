@@ -1,4 +1,4 @@
-Generated: 2026-06-21 03:16:34 UTC
+Generated: 2026-06-22 03:16:53 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-21 03:16:34 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 6.764 m |
+| Mean Hausdorff distance | 6.577 m |
 
 ## Quality Distribution
 
@@ -28,11 +28,11 @@ Generated: 2026-06-21 03:16:34 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-20)
+## Historical Comparison (vs 2026-06-21)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9992 |
+| Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
 
@@ -53,15 +53,18 @@ Generated: 2026-06-21 03:16:34 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Savièse       |         6265 |   0.99593  |   0.999998 |    0.00406762 |
-| Gsteig        |          841 |   0.996256 |   0.998665 |    0.00240845 |
-| Evolène       |         6083 |   0.997865 |   0.999999 |    0.00213445 |
-| Opfikon       |           66 |   0.99861  |   0.999995 |    0.00138473 |
-| Ormont-Dessus |         5411 |   0.99716  |   0.998495 |    0.00133506 |
-| Hérémence     |         6084 |   0.998094 |   0.999291 |    0.0011962  |
-| Rümlang       |           97 |   0.99893  |   0.999997 |    0.00106667 |
+| name                      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------------------|-------------:|-----------:|-----------:|--------------:|
+| Oberried am Brienzersee   |          589 |   0.996315 |   0.999997 |    0.00368214 |
+| Thônex                    |         6640 |   0.997017 |   0.999992 |    0.00297504 |
+| Plan-les-Ouates           |         6633 |   0.997633 |   0.999995 |    0.00236181 |
+| Grandvillard              |         2134 |   0.997743 |   0.999998 |    0.00225457 |
+| Lancy                     |         6628 |   0.997813 |   0.999993 |    0.00218085 |
+| Chêne-Bourg               |         6613 |   0.995792 |   0.997545 |    0.00175261 |
+| Carouge (GE)              |         6608 |   0.997317 |   0.998974 |    0.00165739 |
+| Confignon                 |         6618 |   0.998251 |   0.999836 |    0.001585   |
+| Niederried bei Interlaken |          588 |   0.99699  |   0.998555 |    0.0015646  |
+| Veyrier                   |         6645 |   0.998443 |   0.999995 |    0.00155275 |
 
 ## Most Deteriorated (if historical data available)
 
