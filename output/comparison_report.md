@@ -1,4 +1,4 @@
-Generated: 2026-06-22 03:16:53 UTC
+Generated: 2026-06-22 14:19:59 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-22 03:16:53 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 6.577 m |
+| Mean Hausdorff distance | 6.447 m |
 
 ## Quality Distribution
 
@@ -28,43 +28,42 @@ Generated: 2026-06-22 03:16:53 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-21)
+## Historical Comparison (vs 2026-06-22)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
+| Previous mean Hausdorff distance | 6.577 m |
+| Current mean Hausdorff distance | 6.447 m |
+| Hausdorff change | -0.130 m |
 
 ## Worst 10 Matches (by IoU)
 
-| name                |   bfs_nummer |      iou |   area_diff_pct |
-|:--------------------|-------------:|---------:|----------------:|
-| Eschenz             |         4806 | 0.981348 |      1.54249    |
-| Giornico            |         5073 | 0.991396 |      0.176113   |
-| Lumino              |         5010 | 0.99208  |      0.429817   |
-| Dalpe               |         5071 | 0.993297 |      0.18988    |
-| Cugnasco-Gerra      |         5138 | 0.993877 |      0.00353207 |
-| Cerentino           |         5309 | 0.993915 |      0.0224268  |
-| Campo (Vallemaggia) |         5307 | 0.994776 |      0.0818749  |
-| Arbedo-Castione     |         5001 | 0.994891 |      0.0581622  |
-| Bosco/Gurin         |         5304 | 0.99524  |      0.106953   |
-| Dozwil              |         4406 | 0.99527  |      0.01251    |
+| name            |   bfs_nummer |      iou |   area_diff_pct |
+|:----------------|-------------:|---------:|----------------:|
+| Eschenz         |         4806 | 0.981348 |      1.54249    |
+| Giornico        |         5073 | 0.991396 |      0.176113   |
+| Lumino          |         5010 | 0.99208  |      0.429817   |
+| Dalpe           |         5071 | 0.993297 |      0.18988    |
+| Cugnasco-Gerra  |         5138 | 0.993877 |      0.00353207 |
+| Cerentino       |         5309 | 0.993915 |      0.0224268  |
+| Arbedo-Castione |         5001 | 0.994891 |      0.0581622  |
+| Bosco/Gurin     |         5304 | 0.99524  |      0.106953   |
+| Dozwil          |         4406 | 0.99527  |      0.01251    |
+| Rueyres         |         5534 | 0.995282 |      0.0684165  |
 
 ## Most Improved (if historical data available)
 
-| name                      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------------|-------------:|-----------:|-----------:|--------------:|
-| Oberried am Brienzersee   |          589 |   0.996315 |   0.999997 |    0.00368214 |
-| Thônex                    |         6640 |   0.997017 |   0.999992 |    0.00297504 |
-| Plan-les-Ouates           |         6633 |   0.997633 |   0.999995 |    0.00236181 |
-| Grandvillard              |         2134 |   0.997743 |   0.999998 |    0.00225457 |
-| Lancy                     |         6628 |   0.997813 |   0.999993 |    0.00218085 |
-| Chêne-Bourg               |         6613 |   0.995792 |   0.997545 |    0.00175261 |
-| Carouge (GE)              |         6608 |   0.997317 |   0.998974 |    0.00165739 |
-| Confignon                 |         6618 |   0.998251 |   0.999836 |    0.001585   |
-| Niederried bei Interlaken |          588 |   0.99699  |   0.998555 |    0.0015646  |
-| Veyrier                   |         6645 |   0.998443 |   0.999995 |    0.00155275 |
+| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------------|-------------:|-----------:|-----------:|--------------:|
+| Onsernone           |         5136 |   0.996535 |   0.999999 |    0.00346385 |
+| Centovalli          |         5397 |   0.996997 |   0.999998 |    0.00300154 |
+| Brissago            |         5097 |   0.997967 |   0.999998 |    0.00203126 |
+| Campo (Vallemaggia) |         5307 |   0.994776 |   0.996558 |    0.00178167 |
+| Maggia              |         5317 |   0.997156 |   0.998593 |    0.00143741 |
+| Steinen             |         1373 |   0.99884  |   0.999997 |    0.00115652 |
 
 ## Most Deteriorated (if historical data available)
 
