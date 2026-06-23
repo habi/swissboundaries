@@ -1,4 +1,4 @@
-Generated: 2026-06-22 14:19:59 UTC
+Generated: 2026-06-23 03:14:04 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-22 14:19:59 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 6.447 m |
+| Mean Hausdorff distance | 6.435 m |
 
 ## Quality Distribution
 
@@ -35,9 +35,9 @@ Generated: 2026-06-22 14:19:59 UTC
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 6.577 m |
-| Current mean Hausdorff distance | 6.447 m |
-| Hausdorff change | -0.130 m |
+| Previous mean Hausdorff distance | 6.447 m |
+| Current mean Hausdorff distance | 6.435 m |
+| Hausdorff change | -0.012 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,14 +56,7 @@ Generated: 2026-06-22 14:19:59 UTC
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Onsernone           |         5136 |   0.996535 |   0.999999 |    0.00346385 |
-| Centovalli          |         5397 |   0.996997 |   0.999998 |    0.00300154 |
-| Brissago            |         5097 |   0.997967 |   0.999998 |    0.00203126 |
-| Campo (Vallemaggia) |         5307 |   0.994776 |   0.996558 |    0.00178167 |
-| Maggia              |         5317 |   0.997156 |   0.998593 |    0.00143741 |
-| Steinen             |         1373 |   0.99884  |   0.999997 |    0.00115652 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
