@@ -1,4 +1,4 @@
-Generated: 2026-06-25 03:14:10 UTC
+Generated: 2026-06-26 03:14:52 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-25 03:14:10 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 6.004 m |
+| Mean Hausdorff distance | 5.846 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-25 03:14:10 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-24)
+## Historical Comparison (vs 2026-06-25)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 6.253 m |
-| Current mean Hausdorff distance | 6.004 m |
-| Hausdorff change | -0.249 m |
+| Previous mean Hausdorff distance | 6.004 m |
+| Current mean Hausdorff distance | 5.846 m |
+| Hausdorff change | -0.159 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,14 +56,11 @@ Generated: 2026-06-25 03:14:10 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Hasliberg     |          783 |   0.995533 |   0.999716 |    0.00418321 |
-| Serravalle    |         5050 |   0.996118 |   0.999999 |    0.00388065 |
-| Biasca        |         5281 |   0.996579 |   0.999998 |    0.00341992 |
-| Schattenhalb  |          786 |   0.997334 |   0.999756 |    0.00242197 |
-| Acquarossa    |         5048 |   0.99697  |   0.999252 |    0.00228167 |
-| Innertkirchen |          784 |   0.998638 |   0.999999 |    0.00136075 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Bürchen   |         6193 |   0.995916 |   0.999996 |    0.00407992 |
+| Unterbäch |         6201 |   0.997311 |   0.999998 |    0.00268638 |
+| Champéry  |         6151 |   0.997964 |   0.999998 |    0.00203442 |
 
 ## Most Deteriorated (if historical data available)
 
