@@ -1,4 +1,4 @@
-Generated: 2026-06-26 03:14:52 UTC
+Generated: 2026-06-27 03:13:14 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-26 03:14:52 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 5.846 m |
+| Mean Hausdorff distance | 5.561 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-26 03:14:52 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-25)
+## Historical Comparison (vs 2026-06-26)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 6.004 m |
-| Current mean Hausdorff distance | 5.846 m |
-| Hausdorff change | -0.159 m |
+| Previous mean Hausdorff distance | 5.846 m |
+| Current mean Hausdorff distance | 5.561 m |
+| Hausdorff change | -0.284 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -45,22 +45,27 @@ Generated: 2026-06-26 03:14:52 UTC
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.981348 |      1.54249    |
 | Lumino          |         5010 | 0.99208  |      0.429817   |
-| Giornico        |         5073 | 0.992292 |      0.180744   |
 | Dalpe           |         5071 | 0.993297 |      0.18988    |
-| Cugnasco-Gerra  |         5138 | 0.993877 |      0.00353207 |
 | Cerentino       |         5309 | 0.993915 |      0.0224268  |
 | Arbedo-Castione |         5001 | 0.994891 |      0.0581622  |
 | Bosco/Gurin     |         5304 | 0.99524  |      0.106953   |
 | Rueyres         |         5534 | 0.995282 |      0.0684165  |
 | Isérables       |         6134 | 0.995707 |      0.0209932  |
+| Hagneck         |          736 | 0.995824 |      0.00469874 |
+| Guttet-Feschel  |         6117 | 0.995948 |      0.0244074  |
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Bürchen   |         6193 |   0.995916 |   0.999996 |    0.00407992 |
-| Unterbäch |         6201 |   0.997311 |   0.999998 |    0.00268638 |
-| Champéry  |         6151 |   0.997964 |   0.999998 |    0.00203442 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Giornico        |         5073 |   0.992292 |   0.999997 |    0.0077051  |
+| Avegno Gordevio |         5324 |   0.995876 |   0.999998 |    0.00412157 |
+| Cugnasco-Gerra  |         5138 |   0.993877 |   0.996828 |    0.00295119 |
+| Personico       |         5076 |   0.998205 |   0.999998 |    0.00179317 |
+| Maggia          |         5317 |   0.998593 |   0.999999 |    0.00140542 |
+| Fläsch          |         3951 |   0.998754 |   0.999995 |    0.00124142 |
+| Faido           |         5072 |   0.997496 |   0.998636 |    0.00114029 |
+| Verzasca        |         5399 |   0.998861 |   0.999999 |    0.00113852 |
 
 ## Most Deteriorated (if historical data available)
 
