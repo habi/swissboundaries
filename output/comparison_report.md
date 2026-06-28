@@ -1,4 +1,4 @@
-Generated: 2026-06-27 03:13:14 UTC
+Generated: 2026-06-28 03:14:42 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-27 03:13:14 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 5.561 m |
+| Mean Hausdorff distance | 5.380 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-27 03:13:14 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-26)
+## Historical Comparison (vs 2026-06-27)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 5.846 m |
-| Current mean Hausdorff distance | 5.561 m |
-| Hausdorff change | -0.284 m |
+| Previous mean Hausdorff distance | 5.561 m |
+| Current mean Hausdorff distance | 5.380 m |
+| Hausdorff change | -0.181 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,16 +56,13 @@ Generated: 2026-06-27 03:13:14 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Giornico        |         5073 |   0.992292 |   0.999997 |    0.0077051  |
-| Avegno Gordevio |         5324 |   0.995876 |   0.999998 |    0.00412157 |
-| Cugnasco-Gerra  |         5138 |   0.993877 |   0.996828 |    0.00295119 |
-| Personico       |         5076 |   0.998205 |   0.999998 |    0.00179317 |
-| Maggia          |         5317 |   0.998593 |   0.999999 |    0.00140542 |
-| Fläsch          |         3951 |   0.998754 |   0.999995 |    0.00124142 |
-| Faido           |         5072 |   0.997496 |   0.998636 |    0.00114029 |
-| Verzasca        |         5399 |   0.998861 |   0.999999 |    0.00113852 |
+| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------|-------------:|-----------:|-----------:|--------------:|
+| Airolo    |         5061 |   0.997246 |   0.999999 |    0.00275281 |
+| Icogne    |         6239 |   0.997874 |   0.999177 |    0.0013027  |
+| Lenk      |          792 |   0.998839 |   0.999999 |    0.00116026 |
+| Hospental |         1210 |   0.998568 |   0.999621 |    0.00105301 |
+| Bedretto  |         5063 |   0.997887 |   0.998908 |    0.00102079 |
 
 ## Most Deteriorated (if historical data available)
 
