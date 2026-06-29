@@ -1,4 +1,4 @@
-Generated: 2026-06-28 03:14:42 UTC
+Generated: 2026-06-29 03:16:27 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-28 03:14:42 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 5.380 m |
+| Mean Hausdorff distance | 5.240 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-28 03:14:42 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-27)
+## Historical Comparison (vs 2026-06-28)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 5.561 m |
-| Current mean Hausdorff distance | 5.380 m |
-| Hausdorff change | -0.181 m |
+| Previous mean Hausdorff distance | 5.380 m |
+| Current mean Hausdorff distance | 5.240 m |
+| Hausdorff change | -0.140 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,13 +56,13 @@ Generated: 2026-06-28 03:14:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------|-------------:|-----------:|-----------:|--------------:|
-| Airolo    |         5061 |   0.997246 |   0.999999 |    0.00275281 |
-| Icogne    |         6239 |   0.997874 |   0.999177 |    0.0013027  |
-| Lenk      |          792 |   0.998839 |   0.999999 |    0.00116026 |
-| Hospental |         1210 |   0.998568 |   0.999621 |    0.00105301 |
-| Bedretto  |         5063 |   0.997887 |   0.998908 |    0.00102079 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Cama        |         3831 |   0.997516 |   0.999996 |    0.00248044 |
+| Embd        |         6283 |   0.997604 |   0.999897 |    0.00229286 |
+| Randa       |         6287 |   0.997905 |   0.999998 |    0.00209309 |
+| St. Niklaus |         6292 |   0.998168 |   0.999999 |    0.00183106 |
+| Evionnaz    |         6213 |   0.998398 |   0.999998 |    0.00160013 |
 
 ## Most Deteriorated (if historical data available)
 
