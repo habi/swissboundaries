@@ -1,4 +1,4 @@
-Generated: 2026-06-29 03:16:27 UTC
+Generated: 2026-06-30 03:13:45 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-29 03:16:27 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 5.240 m |
+| Mean Hausdorff distance | 5.003 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-29 03:16:27 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-28)
+## Historical Comparison (vs 2026-06-29)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 5.380 m |
-| Current mean Hausdorff distance | 5.240 m |
-| Hausdorff change | -0.140 m |
+| Previous mean Hausdorff distance | 5.240 m |
+| Current mean Hausdorff distance | 5.003 m |
+| Hausdorff change | -0.238 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -58,11 +58,10 @@ Generated: 2026-06-29 03:16:27 UTC
 
 | name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
 |:------------|-------------:|-----------:|-----------:|--------------:|
-| Cama        |         3831 |   0.997516 |   0.999996 |    0.00248044 |
-| Embd        |         6283 |   0.997604 |   0.999897 |    0.00229286 |
-| Randa       |         6287 |   0.997905 |   0.999998 |    0.00209309 |
-| St. Niklaus |         6292 |   0.998168 |   0.999999 |    0.00183106 |
-| Evionnaz    |         6213 |   0.998398 |   0.999998 |    0.00160013 |
+| Finhaut     |         6214 |   0.9962   |   0.999997 |    0.00379615 |
+| Trient      |         6142 |   0.996531 |   0.999998 |    0.00346689 |
+| Orsières    |         6034 |   0.998099 |   0.999999 |    0.00189971 |
+| Val Müstair |         3847 |   0.998942 |   0.999999 |    0.00105672 |
 
 ## Most Deteriorated (if historical data available)
 
