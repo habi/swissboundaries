@@ -1,4 +1,4 @@
-Generated: 2026-06-30 03:13:45 UTC
+Generated: 2026-07-01 03:15:27 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-06-30 03:13:45 UTC
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 5.003 m |
+| Mean Hausdorff distance | 4.857 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-06-30 03:13:45 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-29)
+## Historical Comparison (vs 2026-06-30)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
 | Current mean IoU | 0.9993 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 5.240 m |
-| Current mean Hausdorff distance | 5.003 m |
-| Hausdorff change | -0.238 m |
+| Previous mean Hausdorff distance | 5.003 m |
+| Current mean Hausdorff distance | 4.857 m |
+| Hausdorff change | -0.146 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -45,7 +45,6 @@ Generated: 2026-06-30 03:13:45 UTC
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.981348 |      1.54249    |
 | Lumino          |         5010 | 0.99208  |      0.429817   |
-| Dalpe           |         5071 | 0.993297 |      0.18988    |
 | Cerentino       |         5309 | 0.993915 |      0.0224268  |
 | Arbedo-Castione |         5001 | 0.994891 |      0.0581622  |
 | Bosco/Gurin     |         5304 | 0.99524  |      0.106953   |
@@ -53,15 +52,14 @@ Generated: 2026-06-30 03:13:45 UTC
 | Isérables       |         6134 | 0.995707 |      0.0209932  |
 | Hagneck         |          736 | 0.995824 |      0.00469874 |
 | Guttet-Feschel  |         6117 | 0.995948 |      0.0244074  |
+| Wilen (TG)      |         4786 | 0.996352 |      0.0182034  |
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Finhaut     |         6214 |   0.9962   |   0.999997 |    0.00379615 |
-| Trient      |         6142 |   0.996531 |   0.999998 |    0.00346689 |
-| Orsières    |         6034 |   0.998099 |   0.999999 |    0.00189971 |
-| Val Müstair |         3847 |   0.998942 |   0.999999 |    0.00105672 |
+| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------|-------------:|-----------:|-----------:|--------------:|
+| Dalpe  |         5071 |   0.993297 |   0.997926 |    0.00462945 |
+| Faido  |         5072 |   0.998636 |   0.999998 |    0.00136224 |
 
 ## Most Deteriorated (if historical data available)
 
