@@ -1,4 +1,4 @@
-Generated: 2026-07-01 03:15:27 UTC
+Generated: 2026-07-02 03:12:15 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-07-01 03:15:27 UTC
 
 | Metric | Value |
 |--------|-------|
-| Mean IoU | 0.9993 |
+| Mean IoU | 0.9994 |
 | Median IoU | 0.9995 |
 | Mean area difference | 0.01% |
-| Mean symmetric difference | 0.07% |
-| Mean Hausdorff distance | 4.857 m |
+| Mean symmetric difference | 0.06% |
+| Mean Hausdorff distance | 4.690 m |
 
 ## Quality Distribution
 
@@ -28,38 +28,40 @@ Generated: 2026-07-01 03:15:27 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-06-30)
+## Historical Comparison (vs 2026-07-01)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9993 |
-| Current mean IoU | 0.9993 |
+| Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 5.003 m |
-| Current mean Hausdorff distance | 4.857 m |
-| Hausdorff change | -0.146 m |
+| Previous mean Hausdorff distance | 4.857 m |
+| Current mean Hausdorff distance | 4.690 m |
+| Hausdorff change | -0.167 m |
 
 ## Worst 10 Matches (by IoU)
 
-| name            |   bfs_nummer |      iou |   area_diff_pct |
-|:----------------|-------------:|---------:|----------------:|
-| Eschenz         |         4806 | 0.981348 |      1.54249    |
-| Lumino          |         5010 | 0.99208  |      0.429817   |
-| Cerentino       |         5309 | 0.993915 |      0.0224268  |
-| Arbedo-Castione |         5001 | 0.994891 |      0.0581622  |
-| Bosco/Gurin     |         5304 | 0.99524  |      0.106953   |
-| Rueyres         |         5534 | 0.995282 |      0.0684165  |
-| Isérables       |         6134 | 0.995707 |      0.0209932  |
-| Hagneck         |          736 | 0.995824 |      0.00469874 |
-| Guttet-Feschel  |         6117 | 0.995948 |      0.0244074  |
-| Wilen (TG)      |         4786 | 0.996352 |      0.0182034  |
+| name           |   bfs_nummer |      iou |   area_diff_pct |
+|:---------------|-------------:|---------:|----------------:|
+| Eschenz        |         4806 | 0.981348 |      1.54249    |
+| Cerentino      |         5309 | 0.993915 |      0.0224268  |
+| Bosco/Gurin    |         5304 | 0.99524  |      0.106953   |
+| Rueyres        |         5534 | 0.995282 |      0.0684165  |
+| Isérables      |         6134 | 0.995707 |      0.0209932  |
+| Hagneck        |          736 | 0.995824 |      0.00469874 |
+| Guttet-Feschel |         6117 | 0.995948 |      0.0244074  |
+| Wilen (TG)     |         4786 | 0.996352 |      0.0182034  |
+| Regensberg     |           95 | 0.996442 |      0.0295773  |
+| Kilchberg (BL) |         2851 | 0.9965   |      0.0323861  |
 
 ## Most Improved (if historical data available)
 
-| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------|-------------:|-----------:|-----------:|--------------:|
-| Dalpe  |         5071 |   0.993297 |   0.997926 |    0.00462945 |
-| Faido  |         5072 |   0.998636 |   0.999998 |    0.00136224 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|
+| Lumino             |         5010 |   0.99208  |   0.999996 |    0.00791612 |
+| Arbedo-Castione    |         5001 |   0.994891 |   0.999997 |    0.00510572 |
+| Bourg-Saint-Pierre |         6032 |   0.998815 |   0.999999 |    0.00118398 |
+| Grône              |         6238 |   0.9989   |   0.999997 |    0.00109626 |
 
 ## Most Deteriorated (if historical data available)
 
