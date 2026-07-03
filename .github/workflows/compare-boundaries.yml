@@ -8,6 +8,10 @@ on:
       - main
   workflow_dispatch:  # Allow manual triggering
   
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 permissions:
   contents: write       # Needed to commit output and history folders
   id-token: write       # Required for GitHub Pages authentication
@@ -109,7 +113,7 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add output/ history/
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update boundary comparison results - $(date +'%Y-%m-%d')"
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update boundary comparison results - $(date +'%Y-%m-%d') [skip ci]"
         git push
       continue-on-error: true
       
