@@ -1,4 +1,4 @@
-Generated: 2026-07-03 05:55:23 UTC
+Generated: 2026-07-03 07:59:38 UTC
 
 ## Dataset Overview
 
@@ -28,16 +28,16 @@ Generated: 2026-07-03 05:55:23 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-02)
+## Historical Comparison (vs 2026-07-03)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 4.690 m |
+| Previous mean Hausdorff distance | 4.397 m |
 | Current mean Hausdorff distance | 4.397 m |
-| Hausdorff change | -0.293 m |
+| Hausdorff change | +0.000 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,13 +56,7 @@ Generated: 2026-07-03 05:55:23 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Küblis        |         3882 |   0.997573 |   0.999996 |    0.00242294 |
-| Brusio        |         3551 |   0.99805  |   0.999998 |    0.00194767 |
-| Val de Bagnes |         6037 |   0.998684 |   0.999999 |    0.00131492 |
-| Plaffeien     |         2299 |   0.998956 |   0.999998 |    0.00104219 |
-| Poschiavo     |         3561 |   0.998976 |   0.999999 |    0.00102326 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
