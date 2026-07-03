@@ -1,4 +1,4 @@
-Generated: 2026-07-02 03:12:15 UTC
+Generated: 2026-07-03 05:55:23 UTC
 
 ## Dataset Overview
 
@@ -14,10 +14,10 @@ Generated: 2026-07-02 03:12:15 UTC
 | Metric | Value |
 |--------|-------|
 | Mean IoU | 0.9994 |
-| Median IoU | 0.9995 |
+| Median IoU | 0.9996 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance | 4.690 m |
+| Mean Hausdorff distance | 4.397 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-02 03:12:15 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-01)
+## Historical Comparison (vs 2026-07-02)
 
 | Metric | Value |
 |--------|-------|
-| Previous mean IoU | 0.9993 |
+| Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 4.857 m |
-| Current mean Hausdorff distance | 4.690 m |
-| Hausdorff change | -0.167 m |
+| Previous mean Hausdorff distance | 4.690 m |
+| Current mean Hausdorff distance | 4.397 m |
+| Hausdorff change | -0.293 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,12 +56,13 @@ Generated: 2026-07-02 03:12:15 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|
-| Lumino             |         5010 |   0.99208  |   0.999996 |    0.00791612 |
-| Arbedo-Castione    |         5001 |   0.994891 |   0.999997 |    0.00510572 |
-| Bourg-Saint-Pierre |         6032 |   0.998815 |   0.999999 |    0.00118398 |
-| Grône              |         6238 |   0.9989   |   0.999997 |    0.00109626 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Küblis        |         3882 |   0.997573 |   0.999996 |    0.00242294 |
+| Brusio        |         3551 |   0.99805  |   0.999998 |    0.00194767 |
+| Val de Bagnes |         6037 |   0.998684 |   0.999999 |    0.00131492 |
+| Plaffeien     |         2299 |   0.998956 |   0.999998 |    0.00104219 |
+| Poschiavo     |         3561 |   0.998976 |   0.999999 |    0.00102326 |
 
 ## Most Deteriorated (if historical data available)
 
