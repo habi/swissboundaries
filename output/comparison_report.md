@@ -1,4 +1,4 @@
-Generated: 2026-07-04 05:05:50 UTC
+Generated: 2026-07-04 05:47:39 UTC
 
 ## Dataset Overview
 
@@ -28,16 +28,16 @@ Generated: 2026-07-04 05:05:50 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-03)
+## Historical Comparison (vs 2026-07-04)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 4.397 m |
+| Previous mean Hausdorff distance | 4.271 m |
 | Current mean Hausdorff distance | 4.271 m |
-| Hausdorff change | -0.125 m |
+| Hausdorff change | +0.000 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,13 +56,7 @@ Generated: 2026-07-04 05:05:50 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Saas-Balen     |         6289 |   0.996653 |   0.999997 |    0.00334396 |
-| Saint-Gingolph |         6155 |   0.998222 |   0.999985 |    0.00176309 |
-| Eisten         |         6282 |   0.997229 |   0.998902 |    0.00167359 |
-| Saas-Grund     |         6291 |   0.998493 |   0.999998 |    0.00150535 |
-| Samedan        |         3786 |   0.998873 |   0.999998 |    0.00112507 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
