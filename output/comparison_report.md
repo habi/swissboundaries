@@ -1,4 +1,4 @@
-Generated: 2026-07-05 06:06:36 UTC
+Generated: 2026-07-06 06:30:40 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-05 06:06:36 UTC
 | Median IoU | 0.9996 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance | 3.988 m |
+| Mean Hausdorff distance | 3.838 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-05 06:06:36 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-04)
+## Historical Comparison (vs 2026-07-05)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 4.271 m |
-| Current mean Hausdorff distance | 3.988 m |
-| Hausdorff change | -0.283 m |
+| Previous mean Hausdorff distance | 3.988 m |
+| Current mean Hausdorff distance | 3.838 m |
+| Hausdorff change | -0.150 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -47,7 +47,7 @@ Generated: 2026-07-05 06:06:36 UTC
 | Rueyres        |         5534 | 0.995282 |      0.0684165  |
 | Isérables      |         6134 | 0.995707 |      0.0209932  |
 | Hagneck        |          736 | 0.995824 |      0.00469874 |
-| Guttet-Feschel |         6117 | 0.995948 |      0.0244074  |
+| Guttet-Feschel |         6117 | 0.996207 |      0.00792022 |
 | Wilen (TG)     |         4786 | 0.996352 |      0.0182034  |
 | Regensberg     |           95 | 0.996442 |      0.0295773  |
 | Kilchberg (BL) |         2851 | 0.9965   |      0.0323861  |
@@ -56,17 +56,11 @@ Generated: 2026-07-05 06:06:36 UTC
 
 ## Most Improved (if historical data available)
 
-| name                |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------|-------------:|-----------:|-----------:|--------------:|
-| Cerentino           |         5309 |   0.993915 |   0.999997 |    0.00608204 |
-| Bosco/Gurin         |         5304 |   0.99524  |   0.999998 |    0.00475807 |
-| Campo (Vallemaggia) |         5307 |   0.996558 |   0.999998 |    0.00344062 |
-| Ausserberg          |         6191 |   0.997716 |   0.999997 |    0.00228159 |
-| Raron               |         6199 |   0.997887 |   0.999998 |    0.00211093 |
-| Gampel-Bratsch      |         6118 |   0.997946 |   0.999998 |    0.00205164 |
-| Hergiswil (NW)      |         1507 |   0.998829 |   0.999996 |    0.00116761 |
-| Wiler (Lötschen)    |         6202 |   0.998845 |   0.999997 |    0.00115132 |
-| Kippel              |         6197 |   0.998847 |   0.999996 |    0.00114845 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------|-------------:|-----------:|-----------:|--------------:|
+| Jaun           |         2138 |   0.997397 |   0.999998 |    0.00260165 |
+| Breggia        |         5269 |   0.997445 |   0.999997 |    0.00255139 |
+| Val-de-Charmey |         2163 |   0.99859  |   0.999873 |    0.00128331 |
 
 ## Most Deteriorated (if historical data available)
 
@@ -74,9 +68,10 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Hausdorff Distance (if historical data available)
 
-| name   |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
-|:-------|-------------:|-------------------:|-------------------:|-------------:|
-| Naters |         6007 |              3.382 |             12.265 |        8.883 |
+| name       |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
+|:-----------|-------------:|-------------------:|-------------------:|-------------:|
+| Uttwil     |         4451 |              0.016 |              3.988 |        3.972 |
+| Romanshorn |         4436 |              0.016 |              3.988 |        3.972 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
