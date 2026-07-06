@@ -1,4 +1,4 @@
-Generated: 2026-07-06 06:30:40 UTC
+Generated: 2026-07-06 06:36:15 UTC
 
 ## Dataset Overview
 
@@ -28,16 +28,16 @@ Generated: 2026-07-06 06:30:40 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-05)
+## Historical Comparison (vs 2026-07-06)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 3.988 m |
+| Previous mean Hausdorff distance | 3.838 m |
 | Current mean Hausdorff distance | 3.838 m |
-| Hausdorff change | -0.150 m |
+| Hausdorff change | +0.000 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,22 +56,11 @@ Generated: 2026-07-06 06:30:40 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Jaun           |         2138 |   0.997397 |   0.999998 |    0.00260165 |
-| Breggia        |         5269 |   0.997445 |   0.999997 |    0.00255139 |
-| Val-de-Charmey |         2163 |   0.99859  |   0.999873 |    0.00128331 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name       |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
-|:-----------|-------------:|-------------------:|-------------------:|-------------:|
-| Uttwil     |         4451 |              0.016 |              3.988 |        3.972 |
-| Romanshorn |         4436 |              0.016 |              3.988 |        3.972 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
