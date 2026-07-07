@@ -1,4 +1,4 @@
-Generated: 2026-07-06 06:36:15 UTC
+Generated: 2026-07-07 06:10:14 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-06 06:36:15 UTC
 | Median IoU | 0.9996 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance | 3.838 m |
+| Mean Hausdorff distance | 3.637 m |
 
 ## Quality Distribution
 
@@ -36,8 +36,8 @@ Generated: 2026-07-06 06:36:15 UTC
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
 | Previous mean Hausdorff distance | 3.838 m |
-| Current mean Hausdorff distance | 3.838 m |
-| Hausdorff change | +0.000 m |
+| Current mean Hausdorff distance | 3.637 m |
+| Hausdorff change | -0.201 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -47,16 +47,22 @@ Generated: 2026-07-06 06:36:15 UTC
 | Rueyres        |         5534 | 0.995282 |      0.0684165  |
 | Isérables      |         6134 | 0.995707 |      0.0209932  |
 | Hagneck        |          736 | 0.995824 |      0.00469874 |
-| Guttet-Feschel |         6117 | 0.996207 |      0.00792022 |
 | Wilen (TG)     |         4786 | 0.996352 |      0.0182034  |
 | Regensberg     |           95 | 0.996442 |      0.0295773  |
 | Kilchberg (BL) |         2851 | 0.9965   |      0.0323861  |
 | Bougy-Villars  |         5426 | 0.996517 |      0.0366454  |
 | Vinzel         |         5863 | 0.996533 |      0.0208871  |
+| Guttet-Feschel |         6117 | 0.996701 |      0.0177083  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Ferden       |         6195 |   0.998039 |   0.999997 |    0.00195804 |
+| Steg-Hohtenn |         6204 |   0.998484 |   0.999997 |    0.00151382 |
+| Gsteig       |          841 |   0.998665 |   0.999999 |    0.00133395 |
+| Staldenried  |         6294 |   0.998813 |   0.999997 |    0.00118388 |
+| Eisten       |         6282 |   0.998902 |   0.999998 |    0.00109528 |
 
 ## Most Deteriorated (if historical data available)
 
