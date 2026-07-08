@@ -256,6 +256,7 @@ def create_feature(element, bfs_tag_stats=None):
             "id": f"relation/{element['id']}",
             "properties": {
                 "osm_id": element["id"],
+                "country": "LI" if bfs_source == "bfs:OBJECTVAL" else "CH",
                 "swisstopo:BFS_NUMMER": bfs_num,
                 **tags,
             },
@@ -447,13 +448,17 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
     osm_lookup = {}
     osm_id_lookup = {}
     osm_name_lookup = {}
+    osm_country_lookup = {}
 
     for idx, row in osm_gdf.iterrows():
         bfs_num = row.get("swisstopo:BFS_NUMMER")
         if bfs_num:
-            osm_lookup[str(bfs_num)] = row.geometry
-            osm_id_lookup[str(bfs_num)] = str(row.get("osm_id", ""))
-            osm_name_lookup[str(bfs_num)] = row.get("name", "")
+            bfs_num_str = str(bfs_num)
+            osm_lookup[bfs_num_str] = row.geometry
+            osm_id_lookup[bfs_num_str] = str(row.get("osm_id", ""))
+            osm_name_lookup[bfs_num_str] = row.get("name", "")
+            country = row.get("country", "")
+            osm_country_lookup[bfs_num_str] = country if pd.notna(country) else ""
 
     print(f"OSM lookup contains {len(osm_lookup)} municipalities")
 
@@ -479,6 +484,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 results.append(
                     {
                         "name": name,
+                        "country": osm_country_lookup.get(str(bfs_num), "CH") or "CH",
                         "bfs_nummer": bfs_num,
                         "kantonsnummer": kantonsnummer,
                         "bezirksnummer": bezirksnummer,
@@ -490,6 +496,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
             results.append(
                 {
                     "name": name,
+                    "country": "CH",
                     "kantonsnummer": kantonsnummer,
                     "bezirksnummer": bezirksnummer,
                     "bfs_nummer": bfs_num,
@@ -508,6 +515,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
         results.append(
             {
                 "name": osm_name_lookup.get(bfs_num_str, ""),
+                "country": osm_country_lookup.get(bfs_num_str, "") or "LI",
                 "bfs_nummer": (
                     int(bfs_num_str)
                     if bfs_num_str.lstrip("-").isdigit()
@@ -1616,6 +1624,7 @@ def generate_report(results_df, historical_df):
     # Reorder columns
     column_order = [
         "name",
+        "country",
         "relation",
         "bfs_nummer",
         "bezirksnummer",
@@ -1633,6 +1642,7 @@ def generate_report(results_df, historical_df):
         "output/detailed_results.csv",
         header=[
             "Name",
+            "Country",
             "OSM Relation",
             "BFS Number",
             "Bezirksnummer",
@@ -2312,6 +2322,7 @@ def create_index_page():
                     pagination: false,
                     columns: [
                         {title: "Name", field: "Name"},
+                        {title: "Country", field: "Country"},
                         {
                             title: "OSM Relation", 
                             field: "OSM Relation", 
