@@ -1,4 +1,4 @@
-Generated: 2026-07-08 13:54:26 UTC
+Generated: 2026-07-08 14:03:02 UTC
 
 ## Dataset Overview
 
@@ -35,9 +35,9 @@ Generated: 2026-07-08 13:54:26 UTC
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 3.494 m |
+| Previous mean Hausdorff distance | 3.397 m |
 | Current mean Hausdorff distance | 3.397 m |
-| Hausdorff change | -0.097 m |
+| Hausdorff change | +0.000 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,12 +56,7 @@ Generated: 2026-07-08 13:54:26 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Guttet-Feschel |         6117 |   0.996701 |   0.999996 |    0.00329476 |
-| Dalpe          |         5071 |   0.997926 |   0.999996 |    0.00206974 |
-| Albinen        |         6102 |   0.998216 |   0.999998 |    0.00178111 |
-| Wartau         |         3276 |   0.998683 |   0.999998 |    0.00131522 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
