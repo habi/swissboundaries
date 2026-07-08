@@ -1,23 +1,23 @@
-Generated: 2026-07-08 14:06:03 UTC
+Generated: 2026-07-08 15:09:42 UTC
 
 ## Dataset Overview
 
-| Metric | Value |
-|--------|-------|
+| Metric                         | Value |
+|--------------------------------|-------|
 | Total Swisstopo municipalities | 2110 |
-| Matched in OSM | 2110 (100.0%) |
-| Missing in OSM | 0 (0.0%) |
-|  Only in OSM (not in Swisstopo) | 9 |
+| Matched in OSM                 | 2110 (100.0%) |
+| Missing in OSM                 | 0 (0.0%) |
+| Only in OSM (not in Swisstopo) | 9 |
 
 ## Accuracy Metrics (for matched municipalities)
 
-| Metric | Value |
-|--------|-------|
-| Mean IoU | 0.9994 |
-| Median IoU | 0.9996 |
-| Mean area difference | 0.01% |
+| Metric                    | Value |
+|---------------------------|-------|
+| Mean IoU                  | 0.9994 |
+| Median IoU                | 0.9996 |
+| Mean area difference      | 0.01% |
 | Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance | 3.397 m |
+| Mean Hausdorff distance   | 3.397 m |
 
 ## Quality Distribution
 
@@ -30,11 +30,11 @@ Generated: 2026-07-08 14:06:03 UTC
 
 ## Historical Comparison (vs 2026-07-08)
 
-| Metric | Value |
-|--------|-------|
+| Metric            | Value |
+|-------------------|-------|
 | Previous mean IoU | 0.9994 |
-| Current mean IoU | 0.9994 |
-| Change | +0.0000 (+0.00%) |
+| Current mean IoU  | 0.9994 |
+| Change            | +0.0000 (+0.00%) |
 | Previous mean Hausdorff distance | 3.397 m |
 | Current mean Hausdorff distance | 3.397 m |
 | Hausdorff change | +0.000 m |
