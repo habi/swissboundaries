@@ -10,8 +10,9 @@ from datetime import datetime, UTC
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString, LineString, Polygon
 from shapely.geometry.polygon import orient
-from shapely.ops import polygonize, unary_union
+from shapely.ops import polygonize, unary_union, transform
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
@@ -343,8 +344,6 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
 
 def force_2d(geom):
     """Force geometry to 2D using shapely.ops.transform."""
-    from shapely.ops import transform
-
     if geom is None:
         return None
     return transform(lambda x, y, z=None: (x, y), geom)
@@ -906,8 +905,6 @@ def _add_plotly_changes_panel(
 
 
 def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
-    from plotly.subplots import make_subplots
-
     names_dict = names.to_dict()
     cantons_dict = cantons.to_dict()
     canton_palette = _build_canton_palette(cantons_dict)
