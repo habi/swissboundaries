@@ -61,7 +61,7 @@ def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
-    Query Overpass API for Swiss boundaries with swisstopo:BFS_NUMMER.
+    Query Overpass API for Swiss and Liechtenstein admin boundaries.
 
     Args:
         target_crs: Target coordinate reference system (default: WGS84)
@@ -76,8 +76,10 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     overpass_query = """
     [out:json][timeout:120];
     area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
+    area["ISO3166-1"="LI"][admin_level=2]->.liechtenstein;
     (
-      relation["boundary"="administrative"]["admin_level"="8"]["swisstopo:BFS_NUMMER"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"](area.liechtenstein);
     );
     out geom;
     """
@@ -99,13 +101,21 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
             print("  - Cached Overpass response")
 
         if not osm_data.get("elements"):
-            print("  - No boundaries found with swisstopo:BFS_NUMMER tag")
+            print(
+                "  - No boundaries found with either `swisstopo:BFS_NUMMER` or `bfs:OBJECTVAL` tags"
+            )
             return None
 
         print(f"  - Found {len(osm_data['elements'])} OSM elements")
 
-        # Convert to GeoJSON
-        geojson = osm_to_geojson(osm_data)
+        # Convert to GeoJSON and count which BFS source tag was used.
+        bfs_tag_stats = {"swisstopo:BFS_NUMMER": 0, "bfs:OBJECTVAL": 0}
+        geojson = osm_to_geojson(osm_data, bfs_tag_stats=bfs_tag_stats)
+        print(
+            "  - BFS tag normalization: "
+            f"swisstopo:BFS_NUMMER={bfs_tag_stats['swisstopo:BFS_NUMMER']}, "
+            f"bfs:OBJECTVAL={bfs_tag_stats['bfs:OBJECTVAL']}"
+        )
 
         if not geojson["features"]:
             print("  - Error: No valid features created from OSM data")
@@ -132,24 +142,44 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         return None
 
 
-def osm_to_geojson(osm_data):
+def osm_to_geojson(osm_data, bfs_tag_stats=None):
     """Convert OSM JSON format to GeoJSON."""
 
     geojson = {"type": "FeatureCollection", "features": []}
 
     for element in osm_data.get("elements", []):
-        feature = create_feature(element)
+        feature = create_feature(element, bfs_tag_stats=bfs_tag_stats)
         if feature:
             geojson["features"].append(feature)
 
     return geojson
 
 
-def create_feature(element):
+def create_feature(element, bfs_tag_stats=None):
     """Convert OSM element to Polygon/MultiPolygon for Area Metrics."""
     e_type = element.get("type")
     tags = element.get("tags", {})
-    bfs_num = tags.get("swisstopo:BFS_NUMMER")
+
+    raw_swisstopo_bfs = tags.get("swisstopo:BFS_NUMMER")
+    raw_objectval_bfs = tags.get("bfs:OBJECTVAL")
+
+    swisstopo_bfs = (
+        str(raw_swisstopo_bfs).strip() if raw_swisstopo_bfs is not None else ""
+    )
+    objectval_bfs = (
+        str(raw_objectval_bfs).strip() if raw_objectval_bfs is not None else ""
+    )
+
+    # CH uses swisstopo:BFS_NUMMER, LI uses bfs:OBJECTVAL; normalize to one key.
+    if swisstopo_bfs:
+        bfs_num = swisstopo_bfs
+        bfs_source = "swisstopo:BFS_NUMMER"
+    elif objectval_bfs:
+        bfs_num = objectval_bfs
+        bfs_source = "bfs:OBJECTVAL"
+    else:
+        bfs_num = None
+        bfs_source = None
 
     if e_type == "relation":
         outer_lines = []
@@ -210,6 +240,16 @@ def create_feature(element):
         else:
             # If it won't polygonize, we can't do area metrics effectively
             return None
+
+        if bfs_tag_stats is not None:
+            if bfs_source == "swisstopo:BFS_NUMMER":
+                bfs_tag_stats["swisstopo:BFS_NUMMER"] = (
+                    bfs_tag_stats.get("swisstopo:BFS_NUMMER", 0) + 1
+                )
+            elif bfs_source == "bfs:OBJECTVAL":
+                bfs_tag_stats["bfs:OBJECTVAL"] = (
+                    bfs_tag_stats.get("bfs:OBJECTVAL", 0) + 1
+                )
 
         return {
             "type": "Feature",
