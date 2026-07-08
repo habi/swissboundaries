@@ -1246,7 +1246,9 @@ def send_deterioration_email(subject, body):
     try:
         smtp_port = int(smtp_port_str)
     except ValueError:
-        print(f"Warning: SMTP_PORT must be a valid integer, got '{smtp_port_str}'. Skipping email notification.")
+        print(
+            f"Warning: SMTP_PORT must be a valid integer, got '{smtp_port_str}'. Skipping email notification."
+        )
         return
 
     msg = MIMEMultipart("alternative")
@@ -1280,9 +1282,7 @@ def generate_report(results_df, historical_df):
     only_swisstopo_df = results_df[
         (results_df["relation"] == "") & results_df["iou"].isna()
     ]
-    only_osm_df = results_df[
-        (results_df["relation"] != "") & results_df["iou"].isna()
-    ]
+    only_osm_df = results_df[(results_df["relation"] != "") & results_df["iou"].isna()]
     matched = len(matched_df)
     missing = len(only_swisstopo_df)
     total = matched + missing
@@ -1327,15 +1327,9 @@ def generate_report(results_df, historical_df):
         report_lines.append(
             f"| Excellent (IoU ≥ 0.98) | {excellent} | {excellent/matched*100:.1f}% |"
         )
-        report_lines.append(
-            f"| Good (IoU ≥ 0.95) | {good} | {good/matched*100:.1f}% |"
-        )
-        report_lines.append(
-            f"| Fair (IoU ≥ 0.90) | {fair} | {fair/matched*100:.1f}% |"
-        )
-        report_lines.append(
-            f"| Poor (IoU < 0.90) | {poor} | {poor/matched*100:.1f}% |"
-        )
+        report_lines.append(f"| Good (IoU ≥ 0.95) | {good} | {good/matched*100:.1f}% |")
+        report_lines.append(f"| Fair (IoU ≥ 0.90) | {fair} | {fair/matched*100:.1f}% |")
+        report_lines.append(f"| Poor (IoU < 0.90) | {poor} | {poor/matched*100:.1f}% |")
 
         # Historical comparison
         if len(historical_df) > 0:
@@ -1518,7 +1512,9 @@ def generate_report(results_df, historical_df):
         if iou_deteriorated:
             alert_parts.append(f"IoU decreased by {abs(iou_change):.4f}")
         if hausdorff_deteriorated:
-            alert_parts.append(f"Hausdorff distance increased by {hausdorff_change:.3f} m")
+            alert_parts.append(
+                f"Hausdorff distance increased by {hausdorff_change:.3f} m"
+            )
         subject = f"[swissboundaries] Metric deterioration detected on {run_date}"
 
         email_lines = [
@@ -1534,24 +1530,31 @@ def generate_report(results_df, historical_df):
             email_lines.append("Top IoU deteriorations (per municipality):")
             det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
             email_lines.append(
-                det_df[["name", "bfs_nummer", "prev_iou", "curr_iou", "deterioration"]]
-                .to_string(index=False)
+                det_df[
+                    ["name", "bfs_nummer", "prev_iou", "curr_iou", "deterioration"]
+                ].to_string(index=False)
             )
 
         if hausdorff_deteriorations:
             email_lines.append("")
             email_lines.append("Top Hausdorff distance increases (per municipality):")
-            hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(10, "increase_m")
+            hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
+                10, "increase_m"
+            )
             email_lines.append(
                 hd_det_df[
-                    ["name", "bfs_nummer", "prev_hausdorff_m", "curr_hausdorff_m", "increase_m"]
+                    [
+                        "name",
+                        "bfs_nummer",
+                        "prev_hausdorff_m",
+                        "curr_hausdorff_m",
+                        "increase_m",
+                    ]
                 ].to_string(index=False)
             )
 
         email_lines.append("")
-        email_lines.append(
-            "Full report: https://habi.github.io/swissboundaries/"
-        )
+        email_lines.append("Full report: https://habi.github.io/swissboundaries/")
 
         send_deterioration_email(subject, "\n".join(email_lines))
 
@@ -1616,8 +1619,8 @@ def create_map_visualization(results_df, swisstopo_gdf):
         gdf_wgs84["_point"] = gdf_wgs84.geometry.representative_point()
 
         # Build a lookup from bfs_nummer → result row (drop duplicates defensively)
-        results_indexed = (
-            results_df.drop_duplicates("bfs_nummer").set_index("bfs_nummer")
+        results_indexed = results_df.drop_duplicates("bfs_nummer").set_index(
+            "bfs_nummer"
         )
 
         features = []
@@ -1630,9 +1633,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
             if bfs in results_indexed.index:
                 r = results_indexed.loc[bfs]
-                props["iou"] = (
-                    float(r["iou"]) if pd.notna(r.get("iou")) else None
-                )
+                props["iou"] = float(r["iou"]) if pd.notna(r.get("iou")) else None
                 props["relation"] = str(r.get("relation", ""))
                 props["area_diff_pct"] = (
                     float(r["area_diff_pct"])
@@ -1667,9 +1668,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
                 }
             )
 
-        geojson_data = json.dumps(
-            {"type": "FeatureCollection", "features": features}
-        )
+        geojson_data = json.dumps({"type": "FeatureCollection", "features": features})
 
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -2079,6 +2078,7 @@ def create_map_visualization(results_df, swisstopo_gdf):
 
 def create_index_page():
     """Create HTML to display CSV table"""
+
     def read_markdown_file(path: Path) -> str:
         if not path.exists():
             return ""
@@ -2394,7 +2394,9 @@ if __name__ == "__main__":
     # Save out swisstopo boundaries as individual geoJSON files
     if swisstopo is not None:
         swisstopo_date = os.environ.get("SWISSTOPO_DATE", None)
-        save_boundaries_as_geojson(swisstopo, "output/swisstopo_geojson", source_date=swisstopo_date)
+        save_boundaries_as_geojson(
+            swisstopo, "output/swisstopo_geojson", source_date=swisstopo_date
+        )
 
     if swisstopo is not None and osm is not None and len(osm) > 0:
         # Compare boundaries
