@@ -1,4 +1,4 @@
-Generated: 2026-07-07 06:10:14 UTC
+Generated: 2026-07-08 05:23:15 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-07 06:10:14 UTC
 | Median IoU | 0.9996 |
 | Mean area difference | 0.01% |
 | Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance | 3.637 m |
+| Mean Hausdorff distance | 3.494 m |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-07 06:10:14 UTC
 | Fair (IoU ≥ 0.90) | 0 | 0.0% |
 | Poor (IoU < 0.90) | 0 | 0.0% |
 
-## Historical Comparison (vs 2026-07-06)
+## Historical Comparison (vs 2026-07-07)
 
 | Metric | Value |
 |--------|-------|
 | Previous mean IoU | 0.9994 |
 | Current mean IoU | 0.9994 |
 | Change | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 3.838 m |
-| Current mean Hausdorff distance | 3.637 m |
-| Hausdorff change | -0.201 m |
+| Previous mean Hausdorff distance | 3.637 m |
+| Current mean Hausdorff distance | 3.494 m |
+| Hausdorff change | -0.143 m |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,13 +56,10 @@ Generated: 2026-07-07 06:10:14 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Ferden       |         6195 |   0.998039 |   0.999997 |    0.00195804 |
-| Steg-Hohtenn |         6204 |   0.998484 |   0.999997 |    0.00151382 |
-| Gsteig       |          841 |   0.998665 |   0.999999 |    0.00133395 |
-| Staldenried  |         6294 |   0.998813 |   0.999997 |    0.00118388 |
-| Eisten       |         6282 |   0.998902 |   0.999998 |    0.00109528 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Bovernier  |         6131 |   0.99883  |   0.999997 |    0.00116701 |
+| Gambarogno |         5398 |   0.998954 |   0.999998 |    0.0010438  |
 
 ## Most Deteriorated (if historical data available)
 
