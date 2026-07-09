@@ -272,7 +272,7 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
 
     try:
         gdf = gpd.read_file(gpkg_path, layer="tlm_hoheitsgebiet")
-        gdf = gdf[(gdf["objektart"] == "Gemeindegebiet") & (gdf["icc"] == "CH")].copy()
+        gdf = gdf[(gdf["objektart"] == "Gemeindegebiet")].copy()
 
         # Reproject and Force 2D immediately
         gdf = gdf.to_crs(target_crs)
