@@ -76,8 +76,8 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
     area["ISO3166-1"="LI"][admin_level=2]->.liechtenstein;
     (
-      relation["boundary"="administrative"]["admin_level"="8"](area.switzerland);
-      relation["boundary"="administrative"]["admin_level"="8"](area.liechtenstein);
+      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"](area.liechtenstein);
     );
     out geom;
     """
