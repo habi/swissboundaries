@@ -185,8 +185,8 @@ def create_feature(element, bfs_tag_stats=None):
         all_lines = []
 
         for member in element.get("members", []):
-            if member.get("type") == "way" and "geometry" in member:
-                coords = [(pt["lon"], pt["lat"]) for pt in member["geometry"]]
+            if member.get("type") == "way" and member.get("geometry"):
+                coords = [(pt["lon"], pt["lat"]) for pt in member["geometry"] if pt is not None]
                 if len(coords) < 2:
                     continue
 
