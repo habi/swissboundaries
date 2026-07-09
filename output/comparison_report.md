@@ -1,4 +1,4 @@
-Generated: 2026-07-09 14:49:35 UTC
+Generated: 2026-07-09 15:18:20 UTC
 
 ## Dataset Overview
 
@@ -28,16 +28,16 @@ Generated: 2026-07-09 14:49:35 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-08)
+## Historical Comparison (vs 2026-07-09)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
-| Change                           |  -0.000 |
-| Previous mean Hausdorff distance |   3.397 |
+| Change                           |  +0.000 |
+| Previous mean Hausdorff distance |   3.776 |
 | Current mean Hausdorff distance  |   3.776 |
-| Hausdorff change                 |  +0.379 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,13 +56,7 @@ Generated: 2026-07-09 14:49:35 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|
-| Cugnasco-Gerra         |         5138 |   0.996828 |   0.999993 |    0.00316434 |
-| Castaneda              |         3805 |   0.997538 |   0.999994 |    0.00245609 |
-| Brienzwiler            |          574 |   0.998015 |   0.999996 |    0.00198139 |
-| Santa Maria in Calanca |         3810 |   0.998705 |   0.999996 |    0.00129071 |
-| Roveredo (GR)          |         3834 |   0.998757 |   0.999998 |    0.00124072 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
