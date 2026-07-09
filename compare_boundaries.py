@@ -541,7 +541,7 @@ def compare_dataframes(gdf_swisstopo, gdf_osm):
         only_swisstopo = swisstopo_bfs - osm_bfs
         only_osm = osm_bfs - swisstopo_bfs
 
-        print("\nBFS_NUMMER comparison:")
+        print("\nBFS number comparison:")
         print(f"  - In both datasets: {len(common)}")
         print(f"  - Only in SwissTopo: {len(only_swisstopo)}")
         print(f"  - Only in OSM: {len(only_osm)}")
