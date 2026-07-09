@@ -76,7 +76,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
     area["ISO3166-1"="LI"][admin_level=2]->.liechtenstein;
     (
-      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:FR:SIREN"!~".*"]["ref:at:gkz"!~".*"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:FR:SIREN"!~".*"]["ref:at:gkz"!~".*"]["de:amtlicher_gemeindeschluessel"!~".*"](area.switzerland);
       relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:at:gkz"!~".*"](area.liechtenstein);
     );
     out geom;
