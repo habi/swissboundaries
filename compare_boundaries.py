@@ -1315,15 +1315,15 @@ def generate_report(results_df, historical_df):
 
     report_lines.append("\n## Dataset Overview")
     report_lines.append("\n| Metric                         | Value |")
-    report_lines.append("|--------------------------------|-------|")
-    report_lines.append(f"| Total Swisstopo municipalities | {total} |")
+    report_lines.append("|--------------------------------|------:|")
+    report_lines.append(f"| Total Swisstopo municipalities | {total:>5} |")
     report_lines.append(
-        f"| Matched in OSM                 | {matched} ({matched/total*100:.1f}%) |"
+        f"| Matched in OSM                 | {matched:>5} |"
     )
     report_lines.append(
-        f"| Missing in OSM                 | {missing} ({missing/total*100:.1f}%) |"
+        f"| Missing in OSM                 | {missing:>5} |"
     )
-    report_lines.append(f"| Only in OSM (not in Swisstopo) | {len(only_osm_df)} |")
+    report_lines.append(f"| Only in OSM (not in Swisstopo) | {len(only_osm_df):>5} |")
 
     iou_change = None
     hausdorff_change = None
@@ -1332,8 +1332,8 @@ def generate_report(results_df, historical_df):
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
-        report_lines.append("\n| Metric                    | Value |")
-        report_lines.append("|---------------------------|-------|")
+        report_lines.append("\n| Metric                    | Value  |")
+        report_lines.append("|---------------------------|--------|")
         report_lines.append(
             f"| Mean IoU                  | {matched_df['iou'].mean():.4f} |"
         )
@@ -1341,13 +1341,13 @@ def generate_report(results_df, historical_df):
             f"| Median IoU                | {matched_df['iou'].median():.4f} |"
         )
         report_lines.append(
-            f"| Mean area difference      | {matched_df['area_diff_pct'].mean():.2f}% |"
+            f"| Mean area difference      | {matched_df['area_diff_pct'].mean():.3f}% |"
         )
         report_lines.append(
-            f"| Mean symmetric difference | {matched_df['symmetric_diff_pct'].mean():.2f}% |"
+            f"| Mean symmetric difference | {matched_df['symmetric_diff_pct'].mean():.3f}% |"
         )
         report_lines.append(
-            f"| Mean Hausdorff distance   | {matched_df['hausdorff_distance'].mean():.3f} m |"
+            f"| Mean Hausdorff distance   | {matched_df['hausdorff_distance'].mean():.4f} |"
         )
 
         excellent = (matched_df["iou"] >= 0.98).sum()
@@ -1356,14 +1356,14 @@ def generate_report(results_df, historical_df):
         poor = (matched_df["iou"] < 0.90).sum()
 
         report_lines.append("\n## Quality Distribution")
-        report_lines.append("\n| Quality | Count | Percentage |")
-        report_lines.append("|---------|-------|------------|")
+        report_lines.append("\n| Quality    | Count | Percentage |")
+        report_lines.append("|------------|-------|-----------:|")
         report_lines.append(
-            f"| Excellent (IoU ≥ 0.98) | {excellent} | {excellent/matched*100:.1f}% |"
+            f"| IoU ≥ 0.98 | {excellent:>5} | {excellent/matched*100:>10.3f} |"
         )
-        report_lines.append(f"| Good (IoU ≥ 0.95) | {good} | {good/matched*100:.1f}% |")
-        report_lines.append(f"| Fair (IoU ≥ 0.90) | {fair} | {fair/matched*100:.1f}% |")
-        report_lines.append(f"| Poor (IoU < 0.90) | {poor} | {poor/matched*100:.1f}% |")
+        report_lines.append(f"| IoU ≥ 0.95 | {good:>5} | {good/matched*100:>10.3f} |")
+        report_lines.append(f"| IoU ≥ 0.90 | {fair:>5} | {fair/matched*100:>10.3f} |")
+        report_lines.append(f"| IoU < 0.90 | {poor:>5} | {poor/matched*100:>10.3f} |")
 
         # Historical comparison
         if len(historical_df) > 0:
@@ -1379,12 +1379,12 @@ def generate_report(results_df, historical_df):
                 report_lines.append(
                     f"\n## Historical Comparison (vs {prev_date.strftime('%Y-%m-%d')})"
                 )
-                report_lines.append("\n| Metric            | Value |")
-                report_lines.append("|-------------------|-------|")
-                report_lines.append(f"| Previous mean IoU | {prev_mean_iou:.4f} |")
-                report_lines.append(f"| Current mean IoU  | {current_mean_iou:.4f} |")
+                report_lines.append("\n| Metric                           | Value   |")
+                report_lines.append("|----------------------------------|---------|")
+                report_lines.append(f"| Previous mean IoU                | {prev_mean_iou:7.3f} |")
+                report_lines.append(f"| Current mean IoU                 | {current_mean_iou:7.3f} |")
                 report_lines.append(
-                    f"| Change            | {iou_change:+.4f} ({iou_change/prev_mean_iou*100:+.2f}%) |"
+                    f"| Change                           | {iou_change:+7.3f} |"
                 )
 
                 # Hausdorff distance historical comparison (higher = worse)
@@ -1404,13 +1404,13 @@ def generate_report(results_df, historical_df):
                         ].mean()
                         hausdorff_change = current_mean_hausdorff - prev_mean_hausdorff
                         report_lines.append(
-                            f"| Previous mean Hausdorff distance | {prev_mean_hausdorff:.3f} m |"
+                            f"| Previous mean Hausdorff distance | {prev_mean_hausdorff:7.3f} |"
                         )
                         report_lines.append(
-                            f"| Current mean Hausdorff distance | {current_mean_hausdorff:.3f} m |"
+                            f"| Current mean Hausdorff distance  | {current_mean_hausdorff:7.3f} |"
                         )
                         report_lines.append(
-                            f"| Hausdorff change | {hausdorff_change:+.3f} m |"
+                            f"| Hausdorff change                 | {hausdorff_change:+7.3f} |"
                         )
 
         report_lines.append("\n## Worst 10 Matches (by IoU)")
