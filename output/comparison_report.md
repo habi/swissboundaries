@@ -1,66 +1,78 @@
-Generated: 2026-07-08 15:13:57 UTC
+Generated: 2026-07-09 14:49:35 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
-|--------------------------------|-------|
-| Total Swisstopo municipalities | 2110 |
-| Matched in OSM                 | 2110 (100.0%) |
-| Missing in OSM                 | 0 (0.0%) |
-| Only in OSM (not in Swisstopo) | 9 |
+|--------------------------------|------:|
+| Total Swisstopo municipalities |  2123 |
+| Matched in OSM                 |  2121 |
+| Missing in OSM                 |     2 |
+| Only in OSM (not in Swisstopo) |     9 |
 
 ## Accuracy Metrics (for matched municipalities)
 
-| Metric                    | Value |
-|---------------------------|-------|
-| Mean IoU                  | 0.9994 |
+| Metric                    | Value  |
+|---------------------------|--------|
+| Mean IoU                  | 0.9993 |
 | Median IoU                | 0.9996 |
-| Mean area difference      | 0.01% |
-| Mean symmetric difference | 0.06% |
-| Mean Hausdorff distance   | 3.397 m |
+| Mean area difference      | 0.012% |
+| Mean symmetric difference | 0.066% |
+| Mean Hausdorff distance   | 3.7757 |
 
 ## Quality Distribution
 
-| Quality | Count | Percentage |
-|---------|-------|------------|
-| Excellent (IoU ≥ 0.98) | 2110 | 100.0% |
-| Good (IoU ≥ 0.95) | 0 | 0.0% |
-| Fair (IoU ≥ 0.90) | 0 | 0.0% |
-| Poor (IoU < 0.90) | 0 | 0.0% |
+| Quality    | Count | Percentage |
+|------------|-------|-----------:|
+| IoU ≥ 0.98 |  2118 |     99.859 |
+| IoU ≥ 0.95 |     3 |      0.141 |
+| IoU ≥ 0.90 |     0 |      0.000 |
+| IoU < 0.90 |     0 |      0.000 |
 
 ## Historical Comparison (vs 2026-07-08)
 
-| Metric            | Value |
-|-------------------|-------|
-| Previous mean IoU | 0.9994 |
-| Current mean IoU  | 0.9994 |
-| Change            | +0.0000 (+0.00%) |
-| Previous mean Hausdorff distance | 3.397 m |
-| Current mean Hausdorff distance | 3.397 m |
-| Hausdorff change | +0.000 m |
+| Metric                           | Value   |
+|----------------------------------|---------|
+| Previous mean IoU                |   0.999 |
+| Current mean IoU                 |   0.999 |
+| Change                           |  -0.000 |
+| Previous mean Hausdorff distance |   3.397 |
+| Current mean Hausdorff distance  |   3.776 |
+| Hausdorff change                 |  +0.379 |
 
 ## Worst 10 Matches (by IoU)
 
-| name                     |   bfs_nummer |      iou |   area_diff_pct |
-|:-------------------------|-------------:|---------:|----------------:|
-| Eschenz                  |         4806 | 0.981348 |      1.54249    |
-| Rueyres                  |         5534 | 0.995282 |      0.0684165  |
-| Isérables                |         6134 | 0.995707 |      0.0209932  |
-| Hagneck                  |          736 | 0.995824 |      0.00469874 |
-| Wilen (TG)               |         4786 | 0.996352 |      0.0182034  |
-| Regensberg               |           95 | 0.996442 |      0.0295773  |
-| Kilchberg (BL)           |         2851 | 0.9965   |      0.0323861  |
-| Bougy-Villars            |         5426 | 0.996517 |      0.0366454  |
-| Vinzel                   |         5863 | 0.996533 |      0.0208871  |
-| Walliswil bei Niederbipp |          990 | 0.996749 |      0.0811575  |
+| name         |   bfs_nummer |      iou |   area_diff_pct |
+|:-------------|-------------:|---------:|----------------:|
+| Schellenberg |         7011 | 0.969995 |       0.0607881 |
+| Gamprin      |         7009 | 0.973196 |       0.0491649 |
+| Eschen       |         7007 | 0.979042 |       0.0804037 |
+| Eschenz      |         4806 | 0.981348 |       1.54249   |
+| Planken      |         7006 | 0.982511 |       0.217816  |
+| Mauren       |         7008 | 0.98507  |       0.162911  |
+| Vaduz        |         7001 | 0.988997 |       0.167484  |
+| Schaan       |         7005 | 0.990195 |       0.197566  |
+| Ruggell      |         7010 | 0.991607 |       0.115829  |
+| Triesenberg  |         7004 | 0.993716 |       0.20695   |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|
+| Cugnasco-Gerra         |         5138 |   0.996828 |   0.999993 |    0.00316434 |
+| Castaneda              |         3805 |   0.997538 |   0.999994 |    0.00245609 |
+| Brienzwiler            |          574 |   0.998015 |   0.999996 |    0.00198139 |
+| Santa Maria in Calanca |         3810 |   0.998705 |   0.999996 |    0.00129071 |
+| Roveredo (GR)          |         3834 |   0.998757 |   0.999998 |    0.00124072 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
+| name                  |   bfs_nummer |
+|:----------------------|-------------:|
+| Büsingen am Hochrhein |         7101 |
+| Campione d'Italia     |         7301 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
