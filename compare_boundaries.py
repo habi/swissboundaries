@@ -17,6 +17,7 @@ from plotly.subplots import make_subplots
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
 
+
 def _load_overpass_cache(
     cache_path=OVERPASS_CACHE_PATH, ttl_seconds=OVERPASS_CACHE_TTL_SECONDS
 ):
@@ -186,7 +187,11 @@ def create_feature(element, bfs_tag_stats=None):
 
         for member in element.get("members", []):
             if member.get("type") == "way" and member.get("geometry"):
-                coords = [(pt["lon"], pt["lat"]) for pt in member["geometry"] if pt is not None]
+                coords = [
+                    (pt["lon"], pt["lat"])
+                    for pt in member["geometry"]
+                    if pt is not None
+                ]
                 if len(coords) < 2:
                     continue
 
@@ -1317,12 +1322,8 @@ def generate_report(results_df, historical_df):
     report_lines.append("\n| Metric                         | Value |")
     report_lines.append("|--------------------------------|------:|")
     report_lines.append(f"| Total Swisstopo municipalities | {total:>5} |")
-    report_lines.append(
-        f"| Matched in OSM                 | {matched:>5} |"
-    )
-    report_lines.append(
-        f"| Missing in OSM                 | {missing:>5} |"
-    )
+    report_lines.append(f"| Matched in OSM                 | {matched:>5} |")
+    report_lines.append(f"| Missing in OSM                 | {missing:>5} |")
     report_lines.append(f"| Only in OSM (not in Swisstopo) | {len(only_osm_df):>5} |")
 
     iou_change = None
@@ -1381,8 +1382,12 @@ def generate_report(results_df, historical_df):
                 )
                 report_lines.append("\n| Metric                           | Value   |")
                 report_lines.append("|----------------------------------|---------|")
-                report_lines.append(f"| Previous mean IoU                | {prev_mean_iou:7.3f} |")
-                report_lines.append(f"| Current mean IoU                 | {current_mean_iou:7.3f} |")
+                report_lines.append(
+                    f"| Previous mean IoU                | {prev_mean_iou:7.3f} |"
+                )
+                report_lines.append(
+                    f"| Current mean IoU                 | {current_mean_iou:7.3f} |"
+                )
                 report_lines.append(
                     f"| Change                           | {iou_change:+7.3f} |"
                 )
