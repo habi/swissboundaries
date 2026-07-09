@@ -16,8 +16,6 @@ from plotly.subplots import make_subplots
 
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
-OUTER_BOUNDARY_NOTE = "Includes segments on Switzerland's outer national boundary."
-
 
 def _load_overpass_cache(
     cache_path=OVERPASS_CACHE_PATH, ttl_seconds=OVERPASS_CACHE_TTL_SECONDS
@@ -325,17 +323,9 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
 
     # Ensure we are in WGS84 for GeoJSON standard
     gdf_wgs84 = gdf.to_crs("EPSG:4326")
-    switzerland_boundary = unary_union(gdf_wgs84.geometry).boundary
-
-    def _is_switzerland_outer_boundary(segment):
-        if segment.is_empty or segment.length == 0:
-            return False
-
-        return segment.intersects(switzerland_boundary)
 
     for bfs_num, group in gdf_wgs84.groupby("bfs_nummer"):
         features = []
-        has_outer_boundary_segments = False
 
         for _, row in group.iterrows():
             # 1. Get the boundary (this turns Polygon -> LineString/MultiLineString)
@@ -354,10 +344,6 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
                 props = {"source": "swisstopo SWISSBOUNDARIES3D"}
                 if source_date:
                     props["source:date"] = source_date
-                if _is_switzerland_outer_boundary(part):
-                    has_outer_boundary_segments = True
-                    props["swissboundaries:outer_boundary_of_switzerland"] = "yes"
-                    props["note"] = OUTER_BOUNDARY_NOTE
                 features.append(
                     {
                         "type": "Feature",
@@ -368,11 +354,6 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
 
         # 4. Wrap everything in a FeatureCollection
         geojson_output = {"type": "FeatureCollection", "features": features}
-        if has_outer_boundary_segments:
-            geojson_output["properties"] = {
-                "swissboundaries:outer_boundary_of_switzerland": "yes",
-                "note": OUTER_BOUNDARY_NOTE,
-            }
 
         file_path = os.path.join(output_folder, f"{int(bfs_num)}.geojson")
         with open(file_path, "w") as f:
