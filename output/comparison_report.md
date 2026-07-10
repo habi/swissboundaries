@@ -1,4 +1,4 @@
-Generated: 2026-07-10 06:05:47 UTC
+Generated: 2026-07-10 07:39:37 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-07-10 06:05:47 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-09)
+## Historical Comparison (vs 2026-07-10)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -56,10 +56,7 @@ Generated: 2026-07-10 06:05:47 UTC
 
 ## Most Improved (if historical data available)
 
-| name    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------|-------------:|-----------:|-----------:|--------------:|
-| Gamprin |         7009 |   0.973196 |   0.977739 |    0.00454324 |
-| Eschen  |         7007 |   0.979042 |   0.98084  |    0.00179798 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
