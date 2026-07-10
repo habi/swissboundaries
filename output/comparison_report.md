@@ -1,4 +1,4 @@
-Generated: 2026-07-10 07:39:37 UTC
+Generated: 2026-07-10 11:54:01 UTC
 
 ## Dataset Overview
 
@@ -13,18 +13,18 @@ Generated: 2026-07-10 07:39:37 UTC
 
 | Metric                    | Value  |
 |---------------------------|--------|
-| Mean IoU                  | 0.9993 |
-| Median IoU                | 0.9996 |
-| Mean area difference      | 0.012% |
-| Mean symmetric difference | 0.066% |
-| Mean Hausdorff distance   | 3.7757 |
+| Mean IoU                  | 0.9994 |
+| Median IoU                | 0.9997 |
+| Mean area difference      | 0.011% |
+| Mean symmetric difference | 0.059% |
+| Mean Hausdorff distance   | 3.2672 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |  2119 |     99.906 |
-| IoU ≥ 0.95 |     2 |      0.094 |
+| IoU ≥ 0.98 |  2121 |    100.000 |
+| IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
@@ -36,27 +36,38 @@ Generated: 2026-07-10 07:39:37 UTC
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
 | Previous mean Hausdorff distance |   3.776 |
-| Current mean Hausdorff distance  |   3.776 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   3.267 |
+| Hausdorff change                 |  -0.509 |
 
 ## Worst 10 Matches (by IoU)
 
-| name         |   bfs_nummer |      iou |   area_diff_pct |
-|:-------------|-------------:|---------:|----------------:|
-| Schellenberg |         7011 | 0.969995 |       0.0607881 |
-| Gamprin      |         7009 | 0.977739 |       0.0666107 |
-| Eschen       |         7007 | 0.98084  |       0.127358  |
-| Eschenz      |         4806 | 0.981348 |       1.54249   |
-| Planken      |         7006 | 0.98298  |       0.171595  |
-| Mauren       |         7008 | 0.98507  |       0.162911  |
-| Vaduz        |         7001 | 0.989127 |       0.167184  |
-| Schaan       |         7005 | 0.990377 |       0.192447  |
-| Ruggell      |         7010 | 0.991607 |       0.115829  |
-| Triesenberg  |         7004 | 0.993716 |       0.20695   |
+| name                     |   bfs_nummer |      iou |   area_diff_pct |
+|:-------------------------|-------------:|---------:|----------------:|
+| Eschenz                  |         4806 | 0.981348 |      1.54249    |
+| Rueyres                  |         5534 | 0.995282 |      0.0684165  |
+| Isérables                |         6134 | 0.995707 |      0.0209932  |
+| Hagneck                  |          736 | 0.995824 |      0.00469874 |
+| Wilen (TG)               |         4786 | 0.996352 |      0.0182034  |
+| Regensberg               |           95 | 0.996442 |      0.0295773  |
+| Kilchberg (BL)           |         2851 | 0.9965   |      0.0323861  |
+| Walliswil bei Niederbipp |          990 | 0.996749 |      0.0811575  |
+| Känerkinden              |         2850 | 0.996793 |      0.0345198  |
+| Rickenbach (TG)          |         4751 | 0.996839 |      0.0515055  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Schellenberg |         7011 |   0.969995 |   0.999992 |    0.0299969  |
+| Gamprin      |         7009 |   0.977739 |   0.99999  |    0.0222507  |
+| Eschen       |         7007 |   0.98084  |   0.999992 |    0.019152   |
+| Planken      |         7006 |   0.98298  |   0.998945 |    0.0159645  |
+| Mauren       |         7008 |   0.98507  |   0.999995 |    0.0149247  |
+| Vaduz        |         7001 |   0.989127 |   0.999672 |    0.0105446  |
+| Schaan       |         7005 |   0.990377 |   0.99925  |    0.00887244 |
+| Ruggell      |         7010 |   0.991607 |   0.999995 |    0.00838797 |
+| Triesenberg  |         7004 |   0.993716 |   0.999996 |    0.00628059 |
+| Triesen      |         7002 |   0.994784 |   0.999997 |    0.00521319 |
 
 ## Most Deteriorated (if historical data available)
 
