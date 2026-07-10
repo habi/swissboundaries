@@ -1,4 +1,4 @@
-Generated: 2026-07-09 15:18:20 UTC
+Generated: 2026-07-10 06:05:47 UTC
 
 ## Dataset Overview
 
@@ -23,8 +23,8 @@ Generated: 2026-07-09 15:18:20 UTC
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |  2118 |     99.859 |
-| IoU ≥ 0.95 |     3 |      0.141 |
+| IoU ≥ 0.98 |  2119 |     99.906 |
+| IoU ≥ 0.95 |     2 |      0.094 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
@@ -44,19 +44,22 @@ Generated: 2026-07-09 15:18:20 UTC
 | name         |   bfs_nummer |      iou |   area_diff_pct |
 |:-------------|-------------:|---------:|----------------:|
 | Schellenberg |         7011 | 0.969995 |       0.0607881 |
-| Gamprin      |         7009 | 0.973196 |       0.0491649 |
-| Eschen       |         7007 | 0.979042 |       0.0804037 |
+| Gamprin      |         7009 | 0.977739 |       0.0666107 |
+| Eschen       |         7007 | 0.98084  |       0.127358  |
 | Eschenz      |         4806 | 0.981348 |       1.54249   |
-| Planken      |         7006 | 0.982511 |       0.217816  |
+| Planken      |         7006 | 0.98298  |       0.171595  |
 | Mauren       |         7008 | 0.98507  |       0.162911  |
-| Vaduz        |         7001 | 0.988997 |       0.167484  |
-| Schaan       |         7005 | 0.990195 |       0.197566  |
+| Vaduz        |         7001 | 0.989127 |       0.167184  |
+| Schaan       |         7005 | 0.990377 |       0.192447  |
 | Ruggell      |         7010 | 0.991607 |       0.115829  |
 | Triesenberg  |         7004 | 0.993716 |       0.20695   |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------|-------------:|-----------:|-----------:|--------------:|
+| Gamprin |         7009 |   0.973196 |   0.977739 |    0.00454324 |
+| Eschen  |         7007 |   0.979042 |   0.98084  |    0.00179798 |
 
 ## Most Deteriorated (if historical data available)
 
