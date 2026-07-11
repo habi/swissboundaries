@@ -1,4 +1,4 @@
-Generated: 2026-07-10 11:54:01 UTC
+Generated: 2026-07-11 05:15:31 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-07-10 11:54:01 UTC
 | Mean IoU                  | 0.9994 |
 | Median IoU                | 0.9997 |
 | Mean area difference      | 0.011% |
-| Mean symmetric difference | 0.059% |
-| Mean Hausdorff distance   | 3.2672 |
+| Mean symmetric difference | 0.058% |
+| Mean Hausdorff distance   | 3.1344 |
 
 ## Quality Distribution
 
@@ -35,9 +35,9 @@ Generated: 2026-07-10 11:54:01 UTC
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   3.776 |
-| Current mean Hausdorff distance  |   3.267 |
-| Hausdorff change                 |  -0.509 |
+| Previous mean Hausdorff distance |   3.267 |
+| Current mean Hausdorff distance  |   3.134 |
+| Hausdorff change                 |  -0.133 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -45,29 +45,23 @@ Generated: 2026-07-10 11:54:01 UTC
 |:-------------------------|-------------:|---------:|----------------:|
 | Eschenz                  |         4806 | 0.981348 |      1.54249    |
 | Rueyres                  |         5534 | 0.995282 |      0.0684165  |
-| Isérables                |         6134 | 0.995707 |      0.0209932  |
 | Hagneck                  |          736 | 0.995824 |      0.00469874 |
-| Wilen (TG)               |         4786 | 0.996352 |      0.0182034  |
 | Regensberg               |           95 | 0.996442 |      0.0295773  |
 | Kilchberg (BL)           |         2851 | 0.9965   |      0.0323861  |
 | Walliswil bei Niederbipp |          990 | 0.996749 |      0.0811575  |
 | Känerkinden              |         2850 | 0.996793 |      0.0345198  |
-| Rickenbach (TG)          |         4751 | 0.996839 |      0.0515055  |
+| Fürstenau                |         3633 | 0.996862 |      0.00192794 |
+| Dozwil                   |         4406 | 0.996898 |      0.103515   |
+| Tecknau                  |         2862 | 0.996983 |      0.036558   |
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Schellenberg |         7011 |   0.969995 |   0.999992 |    0.0299969  |
-| Gamprin      |         7009 |   0.977739 |   0.99999  |    0.0222507  |
-| Eschen       |         7007 |   0.98084  |   0.999992 |    0.019152   |
-| Planken      |         7006 |   0.98298  |   0.998945 |    0.0159645  |
-| Mauren       |         7008 |   0.98507  |   0.999995 |    0.0149247  |
-| Vaduz        |         7001 |   0.989127 |   0.999672 |    0.0105446  |
-| Schaan       |         7005 |   0.990377 |   0.99925  |    0.00887244 |
-| Ruggell      |         7010 |   0.991607 |   0.999995 |    0.00838797 |
-| Triesenberg  |         7004 |   0.993716 |   0.999996 |    0.00628059 |
-| Triesen      |         7002 |   0.994784 |   0.999997 |    0.00521319 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------|-------------:|-----------:|-----------:|--------------:|
+| Isérables       |         6134 |   0.995707 |   0.999997 |    0.00429018 |
+| Rickenbach (TG) |         4751 |   0.996839 |   0.999989 |    0.0031502  |
+| Veysonnaz       |         6267 |   0.998242 |   0.99999  |    0.00174803 |
+| Planken         |         7006 |   0.998945 |   0.999988 |    0.00104349 |
 
 ## Most Deteriorated (if historical data available)
 
