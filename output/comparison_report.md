@@ -1,4 +1,4 @@
-Generated: 2026-07-11 05:15:31 UTC
+Generated: 2026-07-12 05:30:43 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-07-11 05:15:31 UTC
 | Mean IoU                  | 0.9994 |
 | Median IoU                | 0.9997 |
 | Mean area difference      | 0.011% |
-| Mean symmetric difference | 0.058% |
-| Mean Hausdorff distance   | 3.1344 |
+| Mean symmetric difference | 0.057% |
+| Mean Hausdorff distance   | 3.1161 |
 
 ## Quality Distribution
 
@@ -28,44 +28,49 @@ Generated: 2026-07-11 05:15:31 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-10)
+## Historical Comparison (vs 2026-07-11)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   3.267 |
-| Current mean Hausdorff distance  |   3.134 |
-| Hausdorff change                 |  -0.133 |
+| Previous mean Hausdorff distance |   3.134 |
+| Current mean Hausdorff distance  |   3.116 |
+| Hausdorff change                 |  -0.018 |
 
 ## Worst 10 Matches (by IoU)
 
-| name                     |   bfs_nummer |      iou |   area_diff_pct |
-|:-------------------------|-------------:|---------:|----------------:|
-| Eschenz                  |         4806 | 0.981348 |      1.54249    |
-| Rueyres                  |         5534 | 0.995282 |      0.0684165  |
-| Hagneck                  |          736 | 0.995824 |      0.00469874 |
-| Regensberg               |           95 | 0.996442 |      0.0295773  |
-| Kilchberg (BL)           |         2851 | 0.9965   |      0.0323861  |
-| Walliswil bei Niederbipp |          990 | 0.996749 |      0.0811575  |
-| Känerkinden              |         2850 | 0.996793 |      0.0345198  |
-| Fürstenau                |         3633 | 0.996862 |      0.00192794 |
-| Dozwil                   |         4406 | 0.996898 |      0.103515   |
-| Tecknau                  |         2862 | 0.996983 |      0.036558   |
+| name           |   bfs_nummer |      iou |   area_diff_pct |
+|:---------------|-------------:|---------:|----------------:|
+| Eschenz        |         4806 | 0.981348 |      1.54249    |
+| Rueyres        |         5534 | 0.995282 |      0.0684165  |
+| Hagneck        |          736 | 0.995824 |      0.00469874 |
+| Regensberg     |           95 | 0.996442 |      0.0295773  |
+| Kilchberg (BL) |         2851 | 0.9965   |      0.0323861  |
+| Känerkinden    |         2850 | 0.996793 |      0.0345198  |
+| Fürstenau      |         3633 | 0.996862 |      0.00192794 |
+| Dozwil         |         4406 | 0.996898 |      0.103515   |
+| Tecknau        |         2862 | 0.996983 |      0.036558   |
+| Kammersrohr    |         2549 | 0.996999 |      0.0526844  |
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:----------------|-------------:|-----------:|-----------:|--------------:|
-| Isérables       |         6134 |   0.995707 |   0.999997 |    0.00429018 |
-| Rickenbach (TG) |         4751 |   0.996839 |   0.999989 |    0.0031502  |
-| Veysonnaz       |         6267 |   0.998242 |   0.99999  |    0.00174803 |
-| Planken         |         7006 |   0.998945 |   0.999988 |    0.00104349 |
+| name                     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------------------|-------------:|-----------:|-----------:|--------------:|
+| Walliswil bei Niederbipp |          990 |   0.996749 |   0.99999  |    0.00324115 |
+| Madulain                 |         3783 |   0.998198 |   0.999735 |    0.00153743 |
+| Zuoz                     |         3791 |   0.998732 |   0.999939 |    0.00120665 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name   |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
+|:-------|-------------:|-------------------:|-------------------:|-------------:|
+| Binn   |         6054 |              0.016 |              2.352 |        2.336 |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
