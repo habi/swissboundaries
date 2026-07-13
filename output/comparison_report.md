@@ -1,4 +1,4 @@
-Generated: 2026-07-12 05:30:43 UTC
+Generated: 2026-07-13 05:39:04 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-12 05:30:43 UTC
 | Median IoU                | 0.9997 |
 | Mean area difference      | 0.011% |
 | Mean symmetric difference | 0.057% |
-| Mean Hausdorff distance   | 3.1161 |
+| Mean Hausdorff distance   | 3.0130 |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-12 05:30:43 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-11)
+## Historical Comparison (vs 2026-07-12)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   3.134 |
-| Current mean Hausdorff distance  |   3.116 |
-| Hausdorff change                 |  -0.018 |
+| Previous mean Hausdorff distance |   3.116 |
+| Current mean Hausdorff distance  |   3.013 |
+| Hausdorff change                 |  -0.103 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,21 +56,19 @@ Generated: 2026-07-12 05:30:43 UTC
 
 ## Most Improved (if historical data available)
 
-| name                     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------------------|-------------:|-----------:|-----------:|--------------:|
-| Walliswil bei Niederbipp |          990 |   0.996749 |   0.99999  |    0.00324115 |
-| Madulain                 |         3783 |   0.998198 |   0.999735 |    0.00153743 |
-| Zuoz                     |         3791 |   0.998732 |   0.999939 |    0.00120665 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-------------|-------------:|-----------:|-----------:|--------------:|
+| Val Mara     |         5240 |   0.998214 |   0.999997 |    0.00178303 |
+| Inden        |         6109 |   0.998507 |   0.999995 |    0.00148775 |
+| Vorderthal   |         1348 |   0.998528 |   0.999998 |    0.00146931 |
+| Entlebuch    |         1002 |   0.998579 |   0.999998 |    0.0014191  |
+| Mendrisio    |         5254 |   0.998764 |   0.999997 |    0.0012327  |
+| Isone        |         5009 |   0.998862 |   0.999996 |    0.00113381 |
+| Werthenstein |         1009 |   0.998905 |   0.999996 |    0.00109115 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name   |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
-|:-------|-------------:|-------------------:|-------------------:|-------------:|
-| Binn   |         6054 |              0.016 |              2.352 |        2.336 |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
