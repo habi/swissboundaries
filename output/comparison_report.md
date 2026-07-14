@@ -1,4 +1,4 @@
-Generated: 2026-07-13 05:39:04 UTC
+Generated: 2026-07-14 04:53:11 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-07-13 05:39:04 UTC
 | Mean IoU                  | 0.9994 |
 | Median IoU                | 0.9997 |
 | Mean area difference      | 0.011% |
-| Mean symmetric difference | 0.057% |
-| Mean Hausdorff distance   | 3.0130 |
+| Mean symmetric difference | 0.056% |
+| Mean Hausdorff distance   | 2.9467 |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-13 05:39:04 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-12)
+## Historical Comparison (vs 2026-07-13)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   3.116 |
-| Current mean Hausdorff distance  |   3.013 |
-| Hausdorff change                 |  -0.103 |
+| Previous mean Hausdorff distance |   3.013 |
+| Current mean Hausdorff distance  |   2.947 |
+| Hausdorff change                 |  -0.066 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,15 +56,10 @@ Generated: 2026-07-13 05:39:04 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:-------------|-------------:|-----------:|-----------:|--------------:|
-| Val Mara     |         5240 |   0.998214 |   0.999997 |    0.00178303 |
-| Inden        |         6109 |   0.998507 |   0.999995 |    0.00148775 |
-| Vorderthal   |         1348 |   0.998528 |   0.999998 |    0.00146931 |
-| Entlebuch    |         1002 |   0.998579 |   0.999998 |    0.0014191  |
-| Mendrisio    |         5254 |   0.998764 |   0.999997 |    0.0012327  |
-| Isone        |         5009 |   0.998862 |   0.999996 |    0.00113381 |
-| Werthenstein |         1009 |   0.998905 |   0.999996 |    0.00109115 |
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:--------------|-------------:|-----------:|-----------:|--------------:|
+| Lavey-Morcles |         5406 |   0.99892  |   0.999998 |    0.00107804 |
+| Saint-Maurice |         6217 |   0.998922 |   0.999997 |    0.00107429 |
 
 ## Most Deteriorated (if historical data available)
 
