@@ -1542,24 +1542,65 @@ def generate_report(results_df, historical_df):
     with open("output/comparison_report.md", "w") as f:
         f.write(report_text)
 
-    # Send email notification if IoU decreased or Hausdorff distance increased
-    iou_deteriorated = iou_change is not None and iou_change < 0
-    hausdorff_deteriorated = hausdorff_change is not None and hausdorff_change > 0
-    if iou_deteriorated or hausdorff_deteriorated:
+        # Send email notification if global metrics deteriorated OR any municipality shows significant deterioration
+    iou_deteriorated_global = iou_change is not None and iou_change < 0
+    hausdorff_deteriorated_global = (
+        hausdorff_change is not None and hausdorff_change > 0
+    )
+
+    iou_deteriorated_local = len(deteriorations) > 0
+    hausdorff_deteriorated_local = len(hausdorff_deteriorations) > 0
+
+    should_alert = (
+        iou_deteriorated_global
+        or hausdorff_deteriorated_global
+        or iou_deteriorated_local
+        or hausdorff_deteriorated_local
+    )
+
+    print(
+        "Email trigger debug:",
+        {
+            "iou_change": iou_change,
+            "hausdorff_change": hausdorff_change,
+            "iou_deteriorated_global": iou_deteriorated_global,
+            "hausdorff_deteriorated_global": hausdorff_deteriorated_global,
+            "iou_deteriorated_local": iou_deteriorated_local,
+            "hausdorff_deteriorated_local": hausdorff_deteriorated_local,
+            "deteriorations_count": len(deteriorations),
+            "hausdorff_deteriorations_count": len(hausdorff_deteriorations),
+            "should_alert": should_alert,
+        },
+    )
+
+    if should_alert:
         run_date = datetime.now(UTC).strftime("%Y-%m-%d")
-        alert_parts = []
-        if iou_deteriorated:
-            alert_parts.append(f"IoU decreased by {abs(iou_change):.4f}")
-        if hausdorff_deteriorated:
-            alert_parts.append(
-                f"Hausdorff distance increased by {hausdorff_change:.3f} m"
-            )
         subject = f"[swissboundaries] Metric deterioration detected on {run_date}"
+
+        alert_parts = []
+        if iou_deteriorated_global:
+            alert_parts.append(f"Global mean IoU decreased by {abs(iou_change):.4f}")
+        if hausdorff_deteriorated_global:
+            alert_parts.append(
+                f"Global mean Hausdorff distance increased by {hausdorff_change:.3f} m"
+            )
+        if iou_deteriorated_local:
+            worst_iou_det = max(d["deterioration"] for d in deteriorations)
+            alert_parts.append(
+                f"{len(deteriorations)} municipality(ies) had IoU deterioration > 0.001 "
+                f"(worst -{worst_iou_det:.4f})"
+            )
+        if hausdorff_deteriorated_local:
+            worst_hd_det = max(d["increase_m"] for d in hausdorff_deteriorations)
+            alert_parts.append(
+                f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > 1 m "
+                f"(worst +{worst_hd_det:.3f} m)"
+            )
 
         email_lines = [
             f"swissboundaries boundary comparison – {run_date}",
             "",
-            "The following metrics have deteriorated compared to the previous run:",
+            "The following deterioration conditions were detected:",
         ]
         for part in alert_parts:
             email_lines.append(f"  • {part}")
@@ -1595,6 +1636,7 @@ def generate_report(results_df, historical_df):
         email_lines.append("")
         email_lines.append("Full report: https://habi.github.io/swissboundaries/")
 
+        print("Triggering send_deterioration_email()")
         send_deterioration_email(subject, "\n".join(email_lines))
 
     # Save CSV (without geometry columns for CSV)
