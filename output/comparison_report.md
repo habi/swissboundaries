@@ -1,4 +1,4 @@
-Generated: 2026-07-14 04:53:11 UTC
+Generated: 2026-07-15 04:53:27 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-14 04:53:11 UTC
 | Median IoU                | 0.9997 |
 | Mean area difference      | 0.011% |
 | Mean symmetric difference | 0.056% |
-| Mean Hausdorff distance   | 2.9467 |
+| Mean Hausdorff distance   | 2.8243 |
 
 ## Quality Distribution
 
@@ -28,16 +28,16 @@ Generated: 2026-07-14 04:53:11 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-13)
+## Historical Comparison (vs 2026-07-14)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   3.013 |
-| Current mean Hausdorff distance  |   2.947 |
-| Hausdorff change                 |  -0.066 |
+| Previous mean Hausdorff distance |   2.947 |
+| Current mean Hausdorff distance  |   2.824 |
+| Hausdorff change                 |  -0.122 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,14 +56,23 @@ Generated: 2026-07-14 04:53:11 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Lavey-Morcles |         5406 |   0.99892  |   0.999998 |    0.00107804 |
-| Saint-Maurice |         6217 |   0.998922 |   0.999997 |    0.00107429 |
+| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:----------------------|-------------:|-----------:|-----------:|--------------:|
+| Monthey               |         6153 |   0.998309 |   0.999995 |    0.00168591 |
+| Agarn                 |         6101 |   0.99837  |   0.999995 |    0.00162544 |
+| Bönigen               |          572 |   0.998439 |   0.999997 |    0.00155722 |
+| Matten bei Interlaken |          587 |   0.998468 |   0.999643 |    0.00117543 |
+| Gündlischwand         |          578 |   0.998893 |   0.999996 |    0.00110319 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name    |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
+|:--------|-------------:|-------------------:|-------------------:|-------------:|
+| Zermatt |         6300 |              0.016 |               8.51 |        8.494 |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
