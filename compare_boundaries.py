@@ -1602,9 +1602,10 @@ def generate_report(results_df, historical_df):
                 continue
             bfs_key = str(int(bfs))
             if bfs_key in prev_matched_bfs:
-                relation_id = str(prev_relation_lookup.get(bfs_key, "")).strip()
+                relation_raw = prev_relation_lookup.get(bfs_key, "")
+                relation_num = pd.to_numeric(relation_raw, errors="coerce")
+                relation_id = str(int(relation_num)) if pd.notna(relation_num) else ""
                 entry = {
-                    "name": row["name"],
                     "bfs_nummer": int(bfs),
                     "relation": relation_id,
                 }
