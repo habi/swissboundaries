@@ -1587,9 +1587,7 @@ def generate_report(results_df, historical_df):
         prev_relation_lookup = (
             prev_matched.dropna(subset=["bfs_nummer", "relation"])
             .assign(
-                bfs_key=lambda df: pd.to_numeric(
-                    df["bfs_nummer"], errors="coerce"
-                )
+                bfs_key=lambda df: pd.to_numeric(df["bfs_nummer"], errors="coerce")
                 .dropna()
                 .astype(int)
                 .astype(str)
