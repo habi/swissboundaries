@@ -1608,6 +1608,7 @@ def generate_report(results_df, historical_df):
                 entry = {
                     "bfs_nummer": int(bfs),
                     "relation": relation_id,
+                    "name": row.get("name", ""),
                 }
                 if relation_id:
                     entry["osm_url"] = (
@@ -1615,7 +1616,7 @@ def generate_report(results_df, historical_df):
                     )
                     print(
                         f"  - Querying OSM history for relation {relation_id}"
-                        f" (BFS {bfs_key}, {row['name']})..."
+                        f" (BFS {bfs_key}, {entry['name']})..."
                     )
                     changeset_info = find_bfs_removal_changeset(relation_id)
                     if changeset_info:
