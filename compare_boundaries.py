@@ -438,7 +438,7 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
 
     for idx, row in osm_gdf.iterrows():
         bfs_num = row.get("swisstopo:BFS_NUMMER")
-        if bfs_num:
+        if pd.notna(bfs_num) and bfs_num:
             bfs_num_str = str(bfs_num)
             osm_lookup[bfs_num_str] = row.geometry
             osm_id_lookup[bfs_num_str] = str(row.get("osm_id", ""))
@@ -1250,6 +1250,41 @@ def create_iou_changes_plot(min_delta=0.0001):
         return False
 
 
+def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", timeout=15):
+    """Query the OSM API history for a relation and return the changeset that removed *bfs_tag*.
+
+    Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url' when found,
+    or None if the history cannot be retrieved or the tag was never removed.
+    """
+    url = f"https://api.openstreetmap.org/api/0.6/relation/{relation_id}/history.json"
+    try:
+        response = requests.get(url, timeout=timeout)
+        response.raise_for_status()
+        history = response.json().get("elements", [])
+    except Exception as e:
+        print(f"Warning: Could not fetch OSM history for relation {relation_id}: {e}")
+        return None
+
+    # Walk versions from newest to oldest to find where the tag disappeared.
+    # range starts at len-1 and stops before 0, so the minimum i is 1 — which
+    # checks history[1] (v2) against history[0] (v1).  A tag cannot be removed
+    # in v1 (the initial version), so no valid removal is missed.
+    for i in range(len(history) - 1, 0, -1):
+        current = history[i]
+        previous = history[i - 1]
+        current_tags = current.get("tags", {})
+        previous_tags = previous.get("tags", {})
+        if bfs_tag not in current_tags and bfs_tag in previous_tags:
+            changeset_id = current.get("changeset")
+            return {
+                "changeset": changeset_id,
+                "user": current.get("user", "unknown"),
+                "timestamp": current.get("timestamp", ""),
+                "url": f"https://www.openstreetmap.org/changeset/{changeset_id}",
+            }
+    return None
+
+
 def send_deterioration_email(subject, body):
     """Send an email notification about metric deterioration.
 
@@ -1535,6 +1570,77 @@ def generate_report(results_df, historical_df):
         osm_only_list = only_osm_df.head(20)[["name", "bfs_nummer", "relation"]]
         report_lines.append("\n" + osm_only_list.to_markdown(index=False))
 
+    # Detect municipalities that were previously matched in OSM but are now swisstopo-only.
+    # This means their swisstopo:BFS_NUMMER tag was likely removed from the OSM relation.
+    newly_missing = []
+    if len(historical_df) > 0 and len(only_swisstopo_df) > 0:
+        prev_date = historical_df["date"].max()
+        prev_data = historical_df[historical_df["date"] == prev_date]
+        prev_matched = prev_data[prev_data["iou"].notna()].copy()
+        # Use pd.to_numeric to safely coerce bfs_nummer from CSV (may be float or string).
+        prev_matched_bfs = set(
+            pd.to_numeric(prev_matched["bfs_nummer"], errors="coerce")
+            .dropna()
+            .astype(int)
+            .astype(str)
+        )
+        prev_relation_lookup = (
+            prev_matched.dropna(subset=["bfs_nummer", "relation"])
+            .assign(
+                bfs_key=lambda df: pd.to_numeric(df["bfs_nummer"], errors="coerce")
+                .dropna()
+                .astype(int)
+                .astype(str)
+            )
+            .set_index("bfs_key")["relation"]
+            .to_dict()
+        )
+
+        for _, row in only_swisstopo_df.iterrows():
+            bfs = row["bfs_nummer"]
+            if pd.isna(bfs):
+                continue
+            bfs_key = str(int(bfs))
+            if bfs_key in prev_matched_bfs:
+                relation_raw = prev_relation_lookup.get(bfs_key, "")
+                relation_num = pd.to_numeric(relation_raw, errors="coerce")
+                relation_id = str(int(relation_num)) if pd.notna(relation_num) else ""
+                entry = {
+                    "bfs_nummer": int(bfs),
+                    "relation": relation_id,
+                }
+                if relation_id:
+                    entry["osm_url"] = (
+                        f"https://www.openstreetmap.org/relation/{relation_id}"
+                    )
+                    print(
+                        f"  - Querying OSM history for relation {relation_id}"
+                        f" (BFS {bfs_key}, {row['name']})..."
+                    )
+                    changeset_info = find_bfs_removal_changeset(relation_id)
+                    if changeset_info:
+                        entry["changeset_url"] = changeset_info["url"]
+                        entry["changeset_user"] = changeset_info["user"]
+                        entry["changeset_timestamp"] = changeset_info["timestamp"]
+                newly_missing.append(entry)
+
+    if newly_missing:
+        report_lines.append(
+            f"\n## Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM"
+            f" ({len(newly_missing)}):"
+        )
+        for m in newly_missing:
+            line = f"  • {m['name']} (BFS {m['bfs_nummer']})"
+            if m.get("osm_url"):
+                line += f"  — OSM relation: {m['osm_url']}"
+            if m.get("changeset_url"):
+                line += (
+                    f"  — tag removed in changeset {m['changeset_url']}"
+                    f" by {m.get('changeset_user', '?')}"
+                    f" at {m.get('changeset_timestamp', '?')}"
+                )
+            report_lines.append(line)
+
     report_text = "\n".join(report_lines)
     print(report_text)
 
@@ -1542,7 +1648,8 @@ def generate_report(results_df, historical_df):
     with open("output/comparison_report.md", "w") as f:
         f.write(report_text)
 
-        # Send email notification if global metrics deteriorated OR any municipality shows significant deterioration
+    # Send email notification if global metrics deteriorated OR any municipality shows significant
+    # deterioration OR municipalities newly lost their OSM swisstopo:BFS_NUMMER tag.
     iou_deteriorated_global = iou_change is not None and iou_change < 0
     hausdorff_deteriorated_global = (
         hausdorff_change is not None and hausdorff_change > 0
@@ -1550,12 +1657,14 @@ def generate_report(results_df, historical_df):
 
     iou_deteriorated_local = len(deteriorations) > 0
     hausdorff_deteriorated_local = len(hausdorff_deteriorations) > 0
+    bfs_tags_removed = len(newly_missing) > 0
 
     should_alert = (
         iou_deteriorated_global
         or hausdorff_deteriorated_global
         or iou_deteriorated_local
         or hausdorff_deteriorated_local
+        or bfs_tags_removed
     )
 
     print(
@@ -1569,6 +1678,8 @@ def generate_report(results_df, historical_df):
             "hausdorff_deteriorated_local": hausdorff_deteriorated_local,
             "deteriorations_count": len(deteriorations),
             "hausdorff_deteriorations_count": len(hausdorff_deteriorations),
+            "bfs_tags_removed": bfs_tags_removed,
+            "newly_missing_count": len(newly_missing),
             "should_alert": should_alert,
         },
     )
@@ -1595,6 +1706,11 @@ def generate_report(results_df, historical_df):
             alert_parts.append(
                 f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > 1 m "
                 f"(worst +{worst_hd_det:.3f} m)"
+            )
+        if bfs_tags_removed:
+            alert_parts.append(
+                f"{len(newly_missing)} municipality(ies) lost their OSM"
+                f" swisstopo:BFS_NUMMER tag"
             )
 
         email_lines = [
@@ -1633,6 +1749,24 @@ def generate_report(results_df, historical_df):
                 ].to_string(index=False)
             )
 
+        if newly_missing:
+            email_lines.append("")
+            email_lines.append(
+                "Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM:"
+            )
+            for m in newly_missing:
+                email_lines.append(f"  • {m['name']} (BFS {m['bfs_nummer']})")
+                if m.get("osm_url"):
+                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
+                if m.get("changeset_url"):
+                    email_lines.append(
+                        f"    Tag removed in changeset: {m['changeset_url']}"
+                    )
+                    email_lines.append(
+                        f"    By: {m.get('changeset_user', '?')}"
+                        f" at {m.get('changeset_timestamp', '?')}"
+                    )
+
         email_lines.append("")
         email_lines.append("Full report: https://habi.github.io/swissboundaries/")
 
@@ -1643,11 +1777,15 @@ def generate_report(results_df, historical_df):
     csv_df = results_df.drop(columns=["geometry", "osm_geometry"], errors="ignore")
 
     # Convert bfs_nummer, kantonsnummer, and bezirksnummer to integer
-    csv_df["bfs_nummer"] = csv_df["bfs_nummer"].astype(
+    csv_df["bfs_nummer"] = pd.to_numeric(csv_df["bfs_nummer"], errors="coerce").astype(
         "Int64"
     )  # Int64 handles NaN values
-    csv_df["kantonsnummer"] = csv_df["kantonsnummer"].astype("Int64")
-    csv_df["bezirksnummer"] = csv_df["bezirksnummer"].astype("Int64")
+    csv_df["kantonsnummer"] = pd.to_numeric(
+        csv_df["kantonsnummer"], errors="coerce"
+    ).astype("Int64")
+    csv_df["bezirksnummer"] = pd.to_numeric(
+        csv_df["bezirksnummer"], errors="coerce"
+    ).astype("Int64")
 
     # Reorder columns
     column_order = [
