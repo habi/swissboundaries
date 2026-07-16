@@ -1266,6 +1266,9 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
         return None
 
     # Walk versions from newest to oldest to find where the tag disappeared.
+    # range starts at len-1 and stops before 0, so the minimum i is 1 — which
+    # checks history[1] (v2) against history[0] (v1).  A tag cannot be removed
+    # in v1 (the initial version), so no valid removal is missed.
     for i in range(len(history) - 1, 0, -1):
         current = history[i]
         previous = history[i - 1]
@@ -1574,12 +1577,23 @@ def generate_report(results_df, historical_df):
         prev_date = historical_df["date"].max()
         prev_data = historical_df[historical_df["date"] == prev_date]
         prev_matched = prev_data[prev_data["iou"].notna()].copy()
+        # Use pd.to_numeric to safely coerce bfs_nummer from CSV (may be float or string).
         prev_matched_bfs = set(
-            prev_matched["bfs_nummer"].dropna().astype(int).astype(str)
+            pd.to_numeric(prev_matched["bfs_nummer"], errors="coerce")
+            .dropna()
+            .astype(int)
+            .astype(str)
         )
         prev_relation_lookup = (
             prev_matched.dropna(subset=["bfs_nummer", "relation"])
-            .assign(bfs_key=lambda df: df["bfs_nummer"].astype(int).astype(str))
+            .assign(
+                bfs_key=lambda df: pd.to_numeric(
+                    df["bfs_nummer"], errors="coerce"
+                )
+                .dropna()
+                .astype(int)
+                .astype(str)
+            )
             .set_index("bfs_key")["relation"]
             .to_dict()
         )
