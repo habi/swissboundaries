@@ -1,4 +1,4 @@
-Generated: 2026-07-17 05:15:27 UTC
+Generated: 2026-07-17 08:18:55 UTC
 
 ## Dataset Overview
 
@@ -28,16 +28,16 @@ Generated: 2026-07-17 05:15:27 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-16)
+## Historical Comparison (vs 2026-07-17)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   2.751 |
+| Previous mean Hausdorff distance |   2.707 |
 | Current mean Hausdorff distance  |   2.707 |
-| Hausdorff change                 |  -0.044 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,19 +56,11 @@ Generated: 2026-07-17 05:15:27 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:------------|-------------:|-----------:|-----------:|--------------:|
-| Mörel-Filet |         6203 |   0.998678 |   0.999994 |    0.00131586 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name     |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
-|:---------|-------------:|-------------------:|-------------------:|-------------:|
-| Lausanne |         5586 |              0.016 |              2.124 |        2.108 |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
