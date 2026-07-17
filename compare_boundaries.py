@@ -16,6 +16,7 @@ from plotly.subplots import make_subplots
 
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
+BFS_REMOVALS_PATH = Path("output/bfs_removals.json")
 
 
 def _load_overpass_cache(
@@ -56,6 +57,32 @@ def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
             json.dump(payload, f)
     except Exception as e:
         print(f"Warning: Could not save Overpass cache: {e}")
+
+
+def load_bfs_removal_tracker(path=BFS_REMOVALS_PATH):
+    """Load the persistent BFS removal tracker from disk.
+
+    Returns a dict keyed by BFS number (as string) with removal metadata.
+    """
+    if not path.exists():
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {str(k): v for k, v in data.items()}
+    except Exception as e:
+        print(f"Warning: Could not load BFS removal tracker: {e}")
+        return {}
+
+
+def save_bfs_removal_tracker(tracker, path=BFS_REMOVALS_PATH):
+    """Save the persistent BFS removal tracker to disk."""
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(tracker, f, indent=2)
+    except Exception as e:
+        print(f"Warning: Could not save BFS removal tracker: {e}")
 
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
@@ -1294,11 +1321,13 @@ def send_deterioration_email(subject, body):
       SMTP_PORT          – SMTP server port (default: 587)
       SMTP_USER          – SMTP login username (required)
       SMTP_PASSWORD      – SMTP login password (required)
+
+    Returns True if the email was sent successfully, False otherwise.
     """
     to_addr = os.environ.get("NOTIFICATION_EMAIL")
     if not to_addr:
         print("NOTIFICATION_EMAIL not set, skipping email notification.")
-        return
+        return False
 
     smtp_host = os.environ.get("SMTP_HOST", "")
     smtp_port_str = os.environ.get("SMTP_PORT", "587")
@@ -1307,7 +1336,7 @@ def send_deterioration_email(subject, body):
 
     if not smtp_host or not smtp_user or not smtp_password:
         print("SMTP configuration incomplete, skipping email notification.")
-        return
+        return False
 
     try:
         smtp_port = int(smtp_port_str)
@@ -1315,7 +1344,7 @@ def send_deterioration_email(subject, body):
         print(
             f"Warning: SMTP_PORT must be a valid integer, got '{smtp_port_str}'. Skipping email notification."
         )
-        return
+        return False
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
@@ -1329,8 +1358,10 @@ def send_deterioration_email(subject, body):
             server.login(smtp_user, smtp_password)
             server.sendmail(smtp_user, [to_addr], msg.as_string())
         print(f"Deterioration notification sent to {to_addr}")
+        return True
     except Exception as e:
         print(f"Warning: Could not send deterioration email: {e}")
+        return False
 
 
 def generate_report(results_df, historical_df):
@@ -1642,6 +1673,65 @@ def generate_report(results_df, historical_df):
                 )
             report_lines.append(line)
 
+    # Persistent BFS removal tracking: load the tracker, update it, and report
+    # unresolved removals from previous runs and any newly restored municipalities.
+    bfs_removal_tracker = load_bfs_removal_tracker()
+    today_str = datetime.now(UTC).strftime("%Y-%m-%d")
+
+    # Add newly detected removals to the tracker (don't overwrite existing entries)
+    for entry in newly_missing:
+        bfs_key = str(entry["bfs_nummer"])
+        if bfs_key not in bfs_removal_tracker:
+            bfs_removal_tracker[bfs_key] = dict(entry, first_detected=today_str)
+
+    # Detect resolutions: tracked municipalities now matched again
+    matched_bfs_str = {str(b) for b in matched_df["bfs_nummer"].values}
+    resolved_removals = []
+    for bfs_key in list(bfs_removal_tracker.keys()):
+        if bfs_key in matched_bfs_str:
+            resolved_removals.append(bfs_removal_tracker.pop(bfs_key))
+
+    # Persistent unresolved: tracked but NOT newly detected this run
+    newly_missing_bfs = {str(e["bfs_nummer"]) for e in newly_missing}
+    persistent_missing = [
+        entry
+        for bfs_key, entry in bfs_removal_tracker.items()
+        if bfs_key not in newly_missing_bfs
+    ]
+
+    # Save updated tracker
+    save_bfs_removal_tracker(bfs_removal_tracker)
+
+    if persistent_missing:
+        report_lines.append(
+            f"\n## Municipalities with swisstopo:BFS_NUMMER still absent from OSM"
+            f" (previously detected, unresolved) ({len(persistent_missing)}):"
+        )
+        for m in persistent_missing:
+            line = f"  • {m['name']} (BFS {m['bfs_nummer']})"
+            line += f"  — first detected: {m.get('first_detected', 'unknown')}"
+            if m.get("osm_url"):
+                line += f"  — OSM relation: {m['osm_url']}"
+            if m.get("changeset_url"):
+                line += (
+                    f"  — tag removed in changeset {m['changeset_url']}"
+                    f" by {m.get('changeset_user', '?')}"
+                    f" at {m.get('changeset_timestamp', '?')}"
+                )
+            report_lines.append(line)
+
+    if resolved_removals:
+        report_lines.append(
+            f"\n## Resolved: swisstopo:BFS_NUMMER tag restored in OSM"
+            f" ({len(resolved_removals)}):"
+        )
+        for m in resolved_removals:
+            line = f"  • {m['name']} (BFS {m['bfs_nummer']})"
+            line += f"  — first detected: {m.get('first_detected', 'unknown')}"
+            if m.get("osm_url"):
+                line += f"  — OSM relation: {m['osm_url']}"
+            report_lines.append(line)
+
     report_text = "\n".join(report_lines)
     print(report_text)
 
@@ -1650,7 +1740,7 @@ def generate_report(results_df, historical_df):
         f.write(report_text)
 
     # Send email notification if global metrics deteriorated OR any municipality shows significant
-    # deterioration OR municipalities newly lost their OSM swisstopo:BFS_NUMMER tag.
+    # deterioration OR municipalities newly lost or still have their OSM swisstopo:BFS_NUMMER tag absent.
     iou_deteriorated_global = iou_change is not None and iou_change < 0
     hausdorff_deteriorated_global = (
         hausdorff_change is not None and hausdorff_change > 0
@@ -1658,7 +1748,8 @@ def generate_report(results_df, historical_df):
 
     iou_deteriorated_local = len(deteriorations) > 0
     hausdorff_deteriorated_local = len(hausdorff_deteriorations) > 0
-    bfs_tags_removed = len(newly_missing) > 0
+    bfs_tags_removed = len(newly_missing) > 0 or len(persistent_missing) > 0
+    bfs_tags_restored = len(resolved_removals) > 0
 
     should_alert = (
         iou_deteriorated_global
@@ -1666,6 +1757,7 @@ def generate_report(results_df, historical_df):
         or iou_deteriorated_local
         or hausdorff_deteriorated_local
         or bfs_tags_removed
+        or bfs_tags_restored
     )
 
     print(
@@ -1681,6 +1773,9 @@ def generate_report(results_df, historical_df):
             "hausdorff_deteriorations_count": len(hausdorff_deteriorations),
             "bfs_tags_removed": bfs_tags_removed,
             "newly_missing_count": len(newly_missing),
+            "persistent_missing_count": len(persistent_missing),
+            "bfs_tags_restored": bfs_tags_restored,
+            "resolved_removals_count": len(resolved_removals),
             "should_alert": should_alert,
         },
     )
@@ -1708,10 +1803,20 @@ def generate_report(results_df, historical_df):
                 f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > 1 m "
                 f"(worst +{worst_hd_det:.3f} m)"
             )
-        if bfs_tags_removed:
+        if newly_missing:
             alert_parts.append(
-                f"{len(newly_missing)} municipality(ies) lost their OSM"
+                f"{len(newly_missing)} municipality(ies) newly lost their OSM"
                 f" swisstopo:BFS_NUMMER tag"
+            )
+        if persistent_missing:
+            alert_parts.append(
+                f"{len(persistent_missing)} municipality(ies) still have their OSM"
+                f" swisstopo:BFS_NUMMER tag absent (previously detected)"
+            )
+        if bfs_tags_restored:
+            alert_parts.append(
+                f"{len(resolved_removals)} municipality(ies) had their OSM"
+                f" swisstopo:BFS_NUMMER tag restored"
             )
 
         email_lines = [
@@ -1768,11 +1873,53 @@ def generate_report(results_df, historical_df):
                         f" at {m.get('changeset_timestamp', '?')}"
                     )
 
+        if persistent_missing:
+            email_lines.append("")
+            email_lines.append(
+                "Municipalities with swisstopo:BFS_NUMMER still absent from OSM"
+                " (previously detected, unresolved):"
+            )
+            for m in persistent_missing:
+                email_lines.append(
+                    f"  • {m['name']} (BFS {m['bfs_nummer']})"
+                    f"  — first detected: {m.get('first_detected', 'unknown')}"
+                )
+                if m.get("osm_url"):
+                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
+                if m.get("changeset_url"):
+                    email_lines.append(
+                        f"    Tag removed in changeset: {m['changeset_url']}"
+                    )
+                    email_lines.append(
+                        f"    By: {m.get('changeset_user', '?')}"
+                        f" at {m.get('changeset_timestamp', '?')}"
+                    )
+
+        if resolved_removals:
+            email_lines.append("")
+            email_lines.append(
+                "Municipalities whose swisstopo:BFS_NUMMER tag was restored in OSM:"
+            )
+            for m in resolved_removals:
+                email_lines.append(
+                    f"  • {m['name']} (BFS {m['bfs_nummer']})"
+                    f"  — first detected missing: {m.get('first_detected', 'unknown')}"
+                )
+                if m.get("osm_url"):
+                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
+
         email_lines.append("")
         email_lines.append("Full report: https://habi.github.io/swissboundaries/")
 
         print("Triggering send_deterioration_email()")
-        send_deterioration_email(subject, "\n".join(email_lines))
+        email_sent = send_deterioration_email(subject, "\n".join(email_lines))
+        if not email_sent:
+            # Emit a GitHub Actions warning annotation so the alert is visible
+            # in the workflow run even when email delivery fails.
+            print(
+                f"::warning::Deterioration detected but email notification could not be sent. "
+                f"Conditions: {', '.join(alert_parts)}"
+            )
 
     # Save CSV (without geometry columns for CSV)
     csv_df = results_df.drop(columns=["geometry", "osm_geometry"], errors="ignore")
