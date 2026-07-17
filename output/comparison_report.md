@@ -1,43 +1,43 @@
-Generated: 2026-07-16 09:55:28 UTC
+Generated: 2026-07-17 05:15:27 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
 |--------------------------------|------:|
 | Total Swisstopo municipalities |  2123 |
-| Matched in OSM                 |  2120 |
-| Missing in OSM                 |     3 |
+| Matched in OSM                 |  2121 |
+| Missing in OSM                 |     2 |
 | Only in OSM (not in Swisstopo) |     9 |
 
 ## Accuracy Metrics (for matched municipalities)
 
 | Metric                    | Value  |
 |---------------------------|--------|
-| Mean IoU                  | 0.9994 |
-| Median IoU                | 0.9997 |
-| Mean area difference      | 0.011% |
+| Mean IoU                  | 0.9995 |
+| Median IoU                | 0.9998 |
+| Mean area difference      | 0.010% |
 | Mean symmetric difference | 0.055% |
-| Mean Hausdorff distance   | 2.7509 |
+| Mean Hausdorff distance   | 2.7066 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |  2120 |    100.000 |
+| IoU ≥ 0.98 |  2121 |    100.000 |
 | IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-15)
+## Historical Comparison (vs 2026-07-16)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   0.999 |
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
-| Previous mean Hausdorff distance |   2.813 |
-| Current mean Hausdorff distance  |   2.751 |
-| Hausdorff change                 |  -0.062 |
+| Previous mean Hausdorff distance |   2.751 |
+| Current mean Hausdorff distance  |   2.707 |
+| Hausdorff change                 |  -0.044 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,18 +56,23 @@ Generated: 2026-07-16 09:55:28 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------|-------------:|-----------:|-----------:|--------------:|
-| Riemenstalden |         1369 |   0.997864 |   0.999995 |    0.00213168 |
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:------------|-------------:|-----------:|-----------:|--------------:|
+| Mörel-Filet |         6203 |   0.998678 |   0.999994 |    0.00131586 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
 
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name     |   bfs_nummer |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m |
+|:---------|-------------:|-------------------:|-------------------:|-------------:|
+| Lausanne |         5586 |              0.016 |              2.124 |        2.108 |
+
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
 |:----------------------|-------------:|
-| Glarus Nord           |         1630 |
 | Büsingen am Hochrhein |         7101 |
 | Campione d'Italia     |         7301 |
 
@@ -84,6 +89,3 @@ No significant deteriorations detected.
 | Bielersee (NE)                  |         9150 |    1685453 |
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
-
-## Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM (1):
-  • Glarus Nord (BFS 1630)  — OSM relation: https://www.openstreetmap.org/relation/1683140  — tag removed in changeset https://www.openstreetmap.org/changeset/185804019 by SimonPoole at 2026-07-15T18:55:38Z
