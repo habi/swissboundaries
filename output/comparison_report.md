@@ -1,4 +1,4 @@
-Generated: 2026-07-17 08:18:55 UTC
+Generated: 2026-07-18 04:50:54 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-17 08:18:55 UTC
 | Median IoU                | 0.9998 |
 | Mean area difference      | 0.010% |
 | Mean symmetric difference | 0.055% |
-| Mean Hausdorff distance   | 2.7066 |
+| Mean Hausdorff distance   | 2.6519 |
 
 ## Quality Distribution
 
@@ -36,8 +36,8 @@ Generated: 2026-07-17 08:18:55 UTC
 | Current mean IoU                 |   0.999 |
 | Change                           |  +0.000 |
 | Previous mean Hausdorff distance |   2.707 |
-| Current mean Hausdorff distance  |   2.707 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   2.652 |
+| Hausdorff change                 |  -0.055 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -56,7 +56,11 @@ Generated: 2026-07-17 08:18:55 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Courchavon |         6783 |   0.998643 |   0.999996 |    0.00135254 |
+| Porrentruy |         6800 |   0.99868  |   0.999997 |    0.00131725 |
+| Courtedoux |         6785 |   0.998899 |   0.999996 |    0.001097   |
 
 ## Most Deteriorated (if historical data available)
 
