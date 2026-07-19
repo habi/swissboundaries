@@ -22,13 +22,20 @@ IOU_DETERIORATION_THRESHOLD = 0.001
 AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
 HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
 BOUNDARY_DIFF_MAP_ZOOM = 16
-LV95_TO_WGS84 = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
 OSM_API_BASE_URL = "https://api.openstreetmap.org/api/0.6"
+_LV95_TO_WGS84 = None
 
 
 def normalize_relation_id(value):
     relation_num = pd.to_numeric(value, errors="coerce")
     return str(int(relation_num)) if pd.notna(relation_num) else ""
+
+
+def get_lv95_to_wgs84_transformer():
+    global _LV95_TO_WGS84
+    if _LV95_TO_WGS84 is None:
+        _LV95_TO_WGS84 = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
+    return _LV95_TO_WGS84
 
 
 def _load_overpass_cache(
@@ -1389,7 +1396,7 @@ def build_boundary_difference_url(geom1, geom2):
             return ""
 
         point = diff.representative_point()
-        lon, lat = LV95_TO_WGS84.transform(point.x, point.y)
+        lon, lat = get_lv95_to_wgs84_transformer().transform(point.x, point.y)
         return f"https://www.openstreetmap.org/?mlat={lat:.6f}&mlon={lon:.6f}#map={BOUNDARY_DIFF_MAP_ZOOM}/{lat:.6f}/{lon:.6f}"
     except Exception as e:
         print(f"Warning: Could not build boundary difference URL: {e}")
