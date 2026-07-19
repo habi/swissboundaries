@@ -23,6 +23,7 @@ AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
 HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
 BOUNDARY_DIFF_MAP_ZOOM = 16
 LV95_TO_WGS84 = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
+OSM_API_BASE_URL = "https://api.openstreetmap.org/api/0.6"
 
 
 def normalize_relation_id(value):
@@ -1300,7 +1301,7 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
     Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url' when found,
     or None if the history cannot be retrieved or the tag was never removed.
     """
-    url = f"https://api.openstreetmap.org/api/0.6/relation/{relation_id}/history.json"
+    url = f"{OSM_API_BASE_URL}/relation/{relation_id}/history.json"
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
@@ -1340,7 +1341,7 @@ def find_latest_relation_changeset(relation_id, timeout=15):
     or None if the API call fails, the relation has no history, or no
     changeset id is available.
     """
-    url = f"https://api.openstreetmap.org/api/0.6/relation/{relation_id}/history.json"
+    url = f"{OSM_API_BASE_URL}/relation/{relation_id}/history.json"
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
@@ -1482,6 +1483,9 @@ def generate_report(results_df, historical_df):
     area_diff_deteriorations = []
     hausdorff_deteriorations = []
     relation_changeset_cache = {}
+    det_df = pd.DataFrame()
+    area_det_df = pd.DataFrame()
+    hd_det_df = pd.DataFrame()
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
@@ -1698,69 +1702,50 @@ def generate_report(results_df, historical_df):
                                 }
                             )
 
-            top_entries_for_lookup = (
-                sorted(deteriorations, key=lambda d: d["deterioration"], reverse=True)[
-                    :10
-                ]
-                + sorted(
-                    area_diff_deteriorations,
-                    key=lambda d: d["increase_pct_points"],
-                    reverse=True,
-                )[:10]
-                + sorted(
-                    hausdorff_deteriorations,
-                    key=lambda d: d["increase_m"],
-                    reverse=True,
-                )[:10]
-            )
-            for entry in top_entries_for_lookup:
-                relation_id = entry.get("relation", "")
-                if not relation_id:
-                    continue
-                if relation_id not in relation_changeset_cache:
-                    relation_changeset_cache[relation_id] = (
-                        find_latest_relation_changeset(relation_id) or {}
-                    )
-                changeset = relation_changeset_cache[relation_id]
-                entry["changeset_url"] = changeset.get("url", "")
-                entry["changeset_user"] = changeset.get("user", "")
-                entry["changeset_timestamp"] = changeset.get("timestamp", "")
-
-            for group in (
-                deteriorations,
-                area_diff_deteriorations,
-                hausdorff_deteriorations,
-            ):
-                for entry in group:
-                    relation_id = entry.get("relation", "")
-                    changeset = relation_changeset_cache.get(relation_id, {})
-                    if not changeset:
-                        continue
-                    entry["changeset_url"] = changeset.get("url", "")
-                    entry["changeset_user"] = changeset.get("user", "")
-                    entry["changeset_timestamp"] = changeset.get("timestamp", "")
-
             if deteriorations:
                 det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
+            if area_diff_deteriorations:
+                area_det_df = pd.DataFrame(area_diff_deteriorations).nlargest(
+                    10, "increase_pct_points"
+                )
+            if hausdorff_deteriorations:
+                hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
+                    10, "increase_m"
+                )
+
+            for metric_df in (det_df, area_det_df, hd_det_df):
+                if metric_df.empty:
+                    continue
+                for row_index, row in metric_df.iterrows():
+                    relation_id = row.get("relation", "")
+                    if not relation_id:
+                        continue
+                    if relation_id not in relation_changeset_cache:
+                        relation_changeset_cache[relation_id] = (
+                            find_latest_relation_changeset(relation_id) or {}
+                        )
+                    changeset = relation_changeset_cache[relation_id]
+                    metric_df.at[row_index, "changeset_url"] = changeset.get("url", "")
+                    metric_df.at[row_index, "changeset_user"] = changeset.get(
+                        "user", ""
+                    )
+                    metric_df.at[row_index, "changeset_timestamp"] = changeset.get(
+                        "timestamp", ""
+                    )
+            if not det_df.empty:
                 report_lines.append("\n" + det_df.to_markdown(index=False))
             else:
                 report_lines.append("\nNo significant deteriorations detected.")
 
-            if area_diff_deteriorations:
+            if not area_det_df.empty:
                 report_lines.append(
                     "\n## Most Deteriorated in Area Difference (if historical data available)"
                 )
-                area_det_df = pd.DataFrame(area_diff_deteriorations).nlargest(
-                    10, "increase_pct_points"
-                )
                 report_lines.append("\n" + area_det_df.to_markdown(index=False))
 
-            if hausdorff_deteriorations:
+            if not hd_det_df.empty:
                 report_lines.append(
                     "\n## Most Deteriorated in Hausdorff Distance (if historical data available)"
-                )
-                hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
-                    10, "increase_m"
                 )
                 report_lines.append("\n" + hd_det_df.to_markdown(index=False))
         else:
@@ -2029,71 +2014,67 @@ def generate_report(results_df, historical_df):
         for part in alert_parts:
             email_lines.append(f"  • {part}")
 
-        if deteriorations:
+        if not det_df.empty:
             email_lines.append("")
             email_lines.append("Top IoU deteriorations (per municipality):")
-            det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
             for _, item in det_df.iterrows():
                 email_lines.append(
                     f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
                     f"{item['prev_iou']:.6f} → {item['curr_iou']:.6f} "
                     f"(Δ {-item['deterioration']:+.6f})"
                 )
-                if item.get("osm_url"):
-                    email_lines.append(f"    OSM relation: {item['osm_url']}")
-                if item.get("changeset_url"):
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
                     email_lines.append(
-                        f"    Latest OSM changeset: {item['changeset_url']}"
-                    )
-                if item.get("boundary_diff_url"):
-                    email_lines.append(
-                        f"    Likely deteriorated boundary segment: {item['boundary_diff_url']}"
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
                     )
 
-        if area_diff_deteriorations:
+        if not area_det_df.empty:
             email_lines.append("")
             email_lines.append("Top area difference increases (per municipality):")
-            area_det_df = pd.DataFrame(area_diff_deteriorations).nlargest(
-                10, "increase_pct_points"
-            )
             for _, item in area_det_df.iterrows():
                 email_lines.append(
                     f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
                     f"{item['prev_area_diff_pct']:.4f}% → {item['curr_area_diff_pct']:.4f}% "
                     f"(Δ {item['increase_pct_points']:+.4f} pp)"
                 )
-                if item.get("osm_url"):
-                    email_lines.append(f"    OSM relation: {item['osm_url']}")
-                if item.get("changeset_url"):
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
                     email_lines.append(
-                        f"    Latest OSM changeset: {item['changeset_url']}"
-                    )
-                if item.get("boundary_diff_url"):
-                    email_lines.append(
-                        f"    Likely deteriorated boundary segment: {item['boundary_diff_url']}"
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
                     )
 
-        if hausdorff_deteriorations:
+        if not hd_det_df.empty:
             email_lines.append("")
             email_lines.append("Top Hausdorff distance increases (per municipality):")
-            hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
-                10, "increase_m"
-            )
             for _, item in hd_det_df.iterrows():
                 email_lines.append(
                     f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
                     f"{item['prev_hausdorff_m']:.3f} m → {item['curr_hausdorff_m']:.3f} m "
                     f"(Δ {item['increase_m']:+.3f} m)"
                 )
-                if item.get("osm_url"):
-                    email_lines.append(f"    OSM relation: {item['osm_url']}")
-                if item.get("changeset_url"):
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
                     email_lines.append(
-                        f"    Latest OSM changeset: {item['changeset_url']}"
-                    )
-                if item.get("boundary_diff_url"):
-                    email_lines.append(
-                        f"    Likely deteriorated boundary segment: {item['boundary_diff_url']}"
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
                     )
 
         if newly_missing:
