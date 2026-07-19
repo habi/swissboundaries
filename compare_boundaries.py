@@ -18,6 +18,10 @@ from plotly.subplots import make_subplots
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
 BFS_REMOVALS_PATH = Path("output/bfs_removals.json")
+IOU_DETERIORATION_THRESHOLD = 0.001
+AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
+HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
+BOUNDARY_DIFF_MAP_ZOOM = 16
 
 
 def _load_overpass_cache(
@@ -1320,7 +1324,12 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
 
 
 def find_latest_relation_changeset(relation_id, timeout=15):
-    """Return metadata for the latest known changeset of an OSM relation."""
+    """Return latest relation changeset metadata or None.
+
+    Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url',
+    or None if the API call fails, the relation has no history, or no
+    changeset id is available.
+    """
     url = f"https://api.openstreetmap.org/api/0.6/relation/{relation_id}/history.json"
     try:
         response = requests.get(url, timeout=timeout)
@@ -1349,7 +1358,12 @@ def find_latest_relation_changeset(relation_id, timeout=15):
 
 
 def build_boundary_difference_url(geom1, geom2):
-    """Build an OSM map link pointing to a representative location of boundary difference."""
+    """Build an OSM map link to a representative point of boundary mismatch.
+
+    Expects input geometries in EPSG:2056 coordinates. Returns an empty
+    string if geometries are missing, equal, or if mismatch-point extraction
+    fails.
+    """
     try:
         if geom1 is None or geom2 is None:
             return ""
@@ -1362,8 +1376,9 @@ def build_boundary_difference_url(geom1, geom2):
         point = diff.representative_point()
         transformer = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
         lon, lat = transformer.transform(point.x, point.y)
-        return f"https://www.openstreetmap.org/?mlat={lat:.6f}&mlon={lon:.6f}#map=16/{lat:.6f}/{lon:.6f}"
-    except Exception:
+        return f"https://www.openstreetmap.org/?mlat={lat:.6f}&mlon={lon:.6f}#map={BOUNDARY_DIFF_MAP_ZOOM}/{lat:.6f}/{lon:.6f}"
+    except Exception as e:
+        print(f"Warning: Could not build boundary difference URL: {e}")
         return ""
 
 
@@ -1630,7 +1645,7 @@ def generate_report(results_df, historical_df):
                         prev_iou = prev_data.loc[bfs, "iou"]
                         curr_iou = row["iou"]
                         deterioration = prev_iou - curr_iou
-                        if deterioration > 0.001:  # Significant deterioration
+                        if deterioration > IOU_DETERIORATION_THRESHOLD:
                             deteriorations.append(
                                 {
                                     **base_entry,
@@ -1645,7 +1660,10 @@ def generate_report(results_df, historical_df):
                         prev_area_diff = prev_data.loc[bfs, "area_diff_pct"]
                         curr_area_diff = row["area_diff_pct"]
                         area_diff_increase = curr_area_diff - prev_area_diff
-                        if area_diff_increase > 0.001:
+                        if (
+                            area_diff_increase
+                            > AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS
+                        ):
                             area_diff_deteriorations.append(
                                 {
                                     **base_entry,
@@ -1662,7 +1680,7 @@ def generate_report(results_df, historical_df):
                         prev_hd = prev_data.loc[bfs, "hausdorff_distance"]
                         curr_hd = row["hausdorff_distance"]
                         hd_increase = curr_hd - prev_hd
-                        if hd_increase > 1.0:  # Significant increase (> 1 m)
+                        if hd_increase > HAUSDORFF_DETERIORATION_THRESHOLD_M:
                             hausdorff_deteriorations.append(
                                 {
                                     **base_entry,
@@ -1939,7 +1957,7 @@ def generate_report(results_df, historical_df):
         if iou_deteriorated_local:
             worst_iou_det = max(d["deterioration"] for d in deteriorations)
             alert_parts.append(
-                f"{len(deteriorations)} municipality(ies) had IoU deterioration > 0.001 "
+                f"{len(deteriorations)} municipality(ies) had IoU deterioration > {IOU_DETERIORATION_THRESHOLD:.3f} "
                 f"(worst -{worst_iou_det:.4f})"
             )
         if area_diff_deteriorated_local:
@@ -1947,13 +1965,13 @@ def generate_report(results_df, historical_df):
                 d["increase_pct_points"] for d in area_diff_deteriorations
             )
             alert_parts.append(
-                f"{len(area_diff_deteriorations)} municipality(ies) had area difference increase > 0.001 pp "
+                f"{len(area_diff_deteriorations)} municipality(ies) had area difference increase > {AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS:.3f} pp "
                 f"(worst +{worst_area_diff_det:.3f} pp)"
             )
         if hausdorff_deteriorated_local:
             worst_hd_det = max(d["increase_m"] for d in hausdorff_deteriorations)
             alert_parts.append(
-                f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > 1 m "
+                f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > {HAUSDORFF_DETERIORATION_THRESHOLD_M:.1f} m "
                 f"(worst +{worst_hd_det:.3f} m)"
             )
         if newly_missing:
