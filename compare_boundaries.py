@@ -1332,6 +1332,10 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
 def find_latest_relation_changeset(relation_id, timeout=15):
     """Return latest relation changeset metadata or None.
 
+    Args:
+        relation_id: OSM relation id as string or int-compatible value.
+        timeout: API request timeout in seconds (default: 15).
+
     Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url',
     or None if the API call fails, the relation has no history, or no
     changeset id is available.
@@ -1366,9 +1370,13 @@ def find_latest_relation_changeset(relation_id, timeout=15):
 def build_boundary_difference_url(geom1, geom2):
     """Build an OSM map link to a representative point of boundary mismatch.
 
-    Expects input geometries in EPSG:2056 coordinates. Returns an empty
-    string if geometries are missing, equal, or if mismatch-point extraction
-    fails. Returns a URL string when successful.
+    Args:
+        geom1: Swisstopo geometry in EPSG:2056.
+        geom2: OSM geometry in EPSG:2056.
+
+    Returns:
+        URL string to the likely mismatch location, or empty string when
+        geometries are missing/equal or mismatch-point extraction fails.
     """
     try:
         if geom1 is None or geom2 is None:
@@ -1690,6 +1698,34 @@ def generate_report(results_df, historical_df):
                                 }
                             )
 
+            top_entries_for_lookup = (
+                sorted(deteriorations, key=lambda d: d["deterioration"], reverse=True)[
+                    :10
+                ]
+                + sorted(
+                    area_diff_deteriorations,
+                    key=lambda d: d["increase_pct_points"],
+                    reverse=True,
+                )[:10]
+                + sorted(
+                    hausdorff_deteriorations,
+                    key=lambda d: d["increase_m"],
+                    reverse=True,
+                )[:10]
+            )
+            for entry in top_entries_for_lookup:
+                relation_id = entry.get("relation", "")
+                if not relation_id:
+                    continue
+                if relation_id not in relation_changeset_cache:
+                    relation_changeset_cache[relation_id] = (
+                        find_latest_relation_changeset(relation_id) or {}
+                    )
+                changeset = relation_changeset_cache[relation_id]
+                entry["changeset_url"] = changeset.get("url", "")
+                entry["changeset_user"] = changeset.get("user", "")
+                entry["changeset_timestamp"] = changeset.get("timestamp", "")
+
             for group in (
                 deteriorations,
                 area_diff_deteriorations,
@@ -1697,13 +1733,9 @@ def generate_report(results_df, historical_df):
             ):
                 for entry in group:
                     relation_id = entry.get("relation", "")
-                    if not relation_id:
+                    changeset = relation_changeset_cache.get(relation_id, {})
+                    if not changeset:
                         continue
-                    if relation_id not in relation_changeset_cache:
-                        relation_changeset_cache[relation_id] = (
-                            find_latest_relation_changeset(relation_id) or {}
-                        )
-                    changeset = relation_changeset_cache[relation_id]
                     entry["changeset_url"] = changeset.get("url", "")
                     entry["changeset_user"] = changeset.get("user", "")
                     entry["changeset_timestamp"] = changeset.get("timestamp", "")
