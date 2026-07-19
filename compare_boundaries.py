@@ -1713,25 +1713,50 @@ def generate_report(results_df, historical_df):
                     10, "increase_m"
                 )
 
-            for metric_df in (det_df, area_det_df, hd_det_df):
-                if metric_df.empty:
+            top_relation_ids = set()
+            for _, current_det_df in (
+                ("iou", det_df),
+                ("area_diff", area_det_df),
+                ("hausdorff", hd_det_df),
+            ):
+                if current_det_df.empty:
                     continue
-                for row_index, row in metric_df.iterrows():
-                    relation_id = row.get("relation", "")
-                    if not relation_id:
-                        continue
-                    if relation_id not in relation_changeset_cache:
-                        relation_changeset_cache[relation_id] = (
-                            find_latest_relation_changeset(relation_id) or {}
-                        )
-                    changeset = relation_changeset_cache[relation_id]
-                    metric_df.at[row_index, "changeset_url"] = changeset.get("url", "")
-                    metric_df.at[row_index, "changeset_user"] = changeset.get(
+                top_relation_ids.update(
+                    {
+                        rel
+                        for rel in current_det_df["relation"].dropna().astype(str)
+                        if rel
+                    }
+                )
+
+            for relation_id in sorted(top_relation_ids):
+                if relation_id not in relation_changeset_cache:
+                    relation_changeset_cache[relation_id] = (
+                        find_latest_relation_changeset(relation_id) or {}
+                    )
+
+            for _, current_det_df in (
+                ("iou", det_df),
+                ("area_diff", area_det_df),
+                ("hausdorff", hd_det_df),
+            ):
+                if current_det_df.empty:
+                    continue
+                current_det_df["changeset_url"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
+                        "url", ""
+                    )
+                )
+                current_det_df["changeset_user"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
                         "user", ""
                     )
-                    metric_df.at[row_index, "changeset_timestamp"] = changeset.get(
+                )
+                current_det_df["changeset_timestamp"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
                         "timestamp", ""
                     )
+                )
             if not det_df.empty:
                 report_lines.append("\n" + det_df.to_markdown(index=False))
             else:
