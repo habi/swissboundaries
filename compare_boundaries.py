@@ -1606,7 +1606,9 @@ def generate_report(results_df, historical_df):
             for idx, row in matched_df.iterrows():
                 bfs = row["bfs_nummer"]
                 if bfs in prev_data.index:
-                    relation_num = pd.to_numeric(row.get("relation", ""), errors="coerce")
+                    relation_num = pd.to_numeric(
+                        row.get("relation", ""), errors="coerce"
+                    )
                     relation_id = (
                         str(int(relation_num)) if pd.notna(relation_num) else ""
                     )
