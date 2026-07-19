@@ -11,12 +11,31 @@ from pathlib import Path
 from shapely.geometry import mapping, MultiLineString, LineString, Polygon
 from shapely.geometry.polygon import orient
 from shapely.ops import polygonize, unary_union, transform
+from pyproj import Transformer
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
 BFS_REMOVALS_PATH = Path("output/bfs_removals.json")
+IOU_DETERIORATION_THRESHOLD = 0.001
+AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
+HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
+BOUNDARY_DIFF_MAP_ZOOM = 16
+OSM_API_BASE_URL = "https://api.openstreetmap.org/api/0.6"
+_LV95_TO_WGS84 = None
+
+
+def normalize_relation_id(value):
+    relation_num = pd.to_numeric(value, errors="coerce")
+    return str(int(relation_num)) if pd.notna(relation_num) else ""
+
+
+def get_lv95_to_wgs84_transformer():
+    global _LV95_TO_WGS84
+    if _LV95_TO_WGS84 is None:
+        _LV95_TO_WGS84 = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
+    return _LV95_TO_WGS84
 
 
 def _load_overpass_cache(
@@ -502,6 +521,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                         "kantonsnummer": kantonsnummer,
                         "bezirksnummer": bezirksnummer,
                         "relation": osm_id_lookup[str(bfs_num)],
+                        "geometry": row.geometry,
+                        "osm_geometry": osm_lookup[str(bfs_num)],
                         **metrics,
                     }
                 )
@@ -514,6 +535,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                     "bezirksnummer": bezirksnummer,
                     "bfs_nummer": bfs_num,
                     "relation": "",
+                    "geometry": row.geometry,
+                    "osm_geometry": None,
                 }
             )
 
@@ -537,6 +560,8 @@ def compare_boundaries(swisstopo_gdf, osm_gdf):
                 "kantonsnummer": None,
                 "bezirksnummer": None,
                 "relation": osm_id_lookup.get(bfs_num_str, ""),
+                "geometry": None,
+                "osm_geometry": osm_lookup.get(bfs_num_str),
             }
         )
     print(f"Found {len(osm_only_bfs)} BFS numbers only in OSM")
@@ -1283,7 +1308,7 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
     Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url' when found,
     or None if the history cannot be retrieved or the tag was never removed.
     """
-    url = f"https://api.openstreetmap.org/api/0.6/relation/{relation_id}/history.json"
+    url = f"{OSM_API_BASE_URL}/relation/{relation_id}/history.json"
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
@@ -1310,6 +1335,72 @@ def find_bfs_removal_changeset(relation_id, bfs_tag="swisstopo:BFS_NUMMER", time
                 "url": f"https://www.openstreetmap.org/changeset/{changeset_id}",
             }
     return None
+
+
+def find_latest_relation_changeset(relation_id, timeout=15):
+    """Return latest relation changeset metadata or None.
+
+    Args:
+        relation_id: OSM relation id as string or int-compatible value.
+        timeout: API request timeout in seconds (default: 15).
+
+    Returns a dict with keys 'changeset', 'user', 'timestamp', and 'url',
+    or None if the API call fails, the relation has no history, or no
+    changeset id is available.
+    """
+    url = f"{OSM_API_BASE_URL}/relation/{relation_id}/history.json"
+    try:
+        response = requests.get(url, timeout=timeout)
+        response.raise_for_status()
+        history = response.json().get("elements", [])
+    except Exception as e:
+        print(
+            f"Warning: Could not fetch latest changeset for relation {relation_id}: {e}"
+        )
+        return None
+
+    if not history:
+        return None
+
+    latest = history[-1]
+    changeset_id = latest.get("changeset")
+    if not changeset_id:
+        return None
+
+    return {
+        "changeset": changeset_id,
+        "user": latest.get("user", "unknown"),
+        "timestamp": latest.get("timestamp", ""),
+        "url": f"https://www.openstreetmap.org/changeset/{changeset_id}",
+    }
+
+
+def build_boundary_difference_url(geom1, geom2):
+    """Build an OSM map link to a representative point of boundary mismatch.
+
+    Args:
+        geom1: Swisstopo geometry in EPSG:2056.
+        geom2: OSM geometry in EPSG:2056.
+
+    Returns:
+        URL string to the likely mismatch location, or empty string when
+        geometries are missing/equal or mismatch-point extraction fails.
+    """
+    try:
+        if geom1 is None or geom2 is None:
+            return ""
+        geom1 = force_2d(geom1)
+        geom2 = force_2d(geom2)
+        diff = geom1.symmetric_difference(geom2)
+        if diff.is_empty:
+            return ""
+
+        point = diff.representative_point()
+        lon, lat = get_lv95_to_wgs84_transformer().transform(point.x, point.y)
+        return f"https://www.openstreetmap.org/?mlat={lat:.6f}&mlon={lon:.6f}#map={BOUNDARY_DIFF_MAP_ZOOM}/{lat:.6f}/{lon:.6f}"
+    except Exception as e:
+        print(f"Warning: Could not build boundary difference URL: {e}")
+        return ""
 
 
 def send_deterioration_email(subject, body):
@@ -1393,9 +1484,15 @@ def generate_report(results_df, historical_df):
     report_lines.append(f"| Only in OSM (not in Swisstopo) | {len(only_osm_df):>5} |")
 
     iou_change = None
+    area_diff_change = None
     hausdorff_change = None
     deteriorations = []
+    area_diff_deteriorations = []
     hausdorff_deteriorations = []
+    relation_changeset_cache = {}
+    det_df = pd.DataFrame()
+    area_det_df = pd.DataFrame()
+    hd_det_df = pd.DataFrame()
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
@@ -1456,6 +1553,19 @@ def generate_report(results_df, historical_df):
                 )
                 report_lines.append(
                     f"| Change                           | {iou_change:+7.3f} |"
+                )
+
+                prev_mean_area_diff = prev_data[prev_matched]["area_diff_pct"].mean()
+                current_mean_area_diff = matched_df["area_diff_pct"].mean()
+                area_diff_change = current_mean_area_diff - prev_mean_area_diff
+                report_lines.append(
+                    f"| Previous mean area difference    | {prev_mean_area_diff:7.3f}% |"
+                )
+                report_lines.append(
+                    f"| Current mean area difference     | {current_mean_area_diff:7.3f}% |"
+                )
+                report_lines.append(
+                    f"| Area difference change           | {area_diff_change:+7.3f}% |"
                 )
 
                 # Hausdorff distance historical comparison (higher = worse)
@@ -1535,18 +1645,50 @@ def generate_report(results_df, historical_df):
             for idx, row in matched_df.iterrows():
                 bfs = row["bfs_nummer"]
                 if bfs in prev_data.index:
+                    relation_id = normalize_relation_id(row.get("relation", ""))
+                    osm_url = (
+                        f"https://www.openstreetmap.org/relation/{relation_id}"
+                        if relation_id
+                        else ""
+                    )
+                    base_entry = {
+                        "name": row["name"],
+                        "bfs_nummer": bfs,
+                        "relation": relation_id,
+                        "osm_url": osm_url,
+                        "boundary_diff_url": build_boundary_difference_url(
+                            row.get("geometry"), row.get("osm_geometry")
+                        ),
+                    }
                     if pd.notna(prev_data.loc[bfs, "iou"]):
                         prev_iou = prev_data.loc[bfs, "iou"]
                         curr_iou = row["iou"]
                         deterioration = prev_iou - curr_iou
-                        if deterioration > 0.001:  # Significant deterioration
+                        if deterioration > IOU_DETERIORATION_THRESHOLD:
                             deteriorations.append(
                                 {
-                                    "name": row["name"],
-                                    "bfs_nummer": bfs,
+                                    **base_entry,
                                     "prev_iou": prev_iou,
                                     "curr_iou": curr_iou,
                                     "deterioration": deterioration,
+                                }
+                            )
+                    if pd.notna(prev_data.loc[bfs, "area_diff_pct"]) and pd.notna(
+                        row["area_diff_pct"]
+                    ):
+                        prev_area_diff = prev_data.loc[bfs, "area_diff_pct"]
+                        curr_area_diff = row["area_diff_pct"]
+                        area_diff_increase = curr_area_diff - prev_area_diff
+                        if (
+                            area_diff_increase
+                            > AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS
+                        ):
+                            area_diff_deteriorations.append(
+                                {
+                                    **base_entry,
+                                    "prev_area_diff_pct": prev_area_diff,
+                                    "curr_area_diff_pct": curr_area_diff,
+                                    "increase_pct_points": area_diff_increase,
                                 }
                             )
                     if (
@@ -1557,11 +1699,10 @@ def generate_report(results_df, historical_df):
                         prev_hd = prev_data.loc[bfs, "hausdorff_distance"]
                         curr_hd = row["hausdorff_distance"]
                         hd_increase = curr_hd - prev_hd
-                        if hd_increase > 1.0:  # Significant increase (> 1 m)
+                        if hd_increase > HAUSDORFF_DETERIORATION_THRESHOLD_M:
                             hausdorff_deteriorations.append(
                                 {
-                                    "name": row["name"],
-                                    "bfs_nummer": bfs,
+                                    **base_entry,
                                     "prev_hausdorff_m": prev_hd,
                                     "curr_hausdorff_m": curr_hd,
                                     "increase_m": hd_increase,
@@ -1570,16 +1711,73 @@ def generate_report(results_df, historical_df):
 
             if deteriorations:
                 det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
+            if area_diff_deteriorations:
+                area_det_df = pd.DataFrame(area_diff_deteriorations).nlargest(
+                    10, "increase_pct_points"
+                )
+            if hausdorff_deteriorations:
+                hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
+                    10, "increase_m"
+                )
+
+            top_relation_ids = set()
+            for _, current_det_df in (
+                ("iou", det_df),
+                ("area_diff", area_det_df),
+                ("hausdorff", hd_det_df),
+            ):
+                if current_det_df.empty:
+                    continue
+                top_relation_ids.update(
+                    {
+                        rel
+                        for rel in current_det_df["relation"].dropna().astype(str)
+                        if rel
+                    }
+                )
+
+            for relation_id in sorted(top_relation_ids):
+                if relation_id not in relation_changeset_cache:
+                    relation_changeset_cache[relation_id] = (
+                        find_latest_relation_changeset(relation_id) or {}
+                    )
+
+            for _, current_det_df in (
+                ("iou", det_df),
+                ("area_diff", area_det_df),
+                ("hausdorff", hd_det_df),
+            ):
+                if current_det_df.empty:
+                    continue
+                current_det_df["changeset_url"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
+                        "url", ""
+                    )
+                )
+                current_det_df["changeset_user"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
+                        "user", ""
+                    )
+                )
+                current_det_df["changeset_timestamp"] = current_det_df["relation"].map(
+                    lambda rel: relation_changeset_cache.get(str(rel), {}).get(
+                        "timestamp", ""
+                    )
+                )
+            if not det_df.empty:
                 report_lines.append("\n" + det_df.to_markdown(index=False))
             else:
                 report_lines.append("\nNo significant deteriorations detected.")
 
-            if hausdorff_deteriorations:
+            if not area_det_df.empty:
+                report_lines.append(
+                    "\n## Most Deteriorated in Area Difference (if historical data available)"
+                )
+                report_lines.append("\n" + area_det_df.to_markdown(index=False))
+
+            if not hd_det_df.empty:
                 report_lines.append(
                     "\n## Most Deteriorated in Hausdorff Distance (if historical data available)"
-                )
-                hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
-                    10, "increase_m"
                 )
                 report_lines.append("\n" + hd_det_df.to_markdown(index=False))
         else:
@@ -1634,8 +1832,7 @@ def generate_report(results_df, historical_df):
             bfs_key = str(int(bfs))
             if bfs_key in prev_matched_bfs:
                 relation_raw = prev_relation_lookup.get(bfs_key, "")
-                relation_num = pd.to_numeric(relation_raw, errors="coerce")
-                relation_id = str(int(relation_num)) if pd.notna(relation_num) else ""
+                relation_id = normalize_relation_id(relation_raw)
                 entry = {
                     "bfs_nummer": int(bfs),
                     "relation": relation_id,
@@ -1742,19 +1939,25 @@ def generate_report(results_df, historical_df):
     # Send email notification if global metrics deteriorated OR any municipality shows significant
     # deterioration OR municipalities newly lost or still have their OSM swisstopo:BFS_NUMMER tag absent.
     iou_deteriorated_global = iou_change is not None and iou_change < 0
+    area_diff_deteriorated_global = (
+        area_diff_change is not None and area_diff_change > 0
+    )
     hausdorff_deteriorated_global = (
         hausdorff_change is not None and hausdorff_change > 0
     )
 
     iou_deteriorated_local = len(deteriorations) > 0
+    area_diff_deteriorated_local = len(area_diff_deteriorations) > 0
     hausdorff_deteriorated_local = len(hausdorff_deteriorations) > 0
     bfs_tags_removed = len(newly_missing) > 0 or len(persistent_missing) > 0
     bfs_tags_restored = len(resolved_removals) > 0
 
     should_alert = (
         iou_deteriorated_global
+        or area_diff_deteriorated_global
         or hausdorff_deteriorated_global
         or iou_deteriorated_local
+        or area_diff_deteriorated_local
         or hausdorff_deteriorated_local
         or bfs_tags_removed
         or bfs_tags_restored
@@ -1764,12 +1967,16 @@ def generate_report(results_df, historical_df):
         "Email trigger debug:",
         {
             "iou_change": iou_change,
+            "area_diff_change": area_diff_change,
             "hausdorff_change": hausdorff_change,
             "iou_deteriorated_global": iou_deteriorated_global,
+            "area_diff_deteriorated_global": area_diff_deteriorated_global,
             "hausdorff_deteriorated_global": hausdorff_deteriorated_global,
             "iou_deteriorated_local": iou_deteriorated_local,
+            "area_diff_deteriorated_local": area_diff_deteriorated_local,
             "hausdorff_deteriorated_local": hausdorff_deteriorated_local,
             "deteriorations_count": len(deteriorations),
+            "area_diff_deteriorations_count": len(area_diff_deteriorations),
             "hausdorff_deteriorations_count": len(hausdorff_deteriorations),
             "bfs_tags_removed": bfs_tags_removed,
             "newly_missing_count": len(newly_missing),
@@ -1787,6 +1994,10 @@ def generate_report(results_df, historical_df):
         alert_parts = []
         if iou_deteriorated_global:
             alert_parts.append(f"Global mean IoU decreased by {abs(iou_change):.4f}")
+        if area_diff_deteriorated_global:
+            alert_parts.append(
+                f"Global mean area difference increased by {area_diff_change:.3f} percentage points"
+            )
         if hausdorff_deteriorated_global:
             alert_parts.append(
                 f"Global mean Hausdorff distance increased by {hausdorff_change:.3f} m"
@@ -1794,13 +2005,21 @@ def generate_report(results_df, historical_df):
         if iou_deteriorated_local:
             worst_iou_det = max(d["deterioration"] for d in deteriorations)
             alert_parts.append(
-                f"{len(deteriorations)} municipality(ies) had IoU deterioration > 0.001 "
+                f"{len(deteriorations)} municipality(ies) had IoU deterioration > {IOU_DETERIORATION_THRESHOLD:.3f} "
                 f"(worst -{worst_iou_det:.4f})"
+            )
+        if area_diff_deteriorated_local:
+            worst_area_diff_det = max(
+                d["increase_pct_points"] for d in area_diff_deteriorations
+            )
+            alert_parts.append(
+                f"{len(area_diff_deteriorations)} municipality(ies) had area difference increase > {AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS:.3f} pp "
+                f"(worst +{worst_area_diff_det:.3f} pp)"
             )
         if hausdorff_deteriorated_local:
             worst_hd_det = max(d["increase_m"] for d in hausdorff_deteriorations)
             alert_parts.append(
-                f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > 1 m "
+                f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > {HAUSDORFF_DETERIORATION_THRESHOLD_M:.1f} m "
                 f"(worst +{worst_hd_det:.3f} m)"
             )
         if newly_missing:
@@ -1827,33 +2046,68 @@ def generate_report(results_df, historical_df):
         for part in alert_parts:
             email_lines.append(f"  • {part}")
 
-        if deteriorations:
+        if not det_df.empty:
             email_lines.append("")
             email_lines.append("Top IoU deteriorations (per municipality):")
-            det_df = pd.DataFrame(deteriorations).nlargest(10, "deterioration")
-            email_lines.append(
-                det_df[
-                    ["name", "bfs_nummer", "prev_iou", "curr_iou", "deterioration"]
-                ].to_string(index=False)
-            )
+            for _, item in det_df.iterrows():
+                email_lines.append(
+                    f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
+                    f"{item['prev_iou']:.6f} → {item['curr_iou']:.6f} "
+                    f"(Δ {-item['deterioration']:+.6f})"
+                )
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
+                    email_lines.append(
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
+                    )
 
-        if hausdorff_deteriorations:
+        if not area_det_df.empty:
+            email_lines.append("")
+            email_lines.append("Top area difference increases (per municipality):")
+            for _, item in area_det_df.iterrows():
+                email_lines.append(
+                    f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
+                    f"{item['prev_area_diff_pct']:.4f}% → {item['curr_area_diff_pct']:.4f}% "
+                    f"(Δ {item['increase_pct_points']:+.4f} pp)"
+                )
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
+                    email_lines.append(
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
+                    )
+
+        if not hd_det_df.empty:
             email_lines.append("")
             email_lines.append("Top Hausdorff distance increases (per municipality):")
-            hd_det_df = pd.DataFrame(hausdorff_deteriorations).nlargest(
-                10, "increase_m"
-            )
-            email_lines.append(
-                hd_det_df[
-                    [
-                        "name",
-                        "bfs_nummer",
-                        "prev_hausdorff_m",
-                        "curr_hausdorff_m",
-                        "increase_m",
-                    ]
-                ].to_string(index=False)
-            )
+            for _, item in hd_det_df.iterrows():
+                email_lines.append(
+                    f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
+                    f"{item['prev_hausdorff_m']:.3f} m → {item['curr_hausdorff_m']:.3f} m "
+                    f"(Δ {item['increase_m']:+.3f} m)"
+                )
+                osm_url = item.get("osm_url")
+                changeset_url = item.get("changeset_url")
+                boundary_diff_url = item.get("boundary_diff_url")
+                if pd.notna(osm_url) and osm_url:
+                    email_lines.append(f"    OSM relation: {osm_url}")
+                if pd.notna(changeset_url) and changeset_url:
+                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
+                if pd.notna(boundary_diff_url) and boundary_diff_url:
+                    email_lines.append(
+                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
+                    )
 
         if newly_missing:
             email_lines.append("")
