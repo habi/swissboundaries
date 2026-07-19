@@ -22,6 +22,12 @@ IOU_DETERIORATION_THRESHOLD = 0.001
 AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
 HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
 BOUNDARY_DIFF_MAP_ZOOM = 16
+LV95_TO_WGS84 = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
+
+
+def normalize_relation_id(value):
+    relation_num = pd.to_numeric(value, errors="coerce")
+    return str(int(relation_num)) if pd.notna(relation_num) else ""
 
 
 def _load_overpass_cache(
@@ -1362,7 +1368,7 @@ def build_boundary_difference_url(geom1, geom2):
 
     Expects input geometries in EPSG:2056 coordinates. Returns an empty
     string if geometries are missing, equal, or if mismatch-point extraction
-    fails.
+    fails. Returns a URL string when successful.
     """
     try:
         if geom1 is None or geom2 is None:
@@ -1374,8 +1380,7 @@ def build_boundary_difference_url(geom1, geom2):
             return ""
 
         point = diff.representative_point()
-        transformer = Transformer.from_crs("EPSG:2056", "EPSG:4326", always_xy=True)
-        lon, lat = transformer.transform(point.x, point.y)
+        lon, lat = LV95_TO_WGS84.transform(point.x, point.y)
         return f"https://www.openstreetmap.org/?mlat={lat:.6f}&mlon={lon:.6f}#map={BOUNDARY_DIFF_MAP_ZOOM}/{lat:.6f}/{lon:.6f}"
     except Exception as e:
         print(f"Warning: Could not build boundary difference URL: {e}")
@@ -1621,12 +1626,7 @@ def generate_report(results_df, historical_df):
             for idx, row in matched_df.iterrows():
                 bfs = row["bfs_nummer"]
                 if bfs in prev_data.index:
-                    relation_num = pd.to_numeric(
-                        row.get("relation", ""), errors="coerce"
-                    )
-                    relation_id = (
-                        str(int(relation_num)) if pd.notna(relation_num) else ""
-                    )
+                    relation_id = normalize_relation_id(row.get("relation", ""))
                     osm_url = (
                         f"https://www.openstreetmap.org/relation/{relation_id}"
                         if relation_id
@@ -1703,7 +1703,7 @@ def generate_report(results_df, historical_df):
                         relation_changeset_cache[relation_id] = (
                             find_latest_relation_changeset(relation_id) or {}
                         )
-                    changeset = relation_changeset_cache.get(relation_id, {})
+                    changeset = relation_changeset_cache[relation_id]
                     entry["changeset_url"] = changeset.get("url", "")
                     entry["changeset_user"] = changeset.get("user", "")
                     entry["changeset_timestamp"] = changeset.get("timestamp", "")
@@ -1783,8 +1783,7 @@ def generate_report(results_df, historical_df):
             bfs_key = str(int(bfs))
             if bfs_key in prev_matched_bfs:
                 relation_raw = prev_relation_lookup.get(bfs_key, "")
-                relation_num = pd.to_numeric(relation_raw, errors="coerce")
-                relation_id = str(int(relation_num)) if pd.notna(relation_num) else ""
+                relation_id = normalize_relation_id(relation_raw)
                 entry = {
                     "bfs_nummer": int(bfs),
                     "relation": relation_id,
@@ -2006,7 +2005,7 @@ def generate_report(results_df, historical_df):
                 email_lines.append(
                     f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
                     f"{item['prev_iou']:.6f} → {item['curr_iou']:.6f} "
-                    f"(Δ {item['curr_iou'] - item['prev_iou']:+.6f})"
+                    f"(Δ {-item['deterioration']:+.6f})"
                 )
                 if item.get("osm_url"):
                     email_lines.append(f"    OSM relation: {item['osm_url']}")
