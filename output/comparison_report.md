@@ -1,4 +1,4 @@
-Generated: 2026-07-19 13:15:25 UTC
+Generated: 2026-07-20 05:41:34 UTC
 
 ## Dataset Overview
 
@@ -38,9 +38,9 @@ Generated: 2026-07-19 13:15:25 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.626 |
+| Previous mean Hausdorff distance |   2.606 |
 | Current mean Hausdorff distance  |   2.606 |
-| Hausdorff change                 |  -0.020 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -64,13 +64,6 @@ No significant improvements detected.
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Area Difference (if historical data available)
-
-| name         |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                    | changeset_user   | changeset_timestamp   |
-|:-------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:-------------------------------------------------|:-----------------|:----------------------|
-| Yvorne       |         5415 |    1685208 | https://www.openstreetmap.org/relation/1685208 | https://www.openstreetmap.org/?mlat=46.323970&mlon=6.941416#map=16/46.323970/6.941416 |          0.000291404 |            0.0108578 |            0.0105664  | https://www.openstreetmap.org/changeset/44222992 | nyuriks          | 2016-12-07T00:03:15Z  |
-| Attinghausen |         1203 |    1683059 | https://www.openstreetmap.org/relation/1683059 | https://www.openstreetmap.org/?mlat=46.877151&mlon=8.606749#map=16/46.877151/8.606749 |          0.00163253  |            0.0080331 |            0.00640057 | https://www.openstreetmap.org/changeset/44193656 | nyuriks          | 2016-12-05T21:59:42Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
