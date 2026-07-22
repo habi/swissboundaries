@@ -1,4 +1,4 @@
-Generated: 2026-07-21 05:22:42 UTC
+Generated: 2026-07-22 05:21:16 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-21 05:22:42 UTC
 | Median IoU                | 0.9998 |
 | Mean area difference      | 0.010% |
 | Mean symmetric difference | 0.054% |
-| Mean Hausdorff distance   | 2.5995 |
+| Mean Hausdorff distance   | 2.5815 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-07-21 05:22:42 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-20)
+## Historical Comparison (vs 2026-07-21)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-07-21 05:22:42 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.606 |
-| Current mean Hausdorff distance  |   2.599 |
-| Hausdorff change                 |  -0.007 |
+| Previous mean Hausdorff distance |   2.599 |
+| Current mean Hausdorff distance  |   2.581 |
+| Hausdorff change                 |  -0.018 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,7 @@ Generated: 2026-07-21 05:22:42 UTC
 
 ## Most Improved (if historical data available)
 
-| name                      |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:--------------------------|-------------:|-----------:|-----------:|--------------:|
-| Niederried bei Interlaken |          588 |   0.998555 |   0.999995 |    0.00144009 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
@@ -69,18 +67,11 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Area Difference (if historical data available)
 
-| name         |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Berolle      |         5424 |    1684850 | https://www.openstreetmap.org/relation/1684850 | https://www.openstreetmap.org/?mlat=46.586009&mlon=6.311299#map=16/46.586009/6.311299 |          0.0370339   |           0.040939   |            0.00390504 | https://www.openstreetmap.org/changeset/175582214 | kartler175       | 2025-12-06T11:49:18Z  |
-| Mollens (VD) |         5431 |    1685051 | https://www.openstreetmap.org/relation/1685051 | https://www.openstreetmap.org/?mlat=46.589932&mlon=6.324544#map=16/46.589932/6.324544 |          0.0252693   |           0.028953   |            0.0036837  | https://www.openstreetmap.org/changeset/180865006 | SimonPoole       | 2026-04-04T17:10:49Z  |
-| Silvaplana   |         3790 |    1684170 | https://www.openstreetmap.org/relation/1684170 | https://www.openstreetmap.org/?mlat=46.446530&mlon=9.845913#map=16/46.446530/9.845913 |          3.65472e-05 |           0.00106559 |            0.00102904 | https://www.openstreetmap.org/changeset/185364662 | SimonPoole       | 2026-07-08T19:38:27Z  |
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Silvaplana |         3790 |    1684170 | https://www.openstreetmap.org/relation/1684170 | https://www.openstreetmap.org/?mlat=46.446530&mlon=9.845913#map=16/46.446530/9.845913 |              0.016 |              7.122 |        7.106 | https://www.openstreetmap.org/changeset/185364662 | SimonPoole       | 2026-07-08T19:38:27Z  |
-| Samedan    |         3786 |    1684150 | https://www.openstreetmap.org/relation/1684150 | https://www.openstreetmap.org/?mlat=46.446530&mlon=9.845913#map=16/46.446530/9.845913 |              0.016 |              7.122 |        7.106 | https://www.openstreetmap.org/changeset/185020361 | SimonPoole       | 2026-07-03T06:15:50Z  |
+| name      |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Wattwil   |         3379 |    2727987 | https://www.openstreetmap.org/relation/2727987 | https://www.openstreetmap.org/?mlat=47.338357&mlon=9.053626#map=16/47.338357/9.053626 |           0.00253706 |           0.0069207  |            0.00438364 | https://www.openstreetmap.org/changeset/183095893 | SimonPoole       | 2026-05-24T08:15:36Z  |
+| Kaltbrunn |         3313 |    1683899 | https://www.openstreetmap.org/relation/1683899 | https://www.openstreetmap.org/?mlat=47.222290&mlon=9.005606#map=16/47.222290/9.005606 |           0.00185884 |           0.00495142 |            0.00309258 | https://www.openstreetmap.org/changeset/183095893 | SimonPoole       | 2026-05-24T08:15:36Z  |
+| Neckertal |         3396 |    1683910 | https://www.openstreetmap.org/relation/1683910 | https://www.openstreetmap.org/?mlat=47.354211&mlon=9.090983#map=16/47.354211/9.090983 |           0.00853457 |           0.00955692 |            0.00102235 | https://www.openstreetmap.org/changeset/182400313 | tf66             | 2026-05-08T20:30:00Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
