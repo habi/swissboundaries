@@ -1,4 +1,4 @@
-Generated: 2026-07-22 05:21:16 UTC
+Generated: 2026-07-23 05:26:49 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-22 05:21:16 UTC
 | Median IoU                | 0.9998 |
 | Mean area difference      | 0.010% |
 | Mean symmetric difference | 0.054% |
-| Mean Hausdorff distance   | 2.5815 |
+| Mean Hausdorff distance   | 2.5445 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-07-22 05:21:16 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-21)
+## Historical Comparison (vs 2026-07-22)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-07-22 05:21:16 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.599 |
-| Current mean Hausdorff distance  |   2.581 |
-| Hausdorff change                 |  -0.018 |
+| Previous mean Hausdorff distance |   2.581 |
+| Current mean Hausdorff distance  |   2.544 |
+| Hausdorff change                 |  -0.037 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -69,9 +69,10 @@ No significant deteriorations detected.
 
 | name      |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
 |:----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Wattwil   |         3379 |    2727987 | https://www.openstreetmap.org/relation/2727987 | https://www.openstreetmap.org/?mlat=47.338357&mlon=9.053626#map=16/47.338357/9.053626 |           0.00253706 |           0.0069207  |            0.00438364 | https://www.openstreetmap.org/changeset/183095893 | SimonPoole       | 2026-05-24T08:15:36Z  |
-| Kaltbrunn |         3313 |    1683899 | https://www.openstreetmap.org/relation/1683899 | https://www.openstreetmap.org/?mlat=47.222290&mlon=9.005606#map=16/47.222290/9.005606 |           0.00185884 |           0.00495142 |            0.00309258 | https://www.openstreetmap.org/changeset/183095893 | SimonPoole       | 2026-05-24T08:15:36Z  |
-| Neckertal |         3396 |    1683910 | https://www.openstreetmap.org/relation/1683910 | https://www.openstreetmap.org/?mlat=47.354211&mlon=9.090983#map=16/47.354211/9.090983 |           0.00853457 |           0.00955692 |            0.00102235 | https://www.openstreetmap.org/changeset/182400313 | tf66             | 2026-05-08T20:30:00Z  |
+| Dallenwil |         1503 |    1683064 | https://www.openstreetmap.org/relation/1683064 | https://www.openstreetmap.org/?mlat=46.937484&mlon=8.378187#map=16/46.937484/8.378187 |          0.000587686 |           0.0136031  |            0.0130155  | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
+| Kaufdorf  |          869 |    1682504 | https://www.openstreetmap.org/relation/1682504 | https://www.openstreetmap.org/?mlat=46.836641&mlon=7.486885#map=16/46.836641/7.486885 |          0.00419869  |           0.0128307  |            0.00863196 | https://www.openstreetmap.org/changeset/44195583  | nyuriks          | 2016-12-05T23:51:21Z  |
+| Uebeschi  |          943 |    1682697 | https://www.openstreetmap.org/relation/1682697 | https://www.openstreetmap.org/?mlat=46.741768&mlon=7.561543#map=16/46.741768/7.561543 |          0.00166081  |           0.00540542 |            0.00374461 | https://www.openstreetmap.org/changeset/21351369  | Schnupfix        | 2014-03-27T19:33:30Z  |
+| Ennetmoos |         1506 |    1683069 | https://www.openstreetmap.org/relation/1683069 | https://www.openstreetmap.org/?mlat=46.930347&mlon=8.342888#map=16/46.930347/8.342888 |          0.0156191   |           0.0173731  |            0.00175396 | https://www.openstreetmap.org/changeset/63658080  | user_177389      | 2018-10-18T19:17:08Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
