@@ -1,4 +1,4 @@
-Generated: 2026-07-23 05:26:49 UTC
+Generated: 2026-07-24 05:23:14 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-07-23 05:26:49 UTC
 | Median IoU                | 0.9998 |
 | Mean area difference      | 0.010% |
 | Mean symmetric difference | 0.054% |
-| Mean Hausdorff distance   | 2.5445 |
+| Mean Hausdorff distance   | 2.5177 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-07-23 05:26:49 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-22)
+## Historical Comparison (vs 2026-07-23)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-07-23 05:26:49 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.581 |
-| Current mean Hausdorff distance  |   2.544 |
-| Hausdorff change                 |  -0.037 |
+| Previous mean Hausdorff distance |   2.544 |
+| Current mean Hausdorff distance  |   2.518 |
+| Hausdorff change                 |  -0.027 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -67,12 +67,12 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Area Difference (if historical data available)
 
-| name      |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Dallenwil |         1503 |    1683064 | https://www.openstreetmap.org/relation/1683064 | https://www.openstreetmap.org/?mlat=46.937484&mlon=8.378187#map=16/46.937484/8.378187 |          0.000587686 |           0.0136031  |            0.0130155  | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
-| Kaufdorf  |          869 |    1682504 | https://www.openstreetmap.org/relation/1682504 | https://www.openstreetmap.org/?mlat=46.836641&mlon=7.486885#map=16/46.836641/7.486885 |          0.00419869  |           0.0128307  |            0.00863196 | https://www.openstreetmap.org/changeset/44195583  | nyuriks          | 2016-12-05T23:51:21Z  |
-| Uebeschi  |          943 |    1682697 | https://www.openstreetmap.org/relation/1682697 | https://www.openstreetmap.org/?mlat=46.741768&mlon=7.561543#map=16/46.741768/7.561543 |          0.00166081  |           0.00540542 |            0.00374461 | https://www.openstreetmap.org/changeset/21351369  | Schnupfix        | 2014-03-27T19:33:30Z  |
-| Ennetmoos |         1506 |    1683069 | https://www.openstreetmap.org/relation/1683069 | https://www.openstreetmap.org/?mlat=46.930347&mlon=8.342888#map=16/46.930347/8.342888 |          0.0156191   |           0.0173731  |            0.00175396 | https://www.openstreetmap.org/changeset/63658080  | user_177389      | 2018-10-18T19:17:08Z  |
+| name          |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:--------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Buseno        |         3804 |    1684053 | https://www.openstreetmap.org/relation/1684053 | https://www.openstreetmap.org/?mlat=46.287134&mlon=9.120613#map=16/46.287134/9.120613 |          0.0293372   |           0.0350303  |            0.00569311 | https://www.openstreetmap.org/changeset/29338809  | ydrgbjo          | 2015-03-08T20:54:22Z  |
+| Breil/Brigels |         3981 |    1684050 | https://www.openstreetmap.org/relation/1684050 | https://www.openstreetmap.org/?mlat=46.767866&mlon=9.018175#map=16/46.767866/9.018175 |          0.000810475 |           0.0028135  |            0.00200303 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
+| Lungern       |         1405 |    1683090 | https://www.openstreetmap.org/relation/1683090 | https://www.openstreetmap.org/?mlat=46.763929&mlon=8.165924#map=16/46.763929/8.165924 |          0.000491452 |           0.00246729 |            0.00197584 | https://www.openstreetmap.org/changeset/119388272 | FischersFritz    | 2022-04-06T13:41:39Z  |
+| Ilanz/Glion   |         3619 |    3411942 | https://www.openstreetmap.org/relation/3411942 | https://www.openstreetmap.org/?mlat=46.872244&mlon=9.084861#map=16/46.872244/9.084861 |          0.00163169  |           0.00303138 |            0.00139969 | https://www.openstreetmap.org/changeset/186218626 | SimonPoole       | 2026-07-23T07:57:43Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
