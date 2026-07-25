@@ -1,4 +1,4 @@
-Generated: 2026-07-24 05:23:14 UTC
+Generated: 2026-07-25 05:16:29 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-07-24 05:23:14 UTC
 | Mean IoU                  | 0.9995 |
 | Median IoU                | 0.9998 |
 | Mean area difference      | 0.010% |
-| Mean symmetric difference | 0.054% |
-| Mean Hausdorff distance   | 2.5177 |
+| Mean symmetric difference | 0.053% |
+| Mean Hausdorff distance   | 2.4991 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-07-24 05:23:14 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-23)
+## Historical Comparison (vs 2026-07-24)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-07-24 05:23:14 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.544 |
-| Current mean Hausdorff distance  |   2.518 |
-| Hausdorff change                 |  -0.027 |
+| Previous mean Hausdorff distance |   2.518 |
+| Current mean Hausdorff distance  |   2.499 |
+| Hausdorff change                 |  -0.019 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,7 +59,10 @@ Generated: 2026-07-24 05:23:14 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:-----------|-------------:|-----------:|-----------:|--------------:|
+| Langendorf |         2550 |   0.997438 |   0.999992 |    0.00255409 |
+| Bellach    |         2542 |   0.998467 |   0.999995 |    0.00152822 |
 
 ## Most Deteriorated (if historical data available)
 
@@ -67,12 +70,12 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Area Difference (if historical data available)
 
-| name          |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:--------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Buseno        |         3804 |    1684053 | https://www.openstreetmap.org/relation/1684053 | https://www.openstreetmap.org/?mlat=46.287134&mlon=9.120613#map=16/46.287134/9.120613 |          0.0293372   |           0.0350303  |            0.00569311 | https://www.openstreetmap.org/changeset/29338809  | ydrgbjo          | 2015-03-08T20:54:22Z  |
-| Breil/Brigels |         3981 |    1684050 | https://www.openstreetmap.org/relation/1684050 | https://www.openstreetmap.org/?mlat=46.767866&mlon=9.018175#map=16/46.767866/9.018175 |          0.000810475 |           0.0028135  |            0.00200303 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
-| Lungern       |         1405 |    1683090 | https://www.openstreetmap.org/relation/1683090 | https://www.openstreetmap.org/?mlat=46.763929&mlon=8.165924#map=16/46.763929/8.165924 |          0.000491452 |           0.00246729 |            0.00197584 | https://www.openstreetmap.org/changeset/119388272 | FischersFritz    | 2022-04-06T13:41:39Z  |
-| Ilanz/Glion   |         3619 |    3411942 | https://www.openstreetmap.org/relation/3411942 | https://www.openstreetmap.org/?mlat=46.872244&mlon=9.084861#map=16/46.872244/9.084861 |          0.00163169  |           0.00303138 |            0.00139969 | https://www.openstreetmap.org/changeset/186218626 | SimonPoole       | 2026-07-23T07:57:43Z  |
+| name                   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-----------------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Schattdorf             |         1213 |    1683102 | https://www.openstreetmap.org/relation/1683102 | https://www.openstreetmap.org/?mlat=46.859269&mlon=8.682190#map=16/46.859269/8.682190 |           0.0055442  |           0.0139064  |            0.00836223 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:20Z  |
+| Lüsslingen-Nennigkofen |         2464 |    2742593 | https://www.openstreetmap.org/relation/2742593 | https://www.openstreetmap.org/?mlat=47.173104&mlon=7.500568#map=16/47.173104/7.500568 |           0.0152467  |           0.0214428  |            0.00619607 | https://www.openstreetmap.org/changeset/46233679  | iWowik           | 2017-02-20T06:20:50Z  |
+| Biberist               |         2513 |    1683482 | https://www.openstreetmap.org/relation/1683482 | https://www.openstreetmap.org/?mlat=47.183295&mlon=7.530571#map=16/47.183295/7.530571 |           0.0105262  |           0.0124823  |            0.00195604 | https://www.openstreetmap.org/changeset/159962086 | mottiger         | 2024-12-05T15:30:42Z  |
+| Glarus Süd             |         1631 |    1683141 | https://www.openstreetmap.org/relation/1683141 | https://www.openstreetmap.org/?mlat=47.035754&mlon=9.208148#map=16/47.035754/9.208148 |           0.00164645 |           0.00333195 |            0.0016855  | https://www.openstreetmap.org/changeset/185247444 | SimonPoole       | 2026-07-07T07:02:50Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
