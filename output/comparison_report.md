@@ -1,4 +1,4 @@
-Generated: 2026-07-28 05:16:34 UTC
+Generated: 2026-07-29 05:23:37 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-07-28 05:16:34 UTC
 | Mean IoU                  | 0.9995 |
 | Median IoU                | 0.9999 |
 | Mean area difference      | 0.010% |
-| Mean symmetric difference | 0.051% |
-| Mean Hausdorff distance   | 2.4009 |
+| Mean symmetric difference | 0.050% |
+| Mean Hausdorff distance   | 2.3607 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-07-28 05:16:34 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-27)
+## Historical Comparison (vs 2026-07-28)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-07-28 05:16:34 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.429 |
-| Current mean Hausdorff distance  |   2.401 |
-| Hausdorff change                 |  -0.028 |
+| Previous mean Hausdorff distance |   2.401 |
+| Current mean Hausdorff distance  |   2.361 |
+| Hausdorff change                 |  -0.040 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,13 +59,13 @@ Generated: 2026-07-28 05:16:34 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
-|:---------------|-------------:|-----------:|-----------:|--------------:|
-| Kilchberg (BL) |         2851 |   0.9965   |   0.99999  |    0.00349044 |
-| Tecknau        |         2862 |   0.996983 |   0.999991 |    0.00300731 |
-| Bätterkinden   |          533 |   0.998525 |   0.999995 |    0.00147065 |
-| Röschenz       |         2791 |   0.998747 |   0.999996 |    0.00124932 |
-| Zeglingen      |         2868 |   0.998947 |   0.999996 |    0.00104818 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|
+| Valeyres-sous-Rances |         5763 |   0.998076 |   0.999994 |    0.00191785 |
+| Lengwil              |         4683 |   0.998288 |   0.999995 |    0.00170697 |
+| Berg (TG)            |         4891 |   0.998434 |   0.999996 |    0.00156124 |
+| Bottighofen          |         4643 |   0.997138 |   0.998677 |    0.00153906 |
+| Märstetten           |         4941 |   0.998591 |   0.999996 |    0.00140469 |
 
 ## Most Deteriorated (if historical data available)
 
@@ -73,18 +73,18 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Area Difference (if historical data available)
 
-| name                  |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:----------------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Wenslingen            |         2865 |    1683720 | https://www.openstreetmap.org/relation/1683720 | https://www.openstreetmap.org/?mlat=47.434032&mlon=7.923827#map=16/47.434032/7.923827 |           0.0023004  |            0.0384233 |            0.0361229  | https://www.openstreetmap.org/changeset/44222992  | nyuriks          | 2016-12-07T00:02:40Z  |
-| Aefligen              |          401 |    1682358 | https://www.openstreetmap.org/relation/1682358 | https://www.openstreetmap.org/?mlat=47.086677&mlon=7.553568#map=16/47.086677/7.553568 |           0.0164946  |            0.0395424 |            0.0230478  | https://www.openstreetmap.org/changeset/44193656  | nyuriks          | 2016-12-05T21:59:16Z  |
-| Le Grand-Saconnex     |         6623 |    1685504 | https://www.openstreetmap.org/relation/1685504 | https://www.openstreetmap.org/?mlat=46.222566&mlon=6.116197#map=16/46.222566/6.116197 |           0.00340724 |            0.0258145 |            0.0224073  | https://www.openstreetmap.org/changeset/182073338 | 9_tab            | 2026-05-01T12:58:45Z  |
-| Rünenberg             |         2860 |    1683702 | https://www.openstreetmap.org/relation/1683702 | https://www.openstreetmap.org/?mlat=47.428208&mlon=7.866115#map=16/47.428208/7.866115 |           0.0153534  |            0.0321792 |            0.0168257  | https://www.openstreetmap.org/changeset/44224875  | nyuriks          | 2016-12-07T03:13:53Z  |
-| Wiler bei Utzenstorf  |          554 |    1682724 | https://www.openstreetmap.org/relation/1682724 | https://www.openstreetmap.org/?mlat=47.163302&mlon=7.557789#map=16/47.163302/7.557789 |           0.0112713  |            0.0233568 |            0.0120854  | https://www.openstreetmap.org/changeset/186459147 | SimonPoole       | 2026-07-27T13:56:32Z  |
-| Wisen (SO)            |         2502 |    1683589 | https://www.openstreetmap.org/relation/1683589 | https://www.openstreetmap.org/?mlat=47.390362&mlon=7.876400#map=16/47.390362/7.876400 |           0.0224076  |            0.0311834 |            0.00877585 | https://www.openstreetmap.org/changeset/44222992  | nyuriks          | 2016-12-07T00:02:38Z  |
-| Lüterkofen-Ichertswil |         2455 |    1683546 | https://www.openstreetmap.org/relation/1683546 | https://www.openstreetmap.org/?mlat=47.154381&mlon=7.486179#map=16/47.154381/7.486179 |           0.00432636 |            0.0119761 |            0.00764976 | https://www.openstreetmap.org/changeset/143401303 | b-jazz-bot       | 2023-10-31T06:07:19Z  |
-| Lohn-Ammannsegg       |         2526 |    1683541 | https://www.openstreetmap.org/relation/1683541 | https://www.openstreetmap.org/?mlat=47.183295&mlon=7.530571#map=16/47.183295/7.530571 |           0.0364167  |            0.0434899 |            0.00707319 | https://www.openstreetmap.org/changeset/44195583  | nyuriks          | 2016-12-05T23:52:13Z  |
-| Ersigen               |          405 |    5817429 | https://www.openstreetmap.org/relation/5817429 | https://www.openstreetmap.org/?mlat=47.086230&mlon=7.611367#map=16/47.086230/7.611367 |           0.017451   |            0.0239537 |            0.00650269 | https://www.openstreetmap.org/changeset/186459147 | SimonPoole       | 2026-07-27T13:56:32Z  |
-| Zielebach             |          556 |    1682736 | https://www.openstreetmap.org/relation/1682736 | https://www.openstreetmap.org/?mlat=47.162461&mlon=7.569506#map=16/47.162461/7.569506 |           0.0261017  |            0.0313984 |            0.0052967  | https://www.openstreetmap.org/changeset/44222992  | nyuriks          | 2016-12-07T00:02:22Z  |
+| name            |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:----------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Wigoltingen     |         4951 |    1684570 | https://www.openstreetmap.org/relation/1684570 | https://www.openstreetmap.org/?mlat=47.588031&mlon=9.013464#map=16/47.588031/9.013464 |           0.0162088  |            0.042237  |            0.0260282  | https://www.openstreetmap.org/changeset/17840790  | mstock           | 2013-09-14T21:41:10Z  |
+| Langrickenbach  |         4681 |    1684538 | https://www.openstreetmap.org/relation/1684538 | https://www.openstreetmap.org/?mlat=47.575678&mlon=9.272409#map=16/47.575678/9.272409 |           0.0112238  |            0.029347  |            0.0181233  | https://www.openstreetmap.org/changeset/186501822 | SimonPoole       | 2026-07-28T07:18:47Z  |
+| Ependes (VD)    |         5914 |    1684960 | https://www.openstreetmap.org/relation/1684960 | https://www.openstreetmap.org/?mlat=46.739550&mlon=6.614911#map=16/46.739550/6.614911 |           0.00710667 |            0.0218676 |            0.014761   | https://www.openstreetmap.org/changeset/179138618 | SimonPoole       | 2026-02-27T16:09:40Z  |
+| Rothenthurm     |         1370 |    1683098 | https://www.openstreetmap.org/relation/1683098 | https://www.openstreetmap.org/?mlat=47.090494&mlon=8.697903#map=16/47.090494/8.697903 |           0.00042981 |            0.0125198 |            0.01209    | https://www.openstreetmap.org/changeset/44195583  | nyuriks          | 2016-12-05T23:52:02Z  |
+| Weinfelden      |         4946 |    1684569 | https://www.openstreetmap.org/relation/1684569 | https://www.openstreetmap.org/?mlat=47.560819&mlon=9.135503#map=16/47.560819/9.135503 |           0.00312301 |            0.0117558 |            0.00863275 | https://www.openstreetmap.org/changeset/44222992  | nyuriks          | 2016-12-07T00:03:04Z  |
+| Sattel          |         1371 |    1683101 | https://www.openstreetmap.org/relation/1683101 | https://www.openstreetmap.org/?mlat=47.083846&mlon=8.662088#map=16/47.083846/8.662088 |           0.00712616 |            0.0153761 |            0.00824997 | https://www.openstreetmap.org/changeset/183510502 | KeyTV            | 2026-06-01T17:18:46Z  |
+| Feusisberg      |         1321 |    1683071 | https://www.openstreetmap.org/relation/1683071 | https://www.openstreetmap.org/?mlat=47.166560&mlon=8.749521#map=16/47.166560/8.749521 |           0.00436647 |            0.0112203 |            0.00685387 | https://www.openstreetmap.org/changeset/44195583  | nyuriks          | 2016-12-05T23:51:55Z  |
+| Amlikon-Bissegg |         4881 |    1684498 | https://www.openstreetmap.org/relation/1684498 | https://www.openstreetmap.org/?mlat=47.560053&mlon=9.069083#map=16/47.560053/9.069083 |           0.0346837  |            0.0402552 |            0.00557151 | https://www.openstreetmap.org/changeset/44212692  | nyuriks          | 2016-12-06T15:37:31Z  |
+| Unterägeri      |         1709 |    1683149 | https://www.openstreetmap.org/relation/1683149 | https://www.openstreetmap.org/?mlat=47.116930&mlon=8.554560#map=16/47.116930/8.554560 |           0.00568844 |            0.0101232 |            0.0044348  | https://www.openstreetmap.org/changeset/186561808 | SimonPoole       | 2026-07-29T05:09:56Z  |
+| Münsterlingen   |         4691 |    1684546 | https://www.openstreetmap.org/relation/1684546 | https://www.openstreetmap.org/?mlat=47.623563&mlon=9.213860#map=16/47.623563/9.213860 |           0.0562323  |            0.0592884 |            0.00305607 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
