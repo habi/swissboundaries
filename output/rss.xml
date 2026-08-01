@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swissBOUNDARIES3D vs OpenStreetMap Changes</title>
+    <link>https://boundaries.osm.ch/</link>
+    <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
+    <language>en</language>
+    <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sat, 01 Aug 2026 21:49:58 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-01: 6 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.041 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Diessenhofen</strong> (BFS 4545) <a href="https://www.openstreetmap.org/relation/1684513">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Epalinges</strong> (BFS 5584) <a href="https://www.openstreetmap.org/relation/1684959">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Oberrieden</strong> (BFS 137) <a href="https://www.openstreetmap.org/relation/1682178">OSM</a>: IoU 0.9981 → 0.9994 (+0.0012)</li><li><strong>Cugy (VD)</strong> (BFS 5516) <a href="https://www.openstreetmap.org/relation/1684937">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Bättwil</strong> (BFS 2471) <a href="https://www.openstreetmap.org/relation/1683490">OSM</a>: IoU 0.9973 → 1.0000 (+0.0027)</li><li><strong>Le Mont-sur-Lausanne</strong> (BFS 5587) <a href="https://www.openstreetmap.org/relation/1685023">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-01</guid>
+    </item>
+  </channel>
+</rss>

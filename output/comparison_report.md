@@ -1,4 +1,4 @@
-Generated: 2026-08-01 05:29:23 UTC
+Generated: 2026-08-01 21:49:50 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-01 05:29:23 UTC
 | Mean IoU                  | 0.9995 |
 | Median IoU                | 0.9999 |
 | Mean area difference      | 0.010% |
-| Mean symmetric difference | 0.049% |
-| Mean Hausdorff distance   | 2.2745 |
+| Mean symmetric difference | 0.048% |
+| Mean Hausdorff distance   | 2.2336 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-01 05:29:23 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-07-31)
+## Historical Comparison (vs 2026-08-01)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-01 05:29:23 UTC
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.304 |
-| Current mean Hausdorff distance  |   2.275 |
-| Hausdorff change                 |  -0.029 |
+| Previous mean Hausdorff distance |   2.275 |
+| Current mean Hausdorff distance  |   2.234 |
+| Hausdorff change                 |  -0.041 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,19 +59,18 @@ Generated: 2026-08-01 05:29:23 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Bättwil              |         2471 |   0.997329 |   0.999991 |    0.00266203 |    1683490 |
+| Diessenhofen         |         4545 |   0.99873  |   0.999994 |    0.00126395 |    1684513 |
+| Oberrieden           |          137 |   0.998122 |   0.999366 |    0.00124469 |    1682178 |
+| Epalinges            |         5584 |   0.998805 |   0.999993 |    0.00118808 |    1684959 |
+| Cugy (VD)            |         5516 |   0.998811 |   0.999991 |    0.00118005 |    1684937 |
+| Le Mont-sur-Lausanne |         5587 |   0.998995 |   0.999996 |    0.00100114 |    1685023 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Area Difference (if historical data available)
-
-| name               |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_area_diff_pct |   curr_area_diff_pct |   increase_pct_points | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|---------------------:|---------------------:|----------------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Chavannes-le-Chêne |         5907 |    1684891 | https://www.openstreetmap.org/relation/1684891 | https://www.openstreetmap.org/?mlat=46.774159&mlon=6.769095#map=16/46.774159/6.769095 |          0.0235048   |           0.031621   |            0.0081162  | https://www.openstreetmap.org/changeset/44213420  | nyuriks          | 2016-12-06T16:07:17Z  |
-| St. Ursen          |         2304 |    1683404 | https://www.openstreetmap.org/relation/1683404 | https://www.openstreetmap.org/?mlat=46.779301&mlon=7.200905#map=16/46.779301/7.200905 |          0.000453813 |           0.00339955 |            0.00294574 | https://www.openstreetmap.org/changeset/180873360 | SimonPoole       | 2026-04-04T21:08:18Z  |
-| La Sonnaz          |         2235 |    1683346 | https://www.openstreetmap.org/relation/1683346 | https://www.openstreetmap.org/?mlat=46.825113&mlon=7.125363#map=16/46.825113/7.125363 |          0.0020406   |           0.00443018 |            0.00238958 | https://www.openstreetmap.org/changeset/44222265  | nyuriks          | 2016-12-06T22:59:46Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
