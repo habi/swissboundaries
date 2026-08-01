@@ -6,6 +6,7 @@ import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.utils import formatdate
 from datetime import datetime, UTC
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString, LineString, Polygon
@@ -18,6 +19,8 @@ from plotly.subplots import make_subplots
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
 BFS_REMOVALS_PATH = Path("output/bfs_removals.json")
+RSS_FEED_PATH = Path("output/rss.xml")
+RSS_MAX_ITEMS = 90
 IOU_DETERIORATION_THRESHOLD = 0.001
 AREA_DIFF_DETERIORATION_THRESHOLD_PCT_POINTS = 0.001
 HAUSDORFF_DETERIORATION_THRESHOLD_M = 1.0
@@ -1455,6 +1458,269 @@ def send_deterioration_email(subject, body):
         return False
 
 
+def generate_rss_feed(
+    run_date,
+    improvements,
+    deteriorations,
+    area_diff_deteriorations,
+    hausdorff_deteriorations,
+    newly_missing,
+    persistent_missing,
+    resolved_removals,
+    iou_change,
+    area_diff_change,
+    hausdorff_change,
+    feed_path=RSS_FEED_PATH,
+):
+    """Generate or update the RSS feed at output/rss.xml with today's changes.
+
+    Loads any existing feed items from disk, prepends a new item for the current
+    run, trims the list to RSS_MAX_ITEMS, and writes the result back to disk.
+    """
+    import xml.etree.ElementTree as ET
+
+    base_url = "https://boundaries.osm.ch"
+    guid = f"{base_url}/#run-{run_date}"
+    item_link = f"{base_url}/"
+
+    # Build item title
+    n_impr = len(improvements)
+    n_det = len(deteriorations) + len(area_diff_deteriorations) + len(hausdorff_deteriorations)
+    n_removed = len(newly_missing)
+    n_restored = len(resolved_removals)
+
+    title_parts = []
+    if n_impr:
+        title_parts.append(f"{n_impr} improvement{'s' if n_impr != 1 else ''}")
+    if n_det:
+        title_parts.append(f"{n_det} deterioration{'s' if n_det != 1 else ''}")
+    if n_removed:
+        title_parts.append(f"{n_removed} BFS tag removal{'s' if n_removed != 1 else ''}")
+    if n_restored:
+        title_parts.append(
+            f"{n_restored} BFS tag restoration{'s' if n_restored != 1 else ''}"
+        )
+    item_title = (
+        f"{run_date}: {', '.join(title_parts)}"
+        if title_parts
+        else f"{run_date}: no significant changes"
+    )
+
+    # Build HTML description (will be wrapped in CDATA)
+    html = []
+
+    if iou_change is not None or area_diff_change is not None or hausdorff_change is not None:
+        html.append("<h3>Global metric changes</h3><ul>")
+        if iou_change is not None:
+            arrow = "▲" if iou_change > 0 else "▼"
+            html.append(f"<li>Mean IoU: {iou_change:+.4f} {arrow}</li>")
+        if area_diff_change is not None:
+            arrow = "▼" if area_diff_change < 0 else "▲"
+            html.append(f"<li>Mean area difference: {area_diff_change:+.4f} pp {arrow}</li>")
+        if hausdorff_change is not None:
+            arrow = "▼" if hausdorff_change < 0 else "▲"
+            html.append(
+                f"<li>Mean Hausdorff distance: {hausdorff_change:+.3f} m {arrow}</li>"
+            )
+        html.append("</ul>")
+
+    def _osm_link(url):
+        return f' <a href="{url}">OSM</a>' if url else ""
+
+    def _cs_link(url, user=""):
+        if not url:
+            return ""
+        suffix = f" by {user}" if user else ""
+        return f' <a href="{url}">changeset</a>{suffix}'
+
+    if improvements:
+        html.append(f"<h3>Improvements ({len(improvements)})</h3><ul>")
+        for imp in improvements[:20]:
+            rel = imp.get("relation", "")
+            osm = _osm_link(
+                f"https://www.openstreetmap.org/relation/{rel}" if rel else ""
+            )
+            html.append(
+                f"<li><strong>{imp['name']}</strong> (BFS {imp['bfs_nummer']}){osm}: "
+                f"IoU {imp['prev_iou']:.4f} → {imp['curr_iou']:.4f}"
+                f" (+{imp['improvement']:.4f})</li>"
+            )
+        if len(improvements) > 20:
+            html.append(f"<li>… and {len(improvements) - 20} more</li>")
+        html.append("</ul>")
+
+    if deteriorations:
+        html.append(f"<h3>IoU deteriorations ({len(deteriorations)})</h3><ul>")
+        for det in deteriorations[:20]:
+            html.append(
+                f"<li><strong>{det['name']}</strong> (BFS {det['bfs_nummer']})"
+                f"{_osm_link(det.get('osm_url', ''))}"
+                f"{_cs_link(det.get('changeset_url', ''), det.get('changeset_user', ''))}: "
+                f"IoU {det['prev_iou']:.4f} → {det['curr_iou']:.4f}"
+                f" (−{det['deterioration']:.4f})</li>"
+            )
+        if len(deteriorations) > 20:
+            html.append(f"<li>… and {len(deteriorations) - 20} more</li>")
+        html.append("</ul>")
+
+    if area_diff_deteriorations:
+        html.append(
+            f"<h3>Area difference deteriorations ({len(area_diff_deteriorations)})</h3><ul>"
+        )
+        for det in area_diff_deteriorations[:20]:
+            html.append(
+                f"<li><strong>{det['name']}</strong> (BFS {det['bfs_nummer']})"
+                f"{_osm_link(det.get('osm_url', ''))}"
+                f"{_cs_link(det.get('changeset_url', ''), det.get('changeset_user', ''))}: "
+                f"{det['prev_area_diff_pct']:.4f}% → {det['curr_area_diff_pct']:.4f}%"
+                f" (+{det['increase_pct_points']:.4f} pp)</li>"
+            )
+        if len(area_diff_deteriorations) > 20:
+            html.append(f"<li>… and {len(area_diff_deteriorations) - 20} more</li>")
+        html.append("</ul>")
+
+    if hausdorff_deteriorations:
+        html.append(
+            f"<h3>Hausdorff distance deteriorations ({len(hausdorff_deteriorations)})</h3><ul>"
+        )
+        for det in hausdorff_deteriorations[:20]:
+            html.append(
+                f"<li><strong>{det['name']}</strong> (BFS {det['bfs_nummer']})"
+                f"{_osm_link(det.get('osm_url', ''))}"
+                f"{_cs_link(det.get('changeset_url', ''), det.get('changeset_user', ''))}: "
+                f"{det['prev_hausdorff_m']:.3f} m → {det['curr_hausdorff_m']:.3f} m"
+                f" (+{det['increase_m']:.3f} m)</li>"
+            )
+        if len(hausdorff_deteriorations) > 20:
+            html.append(f"<li>… and {len(hausdorff_deteriorations) - 20} more</li>")
+        html.append("</ul>")
+
+    if newly_missing:
+        html.append(f"<h3>BFS tag removals ({len(newly_missing)})</h3><ul>")
+        for m in newly_missing:
+            cs = ""
+            if m.get("changeset_url"):
+                cs = (
+                    f' removed in <a href="{m["changeset_url"]}">changeset</a>'
+                    f' by {m.get("changeset_user", "?")}'
+                )
+            html.append(
+                f"<li><strong>{m['name']}</strong> (BFS {m['bfs_nummer']})"
+                f"{_osm_link(m.get('osm_url', ''))}{cs}</li>"
+            )
+        html.append("</ul>")
+
+    if resolved_removals:
+        html.append(f"<h3>BFS tag restorations ({len(resolved_removals)})</h3><ul>")
+        for m in resolved_removals:
+            html.append(
+                f"<li><strong>{m['name']}</strong> (BFS {m['bfs_nummer']})"
+                f"{_osm_link(m.get('osm_url', ''))}"
+                f" — first detected missing: {m.get('first_detected', 'unknown')}</li>"
+            )
+        html.append("</ul>")
+
+    if persistent_missing:
+        html.append(f"<h3>Still missing BFS tags ({len(persistent_missing)})</h3><ul>")
+        for m in persistent_missing[:10]:
+            html.append(
+                f"<li><strong>{m['name']}</strong> (BFS {m['bfs_nummer']})"
+                f"{_osm_link(m.get('osm_url', ''))}"
+                f" — first detected: {m.get('first_detected', 'unknown')}</li>"
+            )
+        if len(persistent_missing) > 10:
+            html.append(f"<li>… and {len(persistent_missing) - 10} more</li>")
+        html.append("</ul>")
+
+    if not html:
+        html.append("<p>No significant changes detected.</p>")
+    html.append(f'<p><a href="{item_link}">Full report</a></p>')
+    description_html = "".join(html)
+
+    # RFC 2822 pubDate
+    try:
+        run_dt = datetime.strptime(run_date, "%Y-%m-%d").replace(tzinfo=UTC)
+        pub_date = formatdate(timeval=run_dt.timestamp(), usegmt=True)
+    except Exception:
+        pub_date = formatdate(usegmt=True)
+
+    new_item = {
+        "title": item_title,
+        "link": item_link,
+        "description": description_html,
+        "pubDate": pub_date,
+        "guid": guid,
+    }
+
+    # Load existing items (skip any item with the same guid to stay idempotent)
+    existing_items = []
+    if feed_path.exists():
+        try:
+            tree = ET.parse(feed_path)
+            root = tree.getroot()
+            channel = root.find("channel")
+            if channel is not None:
+                for item_el in channel.findall("item"):
+                    item_guid = item_el.findtext("guid") or ""
+                    if item_guid == guid:
+                        continue
+                    existing_items.append(
+                        {
+                            "title": item_el.findtext("title") or "",
+                            "link": item_el.findtext("link") or "",
+                            "description": item_el.findtext("description") or "",
+                            "pubDate": item_el.findtext("pubDate") or "",
+                            "guid": item_guid,
+                        }
+                    )
+        except Exception as e:
+            print(f"Warning: could not parse existing RSS feed: {e}")
+
+    all_items = ([new_item] + existing_items)[:RSS_MAX_ITEMS]
+
+    def _xe(text):
+        """Escape special characters for XML element/attribute content."""
+        return (
+            str(text)
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+        )
+
+    items_xml = ""
+    for it in all_items:
+        items_xml += f"""
+    <item>
+      <title>{_xe(it['title'])}</title>
+      <link>{_xe(it['link'])}</link>
+      <description><![CDATA[{it['description']}]]></description>
+      <pubDate>{_xe(it['pubDate'])}</pubDate>
+      <guid isPermaLink="false">{_xe(it['guid'])}</guid>
+    </item>"""
+
+    rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swissBOUNDARIES3D vs OpenStreetMap Changes</title>
+    <link>{base_url}/</link>
+    <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
+    <language>en</language>
+    <atom:link href="{base_url}/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>{formatdate(usegmt=True)}</lastBuildDate>{items_xml}
+  </channel>
+</rss>
+"""
+
+    try:
+        feed_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(feed_path, "w", encoding="utf-8") as f:
+            f.write(rss_xml)
+        print(f"RSS feed written to {feed_path} ({len(all_items)} item(s))")
+    except Exception as e:
+        print(f"Warning: could not write RSS feed: {e}")
+
+
 def generate_report(results_df, historical_df):
     """Generate comparison report"""
     report_lines = []
@@ -1486,6 +1752,7 @@ def generate_report(results_df, historical_df):
     iou_change = None
     area_diff_change = None
     hausdorff_change = None
+    improvements = []
     deteriorations = []
     area_diff_deteriorations = []
     hausdorff_deteriorations = []
@@ -1493,6 +1760,7 @@ def generate_report(results_df, historical_df):
     det_df = pd.DataFrame()
     area_det_df = pd.DataFrame()
     hd_det_df = pd.DataFrame()
+    run_date = datetime.now(UTC).strftime("%Y-%m-%d")
 
     if matched > 0:
         report_lines.append("\n## Accuracy Metrics (for matched municipalities)")
@@ -1608,7 +1876,6 @@ def generate_report(results_df, historical_df):
                 "bfs_nummer"
             )
 
-            improvements = []
             for idx, row in matched_df.iterrows():
                 bfs = row["bfs_nummer"]
                 if bfs in prev_data.index and pd.notna(prev_data.loc[bfs, "iou"]):
@@ -1623,6 +1890,9 @@ def generate_report(results_df, historical_df):
                                 "prev_iou": prev_iou,
                                 "curr_iou": curr_iou,
                                 "improvement": improvement,
+                                "relation": normalize_relation_id(
+                                    row.get("relation", "")
+                                ),
                             }
                         )
 
@@ -1988,7 +2258,6 @@ def generate_report(results_df, historical_df):
     )
 
     if should_alert:
-        run_date = datetime.now(UTC).strftime("%Y-%m-%d")
         subject = f"[swissboundaries] Metric deterioration detected on {run_date}"
 
         alert_parts = []
@@ -2228,6 +2497,21 @@ def generate_report(results_df, historical_df):
     # Save to history
     timestamp = datetime.now().strftime("%Y%m%d")
     csv_df.to_csv(f"history/results_{timestamp}.csv", index=False)
+
+    # Generate RSS feed
+    generate_rss_feed(
+        run_date=run_date,
+        improvements=improvements,
+        deteriorations=deteriorations,
+        area_diff_deteriorations=area_diff_deteriorations,
+        hausdorff_deteriorations=hausdorff_deteriorations,
+        newly_missing=newly_missing,
+        persistent_missing=persistent_missing,
+        resolved_removals=resolved_removals,
+        iou_change=iou_change,
+        area_diff_change=area_diff_change,
+        hausdorff_change=hausdorff_change,
+    )
 
     return results_df
 
@@ -2775,6 +3059,7 @@ def create_index_page():
 <head>
     <meta charset="UTF-8">
     <title>swissBOUNDARIES3D <-> OpenStreetMap</title>
+    <link rel="alternate" type="application/rss+xml" title="swissBOUNDARIES3D vs OpenStreetMap Changes" href="rss.xml">
     <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
     <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -2843,7 +3128,8 @@ def create_index_page():
             <a href="#readme-section">README</a> |
             <a href="#comparison-report-section">Comparison Report</a> |
             <a href="#quality-map">Map</a> |
-            <a href="#changes-plot">Plots</a>
+            <a href="#changes-plot">Plots</a> |
+            <a href="rss.xml">RSS</a>
         </div>
     </header>
     
