@@ -1753,6 +1753,7 @@ def generate_report(results_df, historical_df):
     hausdorff_change = None
     improvements = []
     deteriorations = []
+    area_diff_deteriorations = []
     hausdorff_deteriorations = []
     relation_changeset_cache = {}
     det_df = pd.DataFrame()
