@@ -1,4 +1,4 @@
-Generated: 2026-08-01 21:49:50 UTC
+Generated: 2026-08-02 05:29:13 UTC
 
 ## Dataset Overview
 
@@ -37,10 +37,10 @@ Generated: 2026-08-01 21:49:50 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.010% |
 | Current mean area difference     |   0.010% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.275 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   2.234 |
 | Current mean Hausdorff distance  |   2.234 |
-| Hausdorff change                 |  -0.041 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,14 +59,7 @@ Generated: 2026-08-01 21:49:50 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Bättwil              |         2471 |   0.997329 |   0.999991 |    0.00266203 |    1683490 |
-| Diessenhofen         |         4545 |   0.99873  |   0.999994 |    0.00126395 |    1684513 |
-| Oberrieden           |          137 |   0.998122 |   0.999366 |    0.00124469 |    1682178 |
-| Epalinges            |         5584 |   0.998805 |   0.999993 |    0.00118808 |    1684959 |
-| Cugy (VD)            |         5516 |   0.998811 |   0.999991 |    0.00118005 |    1684937 |
-| Le Mont-sur-Lausanne |         5587 |   0.998995 |   0.999996 |    0.00100114 |    1685023 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
