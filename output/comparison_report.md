@@ -1,4 +1,4 @@
-Generated: 2026-08-03 05:43:43 UTC
+Generated: 2026-08-04 05:16:27 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-08-03 05:43:43 UTC
 |---------------------------|--------|
 | Mean IoU                  | 0.9995 |
 | Median IoU                | 1.0000 |
-| Mean area difference      | 0.010% |
-| Mean symmetric difference | 0.047% |
-| Mean Hausdorff distance   | 2.1709 |
+| Mean area difference      | 0.009% |
+| Mean symmetric difference | 0.045% |
+| Mean Hausdorff distance   | 2.1066 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-03 05:43:43 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-02)
+## Historical Comparison (vs 2026-08-03)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -36,37 +36,41 @@ Generated: 2026-08-03 05:43:43 UTC
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.010% |
-| Current mean area difference     |   0.010% |
+| Current mean area difference     |   0.009% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.234 |
-| Current mean Hausdorff distance  |   2.171 |
-| Hausdorff change                 |  -0.063 |
+| Previous mean Hausdorff distance |   2.171 |
+| Current mean Hausdorff distance  |   2.107 |
+| Hausdorff change                 |  -0.064 |
 
 ## Worst 10 Matches (by IoU)
 
-| name         |   bfs_nummer |      iou |   area_diff_pct |
-|:-------------|-------------:|---------:|----------------:|
-| Eschenz      |         4806 | 0.981348 |      1.54249    |
-| Hagneck      |          736 | 0.995824 |      0.00469874 |
-| Regensberg   |           95 | 0.996442 |      0.0295773  |
-| Känerkinden  |         2850 | 0.996793 |      0.0345198  |
-| Fürstenau    |         3633 | 0.996862 |      0.00192794 |
-| Dozwil       |         4406 | 0.996898 |      0.103515   |
-| Kammersrohr  |         2549 | 0.996999 |      0.0526844  |
-| Lichtensteig |         3374 | 0.997039 |      0.015559   |
-| Dättlikon    |          215 | 0.997101 |      0.0819724  |
-| Hüniken      |         2524 | 0.997124 |      0.0310775  |
+| name          |   bfs_nummer |      iou |   area_diff_pct |
+|:--------------|-------------:|---------:|----------------:|
+| Eschenz       |         4806 | 0.981348 |      1.54249    |
+| Hagneck       |          736 | 0.995824 |      0.00469874 |
+| Regensberg    |           95 | 0.996442 |      0.0295773  |
+| Känerkinden   |         2850 | 0.996793 |      0.0345198  |
+| Dozwil        |         4406 | 0.996898 |      0.103515   |
+| Kammersrohr   |         2549 | 0.996999 |      0.0526844  |
+| Dättlikon     |          215 | 0.997101 |      0.0819724  |
+| Oberweningen  |           93 | 0.997125 |      0.0297002  |
+| Mont-Tramelan |          437 | 0.99718  |      0.0639227  |
+| Borex         |         5706 | 0.997201 |      0.0270045  |
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Wilen (TG)     |         4786 |   0.997113 |   0.999989 |    0.00287553 |    1684571 |
-| Heimberg       |          928 |   0.997748 |   0.999994 |    0.00224588 |    1682472 |
-| Neyruz (FR)    |         2211 |   0.998426 |   0.999995 |    0.00156927 |    1683373 |
-| Rohrbachgraben |          339 |   0.998565 |   0.999995 |    0.00143032 |    1682625 |
-| Renens (VD)    |         5591 |   0.998612 |   0.999992 |    0.00138062 |    1685116 |
-| Prilly         |         5589 |   0.998354 |   0.999391 |    0.00103741 |    1685109 |
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Fürstenau              |         3633 |   0.996862 |   0.999992 |    0.00313015 |    1684084 |
+| Lichtensteig           |         3374 |   0.997039 |   0.999993 |    0.00295326 |    1683902 |
+| Hüniken                |         2524 |   0.997124 |   0.99999  |    0.00286557 |    1683530 |
+| Grandevent             |         5560 |   0.998179 |   0.999992 |    0.00181359 |    1684994 |
+| Echandens              |         5633 |   0.998419 |   0.999994 |    0.00157541 |    1684953 |
+| Bussigny               |         5624 |   0.998614 |   0.999993 |    0.00137906 |    1684875 |
+| Fontaines-sur-Grandson |         5557 |   0.998809 |   0.999992 |    0.00118334 |    1684975 |
+| Wengi                  |          394 |   0.998904 |   0.999995 |    0.00109143 |    1682719 |
+| Bremblens              |         5622 |   0.997869 |   0.998955 |    0.00108672 |    1684866 |
+| Vuadens                |         2160 |   0.998947 |   0.999995 |    0.00104853 |    1683425 |
 
 ## Most Deteriorated (if historical data available)
 

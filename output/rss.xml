@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 03 Aug 2026 05:43:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 05:16:36 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-04: 11 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.064 m ▼</li></ul><h3>Improvements (11)</h3><ul><li><strong>Vuadens</strong> (BFS 2160) <a href="https://www.openstreetmap.org/relation/1683425">OSM</a>: IoU 0.9989 → 1.0000 (+0.0010)</li><li><strong>Fürstenau</strong> (BFS 3633) <a href="https://www.openstreetmap.org/relation/1684084">OSM</a>: IoU 0.9969 → 1.0000 (+0.0031)</li><li><strong>Hüniken</strong> (BFS 2524) <a href="https://www.openstreetmap.org/relation/1683530">OSM</a>: IoU 0.9971 → 1.0000 (+0.0029)</li><li><strong>Echandens</strong> (BFS 5633) <a href="https://www.openstreetmap.org/relation/1684953">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Le Pâquier (FR)</strong> (BFS 2145) <a href="https://www.openstreetmap.org/relation/1683353">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Lichtensteig</strong> (BFS 3374) <a href="https://www.openstreetmap.org/relation/1683902">OSM</a>: IoU 0.9970 → 1.0000 (+0.0030)</li><li><strong>Fontaines-sur-Grandson</strong> (BFS 5557) <a href="https://www.openstreetmap.org/relation/1684975">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Wengi</strong> (BFS 394) <a href="https://www.openstreetmap.org/relation/1682719">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Grandevent</strong> (BFS 5560) <a href="https://www.openstreetmap.org/relation/1684994">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Bussigny</strong> (BFS 5624) <a href="https://www.openstreetmap.org/relation/1684875">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Bremblens</strong> (BFS 5622) <a href="https://www.openstreetmap.org/relation/1684866">OSM</a>: IoU 0.9979 → 0.9990 (+0.0011)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-04</guid>
+    </item>
     <item>
       <title>2026-08-03: 6 improvements</title>
       <link>https://boundaries.osm.ch/</link>
