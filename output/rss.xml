@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 04 Aug 2026 05:16:36 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 05:16:45 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-05: 7 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.033 m ▼</li></ul><h3>Improvements (7)</h3><ul><li><strong>Mont-Tramelan</strong> (BFS 437) <a href="https://www.openstreetmap.org/relation/1682557">OSM</a>: IoU 0.9972 → 1.0000 (+0.0028)</li><li><strong>Yens</strong> (BFS 5655) <a href="https://www.openstreetmap.org/relation/1685205">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Lüscherz</strong> (BFS 497) <a href="https://www.openstreetmap.org/relation/1682542">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Bennwil</strong> (BFS 2882) <a href="https://www.openstreetmap.org/relation/1683621">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Salenstein</strong> (BFS 4851) <a href="https://www.openstreetmap.org/relation/1684553">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Hagneck</strong> (BFS 736) <a href="https://www.openstreetmap.org/relation/1682468">OSM</a>: IoU 0.9958 → 1.0000 (+0.0042)</li><li><strong>Villars-sous-Yens</strong> (BFS 5652) <a href="https://www.openstreetmap.org/relation/1685191">OSM</a>: IoU 0.9977 → 1.0000 (+0.0023)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-05</guid>
+    </item>
     <item>
       <title>2026-08-04: 11 improvements</title>
       <link>https://boundaries.osm.ch/</link>
