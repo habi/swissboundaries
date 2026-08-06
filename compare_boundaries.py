@@ -394,7 +394,7 @@ def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
             for part in parts:
                 # 3. Create a unique feature for every single segment
                 # This ensures the GeoJSON is a collection of lines, not one big one
-                props = {"source": "swisstopo SWISSBOUNDARIES3D"}
+                props = {"source": "swisstopo swissBOUNDARIES3D"}
                 if source_date:
                     props["source:date"] = source_date
                 features.append(
