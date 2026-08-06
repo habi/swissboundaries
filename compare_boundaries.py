@@ -1484,7 +1484,11 @@ def generate_rss_feed(
 
     # Build item title
     n_impr = len(improvements)
-    n_det = len(deteriorations) + len(area_diff_deteriorations) + len(hausdorff_deteriorations)
+    n_det = (
+        len(deteriorations)
+        + len(area_diff_deteriorations)
+        + len(hausdorff_deteriorations)
+    )
     n_removed = len(newly_missing)
     n_restored = len(resolved_removals)
 
@@ -1494,7 +1498,9 @@ def generate_rss_feed(
     if n_det:
         title_parts.append(f"{n_det} deterioration{'s' if n_det != 1 else ''}")
     if n_removed:
-        title_parts.append(f"{n_removed} BFS tag removal{'s' if n_removed != 1 else ''}")
+        title_parts.append(
+            f"{n_removed} BFS tag removal{'s' if n_removed != 1 else ''}"
+        )
     if n_restored:
         title_parts.append(
             f"{n_restored} BFS tag restoration{'s' if n_restored != 1 else ''}"
@@ -1508,14 +1514,20 @@ def generate_rss_feed(
     # Build HTML description (will be wrapped in CDATA)
     html = []
 
-    if iou_change is not None or area_diff_change is not None or hausdorff_change is not None:
+    if (
+        iou_change is not None
+        or area_diff_change is not None
+        or hausdorff_change is not None
+    ):
         html.append("<h3>Global metric changes</h3><ul>")
         if iou_change is not None:
             arrow = "▲" if iou_change > 0 else "▼"
             html.append(f"<li>Mean IoU: {iou_change:+.4f} {arrow}</li>")
         if area_diff_change is not None:
             arrow = "▼" if area_diff_change < 0 else "▲"
-            html.append(f"<li>Mean area difference: {area_diff_change:+.4f} pp {arrow}</li>")
+            html.append(
+                f"<li>Mean area difference: {area_diff_change:+.4f} pp {arrow}</li>"
+            )
         if hausdorff_change is not None:
             arrow = "▼" if hausdorff_change < 0 else "▲"
             html.append(
