@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 06 Aug 2026 05:19:01 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 04:27:20 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-07: 2 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.038 m ▼</li></ul><h3>Improvements (2)</h3><ul><li><strong>Oulens-sous-Echallens</strong> (BFS 5529) <a href="https://www.openstreetmap.org/relation/1685088">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Henggart</strong> (BFS 31) <a href="https://www.openstreetmap.org/relation/1682135">OSM</a>: IoU 0.9973 → 1.0000 (+0.0027)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-07</guid>
+    </item>
     <item>
       <title>2026-08-06: 10 improvements, 1 deterioration</title>
       <link>https://boundaries.osm.ch/</link>

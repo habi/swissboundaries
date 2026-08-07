@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source": "swisstopo swissBOUNDARIES3D",
         "source:date": "2026-01-01"
       },
       "geometry": {
@@ -1292,7 +1292,7 @@
     {
       "type": "Feature",
       "properties": {
-        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source": "swisstopo swissBOUNDARIES3D",
         "source:date": "2026-01-01"
       },
       "geometry": {
@@ -1448,7 +1448,7 @@
     {
       "type": "Feature",
       "properties": {
-        "source": "swisstopo SWISSBOUNDARIES3D",
+        "source": "swisstopo swissBOUNDARIES3D",
         "source:date": "2026-01-01"
       },
       "geometry": {
