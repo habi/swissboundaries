@@ -6,11 +6,11 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 08 Aug 2026 03:27:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 05:38:14 GMT</lastBuildDate>
     <item>
-      <title>2026-08-08: 6 improvements, 1 deterioration</title>
+      <title>2026-08-08: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
-      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.025 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Chigny</strong> (BFS 5628) <a href="https://www.openstreetmap.org/relation/1684904">OSM</a>: IoU 0.9976 → 0.9999 (+0.0023)</li><li><strong>Kammersrohr</strong> (BFS 2549) <a href="https://www.openstreetmap.org/relation/1683531">OSM</a>: IoU 0.9970 → 1.0000 (+0.0030)</li><li><strong>Wiedlisbach</strong> (BFS 995) <a href="https://www.openstreetmap.org/relation/1682721">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Rumisberg</strong> (BFS 987) <a href="https://www.openstreetmap.org/relation/1682629">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Hubersdorf</strong> (BFS 2548) <a href="https://www.openstreetmap.org/relation/1683527">OSM</a>: IoU 0.9974 → 0.9995 (+0.0021)</li><li><strong>Birsfelden</strong> (BFS 2766) <a href="https://www.openstreetmap.org/relation/1683626">OSM</a>: IoU 0.9974 → 1.0000 (+0.0026)</li></ul><h3>Hausdorff distance deteriorations (1)</h3><ul><li><strong>Grossaffoltern</strong> (BFS 303) <a href="https://www.openstreetmap.org/relation/1682458">OSM</a>: 0.013 m → 4.195 m (+4.182 m)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▼</li><li>Mean area difference: +0.0000 pp ▲</li><li>Mean Hausdorff distance: +0.000 m ▲</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
       <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-08</guid>
     </item>

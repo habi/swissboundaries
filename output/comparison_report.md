@@ -1,4 +1,4 @@
-Generated: 2026-08-08 03:26:52 UTC
+Generated: 2026-08-08 05:38:06 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-08-08 03:26:52 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-07)
+## Historical Comparison (vs 2026-08-08)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,10 +37,10 @@ Generated: 2026-08-08 03:26:52 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.009% |
 | Current mean area difference     |   0.009% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   2.008 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   1.983 |
 | Current mean Hausdorff distance  |   1.983 |
-| Hausdorff change                 |  -0.025 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,24 +59,11 @@ Generated: 2026-08-08 03:26:52 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Kammersrohr |         2549 |   0.996999 |   0.999994 |    0.00299502 |    1683531 |
-| Birsfelden  |         2766 |   0.997411 |   0.999994 |    0.00258297 |    1683626 |
-| Chigny      |         5628 |   0.997607 |   0.999864 |    0.00225675 |    1684904 |
-| Hubersdorf  |         2548 |   0.997447 |   0.99954  |    0.00209281 |    1683527 |
-| Rumisberg   |          987 |   0.99799  |   0.999994 |    0.00200385 |    1682629 |
-| Wiedlisbach |          995 |   0.998629 |   0.999994 |    0.0013652  |    1682721 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name           |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:---------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Grossaffoltern |          303 |    1682458 | https://www.openstreetmap.org/relation/1682458 | https://www.openstreetmap.org/?mlat=47.060182&mlon=7.328737#map=16/47.060182/7.328737 |              0.013 |              4.195 |        4.182 | https://www.openstreetmap.org/changeset/186869232 | SimonPoole       | 2026-08-03T12:54:00Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
