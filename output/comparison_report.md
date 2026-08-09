@@ -1,4 +1,4 @@
-Generated: 2026-08-08 05:38:06 UTC
+Generated: 2026-08-09 03:43:35 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-08-08 05:38:06 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.009% |
 | Mean symmetric difference | 0.041% |
-| Mean Hausdorff distance   | 1.9832 |
+| Mean Hausdorff distance   | 1.9435 |
 
 ## Quality Distribution
 
@@ -37,10 +37,10 @@ Generated: 2026-08-08 05:38:06 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.009% |
 | Current mean area difference     |   0.009% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   1.983 |
-| Current mean Hausdorff distance  |   1.983 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   1.943 |
+| Hausdorff change                 |  -0.040 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,11 +59,23 @@ Generated: 2026-08-08 05:38:06 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-----------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Rumendingen            |          421 |   0.998255 |   0.99982  |    0.00156551 |    1682628 |
+| Rüti (ZH)              |          118 |   0.998676 |   0.999995 |    0.00131926 |    1682201 |
+| Bütschwil-Ganterschwil |         3395 |   0.998888 |   0.999996 |    0.00110804 |    2727986 |
+| Dürnten                |          113 |   0.998927 |   0.999996 |    0.00106883 |    1682112 |
+| Niederbuchsiten        |         2405 |   0.998969 |   0.999996 |    0.00102616 |    1683556 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Mauren |         7008 |    1155951 | https://www.openstreetmap.org/relation/1155951 | https://www.openstreetmap.org/?mlat=47.203110&mlon=9.583172#map=16/47.203110/9.583172 |              0.014 |              1.725 |        1.711 | https://www.openstreetmap.org/changeset/185452688 | SimonPoole       | 2026-07-10T05:43:00Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
