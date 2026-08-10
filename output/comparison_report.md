@@ -1,4 +1,4 @@
-Generated: 2026-08-09 03:43:35 UTC
+Generated: 2026-08-10 03:55:59 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-09 03:43:35 UTC
 | Mean IoU                  | 0.9996 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.009% |
-| Mean symmetric difference | 0.041% |
-| Mean Hausdorff distance   | 1.9435 |
+| Mean symmetric difference | 0.040% |
+| Mean Hausdorff distance   | 1.8966 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-09 03:43:35 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-08)
+## Historical Comparison (vs 2026-08-09)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-09 03:43:35 UTC
 | Previous mean area difference    |   0.009% |
 | Current mean area difference     |   0.009% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.983 |
-| Current mean Hausdorff distance  |   1.943 |
-| Hausdorff change                 |  -0.040 |
+| Previous mean Hausdorff distance |   1.943 |
+| Current mean Hausdorff distance  |   1.897 |
+| Hausdorff change                 |  -0.047 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,23 +59,21 @@ Generated: 2026-08-09 03:43:35 UTC
 
 ## Most Improved (if historical data available)
 
-| name                   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Rumendingen            |          421 |   0.998255 |   0.99982  |    0.00156551 |    1682628 |
-| Rüti (ZH)              |          118 |   0.998676 |   0.999995 |    0.00131926 |    1682201 |
-| Bütschwil-Ganterschwil |         3395 |   0.998888 |   0.999996 |    0.00110804 |    2727986 |
-| Dürnten                |          113 |   0.998927 |   0.999996 |    0.00106883 |    1682112 |
-| Niederbuchsiten        |         2405 |   0.998969 |   0.999996 |    0.00102616 |    1683556 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Erlenbach (ZH)  |          151 |   0.997646 |   0.999989 |    0.00234286 |    1682119 |
+| Oberhünigen     |          629 |   0.998285 |   0.999995 |    0.00170977 |    1682589 |
+| Mirchel         |          615 |   0.998474 |   0.999992 |    0.0015173  |    1682555 |
+| Niederhünigen   |          617 |   0.998684 |   0.999994 |    0.0013101  |    1682575 |
+| Küsnacht (ZH)   |          154 |   0.998714 |   0.999995 |    0.00128155 |    1682157 |
+| Pregny-Chambésy |         6634 |   0.998724 |   0.999905 |    0.00118093 |    1685524 |
+| Herrliberg      |          152 |   0.998883 |   0.999996 |    0.00111275 |    1682136 |
+| Starrkirch-Wil  |         2584 |   0.997827 |   0.998902 |    0.00107569 |    1683578 |
+| Carouge (GE)    |         6608 |   0.998974 |   0.999992 |    0.00101827 |    1685459 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Mauren |         7008 |    1155951 | https://www.openstreetmap.org/relation/1155951 | https://www.openstreetmap.org/?mlat=47.203110&mlon=9.583172#map=16/47.203110/9.583172 |              0.014 |              1.725 |        1.711 | https://www.openstreetmap.org/changeset/185452688 | SimonPoole       | 2026-07-10T05:43:00Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
