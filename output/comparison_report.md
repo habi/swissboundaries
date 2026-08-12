@@ -1,4 +1,4 @@
-Generated: 2026-08-11 03:45:18 UTC
+Generated: 2026-08-12 04:09:02 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-11 03:45:18 UTC
 | Mean IoU                  | 0.9996 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.009% |
-| Mean symmetric difference | 0.039% |
-| Mean Hausdorff distance   | 1.8806 |
+| Mean symmetric difference | 0.038% |
+| Mean Hausdorff distance   | 1.8275 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-11 03:45:18 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-10)
+## Historical Comparison (vs 2026-08-11)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,16 +38,15 @@ Generated: 2026-08-11 03:45:18 UTC
 | Previous mean area difference    |   0.009% |
 | Current mean area difference     |   0.009% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.897 |
-| Current mean Hausdorff distance  |   1.881 |
-| Hausdorff change                 |  -0.016 |
+| Previous mean Hausdorff distance |   1.881 |
+| Current mean Hausdorff distance  |   1.827 |
+| Hausdorff change                 |  -0.053 |
 
 ## Worst 10 Matches (by IoU)
 
 | name            |   bfs_nummer |      iou |   area_diff_pct |
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.981348 |       1.54249   |
-| Regensberg      |           95 | 0.996494 |       0.0141785 |
 | Dozwil          |         4406 | 0.996898 |       0.103515  |
 | Dättlikon       |          215 | 0.997101 |       0.0819724 |
 | Borex           |         5706 | 0.997201 |       0.0270045 |
@@ -56,26 +55,25 @@ Generated: 2026-08-11 03:45:18 UTC
 | Masein          |         3663 | 0.997455 |       0.0107846 |
 | Obergerlafingen |         2528 | 0.997484 |       0.0485894 |
 | Jaberg          |          868 | 0.997524 |       0.0534641 |
+| Chêne-Bourg     |         6613 | 0.997545 |       0.149029  |
 
 ## Most Improved (if historical data available)
 
 | name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
 |:--------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Noble-Contrée |         6254 |   0.998837 |   0.999995 |    0.00115817 |    1685395 |
-| Yvorne        |         5415 |   0.998839 |   0.999996 |    0.00115721 |    1685208 |
-| Aigle         |         5401 |   0.998905 |   0.999996 |    0.00109096 |    1684831 |
-| Gerzensee     |          866 |   0.998972 |   0.999996 |    0.00102487 |    1682451 |
+| Regensberg    |           95 |   0.996494 |   0.99999  |    0.0034956  |    1682191 |
+| Steckborn     |         4864 |   0.998172 |   0.999995 |    0.00182229 |    1684559 |
+| Berlingen     |         4801 |   0.998225 |   0.999992 |    0.00176717 |    1684503 |
+| Neerach       |           88 |   0.998327 |   0.999994 |    0.0016662  |    1682169 |
+| Steinmaur     |          101 |   0.998357 |   0.999995 |    0.00163795 |    1682212 |
+| Eichberg      |         3252 |   0.998526 |   0.999994 |    0.0014681  |    1683876 |
+| Schöfflisdorf |           99 |   0.998667 |   0.999896 |    0.0012292  |    1682206 |
+| Homburg       |         4816 |   0.998925 |   0.999997 |    0.00107175 |    1684530 |
+| Rüthi (SG)    |         3256 |   0.998983 |   0.999996 |    0.00101302 |    1683930 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                    | changeset_user   | changeset_timestamp   |
-|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:-------------------------------------------------|:-----------------|:----------------------|
-| Regensberg |           95 |    1682191 | https://www.openstreetmap.org/relation/1682191 | https://www.openstreetmap.org/?mlat=47.481393&mlon=8.409009#map=16/47.481393/8.409009 |              3.487 |             21.004 |       17.517 | https://www.openstreetmap.org/changeset/44224658 | nyuriks          | 2016-12-07T02:43:55Z  |
-| Steinmaur  |          101 |    1682212 | https://www.openstreetmap.org/relation/1682212 | https://www.openstreetmap.org/?mlat=47.511950&mlon=8.452797#map=16/47.511950/8.452797 |              6.118 |             21.004 |       14.886 | https://www.openstreetmap.org/changeset/44224875 | nyuriks          | 2016-12-07T03:13:19Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |

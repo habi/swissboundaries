@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 11 Aug 2026 03:45:29 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 04:09:10 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-12: 9 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.053 m ▼</li></ul><h3>Improvements (9)</h3><ul><li><strong>Berlingen</strong> (BFS 4801) <a href="https://www.openstreetmap.org/relation/1684503">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Eichberg</strong> (BFS 3252) <a href="https://www.openstreetmap.org/relation/1683876">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Steckborn</strong> (BFS 4864) <a href="https://www.openstreetmap.org/relation/1684559">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Homburg</strong> (BFS 4816) <a href="https://www.openstreetmap.org/relation/1684530">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Neerach</strong> (BFS 88) <a href="https://www.openstreetmap.org/relation/1682169">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Regensberg</strong> (BFS 95) <a href="https://www.openstreetmap.org/relation/1682191">OSM</a>: IoU 0.9965 → 1.0000 (+0.0035)</li><li><strong>Schöfflisdorf</strong> (BFS 99) <a href="https://www.openstreetmap.org/relation/1682206">OSM</a>: IoU 0.9987 → 0.9999 (+0.0012)</li><li><strong>Steinmaur</strong> (BFS 101) <a href="https://www.openstreetmap.org/relation/1682212">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Rüthi (SG)</strong> (BFS 3256) <a href="https://www.openstreetmap.org/relation/1683930">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-12</guid>
+    </item>
     <item>
       <title>2026-08-11: 4 improvements, 2 deteriorations</title>
       <link>https://boundaries.osm.ch/</link>
