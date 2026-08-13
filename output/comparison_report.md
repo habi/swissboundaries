@@ -1,4 +1,4 @@
-Generated: 2026-08-12 04:09:02 UTC
+Generated: 2026-08-13 04:13:46 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-12 04:09:02 UTC
 | Mean IoU                  | 0.9996 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.009% |
-| Mean symmetric difference | 0.038% |
-| Mean Hausdorff distance   | 1.8275 |
+| Mean symmetric difference | 0.037% |
+| Mean Hausdorff distance   | 1.7935 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-12 04:09:02 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-11)
+## Historical Comparison (vs 2026-08-12)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-12 04:09:02 UTC
 | Previous mean area difference    |   0.009% |
 | Current mean area difference     |   0.009% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.881 |
-| Current mean Hausdorff distance  |   1.827 |
-| Hausdorff change                 |  -0.053 |
+| Previous mean Hausdorff distance |   1.827 |
+| Current mean Hausdorff distance  |   1.794 |
+| Hausdorff change                 |  -0.034 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,21 +59,24 @@ Generated: 2026-08-12 04:09:02 UTC
 
 ## Most Improved (if historical data available)
 
-| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:--------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Regensberg    |           95 |   0.996494 |   0.99999  |    0.0034956  |    1682191 |
-| Steckborn     |         4864 |   0.998172 |   0.999995 |    0.00182229 |    1684559 |
-| Berlingen     |         4801 |   0.998225 |   0.999992 |    0.00176717 |    1684503 |
-| Neerach       |           88 |   0.998327 |   0.999994 |    0.0016662  |    1682169 |
-| Steinmaur     |          101 |   0.998357 |   0.999995 |    0.00163795 |    1682212 |
-| Eichberg      |         3252 |   0.998526 |   0.999994 |    0.0014681  |    1683876 |
-| Schöfflisdorf |           99 |   0.998667 |   0.999896 |    0.0012292  |    1682206 |
-| Homburg       |         4816 |   0.998925 |   0.999997 |    0.00107175 |    1684530 |
-| Rüthi (SG)    |         3256 |   0.998983 |   0.999996 |    0.00101302 |    1683930 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Oberengstringen |          245 |   0.997905 |   0.99999  |    0.00208447 |    1682176 |
+| Ipsach          |          739 |   0.998453 |   0.999992 |    0.00153886 |    1682494 |
+| Port            |          745 |   0.998514 |   0.999991 |    0.00147699 |    1682609 |
+| Weesen          |         3316 |   0.998611 |   0.999994 |    0.00138258 |    1683963 |
+| Nidau           |          743 |   0.998878 |   0.999991 |    0.0011126  |    1682573 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Buchs (SG) |         3271 |    1683869 | https://www.openstreetmap.org/relation/1683869 | https://www.openstreetmap.org/?mlat=47.158983&mlon=9.493800#map=16/47.158983/9.493800 |              0.016 |             15.288 |       15.272 | https://www.openstreetmap.org/changeset/180952632 | SimonPoole       | 2026-04-06T15:06:25Z  |
+| Schaan     |         7005 |    1155952 | https://www.openstreetmap.org/relation/1155952 | https://www.openstreetmap.org/?mlat=47.112380&mlon=9.622924#map=16/47.112380/9.622924 |              2.046 |             15.288 |       13.242 | https://www.openstreetmap.org/changeset/185461449 | SimonPoole       | 2026-07-10T09:05:06Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |

@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 12 Aug 2026 04:09:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 04:13:58 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-13: 5 improvements, 2 deteriorations</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.034 m ▼</li></ul><h3>Improvements (5)</h3><ul><li><strong>Nidau</strong> (BFS 743) <a href="https://www.openstreetmap.org/relation/1682573">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Weesen</strong> (BFS 3316) <a href="https://www.openstreetmap.org/relation/1683963">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Oberengstringen</strong> (BFS 245) <a href="https://www.openstreetmap.org/relation/1682176">OSM</a>: IoU 0.9979 → 1.0000 (+0.0021)</li><li><strong>Ipsach</strong> (BFS 739) <a href="https://www.openstreetmap.org/relation/1682494">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Port</strong> (BFS 745) <a href="https://www.openstreetmap.org/relation/1682609">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li></ul><h3>Hausdorff distance deteriorations (2)</h3><ul><li><strong>Buchs (SG)</strong> (BFS 3271) <a href="https://www.openstreetmap.org/relation/1683869">OSM</a>: 0.016 m → 15.288 m (+15.272 m)</li><li><strong>Schaan</strong> (BFS 7005) <a href="https://www.openstreetmap.org/relation/1155952">OSM</a>: 2.046 m → 15.288 m (+13.242 m)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-13</guid>
+    </item>
     <item>
       <title>2026-08-12: 9 improvements</title>
       <link>https://boundaries.osm.ch/</link>
