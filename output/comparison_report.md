@@ -1,4 +1,4 @@
-Generated: 2026-08-13 04:13:46 UTC
+Generated: 2026-08-14 04:10:41 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-08-13 04:13:46 UTC
 |---------------------------|--------|
 | Mean IoU                  | 0.9996 |
 | Median IoU                | 1.0000 |
-| Mean area difference      | 0.009% |
-| Mean symmetric difference | 0.037% |
-| Mean Hausdorff distance   | 1.7935 |
+| Mean area difference      | 0.008% |
+| Mean symmetric difference | 0.036% |
+| Mean Hausdorff distance   | 1.7397 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-13 04:13:46 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-12)
+## Historical Comparison (vs 2026-08-13)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -36,11 +36,11 @@ Generated: 2026-08-13 04:13:46 UTC
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.009% |
-| Current mean area difference     |   0.009% |
+| Current mean area difference     |   0.008% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.827 |
-| Current mean Hausdorff distance  |   1.794 |
-| Hausdorff change                 |  -0.034 |
+| Previous mean Hausdorff distance |   1.794 |
+| Current mean Hausdorff distance  |   1.740 |
+| Hausdorff change                 |  -0.054 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -52,31 +52,25 @@ Generated: 2026-08-13 04:13:46 UTC
 | Borex           |         5706 | 0.997201 |       0.0270045 |
 | Prévonloup      |         5683 | 0.997366 |       0.0700191 |
 | Lovatens        |         5674 | 0.997373 |       0.0372413 |
-| Masein          |         3663 | 0.997455 |       0.0107846 |
 | Obergerlafingen |         2528 | 0.997484 |       0.0485894 |
-| Jaberg          |          868 | 0.997524 |       0.0534641 |
 | Chêne-Bourg     |         6613 | 0.997545 |       0.149029  |
+| Bolken          |         2514 | 0.997583 |       0.039324  |
+| Volken          |           43 | 0.997648 |       0.0191702 |
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Oberengstringen |          245 |   0.997905 |   0.99999  |    0.00208447 |    1682176 |
-| Ipsach          |          739 |   0.998453 |   0.999992 |    0.00153886 |    1682494 |
-| Port            |          745 |   0.998514 |   0.999991 |    0.00147699 |    1682609 |
-| Weesen          |         3316 |   0.998611 |   0.999994 |    0.00138258 |    1683963 |
-| Nidau           |          743 |   0.998878 |   0.999991 |    0.0011126  |    1682573 |
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-----------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Masein     |         3663 |   0.997455 |   0.999995 |    0.00253962 |    1684114 |
+| Jaberg     |          868 |   0.997524 |   0.999992 |    0.00246791 |    1682497 |
+| Ederswiler |         6713 |   0.997933 |   0.999994 |    0.00206103 |    1685598 |
+| Jenins     |         3952 |   0.998507 |   0.999994 |    0.00148747 |    1684093 |
+| Tannay     |         5729 |   0.998714 |   0.999991 |    0.00127706 |    1685161 |
+| Saulcy     |         6722 |   0.998728 |   0.999914 |    0.00118645 |    1685628 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Buchs (SG) |         3271 |    1683869 | https://www.openstreetmap.org/relation/1683869 | https://www.openstreetmap.org/?mlat=47.158983&mlon=9.493800#map=16/47.158983/9.493800 |              0.016 |             15.288 |       15.272 | https://www.openstreetmap.org/changeset/180952632 | SimonPoole       | 2026-04-06T15:06:25Z  |
-| Schaan     |         7005 |    1155952 | https://www.openstreetmap.org/relation/1155952 | https://www.openstreetmap.org/?mlat=47.112380&mlon=9.622924#map=16/47.112380/9.622924 |              2.046 |             15.288 |       13.242 | https://www.openstreetmap.org/changeset/185461449 | SimonPoole       | 2026-07-10T09:05:06Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |

@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 13 Aug 2026 04:13:58 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 04:10:50 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-14: 6 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0003 pp ▼</li><li>Mean Hausdorff distance: -0.054 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Tannay</strong> (BFS 5729) <a href="https://www.openstreetmap.org/relation/1685161">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Saulcy</strong> (BFS 6722) <a href="https://www.openstreetmap.org/relation/1685628">OSM</a>: IoU 0.9987 → 0.9999 (+0.0012)</li><li><strong>Masein</strong> (BFS 3663) <a href="https://www.openstreetmap.org/relation/1684114">OSM</a>: IoU 0.9975 → 1.0000 (+0.0025)</li><li><strong>Jenins</strong> (BFS 3952) <a href="https://www.openstreetmap.org/relation/1684093">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Ederswiler</strong> (BFS 6713) <a href="https://www.openstreetmap.org/relation/1685598">OSM</a>: IoU 0.9979 → 1.0000 (+0.0021)</li><li><strong>Jaberg</strong> (BFS 868) <a href="https://www.openstreetmap.org/relation/1682497">OSM</a>: IoU 0.9975 → 1.0000 (+0.0025)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-14</guid>
+    </item>
     <item>
       <title>2026-08-13: 5 improvements, 2 deteriorations</title>
       <link>https://boundaries.osm.ch/</link>
