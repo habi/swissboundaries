@@ -1,4 +1,4 @@
-Generated: 2026-08-14 04:10:41 UTC
+Generated: 2026-08-15 02:53:16 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-08-14 04:10:41 UTC
 
 | Metric                    | Value  |
 |---------------------------|--------|
-| Mean IoU                  | 0.9996 |
+| Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.008% |
-| Mean symmetric difference | 0.036% |
-| Mean Hausdorff distance   | 1.7397 |
+| Mean symmetric difference | 0.035% |
+| Mean Hausdorff distance   | 1.6951 |
 
 ## Quality Distribution
 
@@ -28,19 +28,19 @@ Generated: 2026-08-14 04:10:41 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-13)
+## Historical Comparison (vs 2026-08-14)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
-| Previous mean area difference    |   0.009% |
+| Previous mean area difference    |   0.008% |
 | Current mean area difference     |   0.008% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.794 |
-| Current mean Hausdorff distance  |   1.740 |
-| Hausdorff change                 |  -0.054 |
+| Previous mean Hausdorff distance |   1.740 |
+| Current mean Hausdorff distance  |   1.695 |
+| Hausdorff change                 |  -0.045 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -54,19 +54,18 @@ Generated: 2026-08-14 04:10:41 UTC
 | Lovatens        |         5674 | 0.997373 |       0.0372413 |
 | Obergerlafingen |         2528 | 0.997484 |       0.0485894 |
 | Chêne-Bourg     |         6613 | 0.997545 |       0.149029  |
-| Bolken          |         2514 | 0.997583 |       0.039324  |
 | Volken          |           43 | 0.997648 |       0.0191702 |
+| Crassier        |         5714 | 0.997672 |       0.147564  |
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Masein     |         3663 |   0.997455 |   0.999995 |    0.00253962 |    1684114 |
-| Jaberg     |          868 |   0.997524 |   0.999992 |    0.00246791 |    1682497 |
-| Ederswiler |         6713 |   0.997933 |   0.999994 |    0.00206103 |    1685598 |
-| Jenins     |         3952 |   0.998507 |   0.999994 |    0.00148747 |    1684093 |
-| Tannay     |         5729 |   0.998714 |   0.999991 |    0.00127706 |    1685161 |
-| Saulcy     |         6722 |   0.998728 |   0.999914 |    0.00118645 |    1685628 |
+| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:------------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Feldbrunnen-St. Niklaus |         2544 |   0.99769  |   0.999991 |    0.00230068 |    1683504 |
+| Bettenhausen            |          973 |   0.997997 |   0.999995 |    0.00199867 |    1682379 |
+| Balm bei Günsberg       |         2541 |   0.998026 |   0.999993 |    0.0019664  |    1683477 |
+| Aeschi (SO)             |         2511 |   0.998174 |   0.999994 |    0.00181988 |    1683474 |
+| Reisiswil               |          336 |   0.998296 |   0.99999  |    0.00169353 |    1682617 |
 
 ## Most Deteriorated (if historical data available)
 

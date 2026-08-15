@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 14 Aug 2026 04:10:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 02:53:24 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-15: 5 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.045 m ▼</li></ul><h3>Improvements (5)</h3><ul><li><strong>Aeschi (SO)</strong> (BFS 2511) <a href="https://www.openstreetmap.org/relation/1683474">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Balm bei Günsberg</strong> (BFS 2541) <a href="https://www.openstreetmap.org/relation/1683477">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Feldbrunnen-St. Niklaus</strong> (BFS 2544) <a href="https://www.openstreetmap.org/relation/1683504">OSM</a>: IoU 0.9977 → 1.0000 (+0.0023)</li><li><strong>Bettenhausen</strong> (BFS 973) <a href="https://www.openstreetmap.org/relation/1682379">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Reisiswil</strong> (BFS 336) <a href="https://www.openstreetmap.org/relation/1682617">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-15</guid>
+    </item>
     <item>
       <title>2026-08-14: 6 improvements</title>
       <link>https://boundaries.osm.ch/</link>
