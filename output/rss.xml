@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 15 Aug 2026 02:53:24 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 03:01:09 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-16: 6 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.041 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Tavannes</strong> (BFS 713) <a href="https://www.openstreetmap.org/relation/1682679">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Crémines</strong> (BFS 691) <a href="https://www.openstreetmap.org/relation/1682417">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Corcelles (BE)</strong> (BFS 687) <a href="https://www.openstreetmap.org/relation/1682411">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Buch am Irchel</strong> (BFS 24) <a href="https://www.openstreetmap.org/relation/1682097">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Reconvilier</strong> (BFS 703) <a href="https://www.openstreetmap.org/relation/1682615">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Dättlikon</strong> (BFS 215) <a href="https://www.openstreetmap.org/relation/1682110">OSM</a>: IoU 0.9971 → 1.0000 (+0.0029)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-16</guid>
+    </item>
     <item>
       <title>2026-08-15: 5 improvements</title>
       <link>https://boundaries.osm.ch/</link>

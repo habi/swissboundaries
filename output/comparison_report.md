@@ -1,4 +1,4 @@
-Generated: 2026-08-15 02:53:16 UTC
+Generated: 2026-08-16 03:01:00 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-15 02:53:16 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.008% |
-| Mean symmetric difference | 0.035% |
-| Mean Hausdorff distance   | 1.6951 |
+| Mean symmetric difference | 0.034% |
+| Mean Hausdorff distance   | 1.6538 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-15 02:53:16 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-14)
+## Historical Comparison (vs 2026-08-15)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,34 +38,35 @@ Generated: 2026-08-15 02:53:16 UTC
 | Previous mean area difference    |   0.008% |
 | Current mean area difference     |   0.008% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.740 |
-| Current mean Hausdorff distance  |   1.695 |
-| Hausdorff change                 |  -0.045 |
+| Previous mean Hausdorff distance |   1.695 |
+| Current mean Hausdorff distance  |   1.654 |
+| Hausdorff change                 |  -0.041 |
 
 ## Worst 10 Matches (by IoU)
 
-| name            |   bfs_nummer |      iou |   area_diff_pct |
-|:----------------|-------------:|---------:|----------------:|
-| Eschenz         |         4806 | 0.981348 |       1.54249   |
-| Dozwil          |         4406 | 0.996898 |       0.103515  |
-| Dättlikon       |          215 | 0.997101 |       0.0819724 |
-| Borex           |         5706 | 0.997201 |       0.0270045 |
-| Prévonloup      |         5683 | 0.997366 |       0.0700191 |
-| Lovatens        |         5674 | 0.997373 |       0.0372413 |
-| Obergerlafingen |         2528 | 0.997484 |       0.0485894 |
-| Chêne-Bourg     |         6613 | 0.997545 |       0.149029  |
-| Volken          |           43 | 0.997648 |       0.0191702 |
-| Crassier        |         5714 | 0.997672 |       0.147564  |
+| name             |   bfs_nummer |      iou |   area_diff_pct |
+|:-----------------|-------------:|---------:|----------------:|
+| Eschenz          |         4806 | 0.981348 |       1.54249   |
+| Dozwil           |         4406 | 0.996898 |       0.103515  |
+| Borex            |         5706 | 0.997201 |       0.0270045 |
+| Prévonloup       |         5683 | 0.997366 |       0.0700191 |
+| Lovatens         |         5674 | 0.997373 |       0.0372413 |
+| Obergerlafingen  |         2528 | 0.997484 |       0.0485894 |
+| Chêne-Bourg      |         6613 | 0.997545 |       0.149029  |
+| Crassier         |         5714 | 0.997672 |       0.147564  |
+| Rüti bei Lyssach |          422 | 0.997693 |       0.0357847 |
+| Chêne-Pâquier    |         5908 | 0.99773  |       0.0210398 |
 
 ## Most Improved (if historical data available)
 
-| name                    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:------------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Feldbrunnen-St. Niklaus |         2544 |   0.99769  |   0.999991 |    0.00230068 |    1683504 |
-| Bettenhausen            |          973 |   0.997997 |   0.999995 |    0.00199867 |    1682379 |
-| Balm bei Günsberg       |         2541 |   0.998026 |   0.999993 |    0.0019664  |    1683477 |
-| Aeschi (SO)             |         2511 |   0.998174 |   0.999994 |    0.00181988 |    1683474 |
-| Reisiswil               |          336 |   0.998296 |   0.99999  |    0.00169353 |    1682617 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Dättlikon      |          215 |   0.997101 |   0.999992 |    0.00289121 |    1682110 |
+| Buch am Irchel |           24 |   0.998413 |   0.999996 |    0.00158253 |    1682097 |
+| Crémines       |          691 |   0.998855 |   0.999995 |    0.00114081 |    1682417 |
+| Reconvilier    |          703 |   0.998865 |   0.999995 |    0.00112983 |    1682615 |
+| Tavannes       |          713 |   0.998869 |   0.999997 |    0.00112767 |    1682679 |
+| Corcelles (BE) |          687 |   0.998905 |   0.999996 |    0.00109101 |    1682411 |
 
 ## Most Deteriorated (if historical data available)
 
