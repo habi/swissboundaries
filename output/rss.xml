@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 16 Aug 2026 03:01:09 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 03:00:47 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-17: 3 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.031 m ▼</li></ul><h3>Improvements (3)</h3><ul><li><strong>Auswil</strong> (BFS 322) <a href="https://www.openstreetmap.org/relation/1682368">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Zuzwil (BE)</strong> (BFS 557) <a href="https://www.openstreetmap.org/relation/1682738">OSM</a>: IoU 0.9981 → 0.9992 (+0.0011)</li><li><strong>Deisswil bei Münchenbuchsee</strong> (BFS 535) <a href="https://www.openstreetmap.org/relation/1682418">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-17</guid>
+    </item>
     <item>
       <title>2026-08-16: 6 improvements</title>
       <link>https://boundaries.osm.ch/</link>

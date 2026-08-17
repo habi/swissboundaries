@@ -1,4 +1,4 @@
-Generated: 2026-08-16 03:01:00 UTC
+Generated: 2026-08-17 03:00:40 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-16 03:01:00 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.008% |
-| Mean symmetric difference | 0.034% |
-| Mean Hausdorff distance   | 1.6538 |
+| Mean symmetric difference | 0.033% |
+| Mean Hausdorff distance   | 1.6224 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-16 03:01:00 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-15)
+## Historical Comparison (vs 2026-08-16)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-16 03:01:00 UTC
 | Previous mean area difference    |   0.008% |
 | Current mean area difference     |   0.008% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.695 |
-| Current mean Hausdorff distance  |   1.654 |
-| Hausdorff change                 |  -0.041 |
+| Previous mean Hausdorff distance |   1.654 |
+| Current mean Hausdorff distance  |   1.622 |
+| Hausdorff change                 |  -0.031 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,14 +59,11 @@ Generated: 2026-08-16 03:01:00 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Dättlikon      |          215 |   0.997101 |   0.999992 |    0.00289121 |    1682110 |
-| Buch am Irchel |           24 |   0.998413 |   0.999996 |    0.00158253 |    1682097 |
-| Crémines       |          691 |   0.998855 |   0.999995 |    0.00114081 |    1682417 |
-| Reconvilier    |          703 |   0.998865 |   0.999995 |    0.00112983 |    1682615 |
-| Tavannes       |          713 |   0.998869 |   0.999997 |    0.00112767 |    1682679 |
-| Corcelles (BE) |          687 |   0.998905 |   0.999996 |    0.00109101 |    1682411 |
+| name                        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Deisswil bei Münchenbuchsee |          535 |   0.997951 |   0.999989 |    0.00203823 |    1682418 |
+| Auswil                      |          322 |   0.998522 |   0.999993 |    0.00147094 |    1682368 |
+| Zuzwil (BE)                 |          557 |   0.998052 |   0.999158 |    0.00110567 |    1682738 |
 
 ## Most Deteriorated (if historical data available)
 
