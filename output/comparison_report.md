@@ -1,4 +1,4 @@
-Generated: 2026-08-18 02:56:35 UTC
+Generated: 2026-08-19 03:05:06 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-08-18 02:56:35 UTC
 |---------------------------|--------|
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
-| Mean area difference      | 0.008% |
-| Mean symmetric difference | 0.032% |
-| Mean Hausdorff distance   | 1.5892 |
+| Mean area difference      | 0.007% |
+| Mean symmetric difference | 0.031% |
+| Mean Hausdorff distance   | 1.5412 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-18 02:56:35 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-17)
+## Historical Comparison (vs 2026-08-18)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -36,11 +36,11 @@ Generated: 2026-08-18 02:56:35 UTC
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.008% |
-| Current mean area difference     |   0.008% |
+| Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.622 |
-| Current mean Hausdorff distance  |   1.589 |
-| Hausdorff change                 |  -0.033 |
+| Previous mean Hausdorff distance |   1.589 |
+| Current mean Hausdorff distance  |   1.541 |
+| Hausdorff change                 |  -0.048 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,15 +59,18 @@ Generated: 2026-08-18 02:56:35 UTC
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Rüti bei Lyssach |          422 |   0.997693 |   0.999986 |    0.00229235 |    1682639 |
-| Münsterlingen    |         4691 |   0.998555 |   0.999993 |    0.00143811 |    1684546 |
-| Luterbach        |         2527 |   0.998627 |   0.999995 |    0.00136773 |    1683544 |
-| Derendingen      |         2517 |   0.998671 |   0.999996 |    0.00132464 |    1683494 |
-| Bottighofen      |         4643 |   0.998677 |   0.999991 |    0.00131337 |    1684509 |
-| Belprahon        |          681 |   0.998768 |   0.999995 |    0.00122649 |    1682376 |
-| Zuchwil          |         2534 |   0.998912 |   0.999994 |    0.00108226 |    1683592 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Volken               |           43 |   0.99791  |   0.999992 |    0.0020812  |    1682226 |
+| Ossingen             |           37 |   0.998123 |   0.999995 |    0.00187255 |    1682185 |
+| Dorf                 |           26 |   0.998146 |   0.999994 |    0.00184881 |    1682106 |
+| Thalheim an der Thur |           39 |   0.998264 |   0.999995 |    0.00173073 |    1682215 |
+| Hettlingen           |          221 |   0.998433 |   0.999995 |    0.00156169 |    1682137 |
+| Schmerikon           |         3338 |   0.998639 |   0.999994 |    0.00135472 |    1683933 |
+| Andelfingen          |          291 |   0.998642 |   0.999996 |    0.00135386 |    1682083 |
+| Dägerlen             |          214 |   0.998719 |   0.999994 |    0.00127497 |    1682107 |
+| Kleinandelfingen     |           33 |   0.998757 |   0.999995 |    0.00123788 |    1682153 |
+| Reute (AR)           |         3035 |   0.998763 |   0.999989 |    0.0012268  |    1683924 |
 
 ## Most Deteriorated (if historical data available)
 
