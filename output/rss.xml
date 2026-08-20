@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 19 Aug 2026 03:05:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 02:58:08 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-20: 7 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.030 m ▼</li></ul><h3>Improvements (7)</h3><ul><li><strong>Vucherens</strong> (BFS 5692) <a href="https://www.openstreetmap.org/relation/1685197">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Teuffenthal (BE)</strong> (BFS 940) <a href="https://www.openstreetmap.org/relation/1682680">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Bannwil</strong> (BFS 323) <a href="https://www.openstreetmap.org/relation/1682370">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Moiry</strong> (BFS 5490) <a href="https://www.openstreetmap.org/relation/1685050">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Syens</strong> (BFS 5688) <a href="https://www.openstreetmap.org/relation/1685159">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Fahy</strong> (BFS 6789) <a href="https://www.openstreetmap.org/relation/1685599">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Cuarnens</strong> (BFS 5479) <a href="https://www.openstreetmap.org/relation/1684934">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-20</guid>
+    </item>
     <item>
       <title>2026-08-19: 12 improvements</title>
       <link>https://boundaries.osm.ch/</link>

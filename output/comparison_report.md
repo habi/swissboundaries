@@ -1,4 +1,4 @@
-Generated: 2026-08-19 03:05:06 UTC
+Generated: 2026-08-20 02:58:00 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-19 03:05:06 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.007% |
-| Mean symmetric difference | 0.031% |
-| Mean Hausdorff distance   | 1.5412 |
+| Mean symmetric difference | 0.030% |
+| Mean Hausdorff distance   | 1.5112 |
 
 ## Quality Distribution
 
@@ -28,19 +28,19 @@ Generated: 2026-08-19 03:05:06 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-18)
+## Historical Comparison (vs 2026-08-19)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
-| Previous mean area difference    |   0.008% |
+| Previous mean area difference    |   0.007% |
 | Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.589 |
-| Current mean Hausdorff distance  |   1.541 |
-| Hausdorff change                 |  -0.048 |
+| Previous mean Hausdorff distance |   1.541 |
+| Current mean Hausdorff distance  |   1.511 |
+| Hausdorff change                 |  -0.030 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,18 +59,15 @@ Generated: 2026-08-19 03:05:06 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Volken               |           43 |   0.99791  |   0.999992 |    0.0020812  |    1682226 |
-| Ossingen             |           37 |   0.998123 |   0.999995 |    0.00187255 |    1682185 |
-| Dorf                 |           26 |   0.998146 |   0.999994 |    0.00184881 |    1682106 |
-| Thalheim an der Thur |           39 |   0.998264 |   0.999995 |    0.00173073 |    1682215 |
-| Hettlingen           |          221 |   0.998433 |   0.999995 |    0.00156169 |    1682137 |
-| Schmerikon           |         3338 |   0.998639 |   0.999994 |    0.00135472 |    1683933 |
-| Andelfingen          |          291 |   0.998642 |   0.999996 |    0.00135386 |    1682083 |
-| Dägerlen             |          214 |   0.998719 |   0.999994 |    0.00127497 |    1682107 |
-| Kleinandelfingen     |           33 |   0.998757 |   0.999995 |    0.00123788 |    1682153 |
-| Reute (AR)           |         3035 |   0.998763 |   0.999989 |    0.0012268  |    1683924 |
+| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Bannwil          |          323 |   0.998312 |   0.999994 |    0.0016825  |    1682370 |
+| Vucherens        |         5692 |   0.998351 |   0.999994 |    0.00164334 |    1685197 |
+| Teuffenthal (BE) |          940 |   0.998463 |   0.999994 |    0.00153097 |    1682680 |
+| Cuarnens         |         5479 |   0.998734 |   0.999995 |    0.00126168 |    1684934 |
+| Syens            |         5688 |   0.998827 |   0.999992 |    0.00116531 |    1685159 |
+| Fahy             |         6789 |   0.998854 |   0.999997 |    0.00114254 |    1685599 |
+| Moiry            |         5490 |   0.998893 |   0.999996 |    0.00110306 |    1685050 |
 
 ## Most Deteriorated (if historical data available)
 
