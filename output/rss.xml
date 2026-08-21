@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 20 Aug 2026 02:58:08 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 03:03:30 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-21: 4 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.033 m ▼</li></ul><h3>Improvements (4)</h3><ul><li><strong>Rorbas</strong> (BFS 68) <a href="https://www.openstreetmap.org/relation/1682197">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Ebikon</strong> (BFS 1054) <a href="https://www.openstreetmap.org/relation/1682826">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Freienstein-Teufen</strong> (BFS 57) <a href="https://www.openstreetmap.org/relation/1682125">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Lavigny</strong> (BFS 5637) <a href="https://www.openstreetmap.org/relation/1685020">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-21</guid>
+    </item>
     <item>
       <title>2026-08-20: 7 improvements</title>
       <link>https://boundaries.osm.ch/</link>

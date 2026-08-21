@@ -1,4 +1,4 @@
-Generated: 2026-08-20 02:58:00 UTC
+Generated: 2026-08-21 03:03:24 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-20 02:58:00 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.007% |
-| Mean symmetric difference | 0.030% |
-| Mean Hausdorff distance   | 1.5112 |
+| Mean symmetric difference | 0.029% |
+| Mean Hausdorff distance   | 1.4779 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-20 02:58:00 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-19)
+## Historical Comparison (vs 2026-08-20)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-20 02:58:00 UTC
 | Previous mean area difference    |   0.007% |
 | Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.541 |
-| Current mean Hausdorff distance  |   1.511 |
-| Hausdorff change                 |  -0.030 |
+| Previous mean Hausdorff distance |   1.511 |
+| Current mean Hausdorff distance  |   1.478 |
+| Hausdorff change                 |  -0.033 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,15 +59,12 @@ Generated: 2026-08-20 02:58:00 UTC
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Bannwil          |          323 |   0.998312 |   0.999994 |    0.0016825  |    1682370 |
-| Vucherens        |         5692 |   0.998351 |   0.999994 |    0.00164334 |    1685197 |
-| Teuffenthal (BE) |          940 |   0.998463 |   0.999994 |    0.00153097 |    1682680 |
-| Cuarnens         |         5479 |   0.998734 |   0.999995 |    0.00126168 |    1684934 |
-| Syens            |         5688 |   0.998827 |   0.999992 |    0.00116531 |    1685159 |
-| Fahy             |         6789 |   0.998854 |   0.999997 |    0.00114254 |    1685599 |
-| Moiry            |         5490 |   0.998893 |   0.999996 |    0.00110306 |    1685050 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Lavigny            |         5637 |   0.998561 |   0.999994 |    0.00143317 |    1685020 |
+| Ebikon             |         1054 |   0.998829 |   0.999996 |    0.00116721 |    1682826 |
+| Freienstein-Teufen |           57 |   0.998928 |   0.999995 |    0.00106773 |    1682125 |
+| Rorbas             |           68 |   0.998968 |   0.999993 |    0.00102511 |    1682197 |
 
 ## Most Deteriorated (if historical data available)
 
