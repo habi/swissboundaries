@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 21 Aug 2026 03:03:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 02:55:01 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-22: 4 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.022 m ▼</li></ul><h3>Improvements (4)</h3><ul><li><strong>Lussery-Villars</strong> (BFS 5487) <a href="https://www.openstreetmap.org/relation/1685037">OSM</a>: IoU 0.9980 → 1.0000 (+0.0019)</li><li><strong>Buch (SH)</strong> (BFS 2961) <a href="https://www.openstreetmap.org/relation/1683633">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Rothenbrunnen</strong> (BFS 3637) <a href="https://www.openstreetmap.org/relation/1684141">OSM</a>: IoU 0.9979 → 1.0000 (+0.0021)</li><li><strong>Eclépens</strong> (BFS 5482) <a href="https://www.openstreetmap.org/relation/1684956">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-22</guid>
+    </item>
     <item>
       <title>2026-08-21: 4 improvements</title>
       <link>https://boundaries.osm.ch/</link>

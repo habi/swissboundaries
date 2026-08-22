@@ -1,4 +1,4 @@
-Generated: 2026-08-21 03:03:24 UTC
+Generated: 2026-08-22 02:54:53 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-08-21 03:03:24 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.007% |
 | Mean symmetric difference | 0.029% |
-| Mean Hausdorff distance   | 1.4779 |
+| Mean Hausdorff distance   | 1.4562 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-21 03:03:24 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-20)
+## Historical Comparison (vs 2026-08-21)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-21 03:03:24 UTC
 | Previous mean area difference    |   0.007% |
 | Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.511 |
-| Current mean Hausdorff distance  |   1.478 |
-| Hausdorff change                 |  -0.033 |
+| Previous mean Hausdorff distance |   1.478 |
+| Current mean Hausdorff distance  |   1.456 |
+| Hausdorff change                 |  -0.022 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,12 +59,12 @@ Generated: 2026-08-21 03:03:24 UTC
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Lavigny            |         5637 |   0.998561 |   0.999994 |    0.00143317 |    1685020 |
-| Ebikon             |         1054 |   0.998829 |   0.999996 |    0.00116721 |    1682826 |
-| Freienstein-Teufen |           57 |   0.998928 |   0.999995 |    0.00106773 |    1682125 |
-| Rorbas             |           68 |   0.998968 |   0.999993 |    0.00102511 |    1682197 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Rothenbrunnen   |         3637 |   0.997936 |   0.999991 |    0.00205512 |    1684141 |
+| Lussery-Villars |         5487 |   0.998045 |   0.999994 |    0.00194947 |    1685037 |
+| Buch (SH)       |         2961 |   0.998266 |   0.999993 |    0.00172739 |    1683633 |
+| Eclépens        |         5482 |   0.998753 |   0.999995 |    0.00124166 |    1684956 |
 
 ## Most Deteriorated (if historical data available)
 
