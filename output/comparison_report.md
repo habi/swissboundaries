@@ -1,4 +1,4 @@
-Generated: 2026-08-22 02:54:53 UTC
+Generated: 2026-08-23 03:03:34 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-22 02:54:53 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.007% |
-| Mean symmetric difference | 0.029% |
-| Mean Hausdorff distance   | 1.4562 |
+| Mean symmetric difference | 0.028% |
+| Mean Hausdorff distance   | 1.4369 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-22 02:54:53 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-21)
+## Historical Comparison (vs 2026-08-22)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-22 02:54:53 UTC
 | Previous mean area difference    |   0.007% |
 | Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.478 |
-| Current mean Hausdorff distance  |   1.456 |
-| Hausdorff change                 |  -0.022 |
+| Previous mean Hausdorff distance |   1.456 |
+| Current mean Hausdorff distance  |   1.437 |
+| Hausdorff change                 |  -0.019 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,12 +59,11 @@ Generated: 2026-08-22 02:54:53 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Rothenbrunnen   |         3637 |   0.997936 |   0.999991 |    0.00205512 |    1684141 |
-| Lussery-Villars |         5487 |   0.998045 |   0.999994 |    0.00194947 |    1685037 |
-| Buch (SH)       |         2961 |   0.998266 |   0.999993 |    0.00172739 |    1683633 |
-| Eclépens        |         5482 |   0.998753 |   0.999995 |    0.00124166 |    1684956 |
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Berg (SG)    |         3211 |   0.997981 |   0.999991 |    0.00201012 |    1683865 |
+| Roggwil (TG) |         4431 |   0.998745 |   0.999996 |    0.00125015 |    1684551 |
+| Arbon        |         4401 |   0.998899 |   0.999987 |    0.00108795 |    1684500 |
 
 ## Most Deteriorated (if historical data available)
 

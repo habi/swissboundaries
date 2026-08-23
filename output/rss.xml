@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 22 Aug 2026 02:55:01 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 03:03:43 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-23: 3 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.019 m ▼</li></ul><h3>Improvements (3)</h3><ul><li><strong>Arbon</strong> (BFS 4401) <a href="https://www.openstreetmap.org/relation/1684500">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Roggwil (TG)</strong> (BFS 4431) <a href="https://www.openstreetmap.org/relation/1684551">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Berg (SG)</strong> (BFS 3211) <a href="https://www.openstreetmap.org/relation/1683865">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-23</guid>
+    </item>
     <item>
       <title>2026-08-22: 4 improvements</title>
       <link>https://boundaries.osm.ch/</link>
