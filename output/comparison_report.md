@@ -1,4 +1,4 @@
-Generated: 2026-08-23 03:03:34 UTC
+Generated: 2026-08-24 03:04:34 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-23 03:03:34 UTC
 | Mean IoU                  | 0.9997 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.007% |
-| Mean symmetric difference | 0.028% |
-| Mean Hausdorff distance   | 1.4369 |
+| Mean symmetric difference | 0.027% |
+| Mean Hausdorff distance   | 1.3925 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-23 03:03:34 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-22)
+## Historical Comparison (vs 2026-08-23)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-08-23 03:03:34 UTC
 | Previous mean area difference    |   0.007% |
 | Current mean area difference     |   0.007% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.456 |
-| Current mean Hausdorff distance  |   1.437 |
-| Hausdorff change                 |  -0.019 |
+| Previous mean Hausdorff distance |   1.437 |
+| Current mean Hausdorff distance  |   1.392 |
+| Hausdorff change                 |  -0.044 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -52,18 +52,23 @@ Generated: 2026-08-23 03:03:34 UTC
 | Prévonloup      |         5683 | 0.997366 |       0.0700191 |
 | Lovatens        |         5674 | 0.997373 |       0.0372413 |
 | Obergerlafingen |         2528 | 0.997484 |       0.0485894 |
-| Chêne-Bourg     |         6613 | 0.997545 |       0.149029  |
 | Crassier        |         5714 | 0.997672 |       0.147564  |
 | Chêne-Pâquier   |         5908 | 0.99773  |       0.0210398 |
 | Gurbrü          |          665 | 0.997743 |       0.0243696 |
+| Arnex-sur-Nyon  |         5701 | 0.997747 |       0.0918843 |
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Berg (SG)    |         3211 |   0.997981 |   0.999991 |    0.00201012 |    1683865 |
-| Roggwil (TG) |         4431 |   0.998745 |   0.999996 |    0.00125015 |    1684551 |
-| Arbon        |         4401 |   0.998899 |   0.999987 |    0.00108795 |    1684500 |
+| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Chêne-Bourg     |         6613 |   0.997545 |   0.999987 |    0.00244232 |    1685466 |
+| Greifensee      |          194 |   0.99789  |   0.999989 |    0.00209889 |    1682130 |
+| Schwerzenbach   |          197 |   0.998077 |   0.999992 |    0.00191539 |    1682205 |
+| Stettlen        |          358 |   0.998652 |   0.99999  |    0.00133866 |    1682675 |
+| Fällanden       |          193 |   0.998769 |   0.999995 |    0.00122577 |    1682126 |
+| Chêne-Bougeries |         6612 |   0.998853 |   0.999993 |    0.00113976 |    1685465 |
+| Pierrafortscha  |         2216 |   0.998943 |   0.999995 |    0.00105184 |    1683377 |
+| Zumikon         |          160 |   0.998959 |   0.999994 |    0.00103564 |    1682247 |
 
 ## Most Deteriorated (if historical data available)
 

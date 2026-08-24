@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 23 Aug 2026 03:03:43 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 03:04:42 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-24: 8 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.044 m ▼</li></ul><h3>Improvements (8)</h3><ul><li><strong>Stettlen</strong> (BFS 358) <a href="https://www.openstreetmap.org/relation/1682675">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Chêne-Bougeries</strong> (BFS 6612) <a href="https://www.openstreetmap.org/relation/1685465">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Chêne-Bourg</strong> (BFS 6613) <a href="https://www.openstreetmap.org/relation/1685466">OSM</a>: IoU 0.9975 → 1.0000 (+0.0024)</li><li><strong>Pierrafortscha</strong> (BFS 2216) <a href="https://www.openstreetmap.org/relation/1683377">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Schwerzenbach</strong> (BFS 197) <a href="https://www.openstreetmap.org/relation/1682205">OSM</a>: IoU 0.9981 → 1.0000 (+0.0019)</li><li><strong>Fällanden</strong> (BFS 193) <a href="https://www.openstreetmap.org/relation/1682126">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Greifensee</strong> (BFS 194) <a href="https://www.openstreetmap.org/relation/1682130">OSM</a>: IoU 0.9979 → 1.0000 (+0.0021)</li><li><strong>Zumikon</strong> (BFS 160) <a href="https://www.openstreetmap.org/relation/1682247">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-24</guid>
+    </item>
     <item>
       <title>2026-08-23: 3 improvements</title>
       <link>https://boundaries.osm.ch/</link>
