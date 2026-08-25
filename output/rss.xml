@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 24 Aug 2026 03:04:42 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 02:59:58 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-25: 6 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0003 pp ▼</li><li>Mean Hausdorff distance: -0.043 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Crassier</strong> (BFS 5714) <a href="https://www.openstreetmap.org/relation/1684929">OSM</a>: IoU 0.9977 → 1.0000 (+0.0023)</li><li><strong>Senarclens</strong> (BFS 5499) <a href="https://www.openstreetmap.org/relation/1685150">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Arnex-sur-Nyon</strong> (BFS 5701) <a href="https://www.openstreetmap.org/relation/1684834">OSM</a>: IoU 0.9977 → 1.0000 (+0.0022)</li><li><strong>Lussy-sur-Morges</strong> (BFS 5640) <a href="https://www.openstreetmap.org/relation/1685038">OSM</a>: IoU 0.9979 → 0.9991 (+0.0012)</li><li><strong>Borex</strong> (BFS 5706) <a href="https://www.openstreetmap.org/relation/1684860">OSM</a>: IoU 0.9972 → 1.0000 (+0.0028)</li><li><strong>Wollerau</strong> (BFS 1323) <a href="https://www.openstreetmap.org/relation/1683123">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-25</guid>
+    </item>
     <item>
       <title>2026-08-24: 8 improvements</title>
       <link>https://boundaries.osm.ch/</link>
