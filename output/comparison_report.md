@@ -1,4 +1,4 @@
-Generated: 2026-08-25 02:59:50 UTC
+Generated: 2026-08-26 03:05:51 UTC
 
 ## Dataset Overview
 
@@ -13,11 +13,11 @@ Generated: 2026-08-25 02:59:50 UTC
 
 | Metric                    | Value  |
 |---------------------------|--------|
-| Mean IoU                  | 0.9997 |
+| Mean IoU                  | 0.9998 |
 | Median IoU                | 1.0000 |
-| Mean area difference      | 0.007% |
-| Mean symmetric difference | 0.026% |
-| Mean Hausdorff distance   | 1.3493 |
+| Mean area difference      | 0.006% |
+| Mean symmetric difference | 0.025% |
+| Mean Hausdorff distance   | 1.3127 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-25 02:59:50 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-24)
+## Historical Comparison (vs 2026-08-25)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -36,11 +36,11 @@ Generated: 2026-08-25 02:59:50 UTC
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.007% |
-| Current mean area difference     |   0.007% |
+| Current mean area difference     |   0.006% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.392 |
-| Current mean Hausdorff distance  |   1.349 |
-| Hausdorff change                 |  -0.043 |
+| Previous mean Hausdorff distance |   1.349 |
+| Current mean Hausdorff distance  |   1.313 |
+| Hausdorff change                 |  -0.037 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -55,18 +55,22 @@ Generated: 2026-08-25 02:59:50 UTC
 | Gurbrü               |          665 | 0.997743 |      0.0243696  |
 | Gisikon              |         1055 | 0.997775 |      0.0278901  |
 | Rüdtligen-Alchenflüh |          420 | 0.997779 |      0.00821361 |
-| Bolken               |         2514 | 0.997811 |      0.0246737  |
+| Willadingen          |          423 | 0.997933 |      0.0548498  |
 
 ## Most Improved (if historical data available)
 
-| name             |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Borex            |         5706 |   0.997201 |   0.999986 |    0.00278436 |    1684860 |
-| Crassier         |         5714 |   0.997672 |   0.999989 |    0.00231685 |    1684929 |
-| Arnex-sur-Nyon   |         5701 |   0.997747 |   0.999989 |    0.00224261 |    1684834 |
-| Senarclens       |         5499 |   0.99832  |   0.999993 |    0.00167285 |    1685150 |
-| Wollerau         |         1323 |   0.998566 |   0.999994 |    0.00142804 |    1683123 |
-| Lussy-sur-Morges |         5640 |   0.997941 |   0.999136 |    0.00119485 |    1685038 |
+| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Penthaz            |         5496 |   0.99823  |   0.999993 |    0.00176284 |    1685097 |
+| Schönenwerd        |         2583 |   0.998277 |   0.999993 |    0.00171653 |    1683574 |
+| Bournens           |         5472 |   0.998371 |   0.999994 |    0.00162271 |    1684864 |
+| Däniken            |         2572 |   0.998379 |   0.999995 |    0.00161637 |    1683497 |
+| Gretzenbach        |         2576 |   0.998427 |   0.999993 |    0.00156615 |    1683511 |
+| Niedergösgen       |         2495 |   0.998461 |   0.999996 |    0.00153483 |    1683557 |
+| Eppenberg-Wöschnau |         2574 |   0.998491 |   0.999992 |    0.00150064 |    1683499 |
+| Etziken            |         2518 |   0.998615 |   0.999993 |    0.00137862 |    1683502 |
+| Subingen           |         2532 |   0.998718 |   0.999995 |    0.00127769 |    1683581 |
+| Bettens            |         5471 |   0.998869 |   0.999994 |    0.00112434 |    1684851 |
 
 ## Most Deteriorated (if historical data available)
 

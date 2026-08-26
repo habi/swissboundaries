@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 25 Aug 2026 02:59:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 03:05:58 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-26: 13 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.037 m ▼</li></ul><h3>Improvements (13)</h3><ul><li><strong>Schönenwerd</strong> (BFS 2583) <a href="https://www.openstreetmap.org/relation/1683574">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Bournens</strong> (BFS 5472) <a href="https://www.openstreetmap.org/relation/1684864">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Sullens</strong> (BFS 5501) <a href="https://www.openstreetmap.org/relation/1685157">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Daillens</strong> (BFS 5480) <a href="https://www.openstreetmap.org/relation/1684940">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Eppenberg-Wöschnau</strong> (BFS 2574) <a href="https://www.openstreetmap.org/relation/1683499">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Bettens</strong> (BFS 5471) <a href="https://www.openstreetmap.org/relation/1684851">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Penthalaz</strong> (BFS 5495) <a href="https://www.openstreetmap.org/relation/1685096">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Gretzenbach</strong> (BFS 2576) <a href="https://www.openstreetmap.org/relation/1683511">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Etziken</strong> (BFS 2518) <a href="https://www.openstreetmap.org/relation/1683502">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Niedergösgen</strong> (BFS 2495) <a href="https://www.openstreetmap.org/relation/1683557">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Subingen</strong> (BFS 2532) <a href="https://www.openstreetmap.org/relation/1683581">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Däniken</strong> (BFS 2572) <a href="https://www.openstreetmap.org/relation/1683497">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Penthaz</strong> (BFS 5496) <a href="https://www.openstreetmap.org/relation/1685097">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-26</guid>
+    </item>
     <item>
       <title>2026-08-25: 6 improvements</title>
       <link>https://boundaries.osm.ch/</link>
