@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 26 Aug 2026 03:05:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 07:55:16 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-27: 10 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.050 m ▼</li></ul><h3>Improvements (10)</h3><ul><li><strong>Bardonnex</strong> (BFS 6605) <a href="https://www.openstreetmap.org/relation/1685449">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Corsier-sur-Vevey</strong> (BFS 5884) <a href="https://www.openstreetmap.org/relation/1684925">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Seftigen</strong> (BFS 883) <a href="https://www.openstreetmap.org/relation/1682663">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Granges (Veveyse)</strong> (BFS 2328) <a href="https://www.openstreetmap.org/relation/1683327">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Jongny</strong> (BFS 5885) <a href="https://www.openstreetmap.org/relation/1685003">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Gurzelen</strong> (BFS 867) <a href="https://www.openstreetmap.org/relation/1682464">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Gisikon</strong> (BFS 1055) <a href="https://www.openstreetmap.org/relation/1682839">OSM</a>: IoU 0.9978 → 1.0000 (+0.0022)</li><li><strong>Aarberg</strong> (BFS 301) <a href="https://www.openstreetmap.org/relation/1682355">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Forst-Längenbühl</strong> (BFS 948) <a href="https://www.openstreetmap.org/relation/1682442">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Bossonnens</strong> (BFS 2323) <a href="https://www.openstreetmap.org/relation/1683276">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-27</guid>
+    </item>
     <item>
       <title>2026-08-26: 13 improvements</title>
       <link>https://boundaries.osm.ch/</link>

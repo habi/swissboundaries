@@ -1,4 +1,4 @@
-Generated: 2026-08-26 03:05:51 UTC
+Generated: 2026-08-27 07:55:08 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-08-26 03:05:51 UTC
 | Mean IoU                  | 0.9998 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.006% |
-| Mean symmetric difference | 0.025% |
-| Mean Hausdorff distance   | 1.3127 |
+| Mean symmetric difference | 0.024% |
+| Mean Hausdorff distance   | 1.2630 |
 
 ## Quality Distribution
 
@@ -28,19 +28,19 @@ Generated: 2026-08-26 03:05:51 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-25)
+## Historical Comparison (vs 2026-08-26)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
-| Previous mean area difference    |   0.007% |
+| Previous mean area difference    |   0.006% |
 | Current mean area difference     |   0.006% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.349 |
-| Current mean Hausdorff distance  |   1.313 |
-| Hausdorff change                 |  -0.037 |
+| Previous mean Hausdorff distance |   1.313 |
+| Current mean Hausdorff distance  |   1.263 |
+| Hausdorff change                 |  -0.050 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -53,24 +53,24 @@ Generated: 2026-08-26 03:05:51 UTC
 | Obergerlafingen      |         2528 | 0.997484 |      0.0485894  |
 | Chêne-Pâquier        |         5908 | 0.99773  |      0.0210398  |
 | Gurbrü               |          665 | 0.997743 |      0.0243696  |
-| Gisikon              |         1055 | 0.997775 |      0.0278901  |
 | Rüdtligen-Alchenflüh |          420 | 0.997779 |      0.00821361 |
 | Willadingen          |          423 | 0.997933 |      0.0548498  |
+| Gy                   |         6624 | 0.997952 |      0.0613426  |
 
 ## Most Improved (if historical data available)
 
-| name               |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Penthaz            |         5496 |   0.99823  |   0.999993 |    0.00176284 |    1685097 |
-| Schönenwerd        |         2583 |   0.998277 |   0.999993 |    0.00171653 |    1683574 |
-| Bournens           |         5472 |   0.998371 |   0.999994 |    0.00162271 |    1684864 |
-| Däniken            |         2572 |   0.998379 |   0.999995 |    0.00161637 |    1683497 |
-| Gretzenbach        |         2576 |   0.998427 |   0.999993 |    0.00156615 |    1683511 |
-| Niedergösgen       |         2495 |   0.998461 |   0.999996 |    0.00153483 |    1683557 |
-| Eppenberg-Wöschnau |         2574 |   0.998491 |   0.999992 |    0.00150064 |    1683499 |
-| Etziken            |         2518 |   0.998615 |   0.999993 |    0.00137862 |    1683502 |
-| Subingen           |         2532 |   0.998718 |   0.999995 |    0.00127769 |    1683581 |
-| Bettens            |         5471 |   0.998869 |   0.999994 |    0.00112434 |    1684851 |
+| name              |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Gisikon           |         1055 |   0.997775 |   0.999992 |    0.00221666 |    1682839 |
+| Bossonnens        |         2323 |   0.99821  |   0.999995 |    0.00178508 |    1683276 |
+| Jongny            |         5885 |   0.998492 |   0.99999  |    0.0014975  |    1685003 |
+| Granges (Veveyse) |         2328 |   0.998509 |   0.999994 |    0.00148562 |    1683327 |
+| Seftigen          |          883 |   0.998666 |   0.999995 |    0.00132921 |    1682663 |
+| Gurzelen          |          867 |   0.998693 |   0.999994 |    0.00130027 |    1682464 |
+| Bardonnex         |         6605 |   0.998708 |   0.999994 |    0.00128591 |    1685449 |
+| Forst-Längenbühl  |          948 |   0.998863 |   0.999994 |    0.00113037 |    1682442 |
+| Corsier-sur-Vevey |         5884 |   0.998979 |   0.999994 |    0.00101496 |    1684925 |
+| Aarberg           |          301 |   0.998995 |   0.999996 |    0.00100011 |    1682355 |
 
 ## Most Deteriorated (if historical data available)
 
