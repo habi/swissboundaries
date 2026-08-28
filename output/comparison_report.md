@@ -1,4 +1,4 @@
-Generated: 2026-08-27 12:25:13 UTC
+Generated: 2026-08-28 13:51:40 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-08-27 12:25:13 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.006% |
 | Mean symmetric difference | 0.023% |
-| Mean Hausdorff distance   | 1.2617 |
+| Mean Hausdorff distance   | 1.2548 |
 
 ## Quality Distribution
 
@@ -38,30 +38,30 @@ Generated: 2026-08-27 12:25:13 UTC
 | Previous mean area difference    |   0.006% |
 | Current mean area difference     |   0.006% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.263 |
-| Current mean Hausdorff distance  |   1.262 |
-| Hausdorff change                 |  -0.001 |
+| Previous mean Hausdorff distance |   1.262 |
+| Current mean Hausdorff distance  |   1.255 |
+| Hausdorff change                 |  -0.007 |
 
 ## Worst 10 Matches (by IoU)
 
-| name                 |   bfs_nummer |      iou |   area_diff_pct |
-|:---------------------|-------------:|---------:|----------------:|
-| Eschenz              |         4806 | 0.981348 |     1.54249     |
-| Dozwil               |         4406 | 0.996898 |     0.103515    |
-| Prévonloup           |         5683 | 0.997366 |     0.0700191   |
-| Lovatens             |         5674 | 0.997373 |     0.0372413   |
-| Obergerlafingen      |         2528 | 0.997484 |     0.0485894   |
-| Chêne-Pâquier        |         5908 | 0.99773  |     0.0210398   |
-| Rüdtligen-Alchenflüh |          420 | 0.997779 |     0.00821361  |
-| Willadingen          |          423 | 0.997933 |     0.0548498   |
-| Gy                   |         6624 | 0.997952 |     0.0613426   |
-| Vich                 |         5732 | 0.997957 |     0.000700454 |
+| name            |   bfs_nummer |      iou |   area_diff_pct |
+|:----------------|-------------:|---------:|----------------:|
+| Eschenz         |         4806 | 0.981348 |     1.54249     |
+| Dozwil          |         4406 | 0.996898 |     0.103515    |
+| Prévonloup      |         5683 | 0.997366 |     0.0700191   |
+| Lovatens        |         5674 | 0.997373 |     0.0372413   |
+| Obergerlafingen |         2528 | 0.997484 |     0.0485894   |
+| Chêne-Pâquier   |         5908 | 0.99773  |     0.0210398   |
+| Willadingen     |          423 | 0.997933 |     0.0548498   |
+| Gy              |         6624 | 0.997952 |     0.0613426   |
+| Vich            |         5732 | 0.997957 |     0.000700454 |
+| Hersberg        |         2827 | 0.997983 |     0.0583234   |
 
 ## Most Improved (if historical data available)
 
-| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Gurbrü |          665 |   0.997743 |   0.999986 |    0.00224232 |    1682463 |
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Aefligen |          401 |   0.998767 |   0.999994 |    0.00122668 |    1682358 |
 
 ## Most Deteriorated (if historical data available)
 
