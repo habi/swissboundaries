@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 28 Aug 2026 13:51:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 08:41:48 GMT</lastBuildDate>
+    <item>
+      <title>2026-08-29: 1 improvement</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: +0.0000 pp ▲</li><li>Mean Hausdorff distance: -0.002 m ▼</li></ul><h3>Improvements (1)</h3><ul><li><strong>Rüdtligen-Alchenflüh</strong> (BFS 420) <a href="https://www.openstreetmap.org/relation/1682633">OSM</a>: IoU 0.9981 → 1.0000 (+0.0018)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-29</guid>
+    </item>
     <item>
       <title>2026-08-28: 1 improvement</title>
       <link>https://boundaries.osm.ch/</link>

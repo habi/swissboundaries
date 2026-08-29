@@ -1,4 +1,4 @@
-Generated: 2026-08-28 13:51:40 UTC
+Generated: 2026-08-29 08:41:39 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-08-28 13:51:40 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.006% |
 | Mean symmetric difference | 0.023% |
-| Mean Hausdorff distance   | 1.2548 |
+| Mean Hausdorff distance   | 1.2526 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-08-28 13:51:40 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-27)
+## Historical Comparison (vs 2026-08-28)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,10 +37,10 @@ Generated: 2026-08-28 13:51:40 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.006% |
 | Current mean area difference     |   0.006% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.262 |
-| Current mean Hausdorff distance  |   1.255 |
-| Hausdorff change                 |  -0.007 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   1.255 |
+| Current mean Hausdorff distance  |   1.253 |
+| Hausdorff change                 |  -0.002 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,9 @@ Generated: 2026-08-28 13:51:40 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Aefligen |          401 |   0.998767 |   0.999994 |    0.00122668 |    1682358 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Rüdtligen-Alchenflüh |          420 |   0.998148 |   0.999994 |    0.00184631 |    1682633 |
 
 ## Most Deteriorated (if historical data available)
 
