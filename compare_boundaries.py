@@ -1414,6 +1414,11 @@ def send_deterioration_email(subject, body):
       SMTP_PORT          – SMTP server port (default: 587)
       SMTP_USER          – SMTP login username (required)
       SMTP_PASSWORD      – SMTP login password (required)
+      SMTP_FROM          – From/envelope-sender address (optional; falls back
+                            to SMTP_USER). Many SMTP providers (SendGrid,
+                            Mailgun, Postmark, AWS SES, ...) use an API-key
+                            style login that is NOT a valid email address, so
+                            SMTP_USER often can't double as the sender.
 
     Returns True if the email was sent successfully, False otherwise.
     """
@@ -1426,9 +1431,19 @@ def send_deterioration_email(subject, body):
     smtp_port_str = os.environ.get("SMTP_PORT", "587")
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
+    from_addr = os.environ.get("SMTP_FROM", "") or smtp_user
 
     if not smtp_host or not smtp_user or not smtp_password:
         print("SMTP configuration incomplete, skipping email notification.")
+        return False
+
+    if "@" not in from_addr:
+        print(
+            f"Warning: sender address '{from_addr}' has no domain (not a valid "
+            "email address). Set SMTP_FROM to a proper 'user@domain' address "
+            "if SMTP_USER is a login name rather than an email address. "
+            "Skipping email notification."
+        )
         return False
 
     try:
@@ -1441,15 +1456,16 @@ def send_deterioration_email(subject, body):
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = smtp_user
+    msg["From"] = from_addr
     msg["To"] = to_addr
+    msg["Date"] = formatdate(localtime=True)
     msg.attach(MIMEText(body, "plain"))
 
     try:
         with smtplib.SMTP(smtp_host, smtp_port) as server:
             server.starttls()
             server.login(smtp_user, smtp_password)
-            server.sendmail(smtp_user, [to_addr], msg.as_string())
+            server.sendmail(from_addr, [to_addr], msg.as_string())
         print(f"Deterioration notification sent to {to_addr}")
         return True
     except Exception as e:
