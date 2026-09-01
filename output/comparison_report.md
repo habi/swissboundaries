@@ -1,4 +1,4 @@
-Generated: 2026-09-01 07:21:18 UTC
+Generated: 2026-09-01 10:08:25 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-09-01 07:21:18 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-08-31)
+## Historical Comparison (vs 2026-09-01)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,10 +37,10 @@ Generated: 2026-09-01 07:21:18 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.006% |
 | Current mean area difference     |   0.006% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   1.244 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   1.226 |
 | Current mean Hausdorff distance  |   1.226 |
-| Hausdorff change                 |  -0.018 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,21 +59,11 @@ Generated: 2026-09-01 07:21:18 UTC
 
 ## Most Improved (if historical data available)
 
-| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Mauensee |         1091 |   0.998365 |   0.999994 |    0.00162912 |    1682895 |
-| Sursee   |         1103 |   0.998922 |   0.999995 |    0.00107268 |    1682923 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name     |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:---------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Cormoret |          432 |    1682413 | https://www.openstreetmap.org/relation/1682413 | https://www.openstreetmap.org/?mlat=47.132918&mlon=7.058290#map=16/47.132918/7.058290 |              3.702 |             21.191 |       17.489 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
-| Nods     |          724 |    1682582 | https://www.openstreetmap.org/relation/1682582 | https://www.openstreetmap.org/?mlat=47.132918&mlon=7.058290#map=16/47.132918/7.058290 |              3.9   |             21.191 |       17.291 | https://www.openstreetmap.org/changeset/44224658  | nyuriks          | 2016-12-07T02:43:59Z  |
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name                  |   bfs_nummer |
