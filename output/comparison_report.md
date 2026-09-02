@@ -1,4 +1,4 @@
-Generated: 2026-09-01 10:08:25 UTC
+Generated: 2026-09-02 06:52:38 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-01 10:08:25 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.006% |
 | Mean symmetric difference | 0.022% |
-| Mean Hausdorff distance   | 1.2261 |
+| Mean Hausdorff distance   | 1.1997 |
 
 ## Quality Distribution
 
@@ -37,10 +37,10 @@ Generated: 2026-09-01 10:08:25 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.006% |
 | Current mean area difference     |   0.006% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   1.226 |
-| Current mean Hausdorff distance  |   1.226 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   1.200 |
+| Hausdorff change                 |  -0.026 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -55,11 +55,17 @@ Generated: 2026-09-01 10:08:25 UTC
 | Willadingen     |          423 | 0.997933 |     0.0548498   |
 | Gy              |         6624 | 0.997952 |     0.0613426   |
 | Vich            |         5732 | 0.997957 |     0.000700454 |
-| Hersberg        |         2827 | 0.997983 |     0.0583234   |
+| Maracon         |         5790 | 0.997996 |     0.000845986 |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Hersberg       |         2827 |   0.997983 |   0.999988 |    0.00200555 |    1683657 |
+| Itingen        |         2849 |   0.998111 |   0.999994 |    0.00188272 |    1683660 |
+| Nusshof        |         2854 |   0.998325 |   0.999988 |    0.0016636  |    1683683 |
+| Langrickenbach |         4681 |   0.998782 |   0.999995 |    0.00121288 |    1684538 |
+| Sissach        |         2861 |   0.998918 |   0.999995 |    0.00107712 |    1683708 |
 
 ## Most Deteriorated (if historical data available)
 
