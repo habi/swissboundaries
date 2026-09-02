@@ -119,7 +119,10 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
 
     print("Loading OSM boundaries...")
 
-    # Overpass QL query
+    # Overpass QL query.
+    # We exclude boundaries from neighbouring countries via their bijective references
+    # This does exclude Campione d'Italia and Büsingen am Hochrhein (two enclaves) though.
+    # We do fetch those two explicitly by their relation ID to also look at them in the script.
     overpass_query = """
     [out:json][timeout:120];
     area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
@@ -127,6 +130,8 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     (
       relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:FR:SIREN"!~".*"]["ref:at:gkz"!~".*"]["de:amtlicher_gemeindeschluessel"!~".*"]["ref:ISTAT"!~".*"](area.switzerland);
       relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:at:gkz"!~".*"](area.liechtenstein);
+      relation(46664);   // Campione d'Italia
+      relation(2785126); // Büsingen am Hochrhein
     );
     out geom;
     """
