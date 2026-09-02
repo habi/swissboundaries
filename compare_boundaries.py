@@ -3,11 +3,11 @@ import pandas as pd
 import requests
 import json
 import os
+from datetime import datetime, UTC
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formatdate
-from datetime import datetime, UTC
 from pathlib import Path
 from shapely.geometry import mapping, MultiLineString, LineString, Polygon
 from shapely.geometry.polygon import orient
@@ -1414,11 +1414,6 @@ def send_deterioration_email(subject, body):
       SMTP_PORT          – SMTP server port (default: 587)
       SMTP_USER          – SMTP login username (required)
       SMTP_PASSWORD      – SMTP login password (required)
-      SMTP_FROM          – From/envelope-sender address (optional; falls back
-                            to SMTP_USER). Many SMTP providers (SendGrid,
-                            Mailgun, Postmark, AWS SES, ...) use an API-key
-                            style login that is NOT a valid email address, so
-                            SMTP_USER often can't double as the sender.
 
     Returns True if the email was sent successfully, False otherwise.
     """
@@ -1431,19 +1426,9 @@ def send_deterioration_email(subject, body):
     smtp_port_str = os.environ.get("SMTP_PORT", "587")
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    from_addr = os.environ.get("SMTP_FROM", "") or smtp_user
 
     if not smtp_host or not smtp_user or not smtp_password:
         print("SMTP configuration incomplete, skipping email notification.")
-        return False
-
-    if "@" not in from_addr:
-        print(
-            f"Warning: sender address '{from_addr}' has no domain (not a valid "
-            "email address). Set SMTP_FROM to a proper 'user@domain' address "
-            "if SMTP_USER is a login name rather than an email address. "
-            "Skipping email notification."
-        )
         return False
 
     try:
@@ -1456,16 +1441,16 @@ def send_deterioration_email(subject, body):
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = from_addr
+    msg["From"] = smtp_user
     msg["To"] = to_addr
-    msg["Date"] = formatdate(localtime=True)
+    msg["Date"] = formatdate(localtime=False)
     msg.attach(MIMEText(body, "plain"))
 
     try:
         with smtplib.SMTP(smtp_host, smtp_port) as server:
             server.starttls()
             server.login(smtp_user, smtp_password)
-            server.sendmail(from_addr, [to_addr], msg.as_string())
+            server.sendmail(smtp_user, [to_addr], msg.as_string())
         print(f"Deterioration notification sent to {to_addr}")
         return True
     except Exception as e:
@@ -2202,7 +2187,7 @@ def generate_report(results_df, historical_df):
     with open("output/comparison_report.md", "w") as f:
         f.write(report_text)
 
-    # Send email notification if global metrics deteriorated OR any municipality shows significant
+    # Flag a deterioration alert if global metrics deteriorated OR any municipality shows significant
     # deterioration OR municipalities newly lost or still have their OSM swisstopo:BFS_NUMMER tag absent.
     iou_deteriorated_global = iou_change is not None and iou_change < 0
     hausdorff_deteriorated_global = (
@@ -2224,7 +2209,7 @@ def generate_report(results_df, historical_df):
     )
 
     print(
-        "Email trigger debug:",
+        "Deterioration alert trigger debug:",
         {
             "iou_change": iou_change,
             "area_diff_change": area_diff_change,
@@ -2267,14 +2252,20 @@ def generate_report(results_df, historical_df):
                 f"(worst +{worst_hd_det:.3f} m)"
             )
         if newly_missing:
+            names = ", ".join(
+                f"{m['name']} (BFS {m['bfs_nummer']})" for m in newly_missing
+            )
             alert_parts.append(
                 f"{len(newly_missing)} municipality(ies) newly lost their OSM"
-                f" swisstopo:BFS_NUMMER tag"
+                f" swisstopo:BFS_NUMMER tag: {names}"
             )
         if persistent_missing:
+            names = ", ".join(
+                f"{m['name']} (BFS {m['bfs_nummer']})" for m in persistent_missing
+            )
             alert_parts.append(
                 f"{len(persistent_missing)} municipality(ies) still have their OSM"
-                f" swisstopo:BFS_NUMMER tag absent (previously detected)"
+                f" swisstopo:BFS_NUMMER tag absent (previously detected): {names}"
             )
         if bfs_tags_restored:
             alert_parts.append(
@@ -2282,6 +2273,18 @@ def generate_report(results_df, historical_df):
                 f" swisstopo:BFS_NUMMER tag restored"
             )
 
+        # Emit a GitHub Actions warning annotation so the alert is visible
+        # directly in the workflow run summary.
+        print(
+            f"::warning::{subject}. "
+            f"Conditions: {', '.join(alert_parts)}. "
+            f"Full report: https://habi.github.io/swissboundaries/"
+        )
+
+        # Build the email body. Alert conditions are listed first, then a
+        # dedicated, explicit section naming each missing-tag municipality
+        # (with its OSM relation and, where known, the changeset that
+        # removed the tag) so the recipient doesn't have to click through.
         email_lines = [
             f"swissboundaries boundary comparison – {run_date}",
             "",
@@ -2290,52 +2293,10 @@ def generate_report(results_df, historical_df):
         for part in alert_parts:
             email_lines.append(f"  • {part}")
 
-        if not det_df.empty:
-            email_lines.append("")
-            email_lines.append("Top IoU deteriorations (per municipality):")
-            for _, item in det_df.iterrows():
-                email_lines.append(
-                    f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
-                    f"{item['prev_iou']:.6f} → {item['curr_iou']:.6f} "
-                    f"(Δ {-item['deterioration']:+.6f})"
-                )
-                osm_url = item.get("osm_url")
-                changeset_url = item.get("changeset_url")
-                boundary_diff_url = item.get("boundary_diff_url")
-                if pd.notna(osm_url) and osm_url:
-                    email_lines.append(f"    OSM relation: {osm_url}")
-                if pd.notna(changeset_url) and changeset_url:
-                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
-                if pd.notna(boundary_diff_url) and boundary_diff_url:
-                    email_lines.append(
-                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
-                    )
-
-        if not hd_det_df.empty:
-            email_lines.append("")
-            email_lines.append("Top Hausdorff distance increases (per municipality):")
-            for _, item in hd_det_df.iterrows():
-                email_lines.append(
-                    f"  • {item['name']} (BFS {int(item['bfs_nummer'])}): "
-                    f"{item['prev_hausdorff_m']:.3f} m → {item['curr_hausdorff_m']:.3f} m "
-                    f"(Δ {item['increase_m']:+.3f} m)"
-                )
-                osm_url = item.get("osm_url")
-                changeset_url = item.get("changeset_url")
-                boundary_diff_url = item.get("boundary_diff_url")
-                if pd.notna(osm_url) and osm_url:
-                    email_lines.append(f"    OSM relation: {osm_url}")
-                if pd.notna(changeset_url) and changeset_url:
-                    email_lines.append(f"    Latest OSM changeset: {changeset_url}")
-                if pd.notna(boundary_diff_url) and boundary_diff_url:
-                    email_lines.append(
-                        f"    Likely deteriorated boundary segment: {boundary_diff_url}"
-                    )
-
         if newly_missing:
             email_lines.append("")
             email_lines.append(
-                "Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM:"
+                f"Municipalities whose swisstopo:BFS_NUMMER tag was newly removed from OSM ({len(newly_missing)}):"
             )
             for m in newly_missing:
                 email_lines.append(f"  • {m['name']} (BFS {m['bfs_nummer']})")
@@ -2353,8 +2314,8 @@ def generate_report(results_df, historical_df):
         if persistent_missing:
             email_lines.append("")
             email_lines.append(
-                "Municipalities with swisstopo:BFS_NUMMER still absent from OSM"
-                " (previously detected, unresolved):"
+                f"Municipalities with swisstopo:BFS_NUMMER still absent from OSM"
+                f" (previously detected, unresolved) ({len(persistent_missing)}):"
             )
             for m in persistent_missing:
                 email_lines.append(
@@ -2375,7 +2336,7 @@ def generate_report(results_df, historical_df):
         if resolved_removals:
             email_lines.append("")
             email_lines.append(
-                "Municipalities whose swisstopo:BFS_NUMMER tag was restored in OSM:"
+                f"Municipalities whose swisstopo:BFS_NUMMER tag was restored in OSM ({len(resolved_removals)}):"
             )
             for m in resolved_removals:
                 email_lines.append(
@@ -2391,11 +2352,9 @@ def generate_report(results_df, historical_df):
         print("Triggering send_deterioration_email()")
         email_sent = send_deterioration_email(subject, "\n".join(email_lines))
         if not email_sent:
-            # Emit a GitHub Actions warning annotation so the alert is visible
-            # in the workflow run even when email delivery fails.
             print(
-                f"::warning::Deterioration detected but email notification could not be sent. "
-                f"Conditions: {', '.join(alert_parts)}"
+                f"::warning::Deterioration email could not be sent"
+                f" (check NOTIFICATION_EMAIL/SMTP_* secrets)."
             )
 
     # Save CSV (without geometry columns for CSV)
