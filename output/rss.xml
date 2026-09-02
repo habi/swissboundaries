@@ -6,11 +6,11 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 02 Sep 2026 06:52:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 08:16:40 GMT</lastBuildDate>
     <item>
-      <title>2026-09-02: 5 improvements</title>
+      <title>2026-09-02: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
-      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.026 m ▼</li></ul><h3>Improvements (5)</h3><ul><li><strong>Sissach</strong> (BFS 2861) <a href="https://www.openstreetmap.org/relation/1683708">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Langrickenbach</strong> (BFS 4681) <a href="https://www.openstreetmap.org/relation/1684538">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Itingen</strong> (BFS 2849) <a href="https://www.openstreetmap.org/relation/1683660">OSM</a>: IoU 0.9981 → 1.0000 (+0.0019)</li><li><strong>Nusshof</strong> (BFS 2854) <a href="https://www.openstreetmap.org/relation/1683683">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Hersberg</strong> (BFS 2827) <a href="https://www.openstreetmap.org/relation/1683657">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▼</li><li>Mean area difference: +0.0000 pp ▲</li><li>Mean Hausdorff distance: +0.000 m ▲</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
       <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-02</guid>
     </item>
