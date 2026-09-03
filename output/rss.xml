@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 02 Sep 2026 09:11:56 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 06:55:52 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-03: 11 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.038 m ▼</li></ul><h3>Improvements (11)</h3><ul><li><strong>Mammern</strong> (BFS 4826) <a href="https://www.openstreetmap.org/relation/1684541">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Rain</strong> (BFS 1037) <a href="https://www.openstreetmap.org/relation/1682907">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Hüttwilen</strong> (BFS 4821) <a href="https://www.openstreetmap.org/relation/1684533">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Lufingen</strong> (BFS 63) <a href="https://www.openstreetmap.org/relation/1682161">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Hildisrieden</strong> (BFS 1088) <a href="https://www.openstreetmap.org/relation/1682859">OSM</a>: IoU 0.9988 → 1.0000 (+0.0011)</li><li><strong>Pfungen</strong> (BFS 224) <a href="https://www.openstreetmap.org/relation/1682188">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Winznau</strong> (BFS 2501) <a href="https://www.openstreetmap.org/relation/1683588">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Oberembrach</strong> (BFS 65) <a href="https://www.openstreetmap.org/relation/1682175">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Maracon</strong> (BFS 5790) <a href="https://www.openstreetmap.org/relation/1685040">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Nürensdorf</strong> (BFS 64) <a href="https://www.openstreetmap.org/relation/1682174">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Herdern</strong> (BFS 4811) <a href="https://www.openstreetmap.org/relation/1684528">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-03</guid>
+    </item>
     <item>
       <title>2026-09-02: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
