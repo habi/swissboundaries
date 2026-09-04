@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 03 Sep 2026 06:55:52 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 07:00:32 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-04: 9 improvements, 2 BFS tag removals</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0003 pp ▼</li><li>Mean Hausdorff distance: -0.043 m ▼</li></ul><h3>Improvements (9)</h3><ul><li><strong>Gachnang</strong> (BFS 4571) <a href="https://www.openstreetmap.org/relation/1684523">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Sils im Domleschg</strong> (BFS 3640) <a href="https://www.openstreetmap.org/relation/1684168">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Bolken</strong> (BFS 2514) <a href="https://www.openstreetmap.org/relation/1683485">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Ellikon an der Thur</strong> (BFS 218) <a href="https://www.openstreetmap.org/relation/1682116">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Inkwil</strong> (BFS 980) <a href="https://www.openstreetmap.org/relation/1682490">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Heimenhausen</strong> (BFS 977) <a href="https://www.openstreetmap.org/relation/1682473">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Berken</strong> (BFS 972) <a href="https://www.openstreetmap.org/relation/1682377">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Niederönz</strong> (BFS 982) <a href="https://www.openstreetmap.org/relation/1682580">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Obergerlafingen</strong> (BFS 2528) <a href="https://www.openstreetmap.org/relation/1683562">OSM</a>: IoU 0.9975 → 1.0000 (+0.0025)</li></ul><h3>BFS tag removals (2)</h3><ul><li><strong>Hallau</strong> (BFS 2971) <a href="https://www.openstreetmap.org/relation/1683654">OSM</a></li><li><strong>Wilchingen</strong> (BFS 2974) <a href="https://www.openstreetmap.org/relation/1683721">OSM</a></li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-04</guid>
+    </item>
     <item>
       <title>2026-09-03: 11 improvements</title>
       <link>https://boundaries.osm.ch/</link>
