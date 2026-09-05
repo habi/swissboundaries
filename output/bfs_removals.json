@@ -1,16 +1,1 @@
-{
-  "2971": {
-    "bfs_nummer": 2971,
-    "relation": "1683654",
-    "name": "Hallau",
-    "osm_url": "https://www.openstreetmap.org/relation/1683654",
-    "first_detected": "2026-09-04"
-  },
-  "2974": {
-    "bfs_nummer": 2974,
-    "relation": "1683721",
-    "name": "Wilchingen",
-    "osm_url": "https://www.openstreetmap.org/relation/1683721",
-    "first_detected": "2026-09-04"
-  }
-}
+{}

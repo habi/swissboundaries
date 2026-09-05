@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 04 Sep 2026 07:00:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 06:44:47 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-05: 6 improvements, 2 BFS tag restorations</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.034 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Presinge</strong> (BFS 6635) <a href="https://www.openstreetmap.org/relation/1685525">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Feuerthalen</strong> (BFS 27) <a href="https://www.openstreetmap.org/relation/1682121">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Dörflingen</strong> (BFS 2915) <a href="https://www.openstreetmap.org/relation/1683644">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Puplinge</strong> (BFS 6636) <a href="https://www.openstreetmap.org/relation/1685526">OSM</a>: IoU 0.9981 → 1.0000 (+0.0019)</li><li><strong>Buchs (ZH)</strong> (BFS 83) <a href="https://www.openstreetmap.org/relation/1682098">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Flurlingen</strong> (BFS 29) <a href="https://www.openstreetmap.org/relation/1682124">OSM</a>: IoU 0.9981 → 1.0000 (+0.0019)</li></ul><h3>BFS tag restorations (2)</h3><ul><li><strong>Hallau</strong> (BFS 2971) <a href="https://www.openstreetmap.org/relation/1683654">OSM</a> — first detected missing: 2026-09-04</li><li><strong>Wilchingen</strong> (BFS 2974) <a href="https://www.openstreetmap.org/relation/1683721">OSM</a> — first detected missing: 2026-09-04</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-05</guid>
+    </item>
     <item>
       <title>2026-09-04: 9 improvements, 2 BFS tag removals</title>
       <link>https://boundaries.osm.ch/</link>
