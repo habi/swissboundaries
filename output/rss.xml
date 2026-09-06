@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 05 Sep 2026 06:44:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 06:55:01 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-06: 3 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.036 m ▼</li></ul><h3>Improvements (3)</h3><ul><li><strong>Vich</strong> (BFS 5732) <a href="https://www.openstreetmap.org/relation/1685180">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Wileroltigen</strong> (BFS 671) <a href="https://www.openstreetmap.org/relation/1682725">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Begnins</strong> (BFS 5704) <a href="https://www.openstreetmap.org/relation/1684845">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-06</guid>
+    </item>
     <item>
       <title>2026-09-05: 6 improvements, 2 BFS tag restorations</title>
       <link>https://boundaries.osm.ch/</link>
