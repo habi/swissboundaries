@@ -1,4 +1,4 @@
-Generated: 2026-09-07 14:35:52 UTC
+Generated: 2026-09-07 14:48:36 UTC
 
 ## Dataset Overview
 
@@ -37,10 +37,10 @@ Generated: 2026-09-07 14:35:52 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.000% |
 | Current mean area difference     |   0.000% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.407 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   0.320 |
 | Current mean Hausdorff distance  |   0.320 |
-| Hausdorff change                 |  -0.087 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -2203,7 +2203,3 @@ No significant deteriorations detected.
   • Val-d'Illiez (BFS 6157)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685390
   • Pfyn (BFS 4841)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684548
   • Bottmingen (BFS 2767)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683629
-
-## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (2):
-  • Vaulion (BFS 5765)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685176
-  • Mont-la-Ville (BFS 5491)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685054
