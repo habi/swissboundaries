@@ -80,6 +80,15 @@ def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
         print(f"Warning: Could not save Overpass cache: {e}")
 
 
+def _invalidate_overpass_cache(cache_path=OVERPASS_CACHE_PATH):
+    try:
+        if cache_path.exists():
+            cache_path.unlink()
+            print("  - Invalidated Overpass cache")
+    except Exception as e:
+        print(f"Warning: Could not invalidate Overpass cache: {e}")
+
+
 def load_bfs_removal_tracker(path=BFS_REMOVALS_PATH):
     """Load the persistent BFS removal tracker from disk.
 
@@ -137,8 +146,10 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     """
 
     try:
+        loaded_from_cache = False
         osm_data = _load_overpass_cache()
         if osm_data is not None:
+            loaded_from_cache = True
             print("  - Using cached Overpass response (<= 4 hours old)")
         else:
             print("  - Querying Overpass API...")
@@ -149,14 +160,17 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
             )
             response.raise_for_status()
             osm_data = response.json()
-            _save_overpass_cache(osm_data)
-            print("  - Cached Overpass response")
 
         if not osm_data.get("elements"):
             print(
-                "  - No boundaries found with either `swisstopo:BFS_NUMMER` or `bfs:OBJECTVAL` tags"
+                "  - No boundaries returned by Overpass; aborting run and invalidating cache"
             )
+            _invalidate_overpass_cache()
             return None
+
+        if not loaded_from_cache:
+            _save_overpass_cache(osm_data)
+            print("  - Cached Overpass response")
 
         print(f"  - Found {len(osm_data['elements'])} OSM elements")
 
