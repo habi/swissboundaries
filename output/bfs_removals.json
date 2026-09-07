@@ -7702,13 +7702,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1684318",
     "first_detected": "2026-09-07"
   },
-  "5765": {
-    "bfs_nummer": 5765,
-    "relation": "1685176",
-    "name": "Vaulion",
-    "osm_url": "https://www.openstreetmap.org/relation/1685176",
-    "first_detected": "2026-09-07"
-  },
   "3986": {
     "bfs_nummer": 3986,
     "relation": "1684197",
@@ -11901,13 +11894,6 @@
     "relation": "1683354",
     "name": "Les Montets",
     "osm_url": "https://www.openstreetmap.org/relation/1683354",
-    "first_detected": "2026-09-07"
-  },
-  "5491": {
-    "bfs_nummer": 5491,
-    "relation": "1685054",
-    "name": "Mont-la-Ville",
-    "osm_url": "https://www.openstreetmap.org/relation/1685054",
     "first_detected": "2026-09-07"
   },
   "6643": {

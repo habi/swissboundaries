@@ -1,12 +1,12 @@
-Generated: 2026-09-07 10:09:10 UTC
+Generated: 2026-09-07 14:35:52 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
 |--------------------------------|------:|
 | Total Swisstopo municipalities |  2123 |
-| Matched in OSM                 |     7 |
-| Missing in OSM                 |  2116 |
+| Matched in OSM                 |     9 |
+| Missing in OSM                 |  2114 |
 | Only in OSM (not in Swisstopo) |     0 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -16,14 +16,14 @@ Generated: 2026-09-07 10:09:10 UTC
 | Mean IoU                  | 1.0000 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.000% |
-| Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.4074 |
+| Mean symmetric difference | 0.000% |
+| Mean Hausdorff distance   | 0.3202 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |     7 |    100.000 |
+| IoU ≥ 0.98 |     9 |    100.000 |
 | IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
@@ -37,10 +37,10 @@ Generated: 2026-09-07 10:09:10 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.000% |
 | Current mean area difference     |   0.000% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.407 |
-| Current mean Hausdorff distance  |   0.407 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.320 |
+| Hausdorff change                 |  -0.087 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -49,9 +49,11 @@ Generated: 2026-09-07 10:09:10 UTC
 | Bergün Filisur  |         3544 | 0.999989 |     0.000862166 |
 | Rongellen       |         3711 | 0.999992 |     0.000124998 |
 | Thusis          |         3668 | 0.999995 |     7.99284e-05 |
+| Vaulion         |         5765 | 0.999997 |     3.28787e-05 |
 | Schmitten (GR)  |         3514 | 0.999997 |     6.57875e-06 |
 | Zillis-Reischen |         3712 | 0.999997 |     7.90513e-06 |
 | Lantsch/Lenz    |         3513 | 0.999997 |     1.09665e-05 |
+| Mont-la-Ville   |         5491 | 0.999998 |     2.61418e-05 |
 | Albula/Alvra    |         3542 | 0.999998 |     1.60077e-06 |
 
 ## Most Improved (if historical data available)
@@ -86,7 +88,7 @@ No significant deteriorations detected.
 | Treytorrens (Payerne)  |         5828 |
 | Chavannes-des-Bois     |         5708 |
 
-## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2116):
+## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2114):
   • Adliswil (BFS 131)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682077
   • Rheinwald (BFS 3714)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/9173036
   • Grens (BFS 5722)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684998
@@ -1184,7 +1186,6 @@ No significant deteriorations detected.
   • Giebenach (BFS 2826)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683650
   • Emmen (BFS 1024)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682829
   • Gontenschwil (BFS 4135)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684318
-  • Vaulion (BFS 5765)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685176
   • Tujetsch (BFS 3986)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684197
   • Bioley-Magnoux (BFS 5903)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684853
   • Bonvillars (BFS 5551)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684859
@@ -1782,7 +1783,6 @@ No significant deteriorations detected.
   • Kriens (BFS 1059)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682888
   • Clos du Doubs (BFS 6808)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685583
   • Les Montets (BFS 2050)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683354
-  • Mont-la-Ville (BFS 5491)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685054
   • Vernier (BFS 6643)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685540
   • Mellingen (BFS 4033)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684362
   • St. Gallen (BFS 3203)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683941
@@ -2203,3 +2203,7 @@ No significant deteriorations detected.
   • Val-d'Illiez (BFS 6157)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685390
   • Pfyn (BFS 4841)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684548
   • Bottmingen (BFS 2767)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683629
+
+## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (2):
+  • Vaulion (BFS 5765)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685176
+  • Mont-la-Ville (BFS 5491)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685054
