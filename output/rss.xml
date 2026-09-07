@@ -6,7 +6,7 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 07 Sep 2026 08:22:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 10:09:13 GMT</lastBuildDate>
     <item>
       <title>2026-09-07: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
