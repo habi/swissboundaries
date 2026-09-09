@@ -1,12 +1,12 @@
-Generated: 2026-09-08 06:57:33 UTC
+Generated: 2026-09-09 07:07:00 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
 |--------------------------------|------:|
 | Total Swisstopo municipalities |  2123 |
-| Matched in OSM                 |     9 |
-| Missing in OSM                 |  2114 |
+| Matched in OSM                 |    15 |
+| Missing in OSM                 |  2108 |
 | Only in OSM (not in Swisstopo) |     0 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,44 +17,45 @@ Generated: 2026-09-08 06:57:33 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.000% |
 | Mean symmetric difference | 0.000% |
-| Mean Hausdorff distance   | 0.3202 |
+| Mean Hausdorff distance   | 0.2301 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |     9 |    100.000 |
+| IoU ≥ 0.98 |    15 |    100.000 |
 | IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-07)
+## Historical Comparison (vs 2026-09-08)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
-| Change                           |  +0.000 |
+| Change                           |  -0.000 |
 | Previous mean area difference    |   0.000% |
 | Current mean area difference     |   0.000% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.320 |
-| Current mean Hausdorff distance  |   0.320 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.230 |
+| Hausdorff change                 |  -0.090 |
 
 ## Worst 10 Matches (by IoU)
 
-| name            |   bfs_nummer |      iou |   area_diff_pct |
-|:----------------|-------------:|---------:|----------------:|
-| Bergün Filisur  |         3544 | 0.999989 |     0.000862166 |
-| Rongellen       |         3711 | 0.999992 |     0.000124998 |
-| Thusis          |         3668 | 0.999995 |     7.99284e-05 |
-| Vaulion         |         5765 | 0.999997 |     3.28787e-05 |
-| Schmitten (GR)  |         3514 | 0.999997 |     6.57875e-06 |
-| Zillis-Reischen |         3712 | 0.999997 |     7.90513e-06 |
-| Lantsch/Lenz    |         3513 | 0.999997 |     1.09665e-05 |
-| Mont-la-Ville   |         5491 | 0.999998 |     2.61418e-05 |
-| Albula/Alvra    |         3542 | 0.999998 |     1.60077e-06 |
+| name           |   bfs_nummer |      iou |   area_diff_pct |
+|:---------------|-------------:|---------:|----------------:|
+| Bergün Filisur |         3544 | 0.999989 |     0.000862166 |
+| Rongellen      |         3711 | 0.999992 |     0.000124998 |
+| Carouge (GE)   |         6608 | 0.999992 |     3.05884e-05 |
+| Fahrni         |          925 | 0.999993 |     3.54122e-05 |
+| Wachseldorn    |          946 | 0.999994 |     6.66731e-05 |
+| Thusis         |         3668 | 0.999995 |     7.99284e-05 |
+| Unterlangenegg |          945 | 0.999995 |     8.60851e-05 |
+| Buchholterberg |          923 | 0.999996 |     4.48269e-06 |
+| Oberlangenegg  |          935 | 0.999996 |     5.1313e-06  |
+| Vaulion        |         5765 | 0.999997 |     3.28787e-05 |
 
 ## Most Improved (if historical data available)
 
@@ -88,7 +89,7 @@ No significant deteriorations detected.
 | Treytorrens (Payerne)  |         5828 |
 | Chavannes-des-Bois     |         5708 |
 
-## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2114):
+## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2108):
   • Adliswil (BFS 131)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682077
   • Rheinwald (BFS 3714)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/9173036
   • Grens (BFS 5722)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684998
@@ -946,7 +947,6 @@ No significant deteriorations detected.
   • Oberengstringen (BFS 245)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682176
   • Bichelsee-Balterswil (BFS 4721)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684505
   • Nusshof (BFS 2854)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683683
-  • Wachseldorn (BFS 946)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682709
   • Meienried (BFS 389)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682549
   • Moiry (BFS 5490)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685050
   • Vandoeuvres (BFS 6642)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685538
@@ -1303,7 +1303,6 @@ No significant deteriorations detected.
   • Aranno (BFS 5143)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684615
   • Leukerbad (BFS 6111)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685329
   • Bauma (BFS 297)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682087
-  • Unterlangenegg (BFS 945)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682699
   • Brienzwiler (BFS 574)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682393
   • Radelfingen (BFS 309)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682612
   • Oron (BFS 5805)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1948073
@@ -1328,11 +1327,9 @@ No significant deteriorations detected.
   • Andelfingen (BFS 291)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682083
   • Mollens (VD) (BFS 5431)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685051
   • Glarus Nord (BFS 1630)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683140  — tag removed in changeset https://www.openstreetmap.org/changeset/185804019 by SimonPoole at 2026-07-15T18:55:38Z
-  • Carouge (GE) (BFS 6608)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685459
   • Estavayer (BFS 2054)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/6838556
   • Lenk (BFS 792)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682532
   • Werthenstein (BFS 1009)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682930
-  • Oberlangenegg (BFS 935)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682590
   • Märstetten (BFS 4941)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684543
   • Farnern (BFS 975)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682439
   • Bourg-Saint-Pierre (BFS 6032)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685281
@@ -1386,7 +1383,6 @@ No significant deteriorations detected.
   • Birmensdorf (ZH) (BFS 242)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682091
   • Mörel-Filet (BFS 6203)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685343
   • Reconvilier (BFS 703)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682615
-  • Fahrni (BFS 925)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682438
   • Kippel (BFS 6197)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685321
   • Kehrsatz (BFS 870)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682505
   • Burtigny (BFS 5854)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684874
@@ -1933,7 +1929,6 @@ No significant deteriorations detected.
   • Fislisbach (BFS 4027)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684309
   • Hombrechtikon (BFS 153)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682143
   • Lavigny (BFS 5637)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685020
-  • Buchholterberg (BFS 923)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682396
   • Wassen (BFS 1220)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683121
   • Däniken (BFS 2572)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683497
   • Neuenhof (BFS 4034)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684379
@@ -2203,3 +2198,11 @@ No significant deteriorations detected.
   • Val-d'Illiez (BFS 6157)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685390
   • Pfyn (BFS 4841)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684548
   • Bottmingen (BFS 2767)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683629
+
+## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (6):
+  • Wachseldorn (BFS 946)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682709
+  • Unterlangenegg (BFS 945)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682699
+  • Carouge (GE) (BFS 6608)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685459
+  • Oberlangenegg (BFS 935)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682590
+  • Fahrni (BFS 925)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682438
+  • Buchholterberg (BFS 923)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682396

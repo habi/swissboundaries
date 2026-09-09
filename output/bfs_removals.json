@@ -6016,13 +6016,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1683683",
     "first_detected": "2026-09-07"
   },
-  "946": {
-    "bfs_nummer": 946,
-    "relation": "1682709",
-    "name": "Wachseldorn",
-    "osm_url": "https://www.openstreetmap.org/relation/1682709",
-    "first_detected": "2026-09-07"
-  },
   "389": {
     "bfs_nummer": 389,
     "relation": "1682549",
@@ -8524,13 +8517,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1682087",
     "first_detected": "2026-09-07"
   },
-  "945": {
-    "bfs_nummer": 945,
-    "relation": "1682699",
-    "name": "Unterlangenegg",
-    "osm_url": "https://www.openstreetmap.org/relation/1682699",
-    "first_detected": "2026-09-07"
-  },
   "574": {
     "bfs_nummer": 574,
     "relation": "1682393",
@@ -8702,13 +8688,6 @@
     "changeset_timestamp": "2026-07-15T18:55:38Z",
     "first_detected": "2026-09-07"
   },
-  "6608": {
-    "bfs_nummer": 6608,
-    "relation": "1685459",
-    "name": "Carouge (GE)",
-    "osm_url": "https://www.openstreetmap.org/relation/1685459",
-    "first_detected": "2026-09-07"
-  },
   "2054": {
     "bfs_nummer": 2054,
     "relation": "6838556",
@@ -8728,13 +8707,6 @@
     "relation": "1682930",
     "name": "Werthenstein",
     "osm_url": "https://www.openstreetmap.org/relation/1682930",
-    "first_detected": "2026-09-07"
-  },
-  "935": {
-    "bfs_nummer": 935,
-    "relation": "1682590",
-    "name": "Oberlangenegg",
-    "osm_url": "https://www.openstreetmap.org/relation/1682590",
     "first_detected": "2026-09-07"
   },
   "4941": {
@@ -9109,13 +9081,6 @@
     "relation": "1682615",
     "name": "Reconvilier",
     "osm_url": "https://www.openstreetmap.org/relation/1682615",
-    "first_detected": "2026-09-07"
-  },
-  "925": {
-    "bfs_nummer": 925,
-    "relation": "1682438",
-    "name": "Fahrni",
-    "osm_url": "https://www.openstreetmap.org/relation/1682438",
     "first_detected": "2026-09-07"
   },
   "6197": {
@@ -12947,13 +12912,6 @@
     "relation": "1685020",
     "name": "Lavigny",
     "osm_url": "https://www.openstreetmap.org/relation/1685020",
-    "first_detected": "2026-09-07"
-  },
-  "923": {
-    "bfs_nummer": 923,
-    "relation": "1682396",
-    "name": "Buchholterberg",
-    "osm_url": "https://www.openstreetmap.org/relation/1682396",
     "first_detected": "2026-09-07"
   },
   "1220": {
