@@ -1,4 +1,4 @@
-Generated: 2026-09-09 07:07:00 UTC
+Generated: 2026-09-09 10:06:26 UTC
 
 ## Dataset Overview
 
@@ -28,19 +28,19 @@ Generated: 2026-09-09 07:07:00 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-08)
+## Historical Comparison (vs 2026-09-09)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
-| Change                           |  -0.000 |
+| Change                           |  +0.000 |
 | Previous mean area difference    |   0.000% |
 | Current mean area difference     |   0.000% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.320 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   0.230 |
 | Current mean Hausdorff distance  |   0.230 |
-| Hausdorff change                 |  -0.090 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -2198,11 +2198,3 @@ No significant deteriorations detected.
   • Val-d'Illiez (BFS 6157)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685390
   • Pfyn (BFS 4841)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1684548
   • Bottmingen (BFS 2767)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1683629
-
-## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (6):
-  • Wachseldorn (BFS 946)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682709
-  • Unterlangenegg (BFS 945)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682699
-  • Carouge (GE) (BFS 6608)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1685459
-  • Oberlangenegg (BFS 935)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682590
-  • Fahrni (BFS 925)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682438
-  • Buchholterberg (BFS 923)  — first detected: 2026-09-07  — OSM relation: https://www.openstreetmap.org/relation/1682396
