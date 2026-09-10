@@ -1122,13 +1122,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1682137",
     "first_detected": "2026-09-07"
   },
-  "3396": {
-    "bfs_nummer": 3396,
-    "relation": "1683910",
-    "name": "Neckertal",
-    "osm_url": "https://www.openstreetmap.org/relation/1683910",
-    "first_detected": "2026-09-07"
-  },
   "3987": {
     "bfs_nummer": 3987,
     "relation": "1684193",
@@ -1148,13 +1141,6 @@
     "relation": "1683529",
     "name": "H\u00e4rkingen",
     "osm_url": "https://www.openstreetmap.org/relation/1683529",
-    "first_detected": "2026-09-07"
-  },
-  "3401": {
-    "bfs_nummer": 3401,
-    "relation": "1683872",
-    "name": "Degersheim",
-    "osm_url": "https://www.openstreetmap.org/relation/1683872",
     "first_detected": "2026-09-07"
   },
   "3871": {
@@ -1225,13 +1211,6 @@
     "relation": "1683085",
     "name": "Isenthal",
     "osm_url": "https://www.openstreetmap.org/relation/1683085",
-    "first_detected": "2026-09-07"
-  },
-  "6": {
-    "bfs_nummer": 6,
-    "relation": "1682151",
-    "name": "Kappel am Albis",
-    "osm_url": "https://www.openstreetmap.org/relation/1682151",
     "first_detected": "2026-09-07"
   },
   "5561": {
@@ -2239,13 +2218,6 @@
     "relation": "1682485",
     "name": "Huttwil",
     "osm_url": "https://www.openstreetmap.org/relation/1682485",
-    "first_detected": "2026-09-07"
-  },
-  "4": {
-    "bfs_nummer": 4,
-    "relation": "1682133",
-    "name": "Hausen am Albis",
-    "osm_url": "https://www.openstreetmap.org/relation/1682133",
     "first_detected": "2026-09-07"
   },
   "4210": {
@@ -3276,13 +3248,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1685466",
     "first_detected": "2026-09-07"
   },
-  "5852": {
-    "bfs_nummer": 5852,
-    "relation": "1684872",
-    "name": "Bursinel",
-    "osm_url": "https://www.openstreetmap.org/relation/1684872",
-    "first_detected": "2026-09-07"
-  },
   "6142": {
     "bfs_nummer": 6142,
     "relation": "1685383",
@@ -3785,13 +3750,6 @@
     "relation": "1685033",
     "name": "Lovatens",
     "osm_url": "https://www.openstreetmap.org/relation/1685033",
-    "first_detected": "2026-09-07"
-  },
-  "7": {
-    "bfs_nummer": 7,
-    "relation": "1682155",
-    "name": "Knonau",
-    "osm_url": "https://www.openstreetmap.org/relation/1682155",
     "first_detected": "2026-09-07"
   },
   "588": {
@@ -4590,13 +4548,6 @@
     "relation": "1683112",
     "name": "Stans",
     "osm_url": "https://www.openstreetmap.org/relation/1683112",
-    "first_detected": "2026-09-07"
-  },
-  "9": {
-    "bfs_nummer": 9,
-    "relation": "1682166",
-    "name": "Mettmenstetten",
-    "osm_url": "https://www.openstreetmap.org/relation/1682166",
     "first_detected": "2026-09-07"
   },
   "5121": {
@@ -7982,13 +7933,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1683556",
     "first_detected": "2026-09-07"
   },
-  "11": {
-    "bfs_nummer": 11,
-    "relation": "1682187",
-    "name": "Ottenbach",
-    "osm_url": "https://www.openstreetmap.org/relation/1682187",
-    "first_detected": "2026-09-07"
-  },
   "6601": {
     "bfs_nummer": 6601,
     "relation": "1685444",
@@ -8043,13 +7987,6 @@
     "relation": "1685316",
     "name": "H\u00e9r\u00e9mence",
     "osm_url": "https://www.openstreetmap.org/relation/1685316",
-    "first_detected": "2026-09-07"
-  },
-  "2": {
-    "bfs_nummer": 2,
-    "relation": "1682080",
-    "name": "Affoltern am Albis",
-    "osm_url": "https://www.openstreetmap.org/relation/1682080",
     "first_detected": "2026-09-07"
   },
   "5115": {
@@ -8787,13 +8724,6 @@
     "relation": "1682543",
     "name": "L\u00fctschental",
     "osm_url": "https://www.openstreetmap.org/relation/1682543",
-    "first_detected": "2026-09-07"
-  },
-  "1": {
-    "bfs_nummer": 1,
-    "relation": "1682079",
-    "name": "Aeugst am Albis",
-    "osm_url": "https://www.openstreetmap.org/relation/1682079",
     "first_detected": "2026-09-07"
   },
   "2425": {
@@ -9727,13 +9657,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1684352",
     "first_detected": "2026-09-07"
   },
-  "5606": {
-    "bfs_nummer": 5606,
-    "relation": "1685039",
-    "name": "Lutry",
-    "osm_url": "https://www.openstreetmap.org/relation/1685039",
-    "first_detected": "2026-09-07"
-  },
   "5498": {
     "bfs_nummer": 5498,
     "relation": "1685013",
@@ -10566,13 +10489,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1683077",
     "first_detected": "2026-09-07"
   },
-  "12": {
-    "bfs_nummer": 12,
-    "relation": "1682196",
-    "name": "Rifferswil",
-    "osm_url": "https://www.openstreetmap.org/relation/1682196",
-    "first_detected": "2026-09-07"
-  },
   "7301": {
     "bfs_nummer": 7301,
     "relation": "46664",
@@ -10613,13 +10529,6 @@
     "relation": "1683932",
     "name": "Schlatt-Haslen",
     "osm_url": "https://www.openstreetmap.org/relation/1683932",
-    "first_detected": "2026-09-07"
-  },
-  "5613": {
-    "bfs_nummer": 5613,
-    "relation": "373404",
-    "name": "Bourg-en-Lavaux",
-    "osm_url": "https://www.openstreetmap.org/relation/373404",
     "first_detected": "2026-09-07"
   },
   "2053": {
@@ -11306,13 +11215,6 @@
     "relation": "1684405",
     "name": "Riniken",
     "osm_url": "https://www.openstreetmap.org/relation/1684405",
-    "first_detected": "2026-09-07"
-  },
-  "5853": {
-    "bfs_nummer": 5853,
-    "relation": "1684873",
-    "name": "Bursins",
-    "osm_url": "https://www.openstreetmap.org/relation/1684873",
     "first_detected": "2026-09-07"
   },
   "885": {
@@ -12585,13 +12487,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1682666",
     "first_detected": "2026-09-07"
   },
-  "5863": {
-    "bfs_nummer": 5863,
-    "relation": "1685195",
-    "name": "Vinzel",
-    "osm_url": "https://www.openstreetmap.org/relation/1685195",
-    "first_detected": "2026-09-07"
-  },
   "5522": {
     "bfs_nummer": 5522,
     "relation": "1684973",
@@ -12646,13 +12541,6 @@
     "relation": "1683119",
     "name": "Vorderthal",
     "osm_url": "https://www.openstreetmap.org/relation/1683119",
-    "first_detected": "2026-09-07"
-  },
-  "8": {
-    "bfs_nummer": 8,
-    "relation": "1682163",
-    "name": "Maschwanden",
-    "osm_url": "https://www.openstreetmap.org/relation/1682163",
     "first_detected": "2026-09-07"
   },
   "4276": {
@@ -13953,13 +13841,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1684848",
     "first_detected": "2026-09-07"
   },
-  "4307": {
-    "bfs_nummer": 4307,
-    "relation": "1684312",
-    "name": "Full-Reuenthal",
-    "osm_url": "https://www.openstreetmap.org/relation/1684312",
-    "first_detected": "2026-09-07"
-  },
   "6789": {
     "bfs_nummer": 6789,
     "relation": "1685599",
@@ -14401,13 +14282,6 @@
     "osm_url": "https://www.openstreetmap.org/relation/1683333",
     "first_detected": "2026-09-07"
   },
-  "4601": {
-    "bfs_nummer": 4601,
-    "relation": "1684547",
-    "name": "Neunforn",
-    "osm_url": "https://www.openstreetmap.org/relation/1684547",
-    "first_detected": "2026-09-07"
-  },
   "4044": {
     "bfs_nummer": 4044,
     "relation": "1684449",
@@ -14434,13 +14308,6 @@
     "relation": "1683301",
     "name": "Courgevaux",
     "osm_url": "https://www.openstreetmap.org/relation/1683301",
-    "first_detected": "2026-09-07"
-  },
-  "10": {
-    "bfs_nummer": 10,
-    "relation": "1682181",
-    "name": "Obfelden",
-    "osm_url": "https://www.openstreetmap.org/relation/1682181",
     "first_detected": "2026-09-07"
   },
   "1209": {
