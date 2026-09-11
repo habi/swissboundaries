@@ -1,4 +1,4 @@
-Generated: 2026-09-11 09:04:54 UTC
+Generated: 2026-09-11 19:34:09 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-11 09:04:54 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.005% |
-| Mean symmetric difference | 0.015% |
-| Mean Hausdorff distance   | 0.9171 |
+| Mean symmetric difference | 0.014% |
+| Mean Hausdorff distance   | 0.9100 |
 
 ## Quality Distribution
 
@@ -37,10 +37,10 @@ Generated: 2026-09-11 09:04:54 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.005% |
 | Current mean area difference     |   0.005% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.917 |
-| Current mean Hausdorff distance  |   0.917 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.910 |
+| Hausdorff change                 |  -0.007 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -55,15 +55,27 @@ Generated: 2026-09-11 09:04:54 UTC
 | Giebenach     |         2826 | 0.998    |      0.00184768 |
 | Hellsau       |          408 | 0.998087 |      0.0493622  |
 | Rümlingen     |         2859 | 0.998115 |      0.0180965  |
-| Dänikon       |           85 | 0.998175 |      0.0301509  |
+| Bettingen     |         2702 | 0.998261 |      0.0699435  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Dänikon     |           85 |   0.998175 |   0.999992 |    0.00181629 |    1682109 |
+| Hüttikon    |           87 |   0.99844  |   0.999988 |    0.001548   |    1682149 |
+| Schleinikon |           98 |   0.998695 |   0.999994 |    0.0012996  |    1682203 |
+| Boppelsen   |           82 |   0.998971 |   0.999994 |    0.00102227 |    1682093 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name         |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Saignelégier |         6757 |    1685626 | https://www.openstreetmap.org/relation/1685626 | https://www.openstreetmap.org/?mlat=47.296422&mlon=6.977669#map=16/47.296422/6.977669 |              0.015 |             17.444 |       17.429 | https://www.openstreetmap.org/changeset/188869449 | SimonPoole       | 2026-09-11T12:18:09Z  |
+| Les Breuleux |         6743 |    1685610 | https://www.openstreetmap.org/relation/1685610 | https://www.openstreetmap.org/?mlat=47.219689&mlon=7.007361#map=16/47.219689/7.007361 |              3.668 |             17.444 |       13.776 | https://www.openstreetmap.org/changeset/188869449 | SimonPoole       | 2026-09-11T12:18:09Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 

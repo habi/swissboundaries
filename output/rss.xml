@@ -6,11 +6,11 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 11 Sep 2026 09:05:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 19:34:20 GMT</lastBuildDate>
     <item>
-      <title>2026-09-11: no significant changes</title>
+      <title>2026-09-11: 4 improvements, 2 deteriorations</title>
       <link>https://boundaries.osm.ch/</link>
-      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▼</li><li>Mean area difference: +0.0000 pp ▲</li><li>Mean Hausdorff distance: +0.000 m ▲</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.007 m ▼</li></ul><h3>Improvements (4)</h3><ul><li><strong>Schleinikon</strong> (BFS 98) <a href="https://www.openstreetmap.org/relation/1682203">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Hüttikon</strong> (BFS 87) <a href="https://www.openstreetmap.org/relation/1682149">OSM</a>: IoU 0.9984 → 1.0000 (+0.0015)</li><li><strong>Dänikon</strong> (BFS 85) <a href="https://www.openstreetmap.org/relation/1682109">OSM</a>: IoU 0.9982 → 1.0000 (+0.0018)</li><li><strong>Boppelsen</strong> (BFS 82) <a href="https://www.openstreetmap.org/relation/1682093">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li></ul><h3>Hausdorff distance deteriorations (2)</h3><ul><li><strong>Les Breuleux</strong> (BFS 6743) <a href="https://www.openstreetmap.org/relation/1685610">OSM</a>: 3.668 m → 17.444 m (+13.776 m)</li><li><strong>Saignelégier</strong> (BFS 6757) <a href="https://www.openstreetmap.org/relation/1685626">OSM</a>: 0.015 m → 17.444 m (+17.429 m)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
       <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-11</guid>
     </item>
