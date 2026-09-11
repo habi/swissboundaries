@@ -117,83 +117,84 @@ def save_bfs_removal_tracker(tracker, path=BFS_REMOVALS_PATH):
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
-    Query Overpass API for Swiss and Liechtenstein admin boundaries.
-
-    Args:
-        target_crs: Target coordinate reference system (default: WGS84)
-
-    Returns:
-        GeoDataFrame with OSM boundaries
+    Query Postpass for Swiss and Liechtenstein admin boundaries.
     """
-
     print("Loading OSM boundaries...")
 
-    # Overpass QL query.
-    # We exclude boundaries from neighbouring countries via their bijective references
-    # This does exclude Campione d'Italia and Büsingen am Hochrhein (two enclaves) though.
-    # We do fetch those two explicitly by their relation ID to also look at them in the script.
-    overpass_query = """
-    [out:json][timeout:120];
-    area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
-    area["ISO3166-1"="LI"][admin_level=2]->.liechtenstein;
-    (
-      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:FR:SIREN"!~".*"]["ref:at:gkz"!~".*"]["de:amtlicher_gemeindeschluessel"!~".*"]["ref:ISTAT"!~".*"](area.switzerland);
-      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:at:gkz"!~".*"](area.liechtenstein);
-      relation(46664);   // Campione d'Italia
-      relation(2785126); // Büsingen am Hochrhein
-    );
-    out geom;
+    postpass_query = """
+    WITH ch_li_bbox AS (
+	    SELECT ST_MakeEnvelope(5.7, 45.6, 10.7, 48.0, 4326) AS geom
+	)
+	SELECT p.osm_type, p.osm_id, p.tags, p.geom
+	FROM postpass_polygon p, ch_li_bbox b
+	WHERE p.osm_type = 'R'
+	    AND p.tags @> '{"boundary":"administrative","admin_level":"8"}'::jsonb
+	    AND NOT (p.tags @> '{"type":"historic"}'::jsonb)
+	    AND NOT (p.tags ? 'ref:FR:SIREN')
+	    AND NOT (p.tags ? 'ref:at:gkz')
+	    AND NOT (p.tags ? 'de:amtlicher_gemeindeschluessel')
+	    AND NOT (p.tags ? 'ref:ISTAT')
+	    AND p.geom && b.geom
+
+	UNION ALL
+
+	SELECT osm_type, osm_id, tags, geom
+	FROM postpass_polygon
+	WHERE osm_type = 'R'
+	    AND osm_id IN (46664, 2785126)   -- Campione d'Italia, Büsingen am Hochrhein
     """
 
     try:
         loaded_from_cache = False
-        osm_data = _load_overpass_cache()
-        if osm_data is not None:
+        geojson = _load_overpass_cache()
+        if geojson is not None:
             loaded_from_cache = True
-            print("  - Using cached Overpass response (<= 4 hours old)")
+            print("  - Using cached Postpass response (<= 4 hours old)")
         else:
-            print("  - Querying Overpass API...")
+            print("  - Querying Postpass API...")
             response = requests.post(
-                "http://overpass.osm.ch/api/interpreter",
-                data=overpass_query,
+                "https://postpass.geofabrik.de/api/interpreter",
+                data={"data": postpass_query},  # GeoJSON is the default output
                 timeout=120,
             )
             response.raise_for_status()
-            osm_data = response.json()
+            geojson = response.json()  # already a GeoJSON FeatureCollection
 
-        if not osm_data.get("elements"):
+        if not geojson.get("features"):
             print(
-                "  - No boundaries returned by Overpass; aborting run and invalidating cache"
+                "  - No boundaries returned by Postpass; aborting run and invalidating cache"
             )
             _invalidate_overpass_cache()
             return None
 
         if not loaded_from_cache:
-            _save_overpass_cache(osm_data)
-            print("  - Cached Overpass response")
+            _save_overpass_cache(geojson)
+            print("  - Cached Postpass response")
 
-        print(f"  - Found {len(osm_data['elements'])} OSM elements")
+        print(f"  - Found {len(geojson['features'])} OSM elements")
 
-        # Convert to GeoJSON and count which BFS source tag was used.
+        # Flatten each feature's nested "tags" object onto properties, and
+        # normalize the BFS number the same way create_feature() used to.
         bfs_tag_stats = {"swisstopo:BFS_NUMMER": 0, "bfs:OBJECTVAL": 0}
-        geojson = osm_to_geojson(osm_data, bfs_tag_stats=bfs_tag_stats)
+        flat_features = [
+            flatten_postpass_feature(f, bfs_tag_stats) for f in geojson["features"]
+        ]
         print(
             "  - BFS tag normalization: "
             f"swisstopo:BFS_NUMMER={bfs_tag_stats['swisstopo:BFS_NUMMER']}, "
             f"bfs:OBJECTVAL={bfs_tag_stats['bfs:OBJECTVAL']}"
         )
 
-        if not geojson["features"]:
+        if not flat_features:
             print("  - Error: No valid features created from OSM data")
             return None
 
-        # Convert to GeoDataFrame
-        gdf = gpd.GeoDataFrame.from_features(geojson["features"], crs="EPSG:4326")
+        gdf = gpd.GeoDataFrame.from_features(flat_features, crs="EPSG:4326")
 
-        # 2D ENFORCEMENT: Strip Z-coords if any (OSM sometimes has them in specific tags)
+        # Still worth keeping as a safety net even though Postpass geometries
+        # should already be 2D.
         gdf.geometry = gdf.geometry.apply(force_2d)
 
-        # Reproject if needed
         if target_crs != "EPSG:4326":
             gdf = gdf.to_crs(target_crs)
             print(f"  - Reprojected to: {target_crs}")
@@ -208,17 +209,42 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
         return None
 
 
-def osm_to_geojson(osm_data, bfs_tag_stats=None):
-    """Convert OSM JSON format to GeoJSON."""
+def flatten_postpass_feature(feature, bfs_tag_stats=None):
+    """Flatten a Postpass GeoJSON feature's nested `tags` onto its properties,
+    mirroring the BFS-number normalization the old create_feature() did."""
+    props = feature.get("properties", {}) or {}
+    tags = props.get("tags", {}) or {}
 
-    geojson = {"type": "FeatureCollection", "features": []}
+    raw_swisstopo_bfs = tags.get("swisstopo:BFS_NUMMER")
+    raw_objectval_bfs = tags.get("bfs:OBJECTVAL")
+    swisstopo_bfs = (
+        str(raw_swisstopo_bfs).strip() if raw_swisstopo_bfs is not None else ""
+    )
+    objectval_bfs = (
+        str(raw_objectval_bfs).strip() if raw_objectval_bfs is not None else ""
+    )
 
-    for element in osm_data.get("elements", []):
-        feature = create_feature(element, bfs_tag_stats=bfs_tag_stats)
-        if feature:
-            geojson["features"].append(feature)
+    if swisstopo_bfs:
+        bfs_num, bfs_source = swisstopo_bfs, "swisstopo:BFS_NUMMER"
+    elif objectval_bfs:
+        bfs_num, bfs_source = objectval_bfs, "bfs:OBJECTVAL"
+    else:
+        bfs_num, bfs_source = None, None
 
-    return geojson
+    if bfs_tag_stats is not None and bfs_source:
+        bfs_tag_stats[bfs_source] = bfs_tag_stats.get(bfs_source, 0) + 1
+
+    return {
+        "type": "Feature",
+        "id": f"relation/{props.get('osm_id')}",
+        "properties": {
+            "osm_id": props.get("osm_id"),
+            "country": "LI" if bfs_source == "bfs:OBJECTVAL" else "CH",
+            "swisstopo:BFS_NUMMER": bfs_num,
+            **tags,
+        },
+        "geometry": feature["geometry"],
+    }
 
 
 def create_feature(element, bfs_tag_stats=None):
