@@ -121,7 +121,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     """
     print("Loading OSM boundaries...")
 
-	# See the query: https://overpass-ultra.us/#run&m=5.63/44.9170/8.4342&q=LQhQBcE8AcFMC4AE0D2Bnc0CGa2hMKAMoCiAMiQMIAqi6AtgPpRwA0daTAlgCbvhYA5mnaDYKeqABiAJQDyAWWTpMONI1QAbSIJQA7UAHUAEiRkkOTFrEQBeRAHIZD0IkQBBAHIARRAOGIAAIAfI4A3gBEAEYoAK56PFgATpAR8BFYPPRcelwYSVjgXABusBGsGVk5jJqwpZppEQAcEQC+DvDwAFZo+lGuHj6InnK0ABT+aEGhDpHWjQAWeeAoSVwAxm0d3b16UQCUA16+I+OTiAD8jkmwAGbwsvBEAJLmng6HbsfDo4gTQlMrg4bvdCvBBABrABeHyOQ1Of3OQJ4CCw9HAmg2C1gSUYYnosByKLQ6wWmlisFwsE0sK+8N+-wCQJB8GeRGo7motMGvjEEkQADIBYh2YwFFgIbASHp6ig4GMAKwAOgA7OwACzKgBs7AAjAAGVUappK-UagDMACYtYcAKqeZ5yTweMhkYjkKi0BjMGCwdje3j8AGicSSWSKZQYbC4DQobS6AwmMwWb3WOyOZxw3wBniIZ7OsbqrXF9XsS0qpoK3XW-ZuRAgRCUNHQLj6Gw8BzPASYrDsABCAB+0DkxHpEGjEMYUKSktickA
+    # See the query: https://overpass-ultra.us/#run&m=5.63/44.9170/8.4342&q=LQhQBcE8AcFMC4AE0D2Bnc0CGa2hMKAMoCiAMiQMIAqi6AtgPpRwA0daTAlgCbvhYA5mnaDYKeqABiAJQDyAWWTpMONI1QAbSIJQA7UAHUAEiRkkOTFrEQBeRAHIZD0IkQBBAHIARRAOGIAAIAfI4A3gBEAEYoAK56PFgATpAR8BFYPPRcelwYSVjgXABusBGsGVk5jJqwpZppEQAcEQC+DvDwAFZo+lGuHj6InnK0ABT+aEGhDpHWjQAWeeAoSVwAxm0d3b16UQCUA16+I+OTiAD8jkmwAGbwsvBEAJLmng6HbsfDo4gTQlMrg4bvdCvBBABrABeHyOQ1Of3OQJ4CCw9HAmg2C1gSUYYnosByKLQ6wWmlisFwsE0sK+8N+-wCQJB8GeRGo7motMGvjEEkQADIBYh2YwFFgIbASHp6ig4GMAKwAOgA7OwACzKgBs7AAjAAGVUappK-UagDMACYtYcAKqeZ5yTweMhkYjkKi0BjMGCwdje3j8AGicSSWSKZQYbC4DQobS6AwmMwWb3WOyOZxw3wBniIZ7OsbqrXF9XsS0qpoK3XW-ZuRAgRCUNHQLj6Gw8BzPASYrDsABCAB+0DkxHpEGjEMYUKSktickA
     postpass_query = """
     SELECT
         osm_type,
@@ -131,13 +131,13 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     FROM postpass_polygon
     WHERE
         osm_type = 'R'
-        AND tags @> '{"boundary":"administrative","admin_level":"8"}'::jsonb
-        AND NOT (tags @> '{"type":"historic"}'::jsonb)
-        AND NOT (tags ? 'ref:FR:SIREN')
-        AND NOT (tags ? 'ref:at:gkz')
-        AND NOT (tags ? 'de:amtlicher_gemeindeschluessel')
-        AND NOT (tags ? 'ref:ISTAT')
-        AND geom && ST_MAKEENVELOPE(5.7, 45.6, 10.7, 48.0, 4326)
+        AND tags @> '{"boundary":"administrative","admin_level":"8"}'::jsonb  -- find all administrative boundaries
+        AND NOT (tags @> '{"type":"historic"}'::jsonb)                        -- exclude historic ones
+        AND NOT (tags ? 'ref:FR:SIREN')                                       -- exclude boundaries from France
+        AND NOT (tags ? 'ref:at:gkz')                                         -- exclude boundaries from Austria
+        AND NOT (tags ? 'de:amtlicher_gemeindeschluessel')                    -- exclude boundaries from Germany
+        AND NOT (tags ? 'ref:ISTAT')                                          -- exclude boundaries frmo Italy
+        AND geom && ST_MAKEENVELOPE(5.7, 45.6, 10.7, 48.0, 4326)              -- do it all in a bounding box slightly bigger than Switzerland itself
     UNION ALL
     SELECT
         osm_type,
@@ -147,7 +147,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     FROM postpass_polygon
     WHERE
         osm_type = 'R'
-        AND osm_id IN (46664, 2785126)   -- Campione d'Italia, Büsingen am Hochrhein
+        AND osm_id IN (46664, 2785126)                                        -- Include enclaves Campione d'Italia and Büsingen am Hochrhein
     """
 
     try:
