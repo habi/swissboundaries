@@ -217,8 +217,12 @@ def flatten_postpass_feature(feature, bfs_tag_stats=None):
 
     raw_swisstopo_bfs = tags.get("swisstopo:BFS_NUMMER")
     raw_objectval_bfs = tags.get("bfs:OBJECTVAL")
-    swisstopo_bfs = str(raw_swisstopo_bfs).strip() if raw_swisstopo_bfs is not None else ""
-    objectval_bfs = str(raw_objectval_bfs).strip() if raw_objectval_bfs is not None else ""
+    swisstopo_bfs = (
+        str(raw_swisstopo_bfs).strip() if raw_swisstopo_bfs is not None else ""
+    )
+    objectval_bfs = (
+        str(raw_objectval_bfs).strip() if raw_objectval_bfs is not None else ""
+    )
 
     if swisstopo_bfs:
         bfs_num, bfs_source = swisstopo_bfs, "swisstopo:BFS_NUMMER"
