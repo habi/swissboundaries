@@ -123,24 +123,31 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
 
 	# See the query: https://overpass-ultra.us/#run&m=7.69/46.7313/8.1775&q=LQhQBcEtwGwUwFwAIAKB7AzuADgQwxqACZwYDGATpNlGgHbICKArnBQJ5IDy2cdAyuApw44ALK5sSZhkh0A5kgDa6LHgIBdABQALcDgwIA9EfnQdzAEYA6MmgC2RgO5o0RXmQDWR7Jhz4MAEoIdl5kXzUA0Cx2eGQ9A2MjKHgMayxcIkhce0k0u0cY1KNcGEgiTLgAfQx7V3AdawArDHpQEGBQAHUASQAVAAkkSzRmOiIMJABBfiQtfgBRABkFgGE+pH4+qolPOAW6ADc4GDReLQBWawB2ABokABYrgDZ7gEYABhv7h4AOaw+PwAzAAmZ6BaazeRwBwQpAgJAAIVG4zkihGAA8kOA0Eg7McKJsnNAAF5sGC4cagJA0zbLNYbbDWTD2KrgUJwe5MllVcpc6zgXDyDD86EOam0gBiACUuGIkBF-AQqr4YOx5PQFfcRmMJsMJTSugMFtKFgrmbU2RykABeJAAcml9oNtJpUwAcgARc2C4VIAACAD4HQBvABEOvGuA4YYQYcy9jkkCwFFwUGOYdu8aIiboVXgxxgsbDvzDAF97QgEC16JYaQj+Cc4GRwEhSjA2zmkym05BjsMURUqKQXa6Pd73VwNlomb7JkHQ2H2bxizpkziqGRy5Xq606JY4QiFhiyDBmCQkGusGhNwPddHICPXWOvUhJ9PZ0LJgB+B3CABmCAygg-A9Ka7r2oewBIMep7nnAd5RsOkz-hQDhIJKqZ0GQcCjrS45vlOcyfn6v72gBCBpgg8ieCSkH1tBsFnhekZDo+KFofY0wyEI2R4W6r7vsRApfkgZEkJR9iwJAZA6GwVTQvYcByCQ5A6GepAYCc9HwoxJ7MQhrEPqQSCoehADibC5HQ7D8dMglETOImkX+cCAT0WxTH0OlHvp8GIWxJlmVxPSCmqdkEUyYpcQAZDFwzWNFoAugAqu6PRcO60xLEsyWuosKzrEgPLLpyxWWny2JfvcSWujKcoKn46gYCqaBqhqdAukaJpmiV1p2o6zrPvhr48uUSA9FlWgPM8s0PPcILXL8FxvGCcK6ZsHiQP+MntpwchwReDQIXwp64MckyrDk2CQPQCFEPaoWlNkbbjEiAA-sgKHwbZcQMaCyRQclyEAA
     postpass_query = """
-    WITH bounds AS (SELECT ST_MakeEnvelope(5.7, 45.6, 10.7, 48.0, 4326) AS geom)  -- Bounding box to cover Switzerland
-        SELECT p.osm_type, p.osm_id, p.tags, p.geom
-        FROM postpass_polygon p, bounds b
-        WHERE p.osm_type = 'R'
-            AND p.tags @> '{"boundary":"administrative","admin_level":"8"}'::jsonb  -- Select all administrative boundaries
-            AND NOT (p.tags @> '{"type":"historic"}'::jsonb)  -- Exclude historic boundaries
-            AND NOT (p.tags ? 'ref:FR:SIREN')  -- Exclude boundaries from France
-            AND NOT (p.tags ? 'ref:at:gkz')  -- Exclude boundaries from Austria
-            AND NOT (p.tags ? 'de:amtlicher_gemeindeschluessel')  -- Exclude boundaries from Germany
-            AND NOT (p.tags ? 'ref:ISTAT')  -- Exclude boundaries from Italy
-            AND p.geom && b.geom
-
-        UNION ALL
-
-        SELECT osm_type, osm_id, tags, geom
-        FROM postpass_polygon
-        WHERE osm_type = 'R'
-            AND osm_id IN (46664, 2785126)   -- Specifically include the enclaves Campione d'Italia and Büsingen am Hochrhein
+    SELECT
+        osm_type,
+        osm_id,
+        tags,
+        geom
+    FROM postpass_polygon
+    WHERE
+        osm_type = 'R'
+        AND tags @> '{"boundary":"administrative","admin_level":"8"}'::jsonb
+        AND NOT (tags @> '{"type":"historic"}'::jsonb)
+        AND NOT (tags ? 'ref:FR:SIREN')
+        AND NOT (tags ? 'ref:at:gkz')
+        AND NOT (tags ? 'de:amtlicher_gemeindeschluessel')
+        AND NOT (tags ? 'ref:ISTAT')
+        AND geom && ST_MAKEENVELOPE(5.7, 45.6, 10.7, 48.0, 4326)
+    UNION ALL
+    SELECT
+        osm_type,
+        osm_id,
+        tags,
+        geom
+    FROM postpass_polygon
+    WHERE
+        osm_type = 'R'
+        AND osm_id IN (46664, 2785126)   -- Campione d'Italia, Büsingen am Hochrhein
     """
 
     try:
