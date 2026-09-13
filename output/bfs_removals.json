@@ -1,1 +1,22 @@
-{}
+{
+  "1211": {
+    "bfs_nummer": 1211,
+    "relation": "1683085",
+    "name": "Isenthal",
+    "osm_url": "https://www.openstreetmap.org/relation/1683085",
+    "changeset_url": "https://www.openstreetmap.org/changeset/188945634",
+    "changeset_user": "SimonPoole",
+    "changeset_timestamp": "2026-09-13T06:42:00Z",
+    "first_detected": "2026-09-13"
+  },
+  "1511": {
+    "bfs_nummer": 1511,
+    "relation": "1683122",
+    "name": "Wolfenschiessen",
+    "osm_url": "https://www.openstreetmap.org/relation/1683122",
+    "changeset_url": "https://www.openstreetmap.org/changeset/188945843",
+    "changeset_user": "SimonPoole",
+    "changeset_timestamp": "2026-09-13T06:50:52Z",
+    "first_detected": "2026-09-13"
+  }
+}

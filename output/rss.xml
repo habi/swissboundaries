@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 12 Sep 2026 06:56:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 07:14:13 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-13: 3 improvements, 3 deteriorations, 2 BFS tag removals</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0000 pp ▼</li><li>Mean Hausdorff distance: -0.001 m ▼</li></ul><h3>Improvements (3)</h3><ul><li><strong>Gy</strong> (BFS 6624) <a href="https://www.openstreetmap.org/relation/1685490">OSM</a>: IoU 0.9980 → 1.0000 (+0.0020)</li><li><strong>Unterramsern</strong> (BFS 2463) <a href="https://www.openstreetmap.org/relation/1683584">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Kernenried</strong> (BFS 411) <a href="https://www.openstreetmap.org/relation/1682506">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li></ul><h3>IoU deteriorations (1)</h3><ul><li><strong>Henniez</strong> (BFS 5819) <a href="https://www.openstreetmap.org/relation/1685001">OSM</a>: IoU 0.9996 → 0.9979 (−0.0017)</li></ul><h3>Hausdorff distance deteriorations (2)</h3><ul><li><strong>Surpierre</strong> (BFS 2044) <a href="https://www.openstreetmap.org/relation/1683406">OSM</a>: 3.073 m → 31.412 m (+28.339 m)</li><li><strong>Henniez</strong> (BFS 5819) <a href="https://www.openstreetmap.org/relation/1685001">OSM</a>: 3.043 m → 31.412 m (+28.369 m)</li></ul><h3>BFS tag removals (2)</h3><ul><li><strong>Isenthal</strong> (BFS 1211) <a href="https://www.openstreetmap.org/relation/1683085">OSM</a> removed in <a href="https://www.openstreetmap.org/changeset/188945634">changeset</a> by SimonPoole</li><li><strong>Wolfenschiessen</strong> (BFS 1511) <a href="https://www.openstreetmap.org/relation/1683122">OSM</a> removed in <a href="https://www.openstreetmap.org/changeset/188945843">changeset</a> by SimonPoole</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-13</guid>
+    </item>
     <item>
       <title>2026-09-12: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
