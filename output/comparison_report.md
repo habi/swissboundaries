@@ -1,4 +1,4 @@
-Generated: 2026-09-13 07:14:03 UTC
+Generated: 2026-09-13 11:02:03 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-09-13 07:14:03 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-12)
+## Historical Comparison (vs 2026-09-13)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,10 +37,10 @@ Generated: 2026-09-13 07:14:03 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.004% |
 | Current mean area difference     |   0.004% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.882 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   0.881 |
 | Current mean Hausdorff distance  |   0.881 |
-| Hausdorff change                 |  -0.001 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,24 +59,11 @@ Generated: 2026-09-13 07:14:03 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Gy           |         6624 |   0.997952 |   0.99999  |    0.00203785 |    1685490 |
-| Unterramsern |         2463 |   0.998296 |   0.999992 |    0.00169632 |    1683584 |
-| Kernenried   |          411 |   0.998675 |   0.999994 |    0.00131862 |    1682506 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
-| name    |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_iou |   curr_iou |   deterioration | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:--------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-----------:|-----------:|----------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Henniez |         5819 |    1685001 | https://www.openstreetmap.org/relation/1685001 | https://www.openstreetmap.org/?mlat=46.745541&mlon=6.877775#map=16/46.745541/6.877775 |   0.999554 |   0.997866 |      0.00168873 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name      |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Henniez   |         5819 |    1685001 | https://www.openstreetmap.org/relation/1685001 | https://www.openstreetmap.org/?mlat=46.745541&mlon=6.877775#map=16/46.745541/6.877775 |              3.043 |             31.412 |       28.369 | https://www.openstreetmap.org/changeset/153414606 | woodpeck_repair  | 2024-07-01T14:10:13Z  |
-| Surpierre |         2044 |    1683406 | https://www.openstreetmap.org/relation/1683406 | https://www.openstreetmap.org/?mlat=46.745541&mlon=6.877775#map=16/46.745541/6.877775 |              3.073 |             31.412 |       28.339 | https://www.openstreetmap.org/changeset/179329999 | Tseodoric        | 2026-03-04T03:00:21Z  |
+No significant deteriorations detected.
 
 ## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
 | name            |   bfs_nummer |
@@ -98,6 +85,6 @@ Generated: 2026-09-13 07:14:03 UTC
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
 
-## Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM (2):
-  • Isenthal (BFS 1211)  — OSM relation: https://www.openstreetmap.org/relation/1683085  — tag removed in changeset https://www.openstreetmap.org/changeset/188945634 by SimonPoole at 2026-09-13T06:42:00Z
-  • Wolfenschiessen (BFS 1511)  — OSM relation: https://www.openstreetmap.org/relation/1683122  — tag removed in changeset https://www.openstreetmap.org/changeset/188945843 by SimonPoole at 2026-09-13T06:50:52Z
+## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2):
+  • Isenthal (BFS 1211)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683085  — tag removed in changeset https://www.openstreetmap.org/changeset/188945634 by SimonPoole at 2026-09-13T06:42:00Z
+  • Wolfenschiessen (BFS 1511)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683122  — tag removed in changeset https://www.openstreetmap.org/changeset/188945843 by SimonPoole at 2026-09-13T06:50:52Z
