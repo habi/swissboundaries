@@ -1,12 +1,12 @@
-Generated: 2026-09-13 11:02:03 UTC
+Generated: 2026-09-14 07:37:41 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
 |--------------------------------|------:|
 | Total Swisstopo municipalities |  2123 |
-| Matched in OSM                 |  2121 |
-| Missing in OSM                 |     2 |
+| Matched in OSM                 |  2123 |
+| Missing in OSM                 |     0 |
 | Only in OSM (not in Swisstopo) |     9 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -16,14 +16,14 @@ Generated: 2026-09-13 11:02:03 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.004% |
-| Mean symmetric difference | 0.014% |
-| Mean Hausdorff distance   | 0.8815 |
+| Mean symmetric difference | 0.013% |
+| Mean Hausdorff distance   | 0.8141 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |  2121 |    100.000 |
+| IoU ≥ 0.98 |  2123 |    100.000 |
 | IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
@@ -37,10 +37,10 @@ Generated: 2026-09-13 11:02:03 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.004% |
 | Current mean area difference     |   0.004% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.881 |
-| Current mean Hausdorff distance  |   0.881 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.814 |
+| Hausdorff change                 |  -0.067 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -50,26 +50,25 @@ Generated: 2026-09-13 11:02:03 UTC
 | Prévonloup    |         5683 | 0.997366 |      0.0700191  |
 | Lovatens      |         5674 | 0.997373 |      0.0372413  |
 | Chêne-Pâquier |         5908 | 0.99773  |      0.0210398  |
-| Henniez       |         5819 | 0.997866 |      0.168654   |
 | Willadingen   |          423 | 0.997933 |      0.0548498  |
 | Giebenach     |         2826 | 0.998    |      0.00184768 |
 | Hellsau       |          408 | 0.998087 |      0.0493622  |
 | Rümlingen     |         2859 | 0.998115 |      0.0180965  |
 | Bettingen     |         2702 | 0.998261 |      0.0699435  |
+| Studen (BE)   |          749 | 0.998329 |      0.0299392  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Henniez     |         5819 |   0.997866 |   0.999554 |    0.00168873 |    1685001 |
+| Ramlinsburg |         2832 |   0.998383 |   0.999993 |    0.00160999 |    1683691 |
+| Lully (VD)  |         5639 |   0.99891  |   0.999989 |    0.00107876 |    1685036 |
+| Hölstein    |         2886 |   0.998959 |   0.999995 |    0.00103645 |    1683659 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
-| name            |   bfs_nummer |
-|:----------------|-------------:|
-| Isenthal        |         1211 |
-| Wolfenschiessen |         1511 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
@@ -85,6 +84,6 @@ No significant deteriorations detected.
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
 
-## Municipalities with swisstopo:BFS_NUMMER still absent from OSM (previously detected, unresolved) (2):
-  • Isenthal (BFS 1211)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683085  — tag removed in changeset https://www.openstreetmap.org/changeset/188945634 by SimonPoole at 2026-09-13T06:42:00Z
-  • Wolfenschiessen (BFS 1511)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683122  — tag removed in changeset https://www.openstreetmap.org/changeset/188945843 by SimonPoole at 2026-09-13T06:50:52Z
+## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (2):
+  • Isenthal (BFS 1211)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683085
+  • Wolfenschiessen (BFS 1511)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683122
