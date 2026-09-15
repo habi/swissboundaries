@@ -1,4 +1,4 @@
-Generated: 2026-09-14 07:37:41 UTC
+Generated: 2026-09-15 14:04:00 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-14 07:37:41 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.004% |
-| Mean symmetric difference | 0.013% |
-| Mean Hausdorff distance   | 0.8141 |
+| Mean symmetric difference | 0.012% |
+| Mean Hausdorff distance   | 0.7615 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-14 07:37:41 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-13)
+## Historical Comparison (vs 2026-09-14)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,33 +38,35 @@ Generated: 2026-09-14 07:37:41 UTC
 | Previous mean area difference    |   0.004% |
 | Current mean area difference     |   0.004% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.881 |
-| Current mean Hausdorff distance  |   0.814 |
-| Hausdorff change                 |  -0.067 |
+| Previous mean Hausdorff distance |   0.814 |
+| Current mean Hausdorff distance  |   0.762 |
+| Hausdorff change                 |  -0.053 |
 
 ## Worst 10 Matches (by IoU)
 
 | name          |   bfs_nummer |      iou |   area_diff_pct |
 |:--------------|-------------:|---------:|----------------:|
-| Eschenz       |         4806 | 0.982101 |      1.5445     |
-| Prévonloup    |         5683 | 0.997366 |      0.0700191  |
-| Lovatens      |         5674 | 0.997373 |      0.0372413  |
-| Chêne-Pâquier |         5908 | 0.99773  |      0.0210398  |
-| Willadingen   |          423 | 0.997933 |      0.0548498  |
-| Giebenach     |         2826 | 0.998    |      0.00184768 |
-| Hellsau       |          408 | 0.998087 |      0.0493622  |
-| Rümlingen     |         2859 | 0.998115 |      0.0180965  |
-| Bettingen     |         2702 | 0.998261 |      0.0699435  |
-| Studen (BE)   |          749 | 0.998329 |      0.0299392  |
+| Eschenz       |         4806 | 0.982101 |       1.5445    |
+| Prévonloup    |         5683 | 0.997366 |       0.0700191 |
+| Lovatens      |         5674 | 0.997373 |       0.0372413 |
+| Chêne-Pâquier |         5908 | 0.99773  |       0.0210398 |
+| Willadingen   |          423 | 0.997933 |       0.0548498 |
+| Hellsau       |          408 | 0.998087 |       0.0493622 |
+| Rümlingen     |         2859 | 0.998115 |       0.0180965 |
+| Bettingen     |         2702 | 0.998261 |       0.0699435 |
+| Studen (BE)   |          749 | 0.998329 |       0.0299392 |
+| Finsterhennen |          493 | 0.998379 |       0.013268  |
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Henniez     |         5819 |   0.997866 |   0.999554 |    0.00168873 |    1685001 |
-| Ramlinsburg |         2832 |   0.998383 |   0.999993 |    0.00160999 |    1683691 |
-| Lully (VD)  |         5639 |   0.99891  |   0.999989 |    0.00107876 |    1685036 |
-| Hölstein    |         2886 |   0.998959 |   0.999995 |    0.00103645 |    1683659 |
+| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Giebenach            |         2826 |   0.998    |   0.999991 |    0.00199084 |    1683650 |
+| Meienried            |          389 |   0.998632 |   0.999987 |    0.00135447 |    1682549 |
+| Oltingen             |         2855 |   0.998784 |   0.999995 |    0.00121057 |    1683687 |
+| Avusy                |         6604 |   0.998892 |   0.999994 |    0.00110199 |    1685448 |
+| Mex (VD)             |         5489 |   0.998926 |   0.999993 |    0.00106671 |    1685047 |
+| Villars-Sainte-Croix |         5651 |   0.998977 |   0.99999  |    0.0010138  |    1685185 |
 
 ## Most Deteriorated (if historical data available)
 
@@ -83,7 +85,3 @@ No significant deteriorations detected.
 | Bielersee (NE)                  |         9150 |    1685453 |
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
-
-## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (2):
-  • Isenthal (BFS 1211)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683085
-  • Wolfenschiessen (BFS 1511)  — first detected: 2026-09-13  — OSM relation: https://www.openstreetmap.org/relation/1683122
