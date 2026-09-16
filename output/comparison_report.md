@@ -1,4 +1,4 @@
-Generated: 2026-09-15 14:04:00 UTC
+Generated: 2026-09-16 07:19:06 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-15 14:04:00 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.004% |
-| Mean symmetric difference | 0.012% |
-| Mean Hausdorff distance   | 0.7615 |
+| Mean symmetric difference | 0.011% |
+| Mean Hausdorff distance   | 0.7366 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-15 14:04:00 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-14)
+## Historical Comparison (vs 2026-09-15)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-15 14:04:00 UTC
 | Previous mean area difference    |   0.004% |
 | Current mean area difference     |   0.004% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.814 |
-| Current mean Hausdorff distance  |   0.762 |
-| Hausdorff change                 |  -0.053 |
+| Previous mean Hausdorff distance |   0.762 |
+| Current mean Hausdorff distance  |   0.737 |
+| Hausdorff change                 |  -0.025 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,14 +59,12 @@ Generated: 2026-09-15 14:04:00 UTC
 
 ## Most Improved (if historical data available)
 
-| name                 |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Giebenach            |         2826 |   0.998    |   0.999991 |    0.00199084 |    1683650 |
-| Meienried            |          389 |   0.998632 |   0.999987 |    0.00135447 |    1682549 |
-| Oltingen             |         2855 |   0.998784 |   0.999995 |    0.00121057 |    1683687 |
-| Avusy                |         6604 |   0.998892 |   0.999994 |    0.00110199 |    1685448 |
-| Mex (VD)             |         5489 |   0.998926 |   0.999993 |    0.00106671 |    1685047 |
-| Villars-Sainte-Croix |         5651 |   0.998977 |   0.99999  |    0.0010138  |    1685185 |
+| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Fehren         |         2616 |   0.998558 |   0.999992 |    0.00143377 |    1683503 |
+| Bleienbach     |          324 |   0.998608 |   0.999994 |    0.00138636 |    1682383 |
+| Mont-sur-Rolle |         5859 |   0.998756 |   0.999994 |    0.00123769 |    1685055 |
+| Büsserach      |         2614 |   0.998964 |   0.999996 |    0.0010314  |    1683492 |
 
 ## Most Deteriorated (if historical data available)
 

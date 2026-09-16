@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 15 Sep 2026 14:04:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 07:19:15 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-16: 4 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.025 m ▼</li></ul><h3>Improvements (4)</h3><ul><li><strong>Bleienbach</strong> (BFS 324) <a href="https://www.openstreetmap.org/relation/1682383">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Fehren</strong> (BFS 2616) <a href="https://www.openstreetmap.org/relation/1683503">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Mont-sur-Rolle</strong> (BFS 5859) <a href="https://www.openstreetmap.org/relation/1685055">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Büsserach</strong> (BFS 2614) <a href="https://www.openstreetmap.org/relation/1683492">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-16</guid>
+    </item>
     <item>
       <title>2026-09-15: 6 improvements</title>
       <link>https://boundaries.osm.ch/</link>
