@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 16 Sep 2026 07:19:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 07:14:32 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-17: 6 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0003 pp ▼</li><li>Mean Hausdorff distance: -0.045 m ▼</li></ul><h3>Improvements (6)</h3><ul><li><strong>Tenniken</strong> (BFS 2863) <a href="https://www.openstreetmap.org/relation/1683712">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li><li><strong>Jouxtens-Mézery</strong> (BFS 5585) <a href="https://www.openstreetmap.org/relation/1685004">OSM</a>: IoU 0.9989 → 1.0000 (+0.0010)</li><li><strong>Poliez-Pittet</strong> (BFS 5533) <a href="https://www.openstreetmap.org/relation/1685102">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Wittinsburg</strong> (BFS 2867) <a href="https://www.openstreetmap.org/relation/1683723">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Häfelfingen</strong> (BFS 2847) <a href="https://www.openstreetmap.org/relation/1683658">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Rümlingen</strong> (BFS 2859) <a href="https://www.openstreetmap.org/relation/1683701">OSM</a>: IoU 0.9981 → 1.0000 (+0.0019)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-17</guid>
+    </item>
     <item>
       <title>2026-09-16: 4 improvements</title>
       <link>https://boundaries.osm.ch/</link>
