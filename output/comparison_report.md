@@ -1,4 +1,4 @@
-Generated: 2026-09-17 07:14:25 UTC
+Generated: 2026-09-18 07:08:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-17 07:14:25 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
 | Mean symmetric difference | 0.010% |
-| Mean Hausdorff distance   | 0.6914 |
+| Mean Hausdorff distance   | 0.6749 |
 
 ## Quality Distribution
 
@@ -28,19 +28,19 @@ Generated: 2026-09-17 07:14:25 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-16)
+## Historical Comparison (vs 2026-09-17)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
-| Previous mean area difference    |   0.004% |
+| Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.737 |
-| Current mean Hausdorff distance  |   0.691 |
-| Hausdorff change                 |  -0.045 |
+| Previous mean Hausdorff distance |   0.691 |
+| Current mean Hausdorff distance  |   0.675 |
+| Hausdorff change                 |  -0.017 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,14 +59,7 @@ Generated: 2026-09-17 07:14:25 UTC
 
 ## Most Improved (if historical data available)
 
-| name            |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:----------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Rümlingen       |         2859 |   0.998115 |   0.999995 |    0.00187987 |    1683701 |
-| Tenniken        |         2863 |   0.998474 |   0.999995 |    0.00152082 |    1683712 |
-| Wittinsburg     |         2867 |   0.998633 |   0.999995 |    0.00136132 |    1683723 |
-| Häfelfingen     |         2847 |   0.998807 |   0.999994 |    0.00118699 |    1683658 |
-| Poliez-Pittet   |         5533 |   0.998912 |   0.999994 |    0.00108183 |    1685102 |
-| Jouxtens-Mézery |         5585 |   0.99895  |   0.999992 |    0.00104212 |    1685004 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
