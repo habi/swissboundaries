@@ -1,4 +1,4 @@
-Generated: 2026-09-18 07:08:34 UTC
+Generated: 2026-09-19 07:05:51 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-18 07:08:34 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
-| Mean symmetric difference | 0.010% |
-| Mean Hausdorff distance   | 0.6749 |
+| Mean symmetric difference | 0.009% |
+| Mean Hausdorff distance   | 0.6302 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-18 07:08:34 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-17)
+## Historical Comparison (vs 2026-09-18)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-18 07:08:34 UTC
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.691 |
-| Current mean Hausdorff distance  |   0.675 |
-| Hausdorff change                 |  -0.017 |
+| Previous mean Hausdorff distance |   0.675 |
+| Current mean Hausdorff distance  |   0.630 |
+| Hausdorff change                 |  -0.045 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,7 +59,13 @@ Generated: 2026-09-18 07:08:34 UTC
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name                  |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:----------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Chamblon              |         5904 |   0.998446 |   0.999993 |    0.00154771 |    1684882 |
+| Lohn-Ammannsegg       |         2526 |   0.998581 |   0.999994 |    0.0014128  |    1683541 |
+| Lüterkofen-Ichertswil |         2455 |   0.998647 |   0.999995 |    0.00134769 |    1683546 |
+| Montagny-près-Yverdon |         5922 |   0.998888 |   0.999992 |    0.00110416 |    1685056 |
+| Saint-Martin (FR)     |         2335 |   0.998983 |   0.999995 |    0.0010123  |    1683395 |
 
 ## Most Deteriorated (if historical data available)
 

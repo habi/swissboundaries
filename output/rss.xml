@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 18 Sep 2026 07:08:43 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 07:06:00 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-19: 5 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.045 m ▼</li></ul><h3>Improvements (5)</h3><ul><li><strong>Saint-Martin (FR)</strong> (BFS 2335) <a href="https://www.openstreetmap.org/relation/1683395">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Lohn-Ammannsegg</strong> (BFS 2526) <a href="https://www.openstreetmap.org/relation/1683541">OSM</a>: IoU 0.9986 → 1.0000 (+0.0014)</li><li><strong>Chamblon</strong> (BFS 5904) <a href="https://www.openstreetmap.org/relation/1684882">OSM</a>: IoU 0.9984 → 1.0000 (+0.0015)</li><li><strong>Lüterkofen-Ichertswil</strong> (BFS 2455) <a href="https://www.openstreetmap.org/relation/1683546">OSM</a>: IoU 0.9986 → 1.0000 (+0.0013)</li><li><strong>Montagny-près-Yverdon</strong> (BFS 5922) <a href="https://www.openstreetmap.org/relation/1685056">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-19</guid>
+    </item>
     <item>
       <title>2026-09-18: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
