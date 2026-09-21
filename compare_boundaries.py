@@ -1445,15 +1445,22 @@ def _get_metric_specs():
     ]
 
 
-def create_iou_changes_plot(min_delta=0.0001):
-    """Create detailed per-municipality metric changes plot in output/iou_changes.html."""
+def create_iou_changes_plot(historical_df=None, min_delta=0.0001):
+    """Create detailed per-municipality metric changes plot in output/iou_changes.html.
+
+    historical_df: full history including today, as returned by
+    load_historical_data() (or historical_df + today's generate_report()
+    row concatenated). Loaded from disk if not given.
+    """
     print("Creating metric changes plot...")
 
     metric_specs = _get_metric_specs()
     metric_specs[0]["min_delta"] = min_delta
 
     try:
-        df = load_historical_data().copy()
+        if historical_df is None:
+            historical_df = load_historical_data()
+        df = historical_df.copy()
         if df.empty:
             print("No historical data found for metric changes plot")
             return False
@@ -3445,9 +3452,17 @@ if __name__ == "__main__":
         historical = load_historical_data()
 
         # Generate report
-        generate_report(results, historical)
+        today_history_row = generate_report(results, historical)
         create_trend_visualizations(results, historical)
-        create_iou_changes_plot()
+        # Reuse the already-loaded historical data instead of re-reading the
+        # whole (ever-growing) history/ directory a second time; just append
+        # the row generate_report() wrote for today.
+        full_history = (
+            pd.concat([historical, today_history_row], ignore_index=True)
+            if len(historical) > 0
+            else today_history_row
+        )
+        create_iou_changes_plot(historical_df=full_history)
         create_map_visualization(results, swisstopo)
 
         # Create index page for display
