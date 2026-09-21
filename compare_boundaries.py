@@ -505,38 +505,6 @@ def load_swisstopo_municipalities(gpkg_path, target_crs="EPSG:2056"):
         return None
 
 
-def group_connected_ways(ways):
-    """Group ways that connect to each other."""
-    if not ways:
-        return []
-
-    groups = []
-    remaining = list(ways)
-
-    while remaining:
-        current_group = [remaining.pop(0)]
-        changed = True
-
-        while changed:
-            changed = False
-            for i in range(len(remaining) - 1, -1, -1):
-                way = remaining[i]
-                for group_way in current_group:
-                    if (
-                        way[0] == group_way[0]
-                        or way[0] == group_way[-1]
-                        or way[-1] == group_way[0]
-                        or way[-1] == group_way[-1]
-                    ):
-                        current_group.append(remaining.pop(i))
-                        changed = True
-                        break
-
-        groups.append(current_group)
-
-    return groups
-
-
 def save_boundaries_as_geojson(gdf, output_folder, source_date=None):
     """Saves Polygons as a FeatureCollection of individual LineString segments."""
     os.makedirs(output_folder, exist_ok=True)
