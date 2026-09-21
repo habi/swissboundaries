@@ -2,6 +2,10 @@
 swissboundaries3d_202*
 swissBOUNDARIES3D_1_5_LV95_LN02*
 
+# OS / Python cruft
+.DS_Store
+__pycache__/
+
 # Keep generated reports and visualizations
 !reports/
 !history/
