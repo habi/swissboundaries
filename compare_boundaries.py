@@ -3366,7 +3366,7 @@ if __name__ == "__main__":
         historical = load_historical_data()
 
         # Generate report
-        report = generate_report(results, historical)
+        generate_report(results, historical)
         create_trend_visualizations(results, historical)
         create_iou_changes_plot()
         create_map_visualization(results, swisstopo)
