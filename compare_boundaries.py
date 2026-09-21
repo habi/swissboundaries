@@ -1127,6 +1127,80 @@ def _add_plotly_changes_panel(
     )
 
 
+# Rescales the trajectory panels' value axis (yaxis/yaxis3) to fit only the
+# currently visible traces within the currently visible date range, whenever
+# that date range or the set of visible traces (metric dropdown, legend
+# clicks) changes. Plotly only autoranges an axis to its full data on load;
+# it never re-fits the y-axis to a zoomed x-window on its own.
+_Y_AUTOSCALE_POST_SCRIPT = """
+(function() {
+    var gd = document.getElementById('{plot_id}');
+    if (!gd) return;
+
+    var PANELS = [
+        {yaxis: 'yaxis', xkey: 'x'},
+        {yaxis: 'yaxis3', xkey: 'x3'}
+    ];
+    var RANGE_KEY_RE = /^xaxis\\d*\\.(range|autorange)(\\[\\d\\])?$/;
+
+    function toTime(v) {
+        var t = (v instanceof Date) ? v.getTime() : new Date(v).getTime();
+        return isNaN(t) ? Number(v) : t;
+    }
+
+    function autoscaleY() {
+        var fullLayout = gd._fullLayout;
+        if (!fullLayout || !fullLayout.xaxis || !fullLayout.xaxis.range) return;
+
+        var x0 = toTime(fullLayout.xaxis.range[0]);
+        var x1 = toTime(fullLayout.xaxis.range[1]);
+        if (x0 > x1) { var tmp = x0; x0 = x1; x1 = tmp; }
+
+        var update = {};
+        var hasUpdate = false;
+
+        PANELS.forEach(function(panel) {
+            var ymin = Infinity, ymax = -Infinity;
+            // Use _fullData, not data: Plotly encodes numeric arrays as
+            // {dtype, bdata} on the raw trace and only decodes them (into
+            // typed arrays) on _fullData.
+            gd._fullData.forEach(function(trace) {
+                if (trace.visible === false || trace.visible === "legendonly") return;
+                if ((trace.xaxis || 'x') !== panel.xkey) return;
+                if (!trace.x || !trace.y) return;
+                for (var i = 0; i < trace.x.length; i++) {
+                    var xt = toTime(trace.x[i]);
+                    if (xt < x0 || xt > x1) continue;
+                    var yv = trace.y[i];
+                    if (yv === null || yv === undefined || isNaN(yv)) continue;
+                    if (yv < ymin) ymin = yv;
+                    if (yv > ymax) ymax = yv;
+                }
+            });
+
+            if (ymin === Infinity || ymax === -Infinity) return;
+
+            var pad = (ymax - ymin) * 0.08 || Math.abs(ymax) * 0.08 || 1;
+            update[panel.yaxis + '.range'] = [ymin - pad, ymax + pad];
+            update[panel.yaxis + '.autorange'] = false;
+            hasUpdate = true;
+        });
+
+        if (hasUpdate) Plotly.relayout(gd, update);
+    }
+
+    gd.on('plotly_relayout', function(eventdata) {
+        var touchedRange = Object.keys(eventdata).some(function(k) {
+            return RANGE_KEY_RE.test(k);
+        });
+        if (touchedRange) autoscaleY();
+    });
+
+    gd.on('plotly_restyle', function() { autoscaleY(); });
+})();
+"""
+
+
 def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
     names_dict = names.to_dict()
     cantons_dict = cantons.to_dict()
@@ -1308,7 +1382,7 @@ def _plot_metric_changes_plotly(metric_results, names, cantons, output_file):
     fig.update_yaxes(title_text=default_label, row=1, col=1)
     fig.update_yaxes(title_text=default_label, row=2, col=1)
 
-    fig.write_html(output_file)
+    fig.write_html(output_file, post_script=_Y_AUTOSCALE_POST_SCRIPT)
 
 
 def _get_metric_specs():
