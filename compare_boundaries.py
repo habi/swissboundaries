@@ -2637,7 +2637,12 @@ def generate_report(results_df, historical_df):
         hausdorff_change=hausdorff_change,
     )
 
-    return results_df
+    # Same row(s) just written to history/, with the "date" column that
+    # load_historical_data() would attach when reading them back from disk
+    # (parsed from the filename, in the same format). Lets callers append
+    # today's data to an already-loaded historical_df in memory instead of
+    # re-reading the whole (ever-growing) history/ directory a second time.
+    return csv_df.assign(date=pd.to_datetime(timestamp))
 
 
 def create_map_visualization(results_df, swisstopo_gdf):
