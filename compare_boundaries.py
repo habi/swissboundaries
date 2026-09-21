@@ -809,30 +809,33 @@ def create_trend_visualizations(results_df, historical_df):
         "mean_sym_diff",
     ]
 
-    # Calculate quality distribution over time
-    quality_over_time = []
-    for date in all_data["date"].unique():
-        date_data = all_data[all_data["date"] == date]
-        matched = date_data["iou"].notna()
-        matched_data = date_data[matched]
+    # Calculate quality distribution over time. Bin each row's IoU once
+    # (NaN stays NaN, i.e. unmatched) and group by date in a single vectorized
+    # pass, rather than re-scanning the whole (ever-growing) all_data once
+    # per distinct date.
+    quality_bin = pd.cut(
+        all_data["iou"],
+        bins=[float("-inf"), 0.90, 0.95, 0.98, float("inf")],
+        labels=["Poor", "Fair", "Good", "Excellent"],
+        right=False,
+    )
+    quality_counts = (
+        quality_bin.groupby(all_data["date"], observed=False)
+        .value_counts()
+        .unstack(fill_value=0)
+        .reindex(columns=["Excellent", "Good", "Fair", "Poor"], fill_value=0)
+        .rename_axis(columns=None)
+    )
+    missing_counts = all_data["iou"].isna().groupby(all_data["date"]).sum()
 
-        if len(matched_data) > 0:
-            quality_over_time.append(
-                {
-                    "date": date,
-                    "Excellent": (matched_data["iou"] >= 0.98).sum(),
-                    "Good": (
-                        (matched_data["iou"] >= 0.95) & (matched_data["iou"] < 0.98)
-                    ).sum(),
-                    "Fair": (
-                        (matched_data["iou"] >= 0.90) & (matched_data["iou"] < 0.95)
-                    ).sum(),
-                    "Poor": (matched_data["iou"] < 0.90).sum(),
-                    "Missing": (~matched).sum(),
-                }
-            )
-
-    quality_df = pd.DataFrame(quality_over_time)
+    quality_df = quality_counts.copy()
+    quality_df["Missing"] = missing_counts.reindex(quality_df.index, fill_value=0)
+    # Only keep dates that had at least one matched (non-missing) municipality,
+    # matching the original "if len(matched_data) > 0" behaviour.
+    quality_df = quality_df[
+        quality_df[["Excellent", "Good", "Fair", "Poor"]].sum(axis=1) > 0
+    ]
+    quality_df = quality_df.reset_index()
 
     # Create interactive Plotly charts
     if len(summary) > 1:
