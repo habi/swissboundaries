@@ -1465,6 +1465,7 @@ def send_deterioration_email(subject, body):
       SMTP_PORT          – SMTP server port (default: 587)
       SMTP_USER          – SMTP login username (required)
       SMTP_PASSWORD      – SMTP login password (required)
+      SMTP_FROM          – envelope/From address (default: SMTP_USER)
 
     Returns True if the email was sent successfully, False otherwise.
     """
@@ -1477,6 +1478,7 @@ def send_deterioration_email(subject, body):
     smtp_port_str = os.environ.get("SMTP_PORT", "587")
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
+    smtp_from = os.environ.get("SMTP_FROM") or smtp_user
 
     if not smtp_host or not smtp_user or not smtp_password:
         print("SMTP configuration incomplete, skipping email notification.")
@@ -1492,7 +1494,7 @@ def send_deterioration_email(subject, body):
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = smtp_user
+    msg["From"] = smtp_from
     msg["To"] = to_addr
     msg["Date"] = formatdate(localtime=False)
     msg.attach(MIMEText(body, "plain"))
@@ -1501,7 +1503,7 @@ def send_deterioration_email(subject, body):
         with smtplib.SMTP(smtp_host, smtp_port) as server:
             server.starttls()
             server.login(smtp_user, smtp_password)
-            server.sendmail(smtp_user, [to_addr], msg.as_string())
+            server.sendmail(smtp_from, [to_addr], msg.as_string())
         print(f"Deterioration notification sent to {to_addr}")
         return True
     except Exception as e:
