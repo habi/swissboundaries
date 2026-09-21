@@ -1,4 +1,4 @@
-Generated: 2026-09-20 07:30:33 UTC
+Generated: 2026-09-21 07:41:32 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-20 07:30:33 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
-| Mean symmetric difference | 0.009% |
-| Mean Hausdorff distance   | 0.6138 |
+| Mean symmetric difference | 0.008% |
+| Mean Hausdorff distance   | 0.5889 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-20 07:30:33 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-19)
+## Historical Comparison (vs 2026-09-20)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-20 07:30:33 UTC
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.630 |
-| Current mean Hausdorff distance  |   0.614 |
-| Hausdorff change                 |  -0.016 |
+| Previous mean Hausdorff distance |   0.614 |
+| Current mean Hausdorff distance  |   0.589 |
+| Hausdorff change                 |  -0.025 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,9 @@ Generated: 2026-09-20 07:30:33 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Udligenswil |         1067 |   0.998909 |   0.999994 |    0.00108559 |    1682925 |
+| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Oppens |         5923 |   0.998632 |   0.999992 |    0.00135934 |    1685079 |
 
 ## Most Deteriorated (if historical data available)
 
