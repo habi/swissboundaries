@@ -1,4 +1,4 @@
-Generated: 2026-09-21 07:41:32 UTC
+Generated: 2026-09-21 08:11:05 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-09-21 07:41:32 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-20)
+## Historical Comparison (vs 2026-09-21)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,10 +37,10 @@ Generated: 2026-09-21 07:41:32 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.614 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   0.589 |
 | Current mean Hausdorff distance  |   0.589 |
-| Hausdorff change                 |  -0.025 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,7 @@ Generated: 2026-09-21 07:41:32 UTC
 
 ## Most Improved (if historical data available)
 
-| name   |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Oppens |         5923 |   0.998632 |   0.999992 |    0.00135934 |    1685079 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
