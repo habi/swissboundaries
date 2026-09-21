@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formatdate
 from pathlib import Path
-from shapely.geometry import mapping, MultiLineString, LineString, Polygon
+from shapely.geometry import mapping, LineString, Polygon
 from shapely.geometry.polygon import orient
 from shapely.ops import polygonize, unary_union, transform
 from pyproj import Transformer
