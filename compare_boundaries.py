@@ -18,6 +18,12 @@ from plotly.subplots import make_subplots
 
 OVERPASS_CACHE_PATH = Path("output/overpass_cache.json")
 OVERPASS_CACHE_TTL_SECONDS = 4 * 60 * 60
+OVERPASS_URL = "http://overpass.osm.ch/api/interpreter"
+POSTPASS_URL = "https://postpass.geofabrik.de/api/interpreter"
+OSM_SOURCE = os.environ.get("OSM_SOURCE", "postpass").strip().lower()
+if OSM_SOURCE not in ("postpass", "overpass"):
+    print(f"Warning: unknown OSM_SOURCE '{OSM_SOURCE}', falling back to 'postpass'")
+    OSM_SOURCE = "postpass"
 BFS_REMOVALS_PATH = Path("output/bfs_removals.json")
 RSS_FEED_PATH = Path("output/rss.xml")
 RSS_MAX_ITEMS = 90
@@ -41,7 +47,9 @@ def get_lv95_to_wgs84_transformer():
 
 
 def _load_overpass_cache(
-    cache_path=OVERPASS_CACHE_PATH, ttl_seconds=OVERPASS_CACHE_TTL_SECONDS
+    cache_path=OVERPASS_CACHE_PATH,
+    ttl_seconds=OVERPASS_CACHE_TTL_SECONDS,
+    source=OSM_SOURCE,
 ):
     if not cache_path.exists():
         return None
@@ -53,6 +61,11 @@ def _load_overpass_cache(
         fetched_at = payload.get("fetched_at")
         osm_data = payload.get("osm_data")
         if not fetched_at or not isinstance(osm_data, dict):
+            return None
+
+        # A cached response from the other OSM source has a different shape
+        # (Overpass "elements" vs. Postpass GeoJSON "features"); never reuse it.
+        if payload.get("source") != source:
             return None
 
         fetched_time = datetime.fromisoformat(fetched_at)
@@ -67,11 +80,12 @@ def _load_overpass_cache(
     return None
 
 
-def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH):
+def _save_overpass_cache(osm_data, cache_path=OVERPASS_CACHE_PATH, source=OSM_SOURCE):
     try:
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         payload = {
             "fetched_at": datetime.now(UTC).isoformat(),
+            "source": source,
             "osm_data": osm_data,
         }
         with open(cache_path, "w", encoding="utf-8") as f:
@@ -117,9 +131,19 @@ def save_bfs_removal_tracker(tracker, path=BFS_REMOVALS_PATH):
 
 def load_osm_boundaries(target_crs="EPSG:2056"):
     """
-    Query Postpass for Swiss and Liechtenstein admin boundaries.
+    Query Swiss and Liechtenstein admin boundaries from OSM.
+
+    The backend is selected via the OSM_SOURCE env var ("postpass", the
+    default, or "overpass").
     """
-    print("Loading OSM boundaries...")
+    print(f"Loading OSM boundaries (source: {OSM_SOURCE})...")
+    if OSM_SOURCE == "overpass":
+        return _load_osm_boundaries_overpass(target_crs)
+    return _load_osm_boundaries_postpass(target_crs)
+
+
+def _load_osm_boundaries_postpass(target_crs="EPSG:2056"):
+    """Query Postpass for Swiss and Liechtenstein admin boundaries."""
 
     # See the query: https://overpass-ultra.us/#run&m=5.63/44.9170/8.4342&q=LQhQBcE8AcFMC4AE0D2Bnc0CGa2hMKAMoCiAMiQMIAqi6AtgPpRwA0daTAlgCbvhYA5mnaDYKeqABiAJQDyAWWTpMONI1QAbSIJQA7UAHUAEiRkkOTFrEQBeRAHIZD0IkQBBAHIARRAOGIAAIAfI4A3gBEAEYoAK56PFgATpAR8BFYPPRcelwYSVjgXABusBGsGVk5jJqwpZppEQAcEQC+DvDwAFZo+lGuHj6InnK0ABT+aEGhDpHWjQAWeeAoSVwAxm0d3b16UQCUA16+I+OTiAD8jkmwAGbwsvBEAJLmng6HbsfDo4gTQlMrg4bvdCvBBABrABeHyOQ1Of3OQJ4CCw9HAmg2C1gSUYYnosByKLQ6wWmlisFwsE0sK+8N+-wCQJB8GeRGo7motMGvjEEkQADIBYh2YwFFgIbASHp6ig4GMAKwAOgA7OwACzKgBs7AAjAAGVUappK-UagDMACYtYcAKqeZ5yTweMhkYjkKi0BjMGCwdje3j8AGicSSWSKZQYbC4DQobS6AwmMwWb3WOyOZxw3wBniIZ7OsbqrXF9XsS0qpoK3XW-ZuRAgRCUNHQLj6Gw8BzPASYrDsABCAB+0DkxHpEGjEMYUKSktickA
     postpass_query = """
@@ -152,14 +176,14 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
 
     try:
         loaded_from_cache = False
-        geojson = _load_overpass_cache()
+        geojson = _load_overpass_cache(source="postpass")
         if geojson is not None:
             loaded_from_cache = True
             print("  - Using cached Postpass response (<= 4 hours old)")
         else:
             print("  - Querying Postpass API...")
             response = requests.post(
-                "https://postpass.geofabrik.de/api/interpreter",
+                POSTPASS_URL,
                 data={"data": postpass_query},  # GeoJSON is the default output
                 timeout=120,
             )
@@ -174,7 +198,7 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
             return None
 
         if not loaded_from_cache:
-            _save_overpass_cache(geojson)
+            _save_overpass_cache(geojson, source="postpass")
             print("  - Cached Postpass response")
 
         print(f"  - Found {len(geojson['features'])} OSM elements")
@@ -213,6 +237,98 @@ def load_osm_boundaries(target_crs="EPSG:2056"):
     except Exception as e:
         print(f"Error loading OSM data: {e}")
         return None
+
+
+def _load_osm_boundaries_overpass(target_crs="EPSG:2056"):
+    """Query Overpass for Swiss and Liechtenstein admin boundaries."""
+
+    # We exclude boundaries from neighbouring countries via their bijective references.
+    # This does exclude Campione d'Italia and Büsingen am Hochrhein (two enclaves) though.
+    # We do fetch those two explicitly by their relation ID to also look at them in the script.
+    overpass_query = """
+    [out:json][timeout:120];
+    area["ISO3166-1"="CH"][admin_level=2]->.switzerland;
+    area["ISO3166-1"="LI"][admin_level=2]->.liechtenstein;
+    (
+      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:FR:SIREN"!~".*"]["ref:at:gkz"!~".*"]["de:amtlicher_gemeindeschluessel"!~".*"]["ref:ISTAT"!~".*"](area.switzerland);
+      relation["boundary"="administrative"]["admin_level"="8"]["type"!="historic"]["ref:at:gkz"!~".*"](area.liechtenstein);
+      relation(46664);   // Campione d'Italia
+      relation(2785126); // Büsingen am Hochrhein
+    );
+    out geom;
+    """
+
+    try:
+        loaded_from_cache = False
+        osm_data = _load_overpass_cache(source="overpass")
+        if osm_data is not None:
+            loaded_from_cache = True
+            print("  - Using cached Overpass response (<= 4 hours old)")
+        else:
+            print("  - Querying Overpass API...")
+            response = requests.post(
+                OVERPASS_URL,
+                data=overpass_query,
+                timeout=120,
+            )
+            response.raise_for_status()
+            osm_data = response.json()
+
+        if not osm_data.get("elements"):
+            print(
+                "  - No boundaries returned by Overpass; aborting run and invalidating cache"
+            )
+            _invalidate_overpass_cache()
+            return None
+
+        if not loaded_from_cache:
+            _save_overpass_cache(osm_data, source="overpass")
+            print("  - Cached Overpass response")
+
+        print(f"  - Found {len(osm_data['elements'])} OSM elements")
+
+        # Convert to GeoJSON and count which BFS source tag was used.
+        bfs_tag_stats = {"swisstopo:BFS_NUMMER": 0, "bfs:OBJECTVAL": 0}
+        geojson = osm_to_geojson(osm_data, bfs_tag_stats=bfs_tag_stats)
+        print(
+            "  - BFS tag normalization: "
+            f"swisstopo:BFS_NUMMER={bfs_tag_stats['swisstopo:BFS_NUMMER']}, "
+            f"bfs:OBJECTVAL={bfs_tag_stats['bfs:OBJECTVAL']}"
+        )
+
+        if not geojson["features"]:
+            print("  - Error: No valid features created from OSM data")
+            return None
+
+        gdf = gpd.GeoDataFrame.from_features(geojson["features"], crs="EPSG:4326")
+
+        # 2D ENFORCEMENT: Strip Z-coords if any (OSM sometimes has them in specific tags)
+        gdf.geometry = gdf.geometry.apply(force_2d)
+
+        if target_crs != "EPSG:4326":
+            gdf = gdf.to_crs(target_crs)
+            print(f"  - Reprojected to: {target_crs}")
+
+        print(f"  - Created GeoDataFrame with {len(gdf)} features")
+        print(f"  - Columns: {', '.join(gdf.columns)}")
+
+        return gdf
+
+    except Exception as e:
+        print(f"Error loading OSM data: {e}")
+        return None
+
+
+def osm_to_geojson(osm_data, bfs_tag_stats=None):
+    """Convert Overpass JSON format to GeoJSON."""
+    geojson = {"type": "FeatureCollection", "features": []}
+
+    for element in osm_data.get("elements", []):
+        feature = create_feature(element, bfs_tag_stats=bfs_tag_stats)
+        if feature:
+            geojson["features"].append(feature)
+
+    return geojson
 
 
 def flatten_postpass_feature(feature, bfs_tag_stats=None):

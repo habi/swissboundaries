@@ -7,6 +7,14 @@ on:
     branches:
       - main
   workflow_dispatch:  # Allow manual triggering
+    inputs:
+      osm_source:
+        description: 'OSM backend to query'
+        type: choice
+        default: 'postpass'
+        options:
+          - postpass
+          - overpass
   
 concurrency:
   group: "pages"
@@ -93,6 +101,7 @@ jobs:
       run: |
         python compare_boundaries.py
       env:
+        OSM_SOURCE: ${{ inputs.osm_source || 'postpass' }}
         NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
         SMTP_HOST: ${{ secrets.SMTP_HOST }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
