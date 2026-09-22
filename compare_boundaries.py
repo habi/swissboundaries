@@ -1729,22 +1729,6 @@ def build_notification_html(
         suffix = f" by {user}" if user else ""
         return f' <a href="{url}">changeset</a>{suffix}'
 
-    if improvements:
-        html.append(f"<h3>Improvements ({len(improvements)})</h3><ul>")
-        for imp in improvements[:20]:
-            rel = imp.get("relation", "")
-            osm = _osm_link(
-                f"https://www.openstreetmap.org/relation/{rel}" if rel else ""
-            )
-            html.append(
-                f"<li><strong>{imp['name']}</strong> (BFS {imp['bfs_nummer']}){osm}: "
-                f"IoU {imp['prev_iou']:.4f} → {imp['curr_iou']:.4f}"
-                f" (+{imp['improvement']:.4f})</li>"
-            )
-        if len(improvements) > 20:
-            html.append(f"<li>… and {len(improvements) - 20} more</li>")
-        html.append("</ul>")
-
     if deteriorations:
         html.append(f"<h3>IoU deteriorations ({len(deteriorations)})</h3><ul>")
         for det in deteriorations[:20]:
@@ -1789,6 +1773,22 @@ def build_notification_html(
             )
         if len(hausdorff_deteriorations) > 20:
             html.append(f"<li>… and {len(hausdorff_deteriorations) - 20} more</li>")
+        html.append("</ul>")
+
+    if improvements:
+        html.append(f"<h3>Improvements ({len(improvements)})</h3><ul>")
+        for imp in improvements[:20]:
+            rel = imp.get("relation", "")
+            osm = _osm_link(
+                f"https://www.openstreetmap.org/relation/{rel}" if rel else ""
+            )
+            html.append(
+                f"<li><strong>{imp['name']}</strong> (BFS {imp['bfs_nummer']}){osm}: "
+                f"IoU {imp['prev_iou']:.4f} → {imp['curr_iou']:.4f}"
+                f" (+{imp['improvement']:.4f})</li>"
+            )
+        if len(improvements) > 20:
+            html.append(f"<li>… and {len(improvements) - 20} more</li>")
         html.append("</ul>")
 
     if newly_missing:
