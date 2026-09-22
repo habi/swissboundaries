@@ -1624,8 +1624,11 @@ def build_boundary_difference_url(geom1, geom2):
         return ""
 
 
-def send_deterioration_email(subject, body):
+def send_deterioration_email(subject, html_body):
     """Send an email notification about metric deterioration.
+
+    `html_body` is the same HTML content used for the RSS feed item, so the
+    email and the RSS feed always describe the same changes.
 
     Reads connection settings from environment variables:
       NOTIFICATION_EMAIL – recipient address (required)
@@ -1665,7 +1668,7 @@ def send_deterioration_email(subject, body):
     msg["From"] = smtp_from
     msg["To"] = to_addr
     msg["Date"] = formatdate(localtime=False)
-    msg.attach(MIMEText(body, "plain"))
+    msg.attach(MIMEText(html_body, "html"))
 
     try:
         with smtplib.SMTP(smtp_host, smtp_port) as server:
@@ -1679,8 +1682,7 @@ def send_deterioration_email(subject, body):
         return False
 
 
-def generate_rss_feed(
-    run_date,
+def build_notification_html(
     improvements,
     deteriorations,
     area_diff_deteriorations,
@@ -1691,49 +1693,10 @@ def generate_rss_feed(
     iou_change,
     area_diff_change,
     hausdorff_change,
-    feed_path=RSS_FEED_PATH,
+    item_link,
 ):
-    """Generate or update the RSS feed at output/rss.xml with today's changes.
-
-    Loads any existing feed items from disk, prepends a new item for the current
-    run, trims the list to RSS_MAX_ITEMS, and writes the result back to disk.
-    """
-    import xml.etree.ElementTree as ET
-
-    base_url = "https://boundaries.osm.ch"
-    guid = f"{base_url}/#run-{run_date}"
-    item_link = f"{base_url}/"
-
-    # Build item title
-    n_impr = len(improvements)
-    n_det = (
-        len(deteriorations)
-        + len(area_diff_deteriorations)
-        + len(hausdorff_deteriorations)
-    )
-    n_removed = len(newly_missing)
-    n_restored = len(resolved_removals)
-
-    title_parts = []
-    if n_impr:
-        title_parts.append(f"{n_impr} improvement{'s' if n_impr != 1 else ''}")
-    if n_det:
-        title_parts.append(f"{n_det} deterioration{'s' if n_det != 1 else ''}")
-    if n_removed:
-        title_parts.append(
-            f"{n_removed} BFS tag removal{'s' if n_removed != 1 else ''}"
-        )
-    if n_restored:
-        title_parts.append(
-            f"{n_restored} BFS tag restoration{'s' if n_restored != 1 else ''}"
-        )
-    item_title = (
-        f"{run_date}: {', '.join(title_parts)}"
-        if title_parts
-        else f"{run_date}: no significant changes"
-    )
-
-    # Build HTML description (will be wrapped in CDATA)
+    """Build the shared HTML notification body used by both the RSS feed and
+    the deterioration email, so the two never drift apart."""
     html = []
 
     if (
@@ -1868,7 +1831,76 @@ def generate_rss_feed(
     if not html:
         html.append("<p>No significant changes detected.</p>")
     html.append(f'<p><a href="{item_link}">Full report</a></p>')
-    description_html = "".join(html)
+    return "".join(html)
+
+
+def generate_rss_feed(
+    run_date,
+    improvements,
+    deteriorations,
+    area_diff_deteriorations,
+    hausdorff_deteriorations,
+    newly_missing,
+    persistent_missing,
+    resolved_removals,
+    iou_change,
+    area_diff_change,
+    hausdorff_change,
+    feed_path=RSS_FEED_PATH,
+):
+    """Generate or update the RSS feed at output/rss.xml with today's changes.
+
+    Loads any existing feed items from disk, prepends a new item for the current
+    run, trims the list to RSS_MAX_ITEMS, and writes the result back to disk.
+    """
+    import xml.etree.ElementTree as ET
+
+    base_url = "https://boundaries.osm.ch"
+    guid = f"{base_url}/#run-{run_date}"
+    item_link = f"{base_url}/"
+
+    # Build item title
+    n_impr = len(improvements)
+    n_det = (
+        len(deteriorations)
+        + len(area_diff_deteriorations)
+        + len(hausdorff_deteriorations)
+    )
+    n_removed = len(newly_missing)
+    n_restored = len(resolved_removals)
+
+    title_parts = []
+    if n_impr:
+        title_parts.append(f"{n_impr} improvement{'s' if n_impr != 1 else ''}")
+    if n_det:
+        title_parts.append(f"{n_det} deterioration{'s' if n_det != 1 else ''}")
+    if n_removed:
+        title_parts.append(
+            f"{n_removed} BFS tag removal{'s' if n_removed != 1 else ''}"
+        )
+    if n_restored:
+        title_parts.append(
+            f"{n_restored} BFS tag restoration{'s' if n_restored != 1 else ''}"
+        )
+    item_title = (
+        f"{run_date}: {', '.join(title_parts)}"
+        if title_parts
+        else f"{run_date}: no significant changes"
+    )
+
+    description_html = build_notification_html(
+        improvements,
+        deteriorations,
+        area_diff_deteriorations,
+        hausdorff_deteriorations,
+        newly_missing,
+        persistent_missing,
+        resolved_removals,
+        iou_change,
+        area_diff_change,
+        hausdorff_change,
+        item_link,
+    )
 
     # RFC 2822 pubDate
     try:
@@ -2410,6 +2442,7 @@ def generate_report(results_df, historical_df):
 
     # Flag a deterioration alert if global metrics deteriorated OR any municipality shows significant
     # deterioration OR municipalities newly lost or still have their OSM swisstopo:BFS_NUMMER tag absent.
+    # A BFS-tag *restoration* on its own is good news, not a deterioration, so it does not trigger an alert.
     iou_deteriorated_global = iou_change is not None and iou_change < 0
     hausdorff_deteriorated_global = (
         hausdorff_change is not None and hausdorff_change > 0
@@ -2417,6 +2450,7 @@ def generate_report(results_df, historical_df):
 
     iou_deteriorated_local = len(deteriorations) > 0
     hausdorff_deteriorated_local = len(hausdorff_deteriorations) > 0
+    area_diff_deteriorated_local = len(area_diff_deteriorations) > 0
     bfs_tags_removed = len(newly_missing) > 0 or len(persistent_missing) > 0
     bfs_tags_restored = len(resolved_removals) > 0
 
@@ -2425,8 +2459,8 @@ def generate_report(results_df, historical_df):
         or hausdorff_deteriorated_global
         or iou_deteriorated_local
         or hausdorff_deteriorated_local
+        or area_diff_deteriorated_local
         or bfs_tags_removed
-        or bfs_tags_restored
     )
 
     print(
@@ -2439,8 +2473,10 @@ def generate_report(results_df, historical_df):
             "hausdorff_deteriorated_global": hausdorff_deteriorated_global,
             "iou_deteriorated_local": iou_deteriorated_local,
             "hausdorff_deteriorated_local": hausdorff_deteriorated_local,
+            "area_diff_deteriorated_local": area_diff_deteriorated_local,
             "deteriorations_count": len(deteriorations),
             "hausdorff_deteriorations_count": len(hausdorff_deteriorations),
+            "area_diff_deteriorations_count": len(area_diff_deteriorations),
             "bfs_tags_removed": bfs_tags_removed,
             "newly_missing_count": len(newly_missing),
             "persistent_missing_count": len(persistent_missing),
@@ -2472,6 +2508,14 @@ def generate_report(results_df, historical_df):
                 f"{len(hausdorff_deteriorations)} municipality(ies) had Hausdorff increase > {HAUSDORFF_DETERIORATION_THRESHOLD_M:.1f} m "
                 f"(worst +{worst_hd_det:.3f} m)"
             )
+        if area_diff_deteriorated_local:
+            worst_area_det = max(
+                d["increase_pct_points"] for d in area_diff_deteriorations
+            )
+            alert_parts.append(
+                f"{len(area_diff_deteriorations)} municipality(ies) had area difference increase "
+                f"(worst +{worst_area_det:.4f} pp)"
+            )
         if newly_missing:
             names = ", ".join(
                 f"{m['name']} (BFS {m['bfs_nummer']})" for m in newly_missing
@@ -2499,79 +2543,27 @@ def generate_report(results_df, historical_df):
         print(
             f"::warning::{subject}. "
             f"Conditions: {', '.join(alert_parts)}. "
-            f"Full report: https://habi.github.io/swissboundaries/"
+            f"Full report: https://boundaries.osm.ch/"
         )
 
-        # Build the email body. Alert conditions are listed first, then a
-        # dedicated, explicit section naming each missing-tag municipality
-        # (with its OSM relation and, where known, the changeset that
-        # removed the tag) so the recipient doesn't have to click through.
-        email_lines = [
-            f"swissboundaries boundary comparison – {run_date}",
-            "",
-            "The following deterioration conditions were detected:",
-        ]
-        for part in alert_parts:
-            email_lines.append(f"  • {part}")
-
-        if newly_missing:
-            email_lines.append("")
-            email_lines.append(
-                f"Municipalities whose swisstopo:BFS_NUMMER tag was newly removed from OSM ({len(newly_missing)}):"
-            )
-            for m in newly_missing:
-                email_lines.append(f"  • {m['name']} (BFS {m['bfs_nummer']})")
-                if m.get("osm_url"):
-                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
-                if m.get("changeset_url"):
-                    email_lines.append(
-                        f"    Tag removed in changeset: {m['changeset_url']}"
-                    )
-                    email_lines.append(
-                        f"    By: {m.get('changeset_user', '?')}"
-                        f" at {m.get('changeset_timestamp', '?')}"
-                    )
-
-        if persistent_missing:
-            email_lines.append("")
-            email_lines.append(
-                f"Municipalities with swisstopo:BFS_NUMMER still absent from OSM"
-                f" (previously detected, unresolved) ({len(persistent_missing)}):"
-            )
-            for m in persistent_missing:
-                email_lines.append(
-                    f"  • {m['name']} (BFS {m['bfs_nummer']})"
-                    f"  — first detected: {m.get('first_detected', 'unknown')}"
-                )
-                if m.get("osm_url"):
-                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
-                if m.get("changeset_url"):
-                    email_lines.append(
-                        f"    Tag removed in changeset: {m['changeset_url']}"
-                    )
-                    email_lines.append(
-                        f"    By: {m.get('changeset_user', '?')}"
-                        f" at {m.get('changeset_timestamp', '?')}"
-                    )
-
-        if resolved_removals:
-            email_lines.append("")
-            email_lines.append(
-                f"Municipalities whose swisstopo:BFS_NUMMER tag was restored in OSM ({len(resolved_removals)}):"
-            )
-            for m in resolved_removals:
-                email_lines.append(
-                    f"  • {m['name']} (BFS {m['bfs_nummer']})"
-                    f"  — first detected missing: {m.get('first_detected', 'unknown')}"
-                )
-                if m.get("osm_url"):
-                    email_lines.append(f"    OSM relation:  {m['osm_url']}")
-
-        email_lines.append("")
-        email_lines.append("Full report: https://habi.github.io/swissboundaries/")
+        # Reuse the exact same HTML content as the RSS feed item, so the
+        # email and the RSS feed never describe the changes differently.
+        email_html = build_notification_html(
+            improvements,
+            deteriorations,
+            area_diff_deteriorations,
+            hausdorff_deteriorations,
+            newly_missing,
+            persistent_missing,
+            resolved_removals,
+            iou_change,
+            area_diff_change,
+            hausdorff_change,
+            "https://boundaries.osm.ch/",
+        )
 
         print("Triggering send_deterioration_email()")
-        email_sent = send_deterioration_email(subject, "\n".join(email_lines))
+        email_sent = send_deterioration_email(subject, email_html)
         if not email_sent:
             print(
                 f"::warning::Deterioration email could not be sent"
