@@ -1,4 +1,4 @@
-Generated: 2026-09-22 07:23:52 UTC
+Generated: 2026-09-22 16:55:34 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-22 07:23:52 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
 | Mean symmetric difference | 0.008% |
-| Mean Hausdorff distance   | 0.5789 |
+| Mean Hausdorff distance   | 0.5504 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-22 07:23:52 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-21)
+## Historical Comparison (vs 2026-09-22)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-22 07:23:52 UTC
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.589 |
-| Current mean Hausdorff distance  |   0.579 |
-| Hausdorff change                 |  -0.010 |
+| Previous mean Hausdorff distance |   0.579 |
+| Current mean Hausdorff distance  |   0.550 |
+| Hausdorff change                 |  -0.029 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,23 +59,13 @@ Generated: 2026-09-22 07:23:52 UTC
 
 ## Most Improved (if historical data available)
 
-| name           |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:---------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Curtilles      |         5669 |   0.998576 |   0.999995 |    0.00141827 |    1684939 |
-| Starrkirch-Wil |         2584 |   0.998902 |   0.999991 |    0.00108893 |    1683578 |
+| name                     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Walliswil bei Niederbipp |          990 |   0.998847 |    0.99999 |    0.00114237 |    1682712 |
 
 ## Most Deteriorated (if historical data available)
 
-| name                     |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_iou |   curr_iou |   deterioration | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------------------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-----------:|-----------:|----------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Walliswil bei Niederbipp |          990 |    1682712 | https://www.openstreetmap.org/relation/1682712 | https://www.openstreetmap.org/?mlat=47.228228&mlon=7.714260#map=16/47.228228/7.714260 |    0.99999 |   0.998847 |      0.00114275 | https://www.openstreetmap.org/changeset/185557201 | habi             | 2026-07-11T19:49:40Z  |
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name                     |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------------------------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Bannwil                  |          323 |    1682370 | https://www.openstreetmap.org/relation/1682370 | https://www.openstreetmap.org/?mlat=47.228228&mlon=7.714260#map=16/47.228228/7.714260 |              0.015 |             30.209 |       30.194 | https://www.openstreetmap.org/changeset/187696558 | SimonPoole       | 2026-08-19T15:18:36Z  |
-| Walliswil bei Niederbipp |          990 |    1682712 | https://www.openstreetmap.org/relation/1682712 | https://www.openstreetmap.org/?mlat=47.228228&mlon=7.714260#map=16/47.228228/7.714260 |              0.008 |             12.635 |       12.627 | https://www.openstreetmap.org/changeset/185557201 | habi             | 2026-07-11T19:49:40Z  |
+No significant deteriorations detected.
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
