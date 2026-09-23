@@ -1,4 +1,4 @@
-Generated: 2026-09-22 16:55:34 UTC
+Generated: 2026-09-23 07:25:31 UTC
 
 ## Dataset Overview
 
@@ -37,10 +37,10 @@ Generated: 2026-09-22 16:55:34 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
-| Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.579 |
+| Area difference change           |  +0.000% |
+| Previous mean Hausdorff distance |   0.550 |
 | Current mean Hausdorff distance  |   0.550 |
-| Hausdorff change                 |  -0.029 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,7 @@ Generated: 2026-09-22 16:55:34 UTC
 
 ## Most Improved (if historical data available)
 
-| name                     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Walliswil bei Niederbipp |          990 |   0.998847 |    0.99999 |    0.00114237 |    1682712 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
