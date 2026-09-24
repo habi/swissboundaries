@@ -1,4 +1,4 @@
-Generated: 2026-09-23 07:25:31 UTC
+Generated: 2026-09-24 07:17:09 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-09-23 07:25:31 UTC
 | Mean IoU                  | 0.9999 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
-| Mean symmetric difference | 0.008% |
-| Mean Hausdorff distance   | 0.5504 |
+| Mean symmetric difference | 0.007% |
+| Mean Hausdorff distance   | 0.5349 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-23 07:25:31 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-22)
+## Historical Comparison (vs 2026-09-23)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -37,29 +37,31 @@ Generated: 2026-09-23 07:25:31 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.550 |
-| Current mean Hausdorff distance  |   0.550 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.535 |
+| Hausdorff change                 |  -0.016 |
 
 ## Worst 10 Matches (by IoU)
 
-| name          |   bfs_nummer |      iou |   area_diff_pct |
-|:--------------|-------------:|---------:|----------------:|
-| Eschenz       |         4806 | 0.982101 |      1.5445     |
-| Prévonloup    |         5683 | 0.997366 |      0.0700191  |
-| Chêne-Pâquier |         5908 | 0.99773  |      0.0210398  |
-| Willadingen   |          423 | 0.997933 |      0.0548498  |
-| Hellsau       |          408 | 0.998087 |      0.0493622  |
-| Bettingen     |         2702 | 0.998261 |      0.0699435  |
-| Lovatens      |         5674 | 0.998371 |      0.0597391  |
-| Finsterhennen |          493 | 0.998379 |      0.013268   |
-| Egolzwil      |         1127 | 0.998399 |      0.0015237  |
-| Wasterkingen  |           70 | 0.998502 |      0.00389107 |
+| name               |   bfs_nummer |      iou |   area_diff_pct |
+|:-------------------|-------------:|---------:|----------------:|
+| Eschenz            |         4806 | 0.982101 |     1.5445      |
+| Prévonloup         |         5683 | 0.997366 |     0.0700191   |
+| Chêne-Pâquier      |         5908 | 0.99773  |     0.0210398   |
+| Bettingen          |         2702 | 0.998261 |     0.0699435   |
+| Lovatens           |         5674 | 0.998371 |     0.0597391   |
+| Finsterhennen      |          493 | 0.998379 |     0.013268    |
+| Egolzwil           |         1127 | 0.998399 |     0.0015237   |
+| Studen (BE)        |          749 | 0.99855  |     0.00846319  |
+| Willadingen        |          423 | 0.998632 |     2.82363e-05 |
+| Romanel-sur-Morges |         5645 | 0.998662 |     0.0979852   |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Wasterkingen |           70 |   0.998502 |   0.999995 |    0.00149303 |    1682232 |
 
 ## Most Deteriorated (if historical data available)
 
