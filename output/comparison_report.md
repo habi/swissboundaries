@@ -1,4 +1,4 @@
-Generated: 2026-09-24 07:17:09 UTC
+Generated: 2026-09-25 07:11:26 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-24 07:17:09 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
 | Mean symmetric difference | 0.007% |
-| Mean Hausdorff distance   | 0.5349 |
+| Mean Hausdorff distance   | 0.5332 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-24 07:17:09 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-23)
+## Historical Comparison (vs 2026-09-24)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-24 07:17:09 UTC
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.550 |
-| Current mean Hausdorff distance  |   0.535 |
-| Hausdorff change                 |  -0.016 |
+| Previous mean Hausdorff distance |   0.535 |
+| Current mean Hausdorff distance  |   0.533 |
+| Hausdorff change                 |  -0.002 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,9 +59,7 @@ Generated: 2026-09-24 07:17:09 UTC
 
 ## Most Improved (if historical data available)
 
-| name         |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Wasterkingen |           70 |   0.998502 |   0.999995 |    0.00149303 |    1682232 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
