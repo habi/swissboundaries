@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 25 Sep 2026 07:11:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 07:07:52 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-26: 3 improvements, 1 deterioration</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.018 m ▼</li></ul><h3>Hausdorff distance deteriorations (1)</h3><ul><li><strong>Brusio</strong> (BFS 3551) <a href="https://www.openstreetmap.org/relation/1684052">OSM</a>: 0.028 m → 3.256 m (+3.228 m)</li></ul><h3>Improvements (3)</h3><ul><li><strong>Démoret</strong> (BFS 5912) <a href="https://www.openstreetmap.org/relation/1684951">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Chêne-Pâquier</strong> (BFS 5908) <a href="https://www.openstreetmap.org/relation/1684908">OSM</a>: IoU 0.9977 → 1.0000 (+0.0023)</li><li><strong>Champtauroz</strong> (BFS 5812) <a href="https://www.openstreetmap.org/relation/1684884">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-26</guid>
+    </item>
     <item>
       <title>2026-09-25: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>

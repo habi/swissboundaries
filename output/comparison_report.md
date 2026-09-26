@@ -1,4 +1,4 @@
-Generated: 2026-09-25 07:11:26 UTC
+Generated: 2026-09-26 07:07:43 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-25 07:11:26 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.003% |
 | Mean symmetric difference | 0.007% |
-| Mean Hausdorff distance   | 0.5332 |
+| Mean Hausdorff distance   | 0.5157 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-25 07:11:26 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-24)
+## Historical Comparison (vs 2026-09-25)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-25 07:11:26 UTC
 | Previous mean area difference    |   0.003% |
 | Current mean area difference     |   0.003% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.535 |
-| Current mean Hausdorff distance  |   0.533 |
-| Hausdorff change                 |  -0.002 |
+| Previous mean Hausdorff distance |   0.533 |
+| Current mean Hausdorff distance  |   0.516 |
+| Hausdorff change                 |  -0.018 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -48,7 +48,6 @@ Generated: 2026-09-25 07:11:26 UTC
 |:-------------------|-------------:|---------:|----------------:|
 | Eschenz            |         4806 | 0.982101 |     1.5445      |
 | Prévonloup         |         5683 | 0.997366 |     0.0700191   |
-| Chêne-Pâquier      |         5908 | 0.99773  |     0.0210398   |
 | Bettingen          |         2702 | 0.998261 |     0.0699435   |
 | Lovatens           |         5674 | 0.998371 |     0.0597391   |
 | Finsterhennen      |          493 | 0.998379 |     0.013268    |
@@ -56,14 +55,25 @@ Generated: 2026-09-25 07:11:26 UTC
 | Studen (BE)        |          749 | 0.99855  |     0.00846319  |
 | Willadingen        |          423 | 0.998632 |     2.82363e-05 |
 | Romanel-sur-Morges |         5645 | 0.998662 |     0.0979852   |
+| Flumenthal         |         2545 | 0.998718 |     0.00967251  |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name          |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:--------------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Chêne-Pâquier |         5908 |   0.99773  |   0.999991 |    0.00226113 |    1684908 |
+| Démoret       |         5912 |   0.998704 |   0.999995 |    0.00129041 |    1684951 |
+| Champtauroz   |         5812 |   0.998787 |   0.999993 |    0.00120621 |    1684884 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                       |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-------|-------------:|-----------:|:-----------------------------------------------|:----------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Brusio |         3551 |    1684052 | https://www.openstreetmap.org/relation/1684052 | https://www.openstreetmap.org/?mlat=46.232870&mlon=10.147256#map=16/46.232870/10.147256 |              0.028 |              3.256 |        3.228 | https://www.openstreetmap.org/changeset/184957922 | SimonPoole       | 2026-07-02T07:10:01Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
