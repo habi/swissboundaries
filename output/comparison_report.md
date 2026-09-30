@@ -1,4 +1,4 @@
-Generated: 2026-09-29 07:57:16 UTC
+Generated: 2026-09-30 08:05:17 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-09-29 07:57:16 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.006% |
-| Mean Hausdorff distance   | 0.4776 |
+| Mean Hausdorff distance   | 0.4663 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-09-29 07:57:16 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-27)
+## Historical Comparison (vs 2026-09-29)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-09-29 07:57:16 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.502 |
-| Current mean Hausdorff distance  |   0.478 |
-| Hausdorff change                 |  -0.025 |
+| Previous mean Hausdorff distance |   0.478 |
+| Current mean Hausdorff distance  |   0.466 |
+| Hausdorff change                 |  -0.011 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -50,20 +50,28 @@ Generated: 2026-09-29 07:57:16 UTC
 | Prévonloup         |         5683 | 0.997366 |     0.0700191   |
 | Bettingen          |         2702 | 0.998261 |     0.0699435   |
 | Lovatens           |         5674 | 0.998371 |     0.0597391   |
-| Egolzwil           |         1127 | 0.998399 |     0.0015237   |
 | Willadingen        |          423 | 0.998632 |     2.82363e-05 |
 | Romanel-sur-Morges |         5645 | 0.998662 |     0.0979852   |
 | Finsterhennen      |          493 | 0.9987   |     0.0147253   |
 | Hellsau            |          408 | 0.998749 |     0.0152137   |
 | Wiggiswil          |          553 | 0.998797 |     0.0462724   |
+| Höchstetten        |          410 | 0.998831 |     0.0257002   |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name     |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:---------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Egolzwil |         1127 |   0.998399 |   0.999993 |    0.00159374 |    1682827 |
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Horgen |          295 |    1682144 | https://www.openstreetmap.org/relation/1682144 | https://www.openstreetmap.org/?mlat=47.253450&mlon=8.620531#map=16/47.253450/8.620531 |              0.016 |              3.977 |        3.961 | https://www.openstreetmap.org/changeset/186758808 | SimonPoole       | 2026-08-01T11:47:59Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 

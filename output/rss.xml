@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 29 Sep 2026 07:57:25 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 08:05:38 GMT</lastBuildDate>
+    <item>
+      <title>2026-09-30: 1 improvement, 1 deterioration</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.011 m ▼</li></ul><h3>Hausdorff distance deteriorations (1)</h3><ul><li><strong>Horgen</strong> (BFS 295) <a href="https://www.openstreetmap.org/relation/1682144">OSM</a>: 0.016 m → 3.977 m (+3.961 m)</li></ul><h3>Improvements (1)</h3><ul><li><strong>Egolzwil</strong> (BFS 1127) <a href="https://www.openstreetmap.org/relation/1682827">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-09-30</guid>
+    </item>
     <item>
       <title>2026-09-29: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
