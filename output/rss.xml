@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 01 Oct 2026 08:23:30 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 08:00:28 GMT</lastBuildDate>
+    <item>
+      <title>2026-10-02: 2 deteriorations</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0000 pp ▼</li><li>Mean Hausdorff distance: -0.010 m ▼</li></ul><h3>Hausdorff distance deteriorations (2)</h3><ul><li><strong>Wassen</strong> (BFS 1220) <a href="https://www.openstreetmap.org/relation/1683121">OSM</a>: 3.210 m → 8.489 m (+5.279 m)</li><li><strong>Gurtnellen</strong> (BFS 1209) <a href="https://www.openstreetmap.org/relation/1683078">OSM</a>: 1.452 m → 8.489 m (+7.037 m)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-10-02</guid>
+    </item>
     <item>
       <title>2026-10-01: 3 improvements</title>
       <link>https://boundaries.osm.ch/</link>

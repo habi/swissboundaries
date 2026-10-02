@@ -1,4 +1,4 @@
-Generated: 2026-10-01 08:23:23 UTC
+Generated: 2026-10-02 08:00:16 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-01 08:23:23 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.005% |
-| Mean Hausdorff distance   | 0.4500 |
+| Mean Hausdorff distance   | 0.4401 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-01 08:23:23 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-09-30)
+## Historical Comparison (vs 2026-10-01)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-01 08:23:23 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.466 |
-| Current mean Hausdorff distance  |   0.450 |
-| Hausdorff change                 |  -0.016 |
+| Previous mean Hausdorff distance |   0.450 |
+| Current mean Hausdorff distance  |   0.440 |
+| Hausdorff change                 |  -0.010 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,15 +59,18 @@ Generated: 2026-10-01 08:23:23 UTC
 
 ## Most Improved (if historical data available)
 
-| name        |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:------------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Willadingen |          423 |   0.998632 |   0.999993 |    0.00136153 |    1682726 |
-| Hellsau     |          408 |   0.998749 |   0.999992 |    0.00124233 |    1682475 |
-| Höchstetten |          410 |   0.998831 |   0.999992 |    0.00116073 |    1682487 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Gurtnellen |         1209 |    1683078 | https://www.openstreetmap.org/relation/1683078 | https://www.openstreetmap.org/?mlat=46.717617&mlon=8.608803#map=16/46.717617/8.608803 |              1.452 |              8.489 |        7.037 | https://www.openstreetmap.org/changeset/185854607 | SimonPoole       | 2026-07-16T16:11:54Z  |
+| Wassen     |         1220 |    1683121 | https://www.openstreetmap.org/relation/1683121 | https://www.openstreetmap.org/?mlat=46.717617&mlon=8.608803#map=16/46.717617/8.608803 |              3.21  |              8.489 |        5.279 | https://www.openstreetmap.org/changeset/189827321 | SimonPoole       | 2026-10-01T14:14:46Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
