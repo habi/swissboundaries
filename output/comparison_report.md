@@ -1,4 +1,4 @@
-Generated: 2026-10-02 08:00:16 UTC
+Generated: 2026-10-03 07:40:23 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-02 08:00:16 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.005% |
-| Mean Hausdorff distance   | 0.4401 |
+| Mean Hausdorff distance   | 0.4247 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-02 08:00:16 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-01)
+## Historical Comparison (vs 2026-10-02)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-02 08:00:16 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.450 |
-| Current mean Hausdorff distance  |   0.440 |
-| Hausdorff change                 |  -0.010 |
+| Previous mean Hausdorff distance |   0.440 |
+| Current mean Hausdorff distance  |   0.425 |
+| Hausdorff change                 |  -0.015 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -51,11 +51,11 @@ Generated: 2026-10-02 08:00:16 UTC
 | Bettingen          |         2702 | 0.998261 |       0.0699435 |
 | Lovatens           |         5674 | 0.998371 |       0.0597391 |
 | Romanel-sur-Morges |         5645 | 0.998662 |       0.0979852 |
-| Finsterhennen      |          493 | 0.9987   |       0.0147253 |
 | Wiggiswil          |          553 | 0.998797 |       0.0462724 |
 | Brenzikofen        |          606 | 0.998841 |       0.0626268 |
 | Herbligen          |          610 | 0.998906 |       0.066823  |
 | La Praz            |         5758 | 0.998925 |       0.0763002 |
+| Kriegstetten       |         2525 | 0.998998 |       0.029789  |
 
 ## Most Improved (if historical data available)
 
@@ -64,13 +64,6 @@ No significant improvements detected.
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name       |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-----------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Gurtnellen |         1209 |    1683078 | https://www.openstreetmap.org/relation/1683078 | https://www.openstreetmap.org/?mlat=46.717617&mlon=8.608803#map=16/46.717617/8.608803 |              1.452 |              8.489 |        7.037 | https://www.openstreetmap.org/changeset/185854607 | SimonPoole       | 2026-07-16T16:11:54Z  |
-| Wassen     |         1220 |    1683121 | https://www.openstreetmap.org/relation/1683121 | https://www.openstreetmap.org/?mlat=46.717617&mlon=8.608803#map=16/46.717617/8.608803 |              3.21  |              8.489 |        5.279 | https://www.openstreetmap.org/changeset/189827321 | SimonPoole       | 2026-10-01T14:14:46Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
