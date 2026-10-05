@@ -1,4 +1,4 @@
-Generated: 2026-10-04 07:50:24 UTC
+Generated: 2026-10-05 08:27:14 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-04 07:50:24 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.005% |
-| Mean Hausdorff distance   | 0.4221 |
+| Mean Hausdorff distance   | 0.4180 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-04 07:50:24 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-03)
+## Historical Comparison (vs 2026-10-04)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-04 07:50:24 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.425 |
-| Current mean Hausdorff distance  |   0.422 |
-| Hausdorff change                 |  -0.003 |
+| Previous mean Hausdorff distance |   0.422 |
+| Current mean Hausdorff distance  |   0.418 |
+| Hausdorff change                 |  -0.004 |
 
 ## Worst 10 Matches (by IoU)
 
