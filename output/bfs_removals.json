@@ -1,1 +1,12 @@
-{}
+{
+  "2702": {
+    "bfs_nummer": 2702,
+    "relation": "1683623",
+    "name": "Bettingen",
+    "osm_url": "https://www.openstreetmap.org/relation/1683623",
+    "changeset_url": "https://www.openstreetmap.org/changeset/190143312",
+    "changeset_user": "SimonPoole",
+    "changeset_timestamp": "2026-10-07T12:20:08Z",
+    "first_detected": "2026-10-08"
+  }
+}

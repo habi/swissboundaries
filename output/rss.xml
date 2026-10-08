@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 07 Oct 2026 08:13:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 08:29:05 GMT</lastBuildDate>
+    <item>
+      <title>2026-10-08: 1 improvement, 1 BFS tag removal</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.018 m ▼</li></ul><h3>Improvements (1)</h3><ul><li><strong>La Praz</strong> (BFS 5758) <a href="https://www.openstreetmap.org/relation/1685011">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li></ul><h3>BFS tag removals (1)</h3><ul><li><strong>Bettingen</strong> (BFS 2702) <a href="https://www.openstreetmap.org/relation/1683623">OSM</a> removed in <a href="https://www.openstreetmap.org/changeset/190143312">changeset</a> by SimonPoole</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-10-08</guid>
+    </item>
     <item>
       <title>2026-10-07: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
