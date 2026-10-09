@@ -1,12 +1,12 @@
-Generated: 2026-10-08 08:28:58 UTC
+Generated: 2026-10-09 08:33:33 UTC
 
 ## Dataset Overview
 
 | Metric                         | Value |
 |--------------------------------|------:|
 | Total Swisstopo municipalities |  2123 |
-| Matched in OSM                 |  2122 |
-| Missing in OSM                 |     1 |
+| Matched in OSM                 |  2123 |
+| Missing in OSM                 |     0 |
 | Only in OSM (not in Swisstopo) |     9 |
 
 ## Accuracy Metrics (for matched municipalities)
@@ -17,18 +17,18 @@ Generated: 2026-10-08 08:28:58 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.004% |
-| Mean Hausdorff distance   | 0.3754 |
+| Mean Hausdorff distance   | 0.3576 |
 
 ## Quality Distribution
 
 | Quality    | Count | Percentage |
 |------------|-------|-----------:|
-| IoU ≥ 0.98 |  2122 |    100.000 |
+| IoU ≥ 0.98 |  2123 |    100.000 |
 | IoU ≥ 0.95 |     0 |      0.000 |
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-07)
+## Historical Comparison (vs 2026-10-08)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,8 +38,8 @@ Generated: 2026-10-08 08:28:58 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.393 |
-| Current mean Hausdorff distance  |   0.375 |
+| Previous mean Hausdorff distance |   0.375 |
+| Current mean Hausdorff distance  |   0.358 |
 | Hausdorff change                 |  -0.018 |
 
 ## Worst 10 Matches (by IoU)
@@ -53,24 +53,17 @@ Generated: 2026-10-08 08:28:58 UTC
 | Wiggiswil          |          553 | 0.998797 |       0.0462724 |
 | Brenzikofen        |          606 | 0.998841 |       0.0626268 |
 | Herbligen          |          610 | 0.998906 |       0.066823  |
-| Kriegstetten       |         2525 | 0.998998 |       0.029789  |
 | Zielebach          |          556 | 0.999013 |       0.0251335 |
-| Studen (BE)        |          749 | 0.999016 |       0.0183611 |
+| Lalden             |         6286 | 0.999085 |       0.0372583 |
+| Oppligen           |          622 | 0.999128 |       0.011958  |
 
 ## Most Improved (if historical data available)
 
-| name    |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:--------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| La Praz |         5758 |   0.998925 |   0.999995 |    0.00106959 |    1685011 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## BFS numbers only in Swisstopo (missing in OSM) (showing first 20):
-| name      |   bfs_nummer |
-|:----------|-------------:|
-| Bettingen |         2702 |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
@@ -86,5 +79,5 @@ No significant deteriorations detected.
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
 
-## Municipalities whose swisstopo:BFS_NUMMER tag was removed from OSM (1):
-  • Bettingen (BFS 2702)  — OSM relation: https://www.openstreetmap.org/relation/1683623  — tag removed in changeset https://www.openstreetmap.org/changeset/190143312 by SimonPoole at 2026-10-07T12:20:08Z
+## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (1):
+  • Bettingen (BFS 2702)  — first detected: 2026-10-08  — OSM relation: https://www.openstreetmap.org/relation/1683623
