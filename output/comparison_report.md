@@ -1,4 +1,4 @@
-Generated: 2026-10-09 08:33:33 UTC
+Generated: 2026-10-10 08:10:08 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-09 08:33:33 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.004% |
-| Mean Hausdorff distance   | 0.3576 |
+| Mean Hausdorff distance   | 0.3527 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-09 08:33:33 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-08)
+## Historical Comparison (vs 2026-10-09)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-09 08:33:33 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.375 |
-| Current mean Hausdorff distance  |   0.358 |
-| Hausdorff change                 |  -0.018 |
+| Previous mean Hausdorff distance |   0.358 |
+| Current mean Hausdorff distance  |   0.353 |
+| Hausdorff change                 |  -0.005 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -78,6 +78,3 @@ No significant deteriorations detected.
 | Bielersee (NE)                  |         9150 |    1685453 |
 | Lac de Neuchâtel (BE)           |         9152 |   18625441 |
 | Lac de Neuchâtel (NE)           |         9155 |    1685500 |
-
-## Resolved: swisstopo:BFS_NUMMER tag restored in OSM (1):
-  • Bettingen (BFS 2702)  — first detected: 2026-10-08  — OSM relation: https://www.openstreetmap.org/relation/1683623
