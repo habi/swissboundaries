@@ -1,4 +1,4 @@
-Generated: 2026-10-10 08:10:08 UTC
+Generated: 2026-10-11 08:21:37 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-10-10 08:10:08 UTC
 | Mean IoU                  | 1.0000 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
-| Mean symmetric difference | 0.004% |
-| Mean Hausdorff distance   | 0.3527 |
+| Mean symmetric difference | 0.003% |
+| Mean Hausdorff distance   | 0.3236 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-10 08:10:08 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-09)
+## Historical Comparison (vs 2026-10-10)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,17 +38,15 @@ Generated: 2026-10-10 08:10:08 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.358 |
-| Current mean Hausdorff distance  |   0.353 |
-| Hausdorff change                 |  -0.005 |
+| Previous mean Hausdorff distance |   0.353 |
+| Current mean Hausdorff distance  |   0.324 |
+| Hausdorff change                 |  -0.029 |
 
 ## Worst 10 Matches (by IoU)
 
 | name               |   bfs_nummer |      iou |   area_diff_pct |
 |:-------------------|-------------:|---------:|----------------:|
 | Eschenz            |         4806 | 0.982101 |       1.5445    |
-| Prévonloup         |         5683 | 0.997366 |       0.0700191 |
-| Lovatens           |         5674 | 0.998371 |       0.0597391 |
 | Romanel-sur-Morges |         5645 | 0.998662 |       0.0979852 |
 | Wiggiswil          |          553 | 0.998797 |       0.0462724 |
 | Brenzikofen        |          606 | 0.998841 |       0.0626268 |
@@ -56,10 +54,15 @@ Generated: 2026-10-10 08:10:08 UTC
 | Zielebach          |          556 | 0.999013 |       0.0251335 |
 | Lalden             |         6286 | 0.999085 |       0.0372583 |
 | Oppligen           |          622 | 0.999128 |       0.011958  |
+| Zuzwil (BE)        |          557 | 0.999158 |       0.0185363 |
+| Bremblens          |         5622 | 0.999188 |       0.05931   |
 
 ## Most Improved (if historical data available)
 
-No significant improvements detected.
+| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
+|:-----------|-------------:|-----------:|-----------:|--------------:|-----------:|
+| Prévonloup |         5683 |   0.997366 |   0.999993 |    0.00262649 |    1685112 |
+| Lovatens   |         5674 |   0.998371 |   0.999993 |    0.00162255 |    1685033 |
 
 ## Most Deteriorated (if historical data available)
 

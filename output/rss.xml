@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 10 Oct 2026 08:10:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 08:21:43 GMT</lastBuildDate>
+    <item>
+      <title>2026-10-11: 2 improvements</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.029 m ▼</li></ul><h3>Improvements (2)</h3><ul><li><strong>Lovatens</strong> (BFS 5674) <a href="https://www.openstreetmap.org/relation/1685033">OSM</a>: IoU 0.9984 → 1.0000 (+0.0016)</li><li><strong>Prévonloup</strong> (BFS 5683) <a href="https://www.openstreetmap.org/relation/1685112">OSM</a>: IoU 0.9974 → 1.0000 (+0.0026)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-10-11</guid>
+    </item>
     <item>
       <title>2026-10-10: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
