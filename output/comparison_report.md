@@ -1,4 +1,4 @@
-Generated: 2026-10-11 08:21:37 UTC
+Generated: 2026-10-12 08:41:53 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-11 08:21:37 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.002% |
 | Mean symmetric difference | 0.003% |
-| Mean Hausdorff distance   | 0.3236 |
+| Mean Hausdorff distance   | 0.3166 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-11 08:21:37 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-10)
+## Historical Comparison (vs 2026-10-11)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-11 08:21:37 UTC
 | Previous mean area difference    |   0.002% |
 | Current mean area difference     |   0.002% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.353 |
-| Current mean Hausdorff distance  |   0.324 |
-| Hausdorff change                 |  -0.029 |
+| Previous mean Hausdorff distance |   0.324 |
+| Current mean Hausdorff distance  |   0.317 |
+| Hausdorff change                 |  -0.007 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -59,10 +59,7 @@ Generated: 2026-10-11 08:21:37 UTC
 
 ## Most Improved (if historical data available)
 
-| name       |   bfs_nummer |   prev_iou |   curr_iou |   improvement |   relation |
-|:-----------|-------------:|-----------:|-----------:|--------------:|-----------:|
-| Prévonloup |         5683 |   0.997366 |   0.999993 |    0.00262649 |    1685112 |
-| Lovatens   |         5674 |   0.998371 |   0.999993 |    0.00162255 |    1685033 |
+No significant improvements detected.
 
 ## Most Deteriorated (if historical data available)
 
