@@ -1,4 +1,4 @@
-Generated: 2026-10-12 08:41:53 UTC
+Generated: 2026-10-13 09:01:28 UTC
 
 ## Dataset Overview
 
@@ -15,9 +15,9 @@ Generated: 2026-10-12 08:41:53 UTC
 |---------------------------|--------|
 | Mean IoU                  | 1.0000 |
 | Median IoU                | 1.0000 |
-| Mean area difference      | 0.002% |
+| Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.003% |
-| Mean Hausdorff distance   | 0.3166 |
+| Mean Hausdorff distance   | 0.2992 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-12 08:41:53 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-11)
+## Historical Comparison (vs 2026-10-12)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -36,26 +36,26 @@ Generated: 2026-10-12 08:41:53 UTC
 | Current mean IoU                 |   1.000 |
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.002% |
-| Current mean area difference     |   0.002% |
+| Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.324 |
-| Current mean Hausdorff distance  |   0.317 |
-| Hausdorff change                 |  -0.007 |
+| Previous mean Hausdorff distance |   0.317 |
+| Current mean Hausdorff distance  |   0.299 |
+| Hausdorff change                 |  -0.017 |
 
 ## Worst 10 Matches (by IoU)
 
 | name               |   bfs_nummer |      iou |   area_diff_pct |
 |:-------------------|-------------:|---------:|----------------:|
-| Eschenz            |         4806 | 0.982101 |       1.5445    |
-| Romanel-sur-Morges |         5645 | 0.998662 |       0.0979852 |
-| Wiggiswil          |          553 | 0.998797 |       0.0462724 |
-| Brenzikofen        |          606 | 0.998841 |       0.0626268 |
-| Herbligen          |          610 | 0.998906 |       0.066823  |
-| Zielebach          |          556 | 0.999013 |       0.0251335 |
-| Lalden             |         6286 | 0.999085 |       0.0372583 |
-| Oppligen           |          622 | 0.999128 |       0.011958  |
-| Zuzwil (BE)        |          557 | 0.999158 |       0.0185363 |
-| Bremblens          |         5622 | 0.999188 |       0.05931   |
+| Eschenz            |         4806 | 0.982101 |      1.5445     |
+| Romanel-sur-Morges |         5645 | 0.998662 |      0.0979852  |
+| Wiggiswil          |          553 | 0.998797 |      0.0462724  |
+| Brenzikofen        |          606 | 0.998841 |      0.0626268  |
+| Herbligen          |          610 | 0.998906 |      0.066823   |
+| Lalden             |         6286 | 0.999085 |      0.0372583  |
+| Oppligen           |          622 | 0.999128 |      0.011958   |
+| Bremblens          |         5622 | 0.999188 |      0.05931    |
+| Urmein             |         3670 | 0.9992   |      0.0672536  |
+| Pont-la-Ville      |         2147 | 0.999313 |      0.00302476 |
 
 ## Most Improved (if historical data available)
 
