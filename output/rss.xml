@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 13 Oct 2026 09:01:36 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 07:09:52 GMT</lastBuildDate>
+    <item>
+      <title>2026-10-14: 3 improvements, 2 deteriorations</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0002 pp ▼</li><li>Mean Hausdorff distance: -0.019 m ▼</li></ul><h3>Hausdorff distance deteriorations (2)</h3><ul><li><strong>Porza</strong> (BFS 5214) <a href="https://www.openstreetmap.org/relation/1684741">OSM</a>: 0.015 m → 2.853 m (+2.838 m)</li><li><strong>Lugano</strong> (BFS 5192) <a href="https://www.openstreetmap.org/relation/2888417">OSM</a>: 1.080 m → 2.853 m (+1.773 m)</li></ul><h3>Improvements (3)</h3><ul><li><strong>Wiggiswil</strong> (BFS 553) <a href="https://www.openstreetmap.org/relation/1682722">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li><li><strong>Romanel-sur-Morges</strong> (BFS 5645) <a href="https://www.openstreetmap.org/relation/1685126">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Brenzikofen</strong> (BFS 606) <a href="https://www.openstreetmap.org/relation/1682390">OSM</a>: IoU 0.9988 → 1.0000 (+0.0012)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-10-14</guid>
+    </item>
     <item>
       <title>2026-10-13: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
