@@ -1,4 +1,4 @@
-Generated: 2026-10-16 06:47:36 UTC
+Generated: 2026-10-17 06:38:04 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-16 06:47:36 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.2507 |
+| Mean Hausdorff distance   | 0.2386 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-16 06:47:36 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-15)
+## Historical Comparison (vs 2026-10-16)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-16 06:47:36 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.266 |
-| Current mean Hausdorff distance  |   0.251 |
-| Hausdorff change                 |  -0.015 |
+| Previous mean Hausdorff distance |   0.251 |
+| Current mean Hausdorff distance  |   0.239 |
+| Hausdorff change                 |  -0.012 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -48,14 +48,14 @@ Generated: 2026-10-16 06:47:36 UTC
 |:--------------------|-------------:|---------:|----------------:|
 | Eschenz             |         4806 | 0.982101 |      1.5445     |
 | Urmein              |         3670 | 0.9992   |      0.0672536  |
-| Prévondavaux        |         2038 | 0.999389 |      0.00192274 |
-| Münchenwiler        |          669 | 0.999413 |      0.0045179  |
 | Flerden             |         3662 | 0.999429 |      0.047769   |
 | Chavannes-le-Veyron |         5475 | 0.999442 |      0.0338863  |
 | Hermance            |         6625 | 0.999473 |      0.0519082  |
-| Bremgarten bei Bern |          353 | 0.999474 |      0.00490816 |
 | Allmendingen        |          630 | 0.999508 |      0.0124822  |
 | Titterten           |         2894 | 0.999526 |      0.0446259  |
+| Matran              |         2208 | 0.999552 |      0.00151531 |
+| Thürnen             |         2864 | 0.999592 |      0.0396165  |
+| Reigoldswil         |         2893 | 0.999607 |      0.00134727 |
 
 ## Most Improved (if historical data available)
 
