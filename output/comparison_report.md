@@ -1,4 +1,4 @@
-Generated: 2026-10-17 06:38:04 UTC
+Generated: 2026-10-18 07:00:29 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-17 06:38:04 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.2386 |
+| Mean Hausdorff distance   | 0.2272 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-17 06:38:04 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-16)
+## Historical Comparison (vs 2026-10-17)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-10-17 06:38:04 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.251 |
-| Current mean Hausdorff distance  |   0.239 |
-| Hausdorff change                 |  -0.012 |
+| Previous mean Hausdorff distance |   0.239 |
+| Current mean Hausdorff distance  |   0.227 |
+| Hausdorff change                 |  -0.011 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -51,11 +51,11 @@ Generated: 2026-10-17 06:38:04 UTC
 | Flerden             |         3662 | 0.999429 |      0.047769   |
 | Chavannes-le-Veyron |         5475 | 0.999442 |      0.0338863  |
 | Hermance            |         6625 | 0.999473 |      0.0519082  |
-| Allmendingen        |          630 | 0.999508 |      0.0124822  |
-| Titterten           |         2894 | 0.999526 |      0.0446259  |
 | Matran              |         2208 | 0.999552 |      0.00151531 |
 | Thürnen             |         2864 | 0.999592 |      0.0396165  |
-| Reigoldswil         |         2893 | 0.999607 |      0.00134727 |
+| Hemmiken            |         2848 | 0.99962  |      0.0271568  |
+| Boningen            |         2571 | 0.999672 |      0.0084251  |
+| Diepflingen         |         2845 | 0.999677 |      0.0302279  |
 
 ## Most Improved (if historical data available)
 
