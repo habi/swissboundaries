@@ -1,4 +1,4 @@
-Generated: 2026-10-18 07:00:29 UTC
+Generated: 2026-10-19 07:23:17 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-18 07:00:29 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.2272 |
+| Mean Hausdorff distance   | 0.2110 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-18 07:00:29 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-17)
+## Historical Comparison (vs 2026-10-18)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-18 07:00:29 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.239 |
-| Current mean Hausdorff distance  |   0.227 |
-| Hausdorff change                 |  -0.011 |
+| Previous mean Hausdorff distance |   0.227 |
+| Current mean Hausdorff distance  |   0.211 |
+| Hausdorff change                 |  -0.016 |
 
 ## Worst 10 Matches (by IoU)
 
 | name                |   bfs_nummer |      iou |   area_diff_pct |
 |:--------------------|-------------:|---------:|----------------:|
 | Eschenz             |         4806 | 0.982101 |      1.5445     |
-| Urmein              |         3670 | 0.9992   |      0.0672536  |
-| Flerden             |         3662 | 0.999429 |      0.047769   |
 | Chavannes-le-Veyron |         5475 | 0.999442 |      0.0338863  |
-| Hermance            |         6625 | 0.999473 |      0.0519082  |
 | Matran              |         2208 | 0.999552 |      0.00151531 |
 | Thürnen             |         2864 | 0.999592 |      0.0396165  |
 | Hemmiken            |         2848 | 0.99962  |      0.0271568  |
-| Boningen            |         2571 | 0.999672 |      0.0084251  |
 | Diepflingen         |         2845 | 0.999677 |      0.0302279  |
+| Witterswil          |         2481 | 0.999694 |      0.0296108  |
+| Gravesano           |         5187 | 0.999763 |      0.0168322  |
+| La Chaux (Cossonay) |         5474 | 0.999779 |      0.0132786  |
+| Canobbio            |         5167 | 0.99978  |      0.00660151 |
 
 ## Most Improved (if historical data available)
 
