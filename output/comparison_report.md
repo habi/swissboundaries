@@ -1,4 +1,4 @@
-Generated: 2026-10-19 07:23:17 UTC
+Generated: 2026-10-20 07:14:01 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-19 07:23:17 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.2110 |
+| Mean Hausdorff distance   | 0.1817 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-19 07:23:17 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-18)
+## Historical Comparison (vs 2026-10-19)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-19 07:23:17 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.227 |
-| Current mean Hausdorff distance  |   0.211 |
-| Hausdorff change                 |  -0.016 |
+| Previous mean Hausdorff distance |   0.211 |
+| Current mean Hausdorff distance  |   0.182 |
+| Hausdorff change                 |  -0.029 |
 
 ## Worst 10 Matches (by IoU)
 
-| name                |   bfs_nummer |      iou |   area_diff_pct |
-|:--------------------|-------------:|---------:|----------------:|
-| Eschenz             |         4806 | 0.982101 |      1.5445     |
-| Chavannes-le-Veyron |         5475 | 0.999442 |      0.0338863  |
-| Matran              |         2208 | 0.999552 |      0.00151531 |
-| Thürnen             |         2864 | 0.999592 |      0.0396165  |
-| Hemmiken            |         2848 | 0.99962  |      0.0271568  |
-| Diepflingen         |         2845 | 0.999677 |      0.0302279  |
-| Witterswil          |         2481 | 0.999694 |      0.0296108  |
-| Gravesano           |         5187 | 0.999763 |      0.0168322  |
-| La Chaux (Cossonay) |         5474 | 0.999779 |      0.0132786  |
-| Canobbio            |         5167 | 0.99978  |      0.00660151 |
+| name        |   bfs_nummer |      iou |   area_diff_pct |
+|:------------|-------------:|---------:|----------------:|
+| Eschenz     |         4806 | 0.982101 |      1.5445     |
+| Thürnen     |         2864 | 0.999592 |      0.0396165  |
+| Hemmiken    |         2848 | 0.99962  |      0.0271568  |
+| Diepflingen |         2845 | 0.999677 |      0.0302279  |
+| Witterswil  |         2481 | 0.999694 |      0.0296108  |
+| Canobbio    |         5167 | 0.99978  |      0.00660151 |
+| Böckten     |         2842 | 0.999796 |      0.0201859  |
+| Pailly      |         5530 | 0.999801 |      0.00683043 |
+| Ormalingen  |         2856 | 0.999813 |      0.0133189  |
+| Rebévelier  |          715 | 0.999814 |      0.012798   |
 
 ## Most Improved (if historical data available)
 
