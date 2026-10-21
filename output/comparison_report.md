@@ -1,4 +1,4 @@
-Generated: 2026-10-20 07:14:01 UTC
+Generated: 2026-10-21 07:08:20 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-20 07:14:01 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.1817 |
+| Mean Hausdorff distance   | 0.1739 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-20 07:14:01 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-19)
+## Historical Comparison (vs 2026-10-20)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-20 07:14:01 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.211 |
-| Current mean Hausdorff distance  |   0.182 |
-| Hausdorff change                 |  -0.029 |
+| Previous mean Hausdorff distance |   0.182 |
+| Current mean Hausdorff distance  |   0.174 |
+| Hausdorff change                 |  -0.008 |
 
 ## Worst 10 Matches (by IoU)
 
 | name        |   bfs_nummer |      iou |   area_diff_pct |
 |:------------|-------------:|---------:|----------------:|
-| Eschenz     |         4806 | 0.982101 |      1.5445     |
-| Thürnen     |         2864 | 0.999592 |      0.0396165  |
-| Hemmiken    |         2848 | 0.99962  |      0.0271568  |
-| Diepflingen |         2845 | 0.999677 |      0.0302279  |
-| Witterswil  |         2481 | 0.999694 |      0.0296108  |
-| Canobbio    |         5167 | 0.99978  |      0.00660151 |
-| Böckten     |         2842 | 0.999796 |      0.0201859  |
-| Pailly      |         5530 | 0.999801 |      0.00683043 |
-| Ormalingen  |         2856 | 0.999813 |      0.0133189  |
-| Rebévelier  |          715 | 0.999814 |      0.012798   |
+| Eschenz     |         4806 | 0.982138 |     1.54071     |
+| Thürnen     |         2864 | 0.999592 |     0.0396165   |
+| Hemmiken    |         2848 | 0.99962  |     0.0271568   |
+| Diepflingen |         2845 | 0.999677 |     0.0302279   |
+| Canobbio    |         5167 | 0.99978  |     0.00660151  |
+| Böckten     |         2842 | 0.999796 |     0.0201859   |
+| Ormalingen  |         2856 | 0.999813 |     0.0133189   |
+| Vacallo     |         5268 | 0.999853 |     0.000871596 |
+| Lavertezzo  |         5112 | 0.999872 |     0.000506128 |
+| Brunegg     |         4193 | 0.999884 |     0.000422901 |
 
 ## Most Improved (if historical data available)
 
