@@ -1,4 +1,4 @@
-Generated: 2026-10-21 07:08:20 UTC
+Generated: 2026-10-22 07:10:37 UTC
 
 ## Dataset Overview
 
@@ -16,8 +16,8 @@ Generated: 2026-10-21 07:08:20 UTC
 | Mean IoU                  | 1.0000 |
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
-| Mean symmetric difference | 0.002% |
-| Mean Hausdorff distance   | 0.1739 |
+| Mean symmetric difference | 0.001% |
+| Mean Hausdorff distance   | 0.1711 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-21 07:08:20 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-20)
+## Historical Comparison (vs 2026-10-21)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-21 07:08:20 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.182 |
-| Current mean Hausdorff distance  |   0.174 |
-| Hausdorff change                 |  -0.008 |
+| Previous mean Hausdorff distance |   0.174 |
+| Current mean Hausdorff distance  |   0.171 |
+| Hausdorff change                 |  -0.003 |
 
 ## Worst 10 Matches (by IoU)
 
-| name        |   bfs_nummer |      iou |   area_diff_pct |
-|:------------|-------------:|---------:|----------------:|
-| Eschenz     |         4806 | 0.982138 |     1.54071     |
-| Thürnen     |         2864 | 0.999592 |     0.0396165   |
-| Hemmiken    |         2848 | 0.99962  |     0.0271568   |
-| Diepflingen |         2845 | 0.999677 |     0.0302279   |
-| Canobbio    |         5167 | 0.99978  |     0.00660151  |
-| Böckten     |         2842 | 0.999796 |     0.0201859   |
-| Ormalingen  |         2856 | 0.999813 |     0.0133189   |
-| Vacallo     |         5268 | 0.999853 |     0.000871596 |
-| Lavertezzo  |         5112 | 0.999872 |     0.000506128 |
-| Brunegg     |         4193 | 0.999884 |     0.000422901 |
+| name            |   bfs_nummer |      iou |   area_diff_pct |
+|:----------------|-------------:|---------:|----------------:|
+| Eschenz         |         4806 | 0.982138 |     1.54071     |
+| Thürnen         |         2864 | 0.999592 |     0.0396165   |
+| Diepflingen     |         2845 | 0.999677 |     0.0302279   |
+| Canobbio        |         5167 | 0.99978  |     0.00660151  |
+| Böckten         |         2842 | 0.999796 |     0.0201859   |
+| Lavertezzo      |         5112 | 0.999872 |     0.000506128 |
+| Brunegg         |         4193 | 0.999884 |     0.000422901 |
+| Scheuren        |          747 | 0.999894 |     0.00559709  |
+| Genthod         |         6622 | 0.999904 |     0.00898805  |
+| Pregny-Chambésy |         6634 | 0.999905 |     0.00905217  |
 
 ## Most Improved (if historical data available)
 
