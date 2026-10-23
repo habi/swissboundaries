@@ -1,4 +1,4 @@
-Generated: 2026-10-22 11:59:11 UTC
+Generated: 2026-10-23 07:43:28 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-22 11:59:11 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1684 |
+| Mean Hausdorff distance   | 0.1644 |
 
 ## Quality Distribution
 
@@ -37,25 +37,25 @@ Generated: 2026-10-22 11:59:11 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.168 |
-| Current mean Hausdorff distance  |   0.168 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.164 |
+| Hausdorff change                 |  -0.004 |
 
 ## Worst 10 Matches (by IoU)
 
 | name            |   bfs_nummer |      iou |   area_diff_pct |
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.982138 |     1.54071     |
-| Thürnen         |         2864 | 0.999592 |     0.0396165   |
-| Diepflingen     |         2845 | 0.999677 |     0.0302279   |
-| Canobbio        |         5167 | 0.99978  |     0.00660151  |
+| Thürnen         |         2864 | 0.999792 |     0.0204444   |
 | Böckten         |         2842 | 0.999796 |     0.0201859   |
 | Lavertezzo      |         5112 | 0.999872 |     0.000506128 |
 | Brunegg         |         4193 | 0.999884 |     0.000422901 |
 | Scheuren        |          747 | 0.999894 |     0.00559709  |
 | Genthod         |         6622 | 0.999904 |     0.00898805  |
 | Pregny-Chambésy |         6634 | 0.999905 |     0.00905217  |
+| Cologny         |         6617 | 0.999919 |     0.00764342  |
+| Arch            |          381 | 0.999921 |     0.00631126  |
 
 ## Most Improved (if historical data available)
 
