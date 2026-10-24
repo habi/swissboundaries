@@ -1,4 +1,4 @@
-Generated: 2026-10-23 07:43:28 UTC
+Generated: 2026-10-24 06:55:18 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-23 07:43:28 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1644 |
+| Mean Hausdorff distance   | 0.1620 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-23 07:43:28 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-22)
+## Historical Comparison (vs 2026-10-23)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-23 07:43:28 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.168 |
-| Current mean Hausdorff distance  |   0.164 |
-| Hausdorff change                 |  -0.004 |
+| Previous mean Hausdorff distance |   0.164 |
+| Current mean Hausdorff distance  |   0.162 |
+| Hausdorff change                 |  -0.002 |
 
 ## Worst 10 Matches (by IoU)
 
-| name            |   bfs_nummer |      iou |   area_diff_pct |
-|:----------------|-------------:|---------:|----------------:|
-| Eschenz         |         4806 | 0.982138 |     1.54071     |
-| Thürnen         |         2864 | 0.999792 |     0.0204444   |
-| Böckten         |         2842 | 0.999796 |     0.0201859   |
-| Lavertezzo      |         5112 | 0.999872 |     0.000506128 |
-| Brunegg         |         4193 | 0.999884 |     0.000422901 |
-| Scheuren        |          747 | 0.999894 |     0.00559709  |
-| Genthod         |         6622 | 0.999904 |     0.00898805  |
-| Pregny-Chambésy |         6634 | 0.999905 |     0.00905217  |
-| Cologny         |         6617 | 0.999919 |     0.00764342  |
-| Arch            |          381 | 0.999921 |     0.00631126  |
+| name             |   bfs_nummer |      iou |   area_diff_pct |
+|:-----------------|-------------:|---------:|----------------:|
+| Eschenz          |         4806 | 0.982138 |     1.54071     |
+| Thürnen          |         2864 | 0.999792 |     0.0204444   |
+| Böckten          |         2842 | 0.999796 |     0.0201859   |
+| Lavertezzo       |         5112 | 0.999872 |     0.000506128 |
+| Brunegg          |         4193 | 0.999884 |     0.000422901 |
+| Scheuren         |          747 | 0.999894 |     0.00559709  |
+| Arch             |          381 | 0.999921 |     0.00631126  |
+| Gravesano        |         5187 | 0.999948 |     0.00152425  |
+| Treycovagnes     |         5931 | 0.999951 |     0.00269122  |
+| Unterengstringen |          249 | 0.999951 |     0.000368455 |
 
 ## Most Improved (if historical data available)
 
