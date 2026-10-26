@@ -1,4 +1,4 @@
-Generated: 2026-10-25 07:20:09 UTC
+Generated: 2026-10-26 07:28:55 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-25 07:20:09 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1586 |
+| Mean Hausdorff distance   | 0.1572 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-25 07:20:09 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-24)
+## Historical Comparison (vs 2026-10-25)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,24 +38,24 @@ Generated: 2026-10-25 07:20:09 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.162 |
-| Current mean Hausdorff distance  |   0.159 |
-| Hausdorff change                 |  -0.003 |
+| Previous mean Hausdorff distance |   0.159 |
+| Current mean Hausdorff distance  |   0.157 |
+| Hausdorff change                 |  -0.001 |
 
 ## Worst 10 Matches (by IoU)
 
 | name             |   bfs_nummer |      iou |   area_diff_pct |
 |:-----------------|-------------:|---------:|----------------:|
 | Eschenz          |         4806 | 0.982138 |     1.54071     |
-| Lavertezzo       |         5112 | 0.999872 |     0.000506128 |
 | Brunegg          |         4193 | 0.999884 |     0.000422901 |
 | Scheuren         |          747 | 0.999894 |     0.00559709  |
 | Gravesano        |         5187 | 0.999948 |     0.00152425  |
-| Treycovagnes     |         5931 | 0.999951 |     0.00269122  |
 | Unterengstringen |          249 | 0.999951 |     0.000368455 |
 | Rüdlingen        |         2938 | 0.999953 |     0.00205066  |
 | Buchberg         |         2933 | 0.999957 |     0.00176725  |
 | Buttwil          |         4230 | 0.999961 |     0.00133885  |
+| Gottlieben       |         4651 | 0.999961 |     0.000269056 |
+| Täuffelen        |          751 | 0.999967 |     0.000499405 |
 
 ## Most Improved (if historical data available)
 
