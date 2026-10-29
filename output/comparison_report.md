@@ -1,4 +1,4 @@
-Generated: 2026-10-28 07:59:51 UTC
+Generated: 2026-10-29 08:05:53 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-28 07:59:51 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1544 |
+| Mean Hausdorff distance   | 0.1535 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-28 07:59:51 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-27)
+## Historical Comparison (vs 2026-10-28)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,21 +38,21 @@ Generated: 2026-10-28 07:59:51 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
-| Previous mean Hausdorff distance |   0.156 |
+| Previous mean Hausdorff distance |   0.154 |
 | Current mean Hausdorff distance  |   0.154 |
-| Hausdorff change                 |  -0.002 |
+| Hausdorff change                 |  -0.001 |
 
 ## Worst 10 Matches (by IoU)
 
 | name             |   bfs_nummer |      iou |   area_diff_pct |
 |:-----------------|-------------:|---------:|----------------:|
 | Eschenz          |         4806 | 0.982138 |     1.54071     |
-| Unterengstringen |          249 | 0.999951 |     0.000368455 |
 | Brunegg          |         4193 | 0.999956 |     0.00154902  |
 | Gottlieben       |         4651 | 0.999961 |     0.000269056 |
+| Unterengstringen |          249 | 0.999968 |     0.000259656 |
 | Mauraz           |         5488 | 0.999977 |     0.000113529 |
-| Concise          |         5554 | 0.999977 |     0.00194772  |
-| Cheyres-Châbles  |         2055 | 0.999978 |     0.00187714  |
+| Concise          |         5554 | 0.999979 |     0.00182363  |
+| Cheyres-Châbles  |         2055 | 0.99998  |     0.00175751  |
 | Weiningen (ZH)   |          251 | 0.99998  |     0.000193426 |
 | Grancia          |         5186 | 0.99998  |     0.000372478 |
 | Neggio           |         5206 | 0.999981 |     0.000231974 |
