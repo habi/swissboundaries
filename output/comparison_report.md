@@ -1,4 +1,4 @@
-Generated: 2026-10-29 08:05:53 UTC
+Generated: 2026-10-30 08:08:13 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-10-29 08:05:53 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1535 |
+| Mean Hausdorff distance   | 0.1530 |
 
 ## Quality Distribution
 
@@ -28,7 +28,7 @@ Generated: 2026-10-29 08:05:53 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-10-28)
+## Historical Comparison (vs 2026-10-29)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -39,23 +39,23 @@ Generated: 2026-10-29 08:05:53 UTC
 | Current mean area difference     |   0.001% |
 | Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.154 |
-| Current mean Hausdorff distance  |   0.154 |
+| Current mean Hausdorff distance  |   0.153 |
 | Hausdorff change                 |  -0.001 |
 
 ## Worst 10 Matches (by IoU)
 
-| name             |   bfs_nummer |      iou |   area_diff_pct |
-|:-----------------|-------------:|---------:|----------------:|
-| Eschenz          |         4806 | 0.982138 |     1.54071     |
-| Brunegg          |         4193 | 0.999956 |     0.00154902  |
-| Gottlieben       |         4651 | 0.999961 |     0.000269056 |
-| Unterengstringen |          249 | 0.999968 |     0.000259656 |
-| Mauraz           |         5488 | 0.999977 |     0.000113529 |
-| Concise          |         5554 | 0.999979 |     0.00182363  |
-| Cheyres-Châbles  |         2055 | 0.99998  |     0.00175751  |
-| Weiningen (ZH)   |          251 | 0.99998  |     0.000193426 |
-| Grancia          |         5186 | 0.99998  |     0.000372478 |
-| Neggio           |         5206 | 0.999981 |     0.000231974 |
+| name            |   bfs_nummer |      iou |   area_diff_pct |
+|:----------------|-------------:|---------:|----------------:|
+| Eschenz         |         4806 | 0.982138 |     1.54071     |
+| Gottlieben      |         4651 | 0.999961 |     0.000269056 |
+| Mauraz          |         5488 | 0.999977 |     0.000113529 |
+| Concise         |         5554 | 0.999979 |     0.00182363  |
+| Cheyres-Châbles |         2055 | 0.99998  |     0.00175751  |
+| Grancia         |         5186 | 0.99998  |     0.000372478 |
+| Neggio          |         5206 | 0.999981 |     0.000231974 |
+| Vich            |         5732 | 0.999984 |     5.29437e-05 |
+| Sorengo         |         5225 | 0.999984 |     0.00020662  |
+| Savosa          |         5221 | 0.999984 |     7.79363e-05 |
 
 ## Most Improved (if historical data available)
 
