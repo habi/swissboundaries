@@ -1,4 +1,4 @@
-Generated: 2026-11-01 12:04:31 UTC
+Generated: 2026-11-02 08:57:00 UTC
 
 ## Dataset Overview
 
@@ -37,10 +37,10 @@ Generated: 2026-11-01 12:04:31 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.152 |
 | Current mean Hausdorff distance  |   0.152 |
-| Hausdorff change                 |  +0.000 |
+| Hausdorff change                 |  -0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -49,7 +49,7 @@ Generated: 2026-11-01 12:04:31 UTC
 | Eschenz         |         4806 | 0.982138 |     1.54071     |
 | Gottlieben      |         4651 | 0.999961 |     0.000269056 |
 | Mauraz          |         5488 | 0.999977 |     0.000113529 |
-| Concise         |         5554 | 0.999979 |     0.00182363  |
+| Concise         |         5554 | 0.999979 |     0.00180662  |
 | Cheyres-Châbles |         2055 | 0.99998  |     0.00175751  |
 | Grancia         |         5186 | 0.99998  |     0.000372478 |
 | Neggio          |         5206 | 0.999981 |     0.000231974 |
