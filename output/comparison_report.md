@@ -1,4 +1,4 @@
-Generated: 2026-11-03 09:04:34 UTC
+Generated: 2026-11-04 08:43:16 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-11-03 09:04:34 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1522 |
+| Mean Hausdorff distance   | 0.1540 |
 
 ## Quality Distribution
 
@@ -28,19 +28,19 @@ Generated: 2026-11-03 09:04:34 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-11-02)
+## Historical Comparison (vs 2026-11-03)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
-| Change                           |  +0.000 |
+| Change                           |  -0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  +0.000% |
 | Previous mean Hausdorff distance |   0.152 |
-| Current mean Hausdorff distance  |   0.152 |
-| Hausdorff change                 |  -0.000 |
+| Current mean Hausdorff distance  |   0.154 |
+| Hausdorff change                 |  +0.002 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -64,6 +64,13 @@ No significant improvements detected.
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
+
+## Most Deteriorated in Hausdorff Distance (if historical data available)
+
+| name    |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                       |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:--------|-------------:|-----------:|:-----------------------------------------------|:----------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Zuoz    |         3791 |    1684213 | https://www.openstreetmap.org/relation/1684213 | https://www.openstreetmap.org/?mlat=46.548125&mlon=10.043108#map=16/46.548125/10.043108 |              0.016 |              1.916 |          1.9 | https://www.openstreetmap.org/changeset/185546025 | SimonPoole       | 2026-07-11T16:13:34Z  |
+| S-chanf |         3788 |    1684145 | https://www.openstreetmap.org/relation/1684145 | https://www.openstreetmap.org/?mlat=46.548125&mlon=10.043108#map=16/46.548125/10.043108 |              0.016 |              1.916 |          1.9 | https://www.openstreetmap.org/changeset/185759183 | SimonPoole       | 2026-07-15T04:22:21Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
