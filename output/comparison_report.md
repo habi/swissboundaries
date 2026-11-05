@@ -1,4 +1,4 @@
-Generated: 2026-11-04 08:43:16 UTC
+Generated: 2026-11-05 09:01:31 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-11-04 08:43:16 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-11-03)
+## Historical Comparison (vs 2026-11-04)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
@@ -38,9 +38,9 @@ Generated: 2026-11-04 08:43:16 UTC
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  +0.000% |
-| Previous mean Hausdorff distance |   0.152 |
+| Previous mean Hausdorff distance |   0.154 |
 | Current mean Hausdorff distance  |   0.154 |
-| Hausdorff change                 |  +0.002 |
+| Hausdorff change                 |  -0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -48,6 +48,7 @@ Generated: 2026-11-04 08:43:16 UTC
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.982138 |     1.54071     |
 | Gottlieben      |         4651 | 0.999961 |     0.000269056 |
+| Thônex          |         6640 | 0.999971 |     0.000132082 |
 | Mauraz          |         5488 | 0.999977 |     0.000113529 |
 | Concise         |         5554 | 0.999979 |     0.00180662  |
 | Cheyres-Châbles |         2055 | 0.99998  |     0.00175751  |
@@ -55,7 +56,6 @@ Generated: 2026-11-04 08:43:16 UTC
 | Neggio          |         5206 | 0.999981 |     0.000231974 |
 | Vich            |         5732 | 0.999984 |     5.29437e-05 |
 | Sorengo         |         5225 | 0.999984 |     0.00020662  |
-| Savosa          |         5221 | 0.999984 |     7.79363e-05 |
 
 ## Most Improved (if historical data available)
 
@@ -67,10 +67,9 @@ No significant deteriorations detected.
 
 ## Most Deteriorated in Hausdorff Distance (if historical data available)
 
-| name    |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                       |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:--------|-------------:|-----------:|:-----------------------------------------------|:----------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Zuoz    |         3791 |    1684213 | https://www.openstreetmap.org/relation/1684213 | https://www.openstreetmap.org/?mlat=46.548125&mlon=10.043108#map=16/46.548125/10.043108 |              0.016 |              1.916 |          1.9 | https://www.openstreetmap.org/changeset/185546025 | SimonPoole       | 2026-07-11T16:13:34Z  |
-| S-chanf |         3788 |    1684145 | https://www.openstreetmap.org/relation/1684145 | https://www.openstreetmap.org/?mlat=46.548125&mlon=10.043108#map=16/46.548125/10.043108 |              0.016 |              1.916 |          1.9 | https://www.openstreetmap.org/changeset/185759183 | SimonPoole       | 2026-07-15T04:22:21Z  |
+| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
+|:-------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
+| Thônex |         6640 |    1685534 | https://www.openstreetmap.org/relation/1685534 | https://www.openstreetmap.org/?mlat=46.191562&mlon=6.205052#map=16/46.191562/6.205052 |              0.015 |              3.495 |         3.48 | https://www.openstreetmap.org/changeset/184376694 | SimonPoole       | 2026-06-21T06:10:57Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
