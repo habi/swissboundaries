@@ -1,4 +1,4 @@
-Generated: 2026-11-05 09:01:31 UTC
+Generated: 2026-11-05 12:02:32 UTC
 
 ## Dataset Overview
 
@@ -28,19 +28,19 @@ Generated: 2026-11-05 09:01:31 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-11-04)
+## Historical Comparison (vs 2026-11-05)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
-| Change                           |  -0.000 |
+| Change                           |  +0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  +0.000% |
 | Previous mean Hausdorff distance |   0.154 |
 | Current mean Hausdorff distance  |   0.154 |
-| Hausdorff change                 |  -0.000 |
+| Hausdorff change                 |  +0.000 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -64,12 +64,6 @@ No significant improvements detected.
 ## Most Deteriorated (if historical data available)
 
 No significant deteriorations detected.
-
-## Most Deteriorated in Hausdorff Distance (if historical data available)
-
-| name   |   bfs_nummer |   relation | osm_url                                        | boundary_diff_url                                                                     |   prev_hausdorff_m |   curr_hausdorff_m |   increase_m | changeset_url                                     | changeset_user   | changeset_timestamp   |
-|:-------|-------------:|-----------:|:-----------------------------------------------|:--------------------------------------------------------------------------------------|-------------------:|-------------------:|-------------:|:--------------------------------------------------|:-----------------|:----------------------|
-| Thônex |         6640 |    1685534 | https://www.openstreetmap.org/relation/1685534 | https://www.openstreetmap.org/?mlat=46.191562&mlon=6.205052#map=16/46.191562/6.205052 |              0.015 |              3.495 |         3.48 | https://www.openstreetmap.org/changeset/184376694 | SimonPoole       | 2026-06-21T06:10:57Z  |
 
 ## BFS numbers only in OSM (not in Swisstopo) (showing first 20):
 
