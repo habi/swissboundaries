@@ -1,4 +1,4 @@
-Generated: 2026-11-05 12:02:32 UTC
+Generated: 2026-11-06 00:27:14 UTC
 
 ## Dataset Overview
 
@@ -17,7 +17,7 @@ Generated: 2026-11-05 12:02:32 UTC
 | Median IoU                | 1.0000 |
 | Mean area difference      | 0.001% |
 | Mean symmetric difference | 0.001% |
-| Mean Hausdorff distance   | 0.1540 |
+| Mean Hausdorff distance   | 0.1522 |
 
 ## Quality Distribution
 
@@ -37,10 +37,10 @@ Generated: 2026-11-05 12:02:32 UTC
 | Change                           |  +0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
-| Area difference change           |  +0.000% |
+| Area difference change           |  -0.000% |
 | Previous mean Hausdorff distance |   0.154 |
-| Current mean Hausdorff distance  |   0.154 |
-| Hausdorff change                 |  +0.000 |
+| Current mean Hausdorff distance  |   0.152 |
+| Hausdorff change                 |  -0.002 |
 
 ## Worst 10 Matches (by IoU)
 
@@ -48,7 +48,6 @@ Generated: 2026-11-05 12:02:32 UTC
 |:----------------|-------------:|---------:|----------------:|
 | Eschenz         |         4806 | 0.982138 |     1.54071     |
 | Gottlieben      |         4651 | 0.999961 |     0.000269056 |
-| Thônex          |         6640 | 0.999971 |     0.000132082 |
 | Mauraz          |         5488 | 0.999977 |     0.000113529 |
 | Concise         |         5554 | 0.999979 |     0.00180662  |
 | Cheyres-Châbles |         2055 | 0.99998  |     0.00175751  |
@@ -56,6 +55,7 @@ Generated: 2026-11-05 12:02:32 UTC
 | Neggio          |         5206 | 0.999981 |     0.000231974 |
 | Vich            |         5732 | 0.999984 |     5.29437e-05 |
 | Sorengo         |         5225 | 0.999984 |     0.00020662  |
+| Savosa          |         5221 | 0.999984 |     7.79363e-05 |
 
 ## Most Improved (if historical data available)
 
