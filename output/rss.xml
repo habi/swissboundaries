@@ -6,7 +6,14 @@
     <description>Daily changes in Swiss municipality boundary quality between swisstopo swissBOUNDARIES3D and OpenStreetMap</description>
     <language>en</language>
     <atom:link href="https://boundaries.osm.ch/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 07 Nov 2026 22:51:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 22:59:56 GMT</lastBuildDate>
+    <item>
+      <title>2026-11-08: no significant changes</title>
+      <link>https://boundaries.osm.ch/</link>
+      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▼</li><li>Mean area difference: +0.0000 pp ▲</li><li>Mean Hausdorff distance: +0.000 m ▲</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-11-08</guid>
+    </item>
     <item>
       <title>2026-11-07: no significant changes</title>
       <link>https://boundaries.osm.ch/</link>
@@ -629,13 +636,6 @@
       <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.047 m ▼</li></ul><h3>Improvements (9)</h3><ul><li><strong>Küsnacht (ZH)</strong> (BFS 154) <a href="https://www.openstreetmap.org/relation/1682157">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Niederhünigen</strong> (BFS 617) <a href="https://www.openstreetmap.org/relation/1682575">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li><li><strong>Pregny-Chambésy</strong> (BFS 6634) <a href="https://www.openstreetmap.org/relation/1685524">OSM</a>: IoU 0.9987 → 0.9999 (+0.0012)</li><li><strong>Herrliberg</strong> (BFS 152) <a href="https://www.openstreetmap.org/relation/1682136">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Carouge (GE)</strong> (BFS 6608) <a href="https://www.openstreetmap.org/relation/1685459">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Starrkirch-Wil</strong> (BFS 2584) <a href="https://www.openstreetmap.org/relation/1683578">OSM</a>: IoU 0.9978 → 0.9989 (+0.0011)</li><li><strong>Oberhünigen</strong> (BFS 629) <a href="https://www.openstreetmap.org/relation/1682589">OSM</a>: IoU 0.9983 → 1.0000 (+0.0017)</li><li><strong>Erlenbach (ZH)</strong> (BFS 151) <a href="https://www.openstreetmap.org/relation/1682119">OSM</a>: IoU 0.9976 → 1.0000 (+0.0023)</li><li><strong>Mirchel</strong> (BFS 615) <a href="https://www.openstreetmap.org/relation/1682555">OSM</a>: IoU 0.9985 → 1.0000 (+0.0015)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
       <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-10</guid>
-    </item>
-    <item>
-      <title>2026-08-09: 5 improvements, 1 deterioration</title>
-      <link>https://boundaries.osm.ch/</link>
-      <description><![CDATA[<h3>Global metric changes</h3><ul><li>Mean IoU: +0.0000 ▲</li><li>Mean area difference: -0.0001 pp ▼</li><li>Mean Hausdorff distance: -0.040 m ▼</li></ul><h3>Improvements (5)</h3><ul><li><strong>Dürnten</strong> (BFS 113) <a href="https://www.openstreetmap.org/relation/1682112">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Bütschwil-Ganterschwil</strong> (BFS 3395) <a href="https://www.openstreetmap.org/relation/2727986">OSM</a>: IoU 0.9989 → 1.0000 (+0.0011)</li><li><strong>Niederbuchsiten</strong> (BFS 2405) <a href="https://www.openstreetmap.org/relation/1683556">OSM</a>: IoU 0.9990 → 1.0000 (+0.0010)</li><li><strong>Rumendingen</strong> (BFS 421) <a href="https://www.openstreetmap.org/relation/1682628">OSM</a>: IoU 0.9983 → 0.9998 (+0.0016)</li><li><strong>Rüti (ZH)</strong> (BFS 118) <a href="https://www.openstreetmap.org/relation/1682201">OSM</a>: IoU 0.9987 → 1.0000 (+0.0013)</li></ul><h3>Hausdorff distance deteriorations (1)</h3><ul><li><strong>Mauren</strong> (BFS 7008) <a href="https://www.openstreetmap.org/relation/1155951">OSM</a>: 0.014 m → 1.725 m (+1.711 m)</li></ul><p><a href="https://boundaries.osm.ch/">Full report</a></p>]]></description>
-      <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="false">https://boundaries.osm.ch/#run-2026-08-09</guid>
     </item>
   </channel>
 </rss>
