@@ -1,9 +1,8 @@
 name: Swiss Municipality Boundary Comparison
 on:
   schedule:
-    # Run daily at 3 AM (in the US west coast time zone, about 8 hours behind Switzerland)
-    # We want to run it during Swiss nights, so subtract 8 hours (or add 16 hours) and make it run off the hour.
-    - cron: '19 19 * * *'
+    - cron: '19 3 * * *'
+      timezone: 'Europe/Zurich'
   push:  # Run on pushes to main branch
     branches:
       - main
