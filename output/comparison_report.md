@@ -1,4 +1,4 @@
-Generated: 2026-11-11 09:26:46 UTC
+Generated: 2026-11-12 09:51:33 UTC
 
 ## Dataset Overview
 
@@ -28,13 +28,13 @@ Generated: 2026-11-11 09:26:46 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-11-10)
+## Historical Comparison (vs 2026-11-11)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
 | Previous mean IoU                |   1.000 |
 | Current mean IoU                 |   1.000 |
-| Change                           |  -0.000 |
+| Change                           |  +0.000 |
 | Previous mean area difference    |   0.001% |
 | Current mean area difference     |   0.001% |
 | Area difference change           |  +0.000% |
