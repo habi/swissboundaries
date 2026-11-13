@@ -1,4 +1,4 @@
-Generated: 2026-11-12 09:51:33 UTC
+Generated: 2026-11-13 09:32:29 UTC
 
 ## Dataset Overview
 
@@ -28,7 +28,7 @@ Generated: 2026-11-12 09:51:33 UTC
 | IoU ≥ 0.90 |     0 |      0.000 |
 | IoU < 0.90 |     0 |      0.000 |
 
-## Historical Comparison (vs 2026-11-11)
+## Historical Comparison (vs 2026-11-12)
 
 | Metric                           | Value   |
 |----------------------------------|---------|
